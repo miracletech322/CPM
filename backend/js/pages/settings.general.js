@@ -1,0 +1,1 @@
+class SettingsGeneral{constructor(){jQuery().select2?this._initSelect2():console.error("[CS] select2 is undefined.")}_initSelect2(){jQuery(".select-single-no-search").select2({minimumResultsForSearch:1/0,placeholder:""})}}

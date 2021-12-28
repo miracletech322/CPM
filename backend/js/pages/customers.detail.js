@@ -1,0 +1,1 @@
+class CustomersDetail{constructor(){"undefined"!=typeof Tagify?this._initTagify():console.error("[CS] Tagify is undefined.")}_initTagify(){document.querySelectorAll("input[name=tagsBasic]").length>0&&document.querySelectorAll("input[name=tagsBasic]").forEach((e=>{new Tagify(e)}))}}
