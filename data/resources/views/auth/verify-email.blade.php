@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth.base')
 
 @section('content')
 <section class="sub-page-banner parallax" id="banner">
@@ -6,17 +6,13 @@
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
                 <div class="page-banner text-center">
-                    <h1 class="sub-banner-title">FAQ</h1>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li>FAQ</li>
-                    </ul>
+                    <h1 class="sub-banner-title">Email Verification</h1>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="container">
+<div class="container my-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

@@ -13,7 +13,7 @@ class CalculationController extends Controller
         $pageData['ethash'] = $this->getValue("Ethash");
         $pageData['equihash'] = $this->getValue("Equihash");
         // return $pageData;
-        return view('welcome')->with('pageData',$pageData);
+        return view('home')->with('pageData',$pageData);
     }
 
     public function getValue($algo)

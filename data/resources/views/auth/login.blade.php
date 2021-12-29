@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.auth.base')
+@section('title') Login @endsection
 
 @section('content')
 <section class="sub-page-banner parallax" id="banner">
@@ -6,7 +7,7 @@
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
                 <div class="page-banner text-center">
-                    <h1 class="sub-banner-title">Signin</h1>
+                    <h1 class="sub-banner-title">Login</h1>
                     {{-- <ul>
                         <li><a href="LOGIN">Home</a></li>
                         <li>Signin</li>
@@ -20,7 +21,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card">
-            <div class="card-header" style="color: black;">{{ __('Signin') }}</div>
+            <div class="card-header" style="color: black;">{{ __('Login') }}</div>
 
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">

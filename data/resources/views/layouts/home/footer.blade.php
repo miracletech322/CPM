@@ -1,0 +1,35 @@
+<footer class="bg-pattern lightskyblue ptb-100">
+    <div class="container">
+        <div class="footer">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 text-center">
+                    <div class="footer-logo pb-25">
+                        <a href="index.html"><img src="{{asset('frontend')}}/images/logo.png" alt="{{$site_data["site_name"]}}"></a>
+                    </div>
+                    <div class="footer-icon">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>{{$site_data["site_name"]}} © All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6">
+                    <ul>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
