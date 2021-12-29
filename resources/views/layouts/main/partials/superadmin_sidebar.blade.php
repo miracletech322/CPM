@@ -21,19 +21,19 @@
         <div class="menu-container flex-grow-1">
             <ul id="menu" class="menu">
                 <li>
-                    <a href="{{ url('dashboard')}}">
+                    <a href="{{ url('dashboard')}}" class='dashboard'>
                         <i class="icon fa fa-dashboard" data-acorn-size="18"></i>
                         <span class="label">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('admins')}}">
+                    <a href="{{ url('admins')}}" class='admins'>
                         <i class="icon fa fa-users" data-acorn-size="18"></i>
                         <span class="label">Admins</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('users')}}">
+                    <a href="{{ url('users')}}" class='users'>
                         <i class="icon fa fa-users" data-acorn-size="18"></i>
                         <span class="label">Users</span>
                     </a>
@@ -51,13 +51,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('settings')}}">
+                    <a href="{{ url('settings')}}" class='settings'>
                         <i class="icon fa fa-cog" data-acorn-size="18"></i>
                         <span class="label">Settings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('account')}}">
+                    <a href="{{ url('account')}}" class='account'>
                         <i data-acorn-icon="user" class="icon" data-acorn-size="18"></i>
                         <span class="label">Account</span>
                     </a>

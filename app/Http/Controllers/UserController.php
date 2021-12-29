@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $title_plurar = $this->title_plurar;
         $directory = $this->directory;
-        $active_item = "users_nav";
+        $active_item = "users";
         return view($this->directory . "index", compact('title_plurar', 'directory', 'active_item'));
     }
 
@@ -81,7 +81,7 @@ class UserController extends Controller
         $form_button = "Create";
         $directory = $this->directory;
         $title_singular = $this->title_singular;
-        $active_item = "users_nav";
+        $active_item = "users";
         return view($this->directory . "create", compact('form_button', 'title_singular', 'directory', 'active_item'));
     }
 
@@ -128,7 +128,7 @@ class UserController extends Controller
         $title_singular = $this->title_singular;
         $directory = $this->directory;
         $is_show = 1;
-        $active_item = "users_nav";
+        $active_item = "users";
         return view($this->directory . "show", compact('record', 'title_singular', 'directory', 'is_show', 'active_item'));
     }
 
@@ -148,7 +148,7 @@ class UserController extends Controller
     //     $form_button = "Update";
     //     $directory = $this->directory;
     //     $title_singular = $this->title_singular;
-    //     $active_item = "users_nav";
+    //     $active_item = "users";
     //     return view($this->directory . "edit", compact('form_button', 'title_singular', 'directory', 'record', 'active_item'));
     // }
 

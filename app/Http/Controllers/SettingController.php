@@ -24,8 +24,8 @@ class SettingController extends Controller
         $title_plurar = $this->title_plurar;
         $directory = $this->directory;
         $record = Setting::first();
-        $current_path = "setting";
-        return view($this->directory."index" , compact('record', 'title_plurar', 'directory' , 'current_path') );
+        $active_item = "settings";
+        return view($this->directory."index" , compact('record', 'title_plurar', 'directory' , 'active_item') );
     }
 
 

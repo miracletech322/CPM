@@ -19,7 +19,7 @@ class AdminController extends Controller
     {
         $title_plurar = $this->title_plurar;
         $directory = $this->directory;
-        $active_item = "admin_nav";
+        $active_item = "admins";
         return view($this->directory . "index", compact('title_plurar', 'directory', 'active_item'));
     }
 
@@ -62,7 +62,7 @@ class AdminController extends Controller
         $form_button = "Create";
         $directory = $this->directory;
         $title_singular = $this->title_singular;
-        $active_item = "admin_nav";
+        $active_item = "admins";
         return view($this->directory . "create", compact('form_button', 'title_singular', 'directory', 'active_item'));
     }
 
@@ -109,7 +109,7 @@ class AdminController extends Controller
         $title_singular = $this->title_singular;
         $directory = $this->directory;
         $is_show = 1;
-        $active_item = "admin_nav";
+        $active_item = "admins";
         return view($this->directory . "show", compact('record', 'title_singular', 'directory', 'is_show', 'active_item'));
     }
 
@@ -129,7 +129,7 @@ class AdminController extends Controller
         if (!$record)
             return redirect("admins");
 
-        $active_item = "admin_nav";
+        $active_item = "admins";
         return view($this->directory . "edit", compact('form_button', 'title_singular', 'directory', 'record', 'active_item'));
     }
 
