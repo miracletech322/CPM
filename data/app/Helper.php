@@ -276,3 +276,10 @@ function get_countries(){
         "ZW" => "Zimbabwe"
     );
 }
+
+
+function get_from_name(){
+    $site_name = "SuperHumanTools";
+    $settings = DB::table("settings")->first();
+    return $settings ? (!blank($settings->site_name) ? $settings->site_name : $site_name) : $site_name;
+}

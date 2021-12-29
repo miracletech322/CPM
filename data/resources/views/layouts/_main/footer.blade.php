@@ -1,0 +1,1 @@
+<footer class="footer-container"><span>&copy; {{date("Y")}} - {{@$site_name}}</span></footer>

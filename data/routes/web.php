@@ -1,21 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Auth::routes(['verify' => true]);
+
+
+
+// Auth::routes(['verify' => true]);
 
 //Auth Less Routes
 Route::get('/', controller_path() . 'CalculationController@index');
@@ -60,13 +55,21 @@ Route::group(['middleware' => ['auth', 'role:superadmin|admin|user']], function 
 //*****************SuperAdmin*********************/
 Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
 
+    Route::resource("settings", controller_path() . "SettingController");
+
+    Route::resource("admins", controller_path() . "AdminController");
+    Route::get("admin-listing", controller_path() . "AdminController@get_listing");
+    Route::get("delete-admins/{id}", controller_path() . "AdminController@destroy");
 });
 
 
 
 //*****************SuperAdmin | Admin*********************/
 Route::group(['middleware' => ['auth', 'role:superadmin|admin']], function () {
-
+    //users
+    Route::resource("users", controller_path() . "UserController");
+    Route::get("user-listing", controller_path() . "UserController@get_listing");
+    Route::get("delete-user/{id}", controller_path() . "UserController@destroy");
 });
 
 //*****************User*********************/

@@ -3,18 +3,18 @@
 
 
  @php
-    $site_name = "JoinCPR";
-    $site_logo = "";
+    $site_name = "SuperHumanTools";
+    $site_logo = "/template/img/logo.png";
     $settings = DB::table("settings")->first();
     if($settings){
-        $site_name = $settings->site_name;
-        $site_logo = $settings->site_logo;
+        $site_name = $settings->site_name ? $settings->site_name : $site_name;
+        $site_logo = $settings->site_logo ? $settings->site_logo : $site_logo;
     }
 @endphp
 
 
 @section('top_image')
-    <img src="{{env("APP_URL").$site_logo }}" alt="{{@$site_name}}" height="50" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100%; border: none;">
+    <img src="{{url("/").$site_logo }}" alt="{{@$site_name}}" height="50" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100%; border: none;">
 @endsection
 
 
@@ -25,11 +25,7 @@ Hi {{@$email_data["to_name"]}},
 
 @section('text')
     <p>
-        Welcome to JoinCPR. Please find information about your new portal below. If you have any questions, please feel free to reach us via email at <i>support@joincpr.com</i>  by phone at <i>(888) 966-5934</i> or submitting a ticket at <a href='https://support.joincpr.com'>https://support.joincpr.com</a>
-        <br><br>
-        <b>Company Dashboard:</b> <a href="{!! @$email_data["subdomain"] !!}">{{@$email_data["subdomain"]}}</a> or <a href="https://dashboard.joincpr.com/login">https://dashboard.joincpr.com/login</a>
-        <br>
-        <b>Email:</b> {{@$email_data["to"]}}
+        Welcome to SuperHumanTools.
     </p>
 @endsection
 

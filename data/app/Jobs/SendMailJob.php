@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\EmailHistory;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -14,7 +15,6 @@ class SendMailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     protected $email_data;
-
     /**
      * Create a new job instance.
      *

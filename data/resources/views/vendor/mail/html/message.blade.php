@@ -1,6 +1,13 @@
 @php
+    $site_name = "SuperHumanTools";
+    $site_logo = "/template/img/logo.png";
     $settings = DB::table("settings")->first();
+    if($settings){
+        $site_name = $settings->site_name;
+        $site_logo = $settings->site_logo ? $settings->site_logo : $site_logo;
+    }
 @endphp
+
 
 @component('mail::layout')
 {{-- Header --}}
@@ -8,7 +15,7 @@
 @component('mail::header', ['url' => url("/")])
 {{-- {{ config('app.name') }} --}}
 <div>
-    <img src="{{ url('/').@$settings->site_logo }}" alt="" height="50">
+    <img src="{{ url('/').@$site_logo }}" alt="" height="50">
 </div>
 @endcomponent
 @endslot
