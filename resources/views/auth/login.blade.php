@@ -24,6 +24,7 @@
                 <div class="card-header" style="color: black;">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    @include('shared.alerts')
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -67,12 +68,6 @@
                             </div>
                         </div>
 
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <a href="{{route('password.request')}}" class="text-info">Forgot your password?</a>
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">

@@ -14,6 +14,13 @@ if($settings){
     @include('layouts.auth.header_includes' , $site_data)
     <title>@yield('title')</title>
     @yield('css')
+
+    <style>
+    button.close {
+        top: 3px !important;
+        right: 6px !important;
+    }
+    </style>
 </head>
 
 

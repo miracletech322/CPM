@@ -22,7 +22,7 @@
                     </div>
                     @else
                     <div class="signin d-inline-block">
-                        <a href="#" class="btn">Sign in</a>
+                        <a href="{{url('login')}}" class="btn">Sign in</a>
                     </div>
                     @endif
                 </div>

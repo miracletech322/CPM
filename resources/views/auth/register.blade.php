@@ -24,6 +24,7 @@
                 <div class="card-header" style="color: black;">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    @include('shared.alerts')
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

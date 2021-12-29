@@ -1,6 +1,6 @@
 @extends('layouts.auth.base')
 @section('title')
-Login
+Reset Password
 @endsection
 @section("content")
 
@@ -13,38 +13,91 @@ Login
 @endphp
 
 
-<div class="card card-flat">
-    <div class="card-header text-center bg-dark"><a href="#"><img class="block-center rounded" height="40" src="{{url('/') . @$site_logo}}" alt="Image"></a></div>
-    <div class="card-body">
-        <p class="text-center py-2">RESET PASSWORD</p>
-        @include('shared.alerts')
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
-            <div class="form-group">
-                <div class="input-group with-focus">
-                    <input class="form-control border-right-0" id="email" type="email" placeholder="Enter email" autocomplete="off" name="email" required>
-                    <div class="input-group-append"><span class="input-group-text text-muted bg-transparent border-left-0"><em class="fa fa-envelope"></em></span></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group with-focus">
-                    <input class="form-control border-right-0" id="password" name="password" type="password" placeholder="Password" required>
-                    <div class="input-group-append"><span class="input-group-text text-muted bg-transparent border-left-0"><em class="fa fa-lock"></em></span></div>
-                </div>
-            </div>
 
-            <div class="form-group">
-                <div class="input-group with-focus">
-                    <input class="form-control border-right-0" id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirm Password" required>
-                    <div class="input-group-append"><span class="input-group-text text-muted bg-transparent border-left-0"><em class="fa fa-lock"></em></span></div>
+<section class="sub-page-banner parallax" id="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 wow fadeInUp">
+                <div class="page-banner text-center">
+                    <h1 class="sub-banner-title">Reset Password</h1>
+                    {{-- <ul>
+                        <li><a href="LOGIN">Home</a></li>
+                        <li>Signin</li>
+                    </ul> --}}
                 </div>
             </div>
-
-            <button class="btn btn-block btn-danger mt-3" type="submit">Reset Password</button>
-        </form>
+        </div>
     </div>
-</div><!-- END card-->
+</section>
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="color: black;">{{ __('Reset Password') }}</div>
+
+    
+                <div class="card-body">
+                    @include('shared.alerts')
+                    <form method="POST" action="{{ route('password.update') }}">
+                        @csrf
+                        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $_GET['email'] }}" required autocomplete="off" autofocus>
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password_confirmation" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required>
+
+                                @error('password_confirmation')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Reset Password') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 
