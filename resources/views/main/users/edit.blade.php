@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="content-heading">{{ $title_singular }}</div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card card-default">

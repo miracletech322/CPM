@@ -8,12 +8,14 @@
 @endsection
 
 @section('content')
-<div class="content-heading">{{ $title_singular }}</div>
-<div class="row">
+
+<div class="row mt-5">
+    <div class="col-md-12 mb-2">
+        <h2 class="small-title">Account</h2>
+    </div>
     <div class="col-md-12">
         <div class="card card-default">
-            <div class="card-header">{{ $title_singular }}</div>
-                <form action="{{ url('account/update') }}" method="POST" class="ajax-form" class="form-horizontal">
+            <form action="{{ url('account/update') }}" method="POST" class="ajax-form" class="form-horizontal">
                 @csrf
                 <div class="card-body">
                     @include("shared.alerts")

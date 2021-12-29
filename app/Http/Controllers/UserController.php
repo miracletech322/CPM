@@ -60,15 +60,16 @@ class UserController extends Controller
                 $show_url = url("users") . "/" . $records->public_id;
                 $show = "<a data-toggle='tooltip' data-placement='left' href='" . $show_url . "' title='Show Details' class='fa fa-eye  fa-lg action-icon text-warning'></a>&nbsp;&nbsp;&nbsp;";
 
-                $edit_url = url("users") . "/" . $records->public_id . "/edit";
-                $edit = "<a data-toggle='tooltip' data-placement='left' href='" . $edit_url . "' title='Edit' class='fa fa-edit  fa-lg action-icon  text-primary'></a>&nbsp;&nbsp;&nbsp;";
+                // $edit_url = url("users") . "/" . $records->public_id . "/edit";
+                // $edit = "<a data-toggle='tooltip' data-placement='left' href='" . $edit_url . "' title='Edit' class='fa fa-edit  fa-lg action-icon  text-primary'></a>&nbsp;&nbsp;&nbsp;";
 
-                $delete_url = url("delete-user") . "/" . $records->public_id;
-                $delete = "<a data-toggle='tooltip'
-                        onclick='delete_record(\"" . $delete_url . "\" )'
-                        data-placement='left' title='Delete' class='fa fa-trash  fa-lg action-icon  text-danger'></a>";
+                // $delete_url = url("delete-user") . "/" . $records->public_id;
+                // $delete = "<a data-toggle='tooltip'
+                //         onclick='delete_record(\"" . $delete_url . "\" )'
+                //         data-placement='left' title='Delete' class='fa fa-trash  fa-lg action-icon  text-danger'></a>";
 
-                return  $show . $edit . $delete;
+                // return  $show . $edit . $delete;
+                return  $show;
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -132,71 +133,71 @@ class UserController extends Controller
     }
 
 
-    public function edit($public_id)
-    {
+    // public function edit($public_id)
+    // {
 
-        $record = User::select("users.*")
-                        ->where("users.public_id", $public_id)
-                        ->where("role_id", 3)
-                        ->first();
+    //     $record = User::select("users.*")
+    //                     ->where("users.public_id", $public_id)
+    //                     ->where("role_id", 3)
+    //                     ->first();
 
-        if (!$record)
-            return redirect("/users");
+    //     if (!$record)
+    //         return redirect("/users");
 
-        $user = Auth::user();
-        $form_button = "Update";
-        $directory = $this->directory;
-        $title_singular = $this->title_singular;
-        $active_item = "users_nav";
-        return view($this->directory . "edit", compact('form_button', 'title_singular', 'directory', 'record', 'active_item'));
-    }
-
-
-    public function update(Request $request, $public_id)
-    {
-
-        $this->validate($request, [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'phone_number' => 'required',
-            'email' => 'required|email|unique:users,email,' . $public_id . ',public_id',
-            // 'user_type' => 'required'
-        ]);
+    //     $user = Auth::user();
+    //     $form_button = "Update";
+    //     $directory = $this->directory;
+    //     $title_singular = $this->title_singular;
+    //     $active_item = "users_nav";
+    //     return view($this->directory . "edit", compact('form_button', 'title_singular', 'directory', 'record', 'active_item'));
+    // }
 
 
-        $record = User::select("users.*")
-            ->where("users.public_id", $public_id)
-            ->whereIn("role_id", [3,4,5])
-            ->first();
+    // public function update(Request $request, $public_id)
+    // {
+
+    //     $this->validate($request, [
+    //         'first_name' => 'required',
+    //         'last_name' => 'required',
+    //         'phone_number' => 'required',
+    //         'email' => 'required|email|unique:users,email,' . $public_id . ',public_id',
+    //         // 'user_type' => 'required'
+    //     ]);
 
 
-        if (!$record)
-            return [array("error" => "Updation failed")];
-
-        if (isset($request->password)) {
-            $this->validate($request, [
-                'password' => 'required|min:8|confirmed',
-            ]);
-            $record->password = Hash::make($request->password);
-        }
-
-        $record->email = $request->email;
-        $record->first_name = $request->first_name;
-        $record->last_name = $request->last_name;
-        $record->phone = $request->phone_number;
-        $record->save();
-        return [array("success" => "Updated Successfully")];
-    }
+    //     $record = User::select("users.*")
+    //         ->where("users.public_id", $public_id)
+    //         ->whereIn("role_id", [3,4,5])
+    //         ->first();
 
 
-    public function destroy($public_id)
-    {
+    //     if (!$record)
+    //         return [array("error" => "Updation failed")];
 
-        User::where("public_id", $public_id)
-            ->where("role_id", 3)
-            ->delete();
+    //     if (isset($request->password)) {
+    //         $this->validate($request, [
+    //             'password' => 'required|min:8|confirmed',
+    //         ]);
+    //         $record->password = Hash::make($request->password);
+    //     }
 
-        return redirect()->back()->with("success", "Deleted Successfully");
-    }
+    //     $record->email = $request->email;
+    //     $record->first_name = $request->first_name;
+    //     $record->last_name = $request->last_name;
+    //     $record->phone = $request->phone_number;
+    //     $record->save();
+    //     return [array("success" => "Updated Successfully")];
+    // }
+
+
+    // public function destroy($public_id)
+    // {
+
+    //     User::where("public_id", $public_id)
+    //         ->where("role_id", 3)
+    //         ->delete();
+
+    //     return redirect()->back()->with("success", "Deleted Successfully");
+    // }
 
 }

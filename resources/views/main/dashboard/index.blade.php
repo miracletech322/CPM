@@ -1,5 +1,8 @@
 @extends('layouts.main.base')
 
+@section('title') {{ $title_singular }} @endsection
+
+
 @section('content')
 <div class="container">
     <div class="page-title-container">

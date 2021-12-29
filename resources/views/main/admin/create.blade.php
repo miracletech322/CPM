@@ -1,6 +1,6 @@
 @extends('layouts.main.base')
 
-@section('title') {{ $title_singular }} @endsection
+@section('title') {{ $title_singular }} | Create @endsection
 
 @section('css')
 <style type="text/css">
@@ -8,15 +8,23 @@
 @endsection
 
 @section('content')
-<div class="content-heading">{{ $title_singular }}</div>
-<div class="row">
+
+<div class="row mt-5">
+
+    <div class="col-md-12 mb-2">
+        <div class="d-flex">
+            <h2 class="small-title me-2"><a href="{{url('admins')}}">Admins</a></h2>
+            <div class="dropdown-as-select me-3 small-title">
+                <i class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" aria-expanded="false">
+                    <span class="small-title"></span>
+                </i>
+            </div>
+            <h2 class="small-title">Create</h2>
+        </div>
+    </div>
     <div class="col-md-12">
         <div class="card card-default">
-            <div class="card-header">
-                <a href="{{url('admins')}}" class="btn btn-info float-right">Go back</a>
-                {{ $title_singular }} | Create
-            </div>
-                <form action="{{ url('admins') }}" class="ajax-form-success" data-success="{{url('admins')}}" method="POST" files="true" enctype="multipart/form-data">
+            <form action="{{ url('admins') }}" class="ajax-form-success" data-success="{{url('admins')}}" method="POST" files="true" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     @include("shared.alerts")

@@ -8,14 +8,12 @@
 @endsection
 
 @section('content')
-<div class="content-heading">{{ $title_plurar }}</div>
-<div class="row">
+<div class="row mt-5">
+    <div class="col-md-12 mb-2">
+        <h2 class="small-title">Users</h2>
+    </div>
     <div class="col-md-12">
         <div class="card card-default">
-            <div class="card-header">
-                <a href="{{url('users/create')}}" class="btn btn-info float-right">Add User</a>
-                {{ $title_plurar }} | List
-            </div>
             <div class="card-body">
                 @include("shared.alerts")
                 <table id="datatables" class="table table-striped my-4 w-100">

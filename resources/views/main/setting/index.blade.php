@@ -8,11 +8,12 @@
 @endsection
 
 @section('content')
-<div class="content-heading">{{ $title_plurar }}</div>
-<div class="row">
+<div class="row mt-5">
+    <div class="col-md-12 mb-2">
+        <h2 class="small-title">Settings</h2>
+    </div>
     <div class="col-md-12">
         <div class="card card-default">
-            <div class="card-header">{{ $title_plurar }}</div>
             <form action="{{ url('settings'."/".@$record->id) }}" method="POST" class="ajax-form" class="form-horizontal">
                 @method('PUT')
                 @csrf

@@ -63,6 +63,8 @@ class SettingController extends Controller
             $record = new Setting();
             $this->validate($request,[
                 'site_logo'=>'required',
+                'account_number'=>'required',
+                'swift_bic'=>'required',
                 'site_icon'=>'required',
             ]);
         }
@@ -76,17 +78,9 @@ class SettingController extends Controller
             $record->site_logo = $imagename;
         }
 
-
-        if(isset($request->site_icon)){
-            $path = public_path('storage/site_icon/');
-            File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
-            $imagename = "/storage/site_icon/". date("dmy_His").'_image.'.$request->site_icon->getClientOriginalExtension();
-            $path = public_path($imagename);
-            Image::make($request->file('site_icon'))->save($path);
-            $record->site_icon = $imagename;
-        }
-
         $record->site_name = $request->site_name;
+        $record->account_number = $request->account_number;
+        $record->swift_bic = $request->swift_bic;
         $record->save();
         return [array("success" => "Settings updated successfully")];
     }

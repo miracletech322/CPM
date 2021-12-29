@@ -1,4 +1,3 @@
-<script src="{{asset('backend')}}/js/vendor/bootstrap.bundle.min.js"></script>
 <script src="{{asset('backend')}}/js/vendor/OverlayScrollbars.min.js"></script>
 <script src="{{asset('backend')}}/js/vendor/autoComplete.min.js"></script>
 <script src="{{asset('backend')}}/js/vendor/clamp.min.js"></script>
@@ -35,6 +34,7 @@
 <script src="{{asset('template/vendor/datatables.net-keytable/js/dataTables.keyTable.js')}}"></script>
 <script src="{{asset('template/vendor/datatables.net-responsive/js/dataTables.responsive.js')}}"></script>
 <script src="{{asset('template/vendor/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+<script src="{{asset('backend')}}/js/vendor/bootstrap.bundle.min.js"></script>
 
 <script>
     $(function() {
