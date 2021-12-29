@@ -13,7 +13,7 @@
     <div class="col-md-12">
         <div class="card card-default">
             <div class="card-header">{{ $title_singular }}</div>
-                <form action="{{ url('profile/update') }}" method="POST" class="ajax-form" class="form-horizontal">
+                <form action="{{ url('account/update') }}" method="POST" class="ajax-form" class="form-horizontal">
                 @csrf
                 <div class="card-body">
                     @include("shared.alerts")

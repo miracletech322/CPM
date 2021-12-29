@@ -21,7 +21,9 @@ class AccountController extends Controller
         $directory = $this->directory;
         $title_singular = $this->title_singular;
         $active_item = "account";
-        return view($this->directory . "edit", compact('title_singular', 'directory','active_item'));
+        $form_button = "Update";
+        $record = Auth::user();
+        return view($this->directory . "edit", compact('title_singular', 'record', 'directory','active_item', 'form_button'));
 
     }  
 
@@ -30,7 +32,6 @@ class AccountController extends Controller
         $this->validate($request,[
             'first_name'=>'required',
             'last_name'=>'required',            
-            'phone_number' => 'required',
             'email' => 'required|email|unique:users,email,'.$user->id.',id',
         ]);
 
@@ -47,15 +48,7 @@ class AccountController extends Controller
         $record->email = $request->email;
         $record->first_name = $request->first_name;
         $record->last_name = $request->last_name;
-        $record->phone = $request->phone_number;
-
-        if(Auth::user()->role_id == 3)
-            $record->registration_emails_allowed = isset($request->registration_emails_allowed) ? 1 : 0;
-
-        if(in_array($record->role_id, [3,5]))
-            if($record->isDirty(["first_name", "last_name", "email", "phone"]))
-                $record->is_mailchimp_synced = 0;
-
+        $record->phone = isset($request->phone_number) ? $request->phone_number : NULL;
         $record->save();
 
         return [array("success" => "Account updated Successfully")];
