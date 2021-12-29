@@ -22,7 +22,7 @@
         </div>
 
         <div class="col-lg-6">
-            <label>Phone Number<i class="text-danger">*</i></label>
+            <label>Phone Number</label>
             <input class="form-control" name="phone_number" placeholder="Enter Phone Number" id="phone_number" type="text" value="{{@$record->phone}}" {{@$is_show == 1 ? "disabled" : ""}}>
         </div>
     </div>

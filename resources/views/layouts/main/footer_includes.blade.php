@@ -1,4 +1,3 @@
-<script src="{{asset('backend')}}/js/vendor/jquery-3.5.1.min.js"></script>
 <script src="{{asset('backend')}}/js/vendor/bootstrap.bundle.min.js"></script>
 <script src="{{asset('backend')}}/js/vendor/OverlayScrollbars.min.js"></script>
 <script src="{{asset('backend')}}/js/vendor/autoComplete.min.js"></script>
@@ -19,3 +18,27 @@
 <script src="{{asset('backend')}}/js/common.js"></script>
 <script src="{{asset('backend')}}/js/scripts.js"></script>
 <script src="{{asset('backend')}}/js/vendor/select2.full.min.js"></script>
+
+
+<script src="{{asset("plugins\sweetalerts2\sweetalert2.min.js")}}"></script>
+<script src="{{asset("js/main.js")}}"></script>
+
+<!-- Datatables-->
+<script src="{{asset('template/vendor/datatables.net/js/jquery.dataTables.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-bs4/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-buttons/js/dataTables.buttons.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-buttons/js/buttons.colVis.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-buttons/js/buttons.flash.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-buttons/js/buttons.html5.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-buttons/js/buttons.print.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-keytable/js/dataTables.keyTable.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-responsive/js/dataTables.responsive.js')}}"></script>
+<script src="{{asset('template/vendor/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+
+<script>
+    $(function() {
+        active_item = "{{@$active_item}}";
+        $("."+active_item).addClass("active");
+    });
+</script>

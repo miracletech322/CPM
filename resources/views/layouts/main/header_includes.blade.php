@@ -33,3 +33,13 @@
 <link rel="stylesheet" href="{{asset('backend')}}/css/vendor/select2-bootstrap4.min.css">
 <link rel="stylesheet" href="{{asset('backend')}}/css/vendor/font-awesome.min.css">
 <script src="js/base/loader.js"></script>
+
+
+<link rel="stylesheet" href="{{asset('template/css/bootstrap.css')}}" id="bscss"><!-- =============== APP STYLES ===============-->
+<link rel="stylesheet" href="{{asset('css/main.css')}}" rel="stylesheet" />
+<link rel="stylesheet" href="{{asset("plugins\sweetalerts2\sweetalert2.min.css")}}">
+<link rel="stylesheet" href="{{asset('template/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
+<link rel="stylesheet" href="{{asset('template/vendor/datatables.net-keytable-bs/css/keyTable.bootstrap.css')}}">
+<link rel="stylesheet" href="{{asset('template/vendor/datatables.net-responsive-bs/css/responsive.bootstrap.css')}}">
+{{-- <script src="{{asset('template/vendor/jquery/dist/jquery.js')}}"></script> --}}
+<script src="{{asset('backend')}}/js/vendor/jquery-3.5.1.min.js"></script>

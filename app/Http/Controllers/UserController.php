@@ -61,7 +61,7 @@ class UserController extends Controller
                 $show = "<a data-toggle='tooltip' data-placement='left' href='" . $show_url . "' title='Show Details' class='fa fa-eye  fa-lg action-icon text-warning'></a>&nbsp;&nbsp;&nbsp;";
 
                 $edit_url = url("users") . "/" . $records->public_id . "/edit";
-                $edit = "<a data-toggle='tooltip' data-placement='left' href='" . $edit_url . "' title='Edit' class='fa fa-pen-alt  fa-lg action-icon  text-primary'></a>&nbsp;&nbsp;&nbsp;";
+                $edit = "<a data-toggle='tooltip' data-placement='left' href='" . $edit_url . "' title='Edit' class='fa fa-edit  fa-lg action-icon  text-primary'></a>&nbsp;&nbsp;&nbsp;";
 
                 $delete_url = url("delete-user") . "/" . $records->public_id;
                 $delete = "<a data-toggle='tooltip'
@@ -92,7 +92,6 @@ class UserController extends Controller
         $this->validate($request, [
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone_number' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|confirmed',
         ]);
