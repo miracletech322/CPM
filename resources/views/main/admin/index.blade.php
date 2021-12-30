@@ -10,7 +10,7 @@
 @section('content')
 <div class="row mt-5">
     <div class="col-md-12 mb-2">
-        <a href="{{url('admins/create')}}" class="btn btn-info float-right btn-sm">Add Admin</a>
+        <a href="{{url('admins/create')}}" class="btn btn-theme float-right btn-sm">Add Admin</a>
         <h2 class="small-title">Admins</h2>
     </div>
     <div class="col-md-12">

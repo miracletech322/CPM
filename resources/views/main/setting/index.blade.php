@@ -20,7 +20,7 @@
                 <div class="card-body">
                     @include("shared.alerts")
                     @include($directory . "partials.form")
-                    <button type="submit" class="btn btn-info submit-btn">Update</button>
+                    <button type="submit" class="btn btn-theme btn-sm submit-btn">Update</button>
                 </div>
             </form>
         </div>

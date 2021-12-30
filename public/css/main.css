@@ -104,6 +104,10 @@ div.dataTables_wrapper table.dataTable {
     background-color: #3abd7a !important;
 }
 
+.btn-theme {
+    background-color: #3abd7a !important;
+}
+
 .theme-color th {
     color: #fff !important;
 }

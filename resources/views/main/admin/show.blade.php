@@ -26,7 +26,7 @@
             <div class="card-body">
                 @include("shared.alerts")
                 @include($directory . "partials.form")
-                <a href="{{url("admins")."/".@$record->public_id."/edit"}}" class="btn btn-info">Edit</a>
+                <a href="{{url("admins")."/".@$record->public_id."/edit"}}" class="btn btn-theme btn-sm">Edit</a>
             </div>
         </div>
     </div>

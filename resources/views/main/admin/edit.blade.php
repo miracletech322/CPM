@@ -30,7 +30,7 @@
                 <div class="card-body">
                     @include("shared.alerts")
                     @include($directory . "partials.form")
-                    <button type="submit" class="btn btn-info submit-btn">{{@$form_button}}</button>
+                    <button type="submit" class="btn btn-theme submit-btn btn-sm">{{@$form_button}}</button>
                 </div>
             </form>
         </div>
