@@ -21,7 +21,7 @@
         </div>
 
         <div class="col-md-6">
-            <label for="swift_bic">Site Swift BIC <i class="text-danger">*</i></label>
+            <label for="swift_bic">Swift BIC <i class="text-danger">*</i></label>
             <input value="{{count(@$errors) > 0 ? old('swift_bic') : @$record->swift_bic}}" placeholder="Enter Swift BIC" class="form-control" name="swift_bic" id="swift_bic" type="text">
         </div>
     </div>

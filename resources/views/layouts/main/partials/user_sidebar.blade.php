@@ -2,8 +2,7 @@
     <div class="nav-content d-flex">
         <div class=" position-relative">
             <a href="{{url('/')}}">
-                <img src="{{asset('backend')}}/img/logo/icons8-omega-96 (1).png" width="50px" height="50px">
-
+                <img src="{{$site_data["site_logo"]}}" style="max-height:55px !important" alt="{{$site_data["site_name"]}}">
             </a>
         </div>
         <div class="user-container d-flex">
@@ -21,7 +20,7 @@
         <div class="menu-container flex-grow-1">
             <ul id="menu" class="menu">
                 <li>
-                    <a href="{{ url('home')}}" class='miners'>
+                    <a href="{{ url('miners')}}" class='miners'>
                         <i data-acorn-icon="shop" class="icon" data-acorn-size="18"></i>
                         <span class="label">Miners</span>
                     </a>

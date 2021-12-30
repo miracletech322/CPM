@@ -3,7 +3,6 @@
         <div class=" position-relative">
             <a href="{{url('/')}}">
                 <img src="{{asset('backend')}}/img/logo/icons8-omega-96 (1).png" width="50px" height="50px">
-
             </a>
         </div>
         <div class="user-container d-flex">

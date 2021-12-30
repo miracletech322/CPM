@@ -29,6 +29,14 @@ class User extends Authenticatable
      * @var array
      */
     
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'public_id',
+        'role_id',
+        'email',
+        'password'
+    ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -64,13 +72,4 @@ class User extends Authenticatable
         return strtolower(Role::where("id" , Auth::User()->role_id)->first()->name);
     }
 
-
-    public static function get_row($id){
-        // $row = User::where("public_id" , $id)->orWhere("id" , $id)->first();
-        $row = User::where("public_id" , $id)->first();
-        if(!$row){
-            $row = User::where("id" , $id)->first();
-        }
-        return $row;
-    }
 }

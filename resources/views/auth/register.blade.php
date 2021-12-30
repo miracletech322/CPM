@@ -94,6 +94,18 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="folex_agreement" id="folex_agreement" {{ old('folex_agreement') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label ml-2" for="folex_agreement" style="color: black;">
+                                        {{ __('I agree to folex agreement') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
                                 Already have an account? <a href="{{url('login')}}" class="text-info">Signin!</a>
                             </div>
                         </div>

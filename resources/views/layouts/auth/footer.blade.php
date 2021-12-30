@@ -4,14 +4,12 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 text-center">
                     <div class="footer-logo pb-25">
-                        <a href="index.html"><img src="{{asset('frontend')}}/images/logo.png" alt="{{$site_data["site_name"]}}"></a>
+                        <a href="#"><img src="{{$site_data["site_logo"]}}" style="max-height:55px !important" alt="{{$site_data["site_name"]}}"></a>
                     </div>
                     <div class="footer-icon">
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>

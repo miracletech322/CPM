@@ -56,6 +56,8 @@ class SettingController extends Controller
 
         $this->validate($request,[
             'site_name'=>'required',
+            'account_number'=>'required',
+            'swift_bic'=>'required',
         ]);
 
         $record = Setting::first();
@@ -63,9 +65,6 @@ class SettingController extends Controller
             $record = new Setting();
             $this->validate($request,[
                 'site_logo'=>'required',
-                'account_number'=>'required',
-                'swift_bic'=>'required',
-                'site_icon'=>'required',
             ]);
         }
 

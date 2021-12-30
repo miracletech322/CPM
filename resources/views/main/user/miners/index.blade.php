@@ -8,7 +8,7 @@
                 <a class="muted-link pb-2 d-inline-block hidden" href="#">
                     <span class="align-middle lh-1 text-small">&nbsp;</span>
                 </a>
-                <h1 class="mb-0 pb-0 display-4" id="title">Welcome, {{Auth()->user()->name}}!</h1>
+                <h1 class="mb-0 pb-0 display-4" id="title">Welcome, {{Auth()->user()->first_name}}!</h1>
             </div>
         </div>
     </div>
