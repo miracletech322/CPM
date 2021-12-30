@@ -24,7 +24,7 @@
             iDisplayLength: 25,
             responsive: true,
             oLanguage: {
-                sSearch: '<em class="fas fa-search"></em>',
+                sSearch: '<em class="fa fa-search"></em>',
                 sLengthMenu: '_MENU_ records per page',
                 info: 'Showing page _PAGE_ of _PAGES_',
                 zeroRecords: 'Nothing found - sorry',

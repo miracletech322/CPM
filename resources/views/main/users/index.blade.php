@@ -17,7 +17,7 @@
             <div class="card-body">
                 @include("shared.alerts")
                 <table id="datatables" class="table table-striped my-4 w-100">
-                    <thead>
+                    <thead class='theme-color'>
                         <tr>
                              <th>Full Name</th>
                             <th>Email</th>
