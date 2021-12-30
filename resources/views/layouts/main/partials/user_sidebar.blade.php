@@ -21,7 +21,7 @@
         <div class="menu-container flex-grow-1">
             <ul id="menu" class="menu">
                 <li>
-                    <a href="{{ url('home')}}">
+                    <a href="{{ url('home')}}" class='miners'>
                         <i data-acorn-icon="shop" class="icon" data-acorn-size="18"></i>
                         <span class="label">Miners</span>
                     </a>

@@ -21,6 +21,7 @@
 
 <script src="{{asset("plugins\sweetalerts2\sweetalert2.min.js")}}"></script>
 <script src="{{asset("js/main.js")}}"></script>
+ <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>
 
 <!-- Datatables-->
 <script src="{{asset('template/vendor/datatables.net/js/jquery.dataTables.js')}}"></script>

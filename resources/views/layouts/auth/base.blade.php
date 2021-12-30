@@ -16,10 +16,17 @@ if($settings){
     @yield('css')
 
     <style>
-    button.close {
-        top: 3px !important;
-        right: 6px !important;
-    }
+        button.close {
+            top: 5px !important;
+            right: 6px !important;
+            float: right;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .5;
+        }
     </style>
 </head>
 

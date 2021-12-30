@@ -18,7 +18,7 @@
         </div>
 
         <div class="col-md-6">
-            <label>Phone Number<i class="text-danger">*</i></label>
+            <label>Phone Number</label>
             <input class="form-control" name="phone_number" id="phone_number" type="text" value="{{@$record->phone}}" {{@$is_show == 1 ? "disabled" : ""}} placeholder="Enter Phone Number">
         </div>
     </div>

@@ -74,7 +74,6 @@ class AdminController extends Controller
         $this->validate($request, [
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone_number' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|confirmed',
             'role' => 'required'
@@ -86,7 +85,7 @@ class AdminController extends Controller
         $record->email = $request->email;
         $record->first_name = $request->first_name;
         $record->last_name = $request->last_name;
-        $record->phone = $request->phone_number;
+        $record->phone = isset($request->phone_number) ? $request->phone_number : NULL;
         $record->password = Hash::make($request->password);
         $record->role_id = $request->role == 1 ? 1 : 2;
         $record->save();
@@ -139,7 +138,6 @@ class AdminController extends Controller
         $this->validate($request, [
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone_number' => 'required',
             'email' => 'required|email|unique:users,email,' . $public_id . ',public_id',
         ]);
 
@@ -159,7 +157,7 @@ class AdminController extends Controller
         $record->email = $request->email;
         $record->first_name = $request->first_name;
         $record->last_name = $request->last_name;
-        $record->phone = $request->phone_number;
+        $record->phone = isset($request->phone_number) ? $request->phone_number : NULL;
         $record->save();
         return [array("success" => "Updated Successfully")];
     }
