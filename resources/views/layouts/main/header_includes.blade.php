@@ -35,7 +35,7 @@
 <link rel="stylesheet" href="{{asset('backend')}}/css/vendor/select2.min.css">
 <link rel="stylesheet" href="{{asset('backend')}}/css/vendor/select2-bootstrap4.min.css">
 <link rel="stylesheet" href="{{asset('backend')}}/css/vendor/font-awesome.min.css">
-<script src="js/base/loader.js"></script>
+<script src="{{asset('backend')}}/js/base/loader.js"></script>
 
 
 <link rel="stylesheet" href="{{asset('css/main.css')}}" rel="stylesheet" />
