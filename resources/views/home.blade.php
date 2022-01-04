@@ -187,15 +187,15 @@
 
                         <div class="miner-select">
                             <div class="miner-select-item active" data-system="1" data-bonus="33" data-bonus-id="0"
-                                 data-price="10" data-fee="0.0001" data-profit="13.15" data-min="250"
+                                 data-price="10" data-difficulty="{{$pageData['sha_256']->difficulty}}" data-reward="{{$pageData['sha_256']->reward_block}}" data-fee="0.0001" data-profit="13.15" data-min="250"
                                  data-max="50000" data-step="0.001" data-prefix=" TH/s">SHA-256
                             </div>
                             <div class="miner-select-item" data-system="2" data-bonus="33" data-bonus-id="0"
-                                 data-price="15" data-fee="0.00013" data-profit="13.76" data-min="250" data-max="50000"
+                                 data-price="15" data-difficulty="{{$pageData['ethash']->difficulty}}" data-reward="{{$pageData['ethash']->reward_block}}" data-fee="0.00013" data-profit="13.76" data-min="250" data-max="50000"
                                  data-step=".01" data-prefix=" MH/s">Ethash
                             </div>
                             <div class="miner-select-item" data-system="3" data-bonus="33" data-bonus-id="0"
-                                 data-price="0.8" data-fee="0.001" data-profit="13.4" data-min="250" data-max="50000"
+                                 data-price="0.8" data-difficulty="{{$pageData['equihash']->difficulty}}" data-reward="{{$pageData['equihash']->reward_block}}" data-fee="0.001" data-profit="13.4" data-min="250" data-max="50000"
                                  data-step="1" data-prefix=" MH/s">Equihash
                             </div>
                         </div>
@@ -222,14 +222,7 @@
                             <input type="text" value="" class="calculate-earnings__calculator-data-input"
                                    id="data-input-price">
                         </div>
-                        <div class="calculate-earnings__calculator-data-item">
-                            <h4 class="calculate-earnings__calculator-data-title">Your bonus</h4>
-                            <div class="calculate-earnings__calculator-data-item__row" id="bonus_html">
-                                <input type="checkbox" class="calculate-earnings__calculator-data-input-checkbox hidden"
-                                       id="bonus-input-check" checked="">
-                                <label for="bonus-input-check" class="bonus-label">+33% to power</label>
-                            </div>
-                        </div>
+                        
                         <div class="calculate-earnings__calculator-data-item">
                             <h4 class="calculate-earnings__calculator-data-title">
                                 Power <span class="input-prefix"> TH/s</span>
@@ -544,7 +537,6 @@
         </div>
     </section>
 @endsection
-@section('script')
-
-
+@section('js')
+@include('home_js')
 @endsection

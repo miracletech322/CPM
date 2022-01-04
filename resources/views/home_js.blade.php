@@ -1,30 +1,23 @@
 <script>
-    var $prefix = $('.miner-select').find('.miner-select-item.active').data('prefix');
-    var $step = $('.miner-select').find('.miner-select-item.active').data('step');
-    
-
+    var setup = $(".miner-setup");
+    var $bonus = $('.miner-select').find('.miner-select-item.active').data('bonus');
     var $item_price = $('.miner-select').find('.miner-select-item.active').data('price');
+    var $profit_rate = $('.miner-select').find('.miner-select-item.active').data('profit');
     var $min_deposit = $('.miner-select').find('.miner-select-item.active').data('min');
     var $max_deposit = $('.miner-select').find('.miner-select-item.active').data('max');
-
-
+    var $prefix = $('.miner-select').find('.miner-select-item.active').data('prefix');
+    var $step = $('.miner-select').find('.miner-select-item.active').data('step');
     var $system = $('.miner-select').find('.miner-select-item.active').data('system');
+    var instance;
     var $calc_min = $min_deposit / $item_price;
     var $calc_max = $max_deposit / $item_price;
-
-    // var $min = $system == 2 ? $calc_min.toFixed(2) : Math.round($calc_min);
-    // var $max = $system == 2 ? $calc_max.toFixed(2) : Math.round($calc_max);
-    // var $from = $system == 2 ? $calc_min.toFixed(2) : Math.round($calc_min);
-
     var $min = $calc_min.toFixed(2);
     var $max = $calc_max.toFixed(2);
     var $from = $calc_min.toFixed(2);
 
-    var setup = $(".miner-setup");
-    var $profit_rate = $('.miner-select').find('.miner-select-item.active').data('profit');
-  
-    var instance;
-
+    var $hashing_difficulty = $('.miner-select').find('.miner-select-item.active').data('difficulty');
+    var $hashing_reward_block = $('.miner-select').find('.miner-select-item.active').data('reward');
+    var $hashRate = hashRate($from);
     var $n = 1;
     var $s = 86400;
     var $investition_input = $('#data-input-price');
@@ -33,12 +26,9 @@
     var $daily_income = $('.calculate-earnings__calculator-results').find('#daily');
     var $month_income = $('.calculate-earnings__calculator-results').find('#month');
     var $year_income = $('.calculate-earnings__calculator-results').find('#year');
+    var gpuPower = $('.calculate-earnings__wrap').find('#gpu-power');
     var gpuLvl = $('.calculate-earnings__wrap').find('#gpuLvl');
-    
-    var price_th = '{{$pageData["price_th"]}}';
-    var cost_per_kwh = '{{$pageData["cost_per_kwh"]}}';
-    var power_consumption = '{{$pageData["power_consumption"]}}';
-
+    var bonus_html = $('.calculate-earnings__wrap').find('#bonus_html');
     setup.ionRangeSlider({
         min: $min,
         max: $max,
@@ -53,7 +43,14 @@
             var $money = $average * $item_price;
             $investition_input.val(Math.round($money));
             $average_input.val($average);
-            setProfit(data.from);
+            var $income_calc = getProfit($average,30);
+
+            var $month_calc = ($income_calc).toFixed(2);
+            var $year_calc = ($month_calc * 12).toFixed(2);
+            var $daily_calc = ($month_calc / 30).toFixed(2);
+            $daily_income.html('$' + $daily_calc);
+            $month_income.html('$' + $month_calc);
+            $year_income.html('$' + $year_calc);
         },
         onChange: function (data) {
             console.log(data)
@@ -61,43 +58,47 @@
             var $money = $average * $item_price;
             $investition_input.val(Math.round($money));
             $average_input.val($average);
-            setProfit(data.from);
+            // var $income_calc = ($money / 100) * $profit_rate;
+            var $income_calc = getProfit($average,30);
+            
+            var $month_calc = ($income_calc).toFixed(2);
+            var $year_calc = ($month_calc * 12).toFixed(2);
+            var $daily_calc = ($month_calc / 30).toFixed(2);
+
+            $daily_income.html('$' + $daily_calc);
+            $month_income.html('$' + $month_calc);
+            $year_income.html('$' + $year_calc);
         },
         onUpdate: function (data) {
             console.log('here i am onUpdate')
             var $average = data.from;
             var $money = $average * $item_price;
-            $average_input.val($average);
-            setProfit(data.from);
+            var $income_calc = getProfit($average,30);
+
+            var $month_calc = ($income_calc).toFixed(2);
+            var $year_calc = ($month_calc * 12).toFixed(2);
+            var $daily_calc = ($month_calc / 30).toFixed(2);
+            $daily_income.html('$' + $daily_calc);
+            $month_income.html('$' + $month_calc);
+            $year_income.html('$' + $year_calc);
         }
     });
 
-    function setProfit(data) {
-
-        var price_of_1th = price_th;
-        var power_consumption_kw = power_consumption / 1000;
-        var price_1th_per_hour = price_of_1th * power_consumption_kw;
-        var price_1th_per_day = price_1th_per_hour * 24;
-        var price_total_per_day = data * price_1th_per_day;
-
-        alert(price_of_1th);
-
-        var $daily_calc = (price_total_per_day).toFixed(2);
-        var $month_calc = ($daily_calc * 30).toFixed(2);
-        var $year_calc = ($daily_calc * 365).toFixed(2);
-
-        $daily_income.html('$' + $daily_calc);
-        $month_income.html('$' + $month_calc);
-        $year_income.html('$' + $year_calc);
+    function getProfit(p,n) {
+        var hash = p * 1000000000000;
+        return (hash*$hashing_reward_block*n*$s)/($hashing_difficulty*4294967296)
     }
 
+    function hashRate(from) {
+        return from * 1000000000000
+    }
+    
 
     instance = setup.data("ionRangeSlider");
-
     $('.miner-select').on('click', '.miner-select-item:not(.active)', function (event) {
-        
         $(this).closest('.miner-select').find('.miner-select-item').removeClass('active');
         $(this).addClass('active');
+        $bonus = $(this).data('bonus');
         $item_price = $(this).data('price');
         $profit_rate = $(this).data('profit');
         $min_deposit = $(this).data('min');
@@ -105,18 +106,18 @@
         $prefix = $(this).data('prefix');
         $step = $(this).data('step');
         $system = $(this).data('system');
-
+        if ($bonus > 0) {
+            bonus_html.find('input').show();
+            bonus_html.find('label').html('+' + $bonus + '% ' + variable4);
+        } else {
+            bonus_html.find('input').hide();
+            bonus_html.find('label').html(variable5);
+        }
         $calc_min = $min_deposit / $item_price;
         $calc_max = $max_deposit / $item_price;
-
-        //$min = $system == 2 ? $calc_min.toFixed(2) : Math.round($calc_min);
-        //$max = $system == 2 ? $calc_min.toFixed(2) : Math.round($calc_min);
-        //$from = $system == 2 ? $calc_min.toFixed(2) : Math.round($calc_min);
-
-        var $min = $calc_min.toFixed(2);
-        var $max = $calc_max.toFixed(2);
-        var $from = $calc_min.toFixed(2);
-
+        $min = $calc_min.toFixed(2);
+        $max = $calc_max.toFixed(2);
+        $from = $calc_min.toFixed(2);
 
         instance.update({
             min: $min,
@@ -127,7 +128,6 @@
             postfix: $prefix,
             step: $step
         });
-
         $investition_input.val($min_deposit);
         $average_input.val($min);
         $prefix_power_input.html($prefix);
@@ -135,16 +135,17 @@
 
 
     $average_input.on("change", function () {
-
         var val = $(this).val();
         val = $system == 2 ? parseFloat(val).toFixed(2) : Math.round(val);
         console.log(val, $min, $max);
+
         var intRegex = /^\d+$/;
         var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
-
         if (!intRegex.test(val) || !floatRegex.test(val)) {
             val = $min;
+            $average_input.val(val);
         }
+
         if (val < $min) {
             val = $min;
         }
@@ -155,15 +156,20 @@
                 var $average = data.from;
                 var $money = $average * $item_price;
                 $investition_input.val(Math.round($money));
+                var $income_calc = ($money / 100) * $profit_rate;
+               
+                var $daily_calc = ($income_calc / 30).toFixed(2);
+                var $month_calc = ($daily_calc * 30).toFixed(2);
+                var $year_calc = ($month_calc * 12).toFixed(2);
+                $daily_income.html('$' + $daily_calc);
+                $month_income.html('$' + $month_calc);
+                $year_income.html('$' + $year_calc);
             }
         });
-
-
     });
 
 
     $investition_input.on("change", function () {
-
         var val = $(this).val();
         var intRegex = /^\d+$/;
         var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
@@ -182,14 +188,16 @@
                 var $average = data.from;
                 var $money = $average * $item_price;
                 $average_input.val($average);
+                var $income_calc = ($money / 100) * $profit_rate;
+                
+                var $daily_calc = ($income_calc / 30).toFixed(2);
+                var $month_calc = ($daily_calc * 30).toFixed(2);
+                var $year_calc = ($month_calc * 12).toFixed(2);
+                $daily_income.html('$' + $daily_calc);
+                $month_income.html('$' + $month_calc);
+                $year_income.html('$' + $year_calc);
             }
         });
-
-
     });
-
-
-
-
 
 </script>
