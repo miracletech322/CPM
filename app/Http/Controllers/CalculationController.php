@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class CalculationController extends Controller
 {
     public function index(Request $request)
     {
-        $pageData = [];
-        $pageData['sha_256'] = $this->getValue("SHA-256");
-        $pageData['ethash'] = $this->getValue("Ethash");
-        $pageData['equihash'] = $this->getValue("Equihash");
+        
+        $pageData['sha_256'] = $this->getValue("SHA-256"); //BTC
+        $pageData['ethash'] = $this->getValue("Ethash"); //AKA
+        $pageData['equihash'] = $this->getValue("Equihash"); //CMM
+
+        $settings = Setting::first();
+        $pageData["price_th"] = $settings->price_th;
+        $pageData["cost_per_kwh"] = $settings->cost_per_kwh;
+        $pageData["power_consumption"] = $settings->power_consumption;
+        $pageData["maintenance_fee"] = $settings->maintenance_fee;
+
         // return $pageData;
         return view('home')->with('pageData',$pageData);
     }

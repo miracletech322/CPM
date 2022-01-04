@@ -26,4 +26,4 @@
  </script>
  <script src="{{asset('frontend')}}/cal/jquery-3.4.1.min.js"></script>
  <script src="{{asset('frontend')}}/cal/ion.rangeSlider.min.js"></script>
- <script src="{{asset('frontend')}}/cal/miner-setup.js"></script>
+ {{-- <script src="{{asset('frontend')}}/cal/miner-setup.js"></script> --}}
