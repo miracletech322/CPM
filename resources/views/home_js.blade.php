@@ -89,8 +89,8 @@
         var btc_production = upper / lower;
         console.log("Production= " + btc_production);
 
-        power_consumption_cost = ("{{ ($pageData['cost_per_kwh'] * ($pageData['power_consumption'] / 1000)) * 24 }}");
-        power_consumption_cost_home =  (( $('#data-input-ghs-home').val() * "{{ ($pageData['power_consumption'] / 1000) }}" ) * 24);
+        power_consumption_cost = ("{{ ($pageData['cost_per_kwh'] * ($pageData['power_consumption'] / 1000)) * 24 }}") * p;
+        power_consumption_cost_home =  (( $('#data-input-ghs-home').val() * "{{ ($pageData['power_consumption'] / 1000) }}" ) * 24) * p;
 
         var result = ( $coin_price / (1 / btc_production) ) - power_consumption_cost;
         
@@ -164,8 +164,8 @@
       
         $average_input_home.val(val);
         instance.update({
-            from: val, step: $step, onUpdate: function (data) {
-                var $average = data.from;
+            from: $average_input.val(), step: $step, onUpdate: function (data) {
+                var $average = data.from
                 getProfit($average);
             }
         });

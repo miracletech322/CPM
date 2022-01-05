@@ -44,14 +44,14 @@
         </div>
 
         <div class="col-md-6">
-            <label for="cost_per_kwh">Cost per KWh <i class="text-danger">*</i></label>
+            <label for="cost_per_kwh">Cost per (KWh) <i class="text-danger">*</i></label>
             <input value="{{@$record->cost_per_kwh}}" placeholder="Enter Cost Per KWh" class="form-control" name="cost_per_kwh" id="cost_per_kwh" type="text">
         </div>
     </div>
 
     <div class="row form-group mb-3">
         <div class="col-md-6">
-            <label for="power_consumption">Power Consumption (w) <i class="text-danger">*</i></label>
+            <label for="power_consumption">Power Consumption (w / 1TH-s) <i class="text-danger">*</i></label>
             <input value="{{@$record->power_consumption}}" placeholder="Enter Power Consumption" class="form-control" name="power_consumption" id="power_consumption" type="text">
         </div>
 
