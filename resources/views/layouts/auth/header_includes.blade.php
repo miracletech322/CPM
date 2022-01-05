@@ -2,7 +2,7 @@
 
   <!-- Mobile Specific Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link type="image/x-icon" href="images/fav-icon.png" rel="icon">
+  <link type="image/x-icon" href="{{asset('frontend')}}/images/fav-icon.png" rel="icon">
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/font-awesome.min.css">

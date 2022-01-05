@@ -176,26 +176,17 @@
                     <br><br>
                     <div class="calculate-earnings__calculator-data-item-select">
 
-                        <input type="hidden" value="{{$pageData['equihash']->difficulty}}" id="equihash_difficulty">
-                        <input type="hidden" value="{{$pageData['equihash']->reward_block}}" id="equihash_reward_block">
-
-                        <input type="hidden" value="{{$pageData['ethash']->difficulty}}" id="ethash_difficulty">
-                        <input type="hidden" value="{{$pageData['ethash']->reward_block}}" id="ethash_reward_block">
-
-                        <input type="hidden" value="{{$pageData['sha_256']->difficulty}}" id="sha_256_difficulty">
-                        <input type="hidden" value="{{$pageData['sha_256']->reward_block}}" id="sha_256_reward_block">
-
                         <div class="miner-select">
-                            <div class="miner-select-item active" data-system="1" data-bonus="33" data-bonus-id="0"
-                                 data-price="10" data-difficulty="{{$pageData['sha_256']->difficulty}}" data-reward="{{$pageData['sha_256']->reward_block}}" data-fee="0.0001" data-profit="13.15" data-min="250"
+                            <div class="miner-select-item active" data-system="1"
+                                 data-price="{{$pageData['price_th']}}" data-coin="{{$pageData['sha_256']->price}}" data-difficulty="{{$pageData['sha_256']->difficulty}}" data-reward="{{$pageData['sha_256']->reward_block}}" data-min="250"
                                  data-max="50000" data-step="0.001" data-prefix=" TH/s">SHA-256
                             </div>
-                            <div class="miner-select-item" data-system="2" data-bonus="33" data-bonus-id="0"
-                                 data-price="15" data-difficulty="{{$pageData['ethash']->difficulty}}" data-reward="{{$pageData['ethash']->reward_block}}" data-fee="0.00013" data-profit="13.76" data-min="250" data-max="50000"
+                            <div class="miner-select-item" data-system="2"
+                                 data-price="{{(($pageData['price_th'])/1000)/1000}}" data-coin="{{$pageData['sha_256']->price}}" data-difficulty="{{$pageData['ethash']->difficulty}}" data-reward="{{$pageData['ethash']->reward_block}}" data-min="250" data-max="50000"
                                  data-step=".01" data-prefix=" MH/s">Ethash
                             </div>
-                            <div class="miner-select-item" data-system="3" data-bonus="33" data-bonus-id="0"
-                                 data-price="0.8" data-difficulty="{{$pageData['equihash']->difficulty}}" data-reward="{{$pageData['equihash']->reward_block}}" data-fee="0.001" data-profit="13.4" data-min="250" data-max="50000"
+                            <div class="miner-select-item" data-system="3"
+                                 data-price="{{(($pageData['price_th'])/1000)/1000}}" data-coin="{{$pageData['sha_256']->price}}" data-difficulty="{{$pageData['equihash']->difficulty}}" data-reward="{{$pageData['equihash']->reward_block}}" data-min="250" data-max="50000"
                                  data-step="1" data-prefix=" MH/s">Equihash
                             </div>
                         </div>

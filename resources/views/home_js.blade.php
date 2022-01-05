@@ -1,8 +1,6 @@
 <script>
     var setup = $(".miner-setup");
-    var $bonus = $('.miner-select').find('.miner-select-item.active').data('bonus');
     var $item_price = $('.miner-select').find('.miner-select-item.active').data('price');
-    var $profit_rate = $('.miner-select').find('.miner-select-item.active').data('profit');
     var $min_deposit = $('.miner-select').find('.miner-select-item.active').data('min');
     var $max_deposit = $('.miner-select').find('.miner-select-item.active').data('max');
     var $prefix = $('.miner-select').find('.miner-select-item.active').data('prefix');
@@ -17,7 +15,8 @@
 
     var $hashing_difficulty = $('.miner-select').find('.miner-select-item.active').data('difficulty');
     var $hashing_reward_block = $('.miner-select').find('.miner-select-item.active').data('reward');
-    var $hashRate = hashRate($from);
+    var $coin_price = $('.miner-select').find('.miner-select-item.active').data('coin');
+
     var $n = 1;
     var $s = 86400;
     var $investition_input = $('#data-input-price');
@@ -28,7 +27,8 @@
     var $year_income = $('.calculate-earnings__calculator-results').find('#year');
     var gpuPower = $('.calculate-earnings__wrap').find('#gpu-power');
     var gpuLvl = $('.calculate-earnings__wrap').find('#gpuLvl');
-    var bonus_html = $('.calculate-earnings__wrap').find('#bonus_html');
+    var power_consumption_cost = "{{ ($pageData['cost_per_kwh'] * ($pageData['power_consumption'] / 1000)) * 24 }}";
+    
     setup.ionRangeSlider({
         min: $min,
         max: $max,
@@ -43,14 +43,7 @@
             var $money = $average * $item_price;
             $investition_input.val(Math.round($money));
             $average_input.val($average);
-            var $income_calc = getProfit($average,30);
-
-            var $month_calc = ($income_calc).toFixed(2);
-            var $year_calc = ($month_calc * 12).toFixed(2);
-            var $daily_calc = ($month_calc / 30).toFixed(2);
-            $daily_income.html('$' + $daily_calc);
-            $month_income.html('$' + $month_calc);
-            $year_income.html('$' + $year_calc);
+            getProfit($average);
         },
         onChange: function (data) {
             console.log(data)
@@ -58,66 +51,67 @@
             var $money = $average * $item_price;
             $investition_input.val(Math.round($money));
             $average_input.val($average);
-            // var $income_calc = ($money / 100) * $profit_rate;
-            var $income_calc = getProfit($average,30);
-            
-            var $month_calc = ($income_calc).toFixed(2);
-            var $year_calc = ($month_calc * 12).toFixed(2);
-            var $daily_calc = ($month_calc / 30).toFixed(2);
-
-            $daily_income.html('$' + $daily_calc);
-            $month_income.html('$' + $month_calc);
-            $year_income.html('$' + $year_calc);
+            getProfit($average);
         },
         onUpdate: function (data) {
             console.log('here i am onUpdate')
             var $average = data.from;
             var $money = $average * $item_price;
-            var $income_calc = getProfit($average,30);
-
-            var $month_calc = ($income_calc).toFixed(2);
-            var $year_calc = ($month_calc * 12).toFixed(2);
-            var $daily_calc = ($month_calc / 30).toFixed(2);
-            $daily_income.html('$' + $daily_calc);
-            $month_income.html('$' + $month_calc);
-            $year_income.html('$' + $year_calc);
+            $average_input.val($average);
+            getProfit($average);
         }
     });
 
-    function getProfit(p,n) {
-        var hash = p * 1000000000000;
-        return (hash*$hashing_reward_block*n*$s)/($hashing_difficulty*4294967296)
+    function getProfit(p) {
+
+        var H = p * 1000000000000; //Converting TaraHash to Hash
+        
+        if($system !== 1 && $system !== "1")
+            H = p * 1000000; //Converting megaHash to hash
+
+        var D = $hashing_difficulty;
+        var B = $hashing_reward_block;
+        var N = 1;
+        var S = 86400;
+
+        var upper = (B * H * S);
+        var lower = ( D * 4294967296 );
+
+        var btc_production = upper / lower;
+        console.log("Production= " + btc_production);
+        var result = ( $coin_price / (1 / btc_production) ) - power_consumption_cost;
+        
+        var $daily_calc = (result).toFixed(2);
+        var $month_calc = ($daily_calc * 30).toFixed(2);
+        var $year_calc = ($daily_calc * 365).toFixed(2);
+
+        $daily_income.html('$' + $daily_calc);
+        $month_income.html('$' + $month_calc);
+        $year_income.html('$' + $year_calc);
     }
 
-    function hashRate(from) {
-        return from * 1000000000000
-    }
-    
 
     instance = setup.data("ionRangeSlider");
     $('.miner-select').on('click', '.miner-select-item:not(.active)', function (event) {
         $(this).closest('.miner-select').find('.miner-select-item').removeClass('active');
         $(this).addClass('active');
-        $bonus = $(this).data('bonus');
         $item_price = $(this).data('price');
-        $profit_rate = $(this).data('profit');
         $min_deposit = $(this).data('min');
         $max_deposit = $(this).data('max');
         $prefix = $(this).data('prefix');
         $step = $(this).data('step');
         $system = $(this).data('system');
-        if ($bonus > 0) {
-            bonus_html.find('input').show();
-            bonus_html.find('label').html('+' + $bonus + '% ' + variable4);
-        } else {
-            bonus_html.find('input').hide();
-            bonus_html.find('label').html(variable5);
-        }
+       
         $calc_min = $min_deposit / $item_price;
         $calc_max = $max_deposit / $item_price;
         $min = $calc_min.toFixed(2);
         $max = $calc_max.toFixed(2);
         $from = $calc_min.toFixed(2);
+
+        console.log("miner-select-no-click");
+        $hashing_difficulty = $(this).data('difficulty');
+        $hashing_reward_block = $(this).data('reward');
+        $coin_price = $(this).data('coin');
 
         instance.update({
             min: $min,
@@ -156,14 +150,7 @@
                 var $average = data.from;
                 var $money = $average * $item_price;
                 $investition_input.val(Math.round($money));
-                var $income_calc = ($money / 100) * $profit_rate;
-               
-                var $daily_calc = ($income_calc / 30).toFixed(2);
-                var $month_calc = ($daily_calc * 30).toFixed(2);
-                var $year_calc = ($month_calc * 12).toFixed(2);
-                $daily_income.html('$' + $daily_calc);
-                $month_income.html('$' + $month_calc);
-                $year_income.html('$' + $year_calc);
+                getProfit($average);
             }
         });
     });
@@ -188,14 +175,7 @@
                 var $average = data.from;
                 var $money = $average * $item_price;
                 $average_input.val($average);
-                var $income_calc = ($money / 100) * $profit_rate;
-                
-                var $daily_calc = ($income_calc / 30).toFixed(2);
-                var $month_calc = ($daily_calc * 30).toFixed(2);
-                var $year_calc = ($month_calc * 12).toFixed(2);
-                $daily_income.html('$' + $daily_calc);
-                $month_income.html('$' + $month_calc);
-                $year_income.html('$' + $year_calc);
+                getProfit($average);
             }
         });
     });
