@@ -21,14 +21,23 @@
     var $s = 86400;
     var $investition_input = $('#data-input-price');
     var $average_input = $('#data-input-ghs');
+    var $average_input_home = $('#data-input-ghs-home');
+
     var $prefix_power_input = $('.input-prefix');
+
     var $daily_income = $('.calculate-earnings__calculator-results').find('#daily');
     var $month_income = $('.calculate-earnings__calculator-results').find('#month');
     var $year_income = $('.calculate-earnings__calculator-results').find('#year');
+
+    var $daily_income_home = $('.calculate-earnings__calculator-results').find('#daily_home');
+    var $month_income_home = $('.calculate-earnings__calculator-results').find('#month_home');
+    var $year_income_home = $('.calculate-earnings__calculator-results').find('#year_home');
+
     var gpuPower = $('.calculate-earnings__wrap').find('#gpu-power');
     var gpuLvl = $('.calculate-earnings__wrap').find('#gpuLvl');
     var power_consumption_cost = "{{ ($pageData['cost_per_kwh'] * ($pageData['power_consumption'] / 1000)) * 24 }}";
-    
+    var power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * "{{ ($pageData['power_consumption'] / 1000) }}" ) * 24;
+
     setup.ionRangeSlider({
         min: $min,
         max: $max,
@@ -79,6 +88,7 @@
 
         var btc_production = upper / lower;
         console.log("Production= " + btc_production);
+
         var result = ( $coin_price / (1 / btc_production) ) - power_consumption_cost;
         
         var $daily_calc = (result).toFixed(2);
@@ -88,6 +98,16 @@
         $daily_income.html('$' + $daily_calc);
         $month_income.html('$' + $month_calc);
         $year_income.html('$' + $year_calc);
+
+        var result_home = ( $coin_price / (1 / btc_production) ) - power_consumption_cost_home;
+        var $daily_calc_home = (result_home).toFixed(2);
+        var $month_calc_home = ($daily_calc_home * 30).toFixed(2);
+        var $year_calc_home = ($daily_calc_home * 365).toFixed(2);
+
+        $daily_income_home.html('$' + $daily_calc_home);
+        $month_income_home.html('$' + $month_calc_home);
+        $year_income_home.html('$' + $year_calc_home);
+        
     }
 
 
@@ -125,6 +145,29 @@
         $investition_input.val($min_deposit);
         $average_input.val($min);
         $prefix_power_input.html($prefix);
+    });
+
+
+    $average_input_home.on("change", function () {
+
+        var val = $(this).val();
+        val = parseFloat(val).toFixed(2);
+
+        var intRegex = /^\d+$/;
+        var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
+        if ( (!intRegex.test(val)) && (!floatRegex.test(val)) )  {
+            val = 0.2;
+        }
+      
+        $average_input_home.val(val);
+        power_consumption_cost_home =  ( val * "{{ ($pageData['power_consumption'] / 1000) }}" ) * 24;
+
+        instance.update({
+            from: val, step: $step, onUpdate: function (data) {
+                var $average = data.from;
+                getProfit($average);
+            }
+        });
     });
 
 
