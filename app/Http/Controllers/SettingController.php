@@ -58,6 +58,10 @@ class SettingController extends Controller
             'site_name'=>'required',
             'account_number'=>'required',
             'swift_bic'=>'required',
+            'price_th' => 'required',
+            'cost_per_kwh' => 'required',
+            'power_consumption' => 'required',
+            'maintenance_fee' => 'required'
         ]);
 
         $record = Setting::first();
@@ -80,6 +84,10 @@ class SettingController extends Controller
         $record->site_name = $request->site_name;
         $record->account_number = $request->account_number;
         $record->swift_bic = $request->swift_bic;
+        $record->price_th = $request->price_th;
+        $record->cost_per_kwh = $request->cost_per_kwh;
+        $record->power_consumption = $request->power_consumption;
+        $record->maintenance_fee = $request->maintenance_fee;
         $record->save();
         return [array("success" => "Settings updated successfully")];
     }

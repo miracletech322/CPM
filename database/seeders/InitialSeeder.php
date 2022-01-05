@@ -37,7 +37,7 @@ class InitialSeeder extends Seeder
                 [
                     "site_logo" => "",
                     "site_name" => "Folex Mining",
-                    "price_th" => "0.0103",
+                    "price_th" => "5",
                     "cost_per_kwh" => "0.067",
                     "power_consumption" => "3250",
                     "maintenance_fee" => "15"
