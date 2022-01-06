@@ -1,4 +1,5 @@
 <script>
+
     var setup = $(".miner-setup");
     var $item_price = $('.miner-select').find('.miner-select-item.active').data('price');
     var $min_deposit = $('.miner-select').find('.miner-select-item.active').data('min');
@@ -38,7 +39,6 @@
 
     var power_consumption_cost =  0;
     var power_consumption_cost_home = 0;
-
 
 
     setup.ionRangeSlider({
@@ -150,7 +150,7 @@
         var B = $hashing_reward_block;
         var S = 86400;
 
-        var equi_production = (H * B) / (D * S);
+        var equi_production =   ((H * B) / (D * 6000) ) * S;
 
         console.log("result= "+ equi_production);
         power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;

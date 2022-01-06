@@ -50,7 +50,7 @@ class InitialSeeder extends Seeder
 
                     "equi_price_kh" => "5",
                     "equi_cost_per_kwh" => "0.12",
-                    "equi_power_consumption" => "100",
+                    "equi_power_consumption" => "10",
                     "equi_maintenance_fee" => "15"
                 ],
             ]
