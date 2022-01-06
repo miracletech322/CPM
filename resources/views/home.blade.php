@@ -175,11 +175,11 @@
                 <div class="calculate-earnings__calculator-data-item-select">
 
                     <div class="miner-select">
-                        <div class="miner-select-item active" data-system="1" data-price="{{$pageData['price_th']}}" data-coin="{{$pageData['sha_256']->price}}" data-difficulty="{{$pageData['sha_256']->difficulty}}" data-reward="{{$pageData['sha_256']->reward_block}}" data-min="250" data-max="50000" data-step="0.001" data-prefix=" TH/s">SHA-256
+                        <div class="miner-select-item active" data-system="1" data-price="{{$pageData['sha_price_th']}}" data-cost="{{$pageData['sha_cost_per_kwh']}}" data-consumption="{{$pageData['sha_power_consumption']}}" data-coin="{{$pageData['sha_256']->price}}" data-difficulty="{{$pageData['sha_256']->difficulty}}" data-reward="{{$pageData['sha_256']->reward_block}}" data-min="250" data-max="50000" data-step="0.001" data-prefix=" TH/s">SHA-256
                         </div>
-                        <div class="miner-select-item" data-system="2" data-price="{{(($pageData['price_th'])/1000)/1000}}" data-coin="{{$pageData['sha_256']->price}}" data-difficulty="{{$pageData['ethash']->difficulty}}" data-reward="{{$pageData['ethash']->reward_block}}" data-min="250" data-max="50000" data-step=".01" data-prefix=" MH/s">Ethash
+                        <div class="miner-select-item" data-system="2" data-price="{{($pageData['eth_price_mh'])}}" data-cost="{{$pageData['eth_cost_per_kwh']}}" data-consumption="{{$pageData['eth_power_consumption']}}" data-coin="{{$pageData['ethash']->price}}" data-difficulty="{{$pageData['ethash']->difficulty}}" data-reward="{{$pageData['ethash']->reward_block}}" data-min="250" data-max="50000" data-step="0.001" data-prefix=" MH/s">Ethash
                         </div>
-                        <div class="miner-select-item" data-system="3" data-price="{{(($pageData['price_th'])/1000)/1000}}" data-coin="{{$pageData['sha_256']->price}}" data-difficulty="{{$pageData['equihash']->difficulty}}" data-reward="{{$pageData['equihash']->reward_block}}" data-min="250" data-max="50000" data-step="1" data-prefix=" MH/s">Equihash
+                        <div class="miner-select-item" data-system="3" data-price="{{($pageData['equi_price_kh'])}}" data-cost="{{$pageData['equi_cost_per_kwh']}}" data-consumption="{{$pageData['equi_power_consumption']}}" data-coin="{{$pageData['equihash']->price}}" data-difficulty="{{$pageData['equihash']->difficulty}}" data-reward="{{$pageData['equihash']->reward_block}}" data-min="250" data-max="50000" data-step="0.001" data-prefix=" KH/s">Equihash
                         </div>
                     </div>
                 </div>

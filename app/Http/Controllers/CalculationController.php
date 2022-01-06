@@ -11,14 +11,25 @@ class CalculationController extends Controller
     {
         
         $pageData['sha_256'] = $this->getValue("SHA-256"); //BTC
-        $pageData['ethash'] = $this->getValue("Ethash"); //AKA
-        $pageData['equihash'] = $this->getValue("Equihash"); //CMM
+        $pageData['ethash'] = $this->getValue("Ethash"); //AKA //ETH
+        $pageData['equihash'] = $this->getValue("Equihash"); //CMM //ZEC
 
         $settings = Setting::first();
-        $pageData["price_th"] = $settings->price_th;
-        $pageData["cost_per_kwh"] = $settings->cost_per_kwh;
-        $pageData["power_consumption"] = $settings->power_consumption;
-        $pageData["maintenance_fee"] = $settings->maintenance_fee;
+        
+        $pageData["sha_price_th"] = $settings->sha_price_th;
+        $pageData["sha_cost_per_kwh"] = $settings->sha_cost_per_kwh;
+        $pageData["sha_power_consumption"] = $settings->sha_power_consumption;
+        $pageData["sha_maintenance_fee"] = $settings->sha_maintenance_fee;
+
+        $pageData["eth_price_mh"] = $settings->eth_price_mh;
+        $pageData["eth_cost_per_kwh"] = $settings->eth_cost_per_kwh;
+        $pageData["eth_power_consumption"] = $settings->eth_power_consumption;
+        $pageData["eth_maintenance_fee"] = $settings->eth_maintenance_fee;
+
+        $pageData["equi_price_kh"] = $settings->equi_price_kh;
+        $pageData["equi_cost_per_kwh"] = $settings->equi_cost_per_kwh;
+        $pageData["equi_power_consumption"] = $settings->equi_power_consumption;
+        $pageData["equi_maintenance_fee"] = $settings->equi_maintenance_fee;
 
         // return $pageData;
         return view('home')->with('pageData',$pageData);
@@ -45,7 +56,7 @@ class CalculationController extends Controller
         $data = json_decode($response);
         foreach($data as $key => $d)
         {
-            if($d->coin == "BTC" || $d->coin == "CMM" || $d->coin == "AKA")
+            if($d->coin == "BTC" || $d->coin == "ZEC" || $d->coin == "ETH")
                 return $d;
         }
     }

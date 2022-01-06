@@ -58,10 +58,21 @@ class SettingController extends Controller
             'site_name'=>'required',
             'account_number'=>'required',
             'swift_bic'=>'required',
-            'price_th' => 'required',
-            'cost_per_kwh' => 'required',
-            'power_consumption' => 'required',
-            'maintenance_fee' => 'required'
+
+            'sha_price_th' => 'required',
+            'sha_cost_per_kwh' => 'required',
+            'sha_power_consumption' => 'required',
+            'sha_maintenance_fee' => 'required',
+
+            'eth_price_mh' => 'required',
+            'eth_cost_per_kwh' => 'required',
+            'eth_power_consumption' => 'required',
+            'eth_maintenance_fee' => 'required',
+
+            'equi_price_kh' => 'required',
+            'equi_cost_per_kwh' => 'required',
+            'equi_power_consumption' => 'required',
+            'equi_maintenance_fee' => 'required',
         ]);
 
         $record = Setting::first();
@@ -84,10 +95,23 @@ class SettingController extends Controller
         $record->site_name = $request->site_name;
         $record->account_number = $request->account_number;
         $record->swift_bic = $request->swift_bic;
-        $record->price_th = $request->price_th;
-        $record->cost_per_kwh = $request->cost_per_kwh;
-        $record->power_consumption = $request->power_consumption;
-        $record->maintenance_fee = $request->maintenance_fee;
+
+        $record->sha_price_th = $request->sha_price_th;
+        $record->sha_cost_per_kwh = $request->sha_cost_per_kwh;
+        $record->sha_power_consumption = $request->sha_power_consumption;
+        $record->sha_maintenance_fee = $request->sha_maintenance_fee;
+
+        $record->eth_price_mh = $request->eth_price_mh;
+        $record->eth_cost_per_kwh = $request->eth_cost_per_kwh;
+        $record->eth_power_consumption = $request->eth_power_consumption;
+        $record->eth_maintenance_fee = $request->eth_maintenance_fee;
+        
+        $record->equi_price_kh = $request->equi_price_kh;
+        $record->equi_cost_per_kwh = $request->equi_cost_per_kwh;
+        $record->equi_power_consumption = $request->equi_power_consumption;
+        $record->equi_maintenance_fee = $request->equi_maintenance_fee;
+
+
         $record->save();
         return [array("success" => "Settings updated successfully")];
     }

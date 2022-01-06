@@ -35,8 +35,11 @@
 
     var gpuPower = $('.calculate-earnings__wrap').find('#gpu-power');
     var gpuLvl = $('.calculate-earnings__wrap').find('#gpuLvl');
-    var power_consumption_cost = "{{ ($pageData['cost_per_kwh'] * ($pageData['power_consumption'] / 1000)) * 24 }}";
-    var power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * "{{ ($pageData['power_consumption'] / 1000) }}" ) * 24;
+
+    var power_consumption_cost =  0;
+    var power_consumption_cost_home = 0;
+
+
 
     setup.ionRangeSlider({
         min: $min,
@@ -73,27 +76,16 @@
 
     function getProfit(p) {
 
-        var H = p * 1000000000000; //Converting TaraHash to Hash
-        
-        if($system !== 1 && $system !== "1")
-            H = p * 1000000; //Converting megaHash to hash
+        if($system === 1 || $system === "1")
+            getProfitSHA(p)
+        else if($system === 2 || $system === "2")
+            getProfitEthash(p)
+        else
+            getProfitEquihash(p);
+    }
 
-        var D = $hashing_difficulty;
-        var B = $hashing_reward_block;
-        var N = 1;
-        var S = 86400;
+    function setResult(result , result_home){
 
-        var upper = (B * H * S);
-        var lower = ( D * 4294967296 );
-
-        var btc_production = upper / lower;
-        console.log("Production= " + btc_production);
-
-        power_consumption_cost = ("{{ ($pageData['cost_per_kwh'] * ($pageData['power_consumption'] / 1000)) * 24 }}") * p;
-        power_consumption_cost_home =  (( $('#data-input-ghs-home').val() * "{{ ($pageData['power_consumption'] / 1000) }}" ) * 24) * p;
-
-        var result = ( $coin_price / (1 / btc_production) ) - power_consumption_cost;
-        
         var $daily_calc = (result).toFixed(2);
         var $month_calc = ($daily_calc * 30).toFixed(2);
         var $year_calc = ($daily_calc * 365).toFixed(2);
@@ -102,15 +94,72 @@
         $month_income.html('$' + $month_calc);
         $year_income.html('$' + $year_calc);
 
-        var result_home = ( $coin_price / (1 / btc_production) ) - power_consumption_cost_home;
         var $daily_calc_home = (result_home).toFixed(2);
         var $month_calc_home = ($daily_calc_home * 30).toFixed(2);
         var $year_calc_home = ($daily_calc_home * 365).toFixed(2);
-
+        
         $daily_income_home.html('$' + $daily_calc_home);
         $month_income_home.html('$' + $month_calc_home);
-        $year_income_home.html('$' + $year_calc_home);
-        
+        $year_income_home.html('$' + $year_calc_home); 
+
+    }
+
+    function getProfitSHA(p){
+
+        var H = p * 1000000000000; //Converting TaraHash to Hash
+        var D = $hashing_difficulty;
+        var B = $hashing_reward_block;
+        var S = 86400;
+
+        var upper = (B * H * S);
+        var lower = ( D * 4294967296 );
+        var btc_production = upper / lower;
+
+        power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
+
+        power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
+
+        var result = ( $coin_price / (1 / btc_production) ) - power_consumption_cost;
+        var result_home = ( $coin_price / (1 / btc_production) ) - power_consumption_cost_home;
+        setResult(result, result_home);
+    }
+
+
+    function getProfitEthash(p){
+
+        var H = p * 1000000; //Converting megaHash to Hash
+        var D = $hashing_difficulty;
+        var B = $hashing_reward_block;
+        var S = 86400;
+
+        var eth_production = ((H * B) / D) * S;
+
+        power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
+
+        power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
+
+        var result = ( $coin_price / (1 / eth_production) ) - power_consumption_cost;
+        var result_home = ( $coin_price / (1 / eth_production) ) - power_consumption_cost_home;
+        setResult(result, result_home);
+    }
+
+    function getProfitEquihash(p){
+
+        var H = p * 1000; //Converting megaHash to Hash
+        var D = $hashing_difficulty;
+        var B = $hashing_reward_block;
+        var S = 86400;
+
+        var equi_production = (H * B) / (D * S);
+
+        console.log("result= "+ equi_production);
+        power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
+
+        power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
+
+        var result = ( $coin_price / (1 / equi_production) ) - power_consumption_cost;
+        var result_home = ( $coin_price / (1 / equi_production) ) - power_consumption_cost_home;
+        setResult(result, result_home);
     }
 
 
@@ -154,7 +203,7 @@
     $average_input_home.on("change", function () {
 
         var val = $(this).val();
-        val = parseFloat(val).toFixed(2);
+        val = Math.round(val);
 
         var intRegex = /^\d+$/;
         var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
@@ -174,7 +223,7 @@
 
     $average_input.on("change", function () {
         var val = $(this).val();
-        val = $system == 2 ? parseFloat(val).toFixed(2) : Math.round(val);
+        val = Math.round(val);
         console.log(val, $min, $max);
 
         var intRegex = /^\d+$/;

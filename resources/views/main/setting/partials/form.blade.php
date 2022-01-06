@@ -35,29 +35,86 @@
 
 
     <div class="row form-group">
-        <b>Calculator Settings</b>
+        <b>Calculator Settings (SHA-256)</b>
     </div>
     <div class="row form-group mb-3">
         <div class="col-md-6">
-            <label for="price_th">Price of 1TH/s ($)<i class="text-danger">*</i></label>
-            <input value="{{@$record->price_th}}" placeholder="Enter Price of 1TH/s" class="form-control" name="price_th" id="price_th" type="text">
+            <label for="sha_price_th">Price of 1TH/s ($)<i class="text-danger">*</i></label>
+            <input value="{{@$record->sha_price_th}}" placeholder="Enter Price" class="form-control" name="sha_price_th" id="sha_price_th" type="text">
         </div>
 
         <div class="col-md-6">
-            <label for="cost_per_kwh">Cost per (KWh) <i class="text-danger">*</i></label>
-            <input value="{{@$record->cost_per_kwh}}" placeholder="Enter Cost Per KWh" class="form-control" name="cost_per_kwh" id="cost_per_kwh" type="text">
+            <label for="sha_cost_per_kwh">Cost per (KWh) <i class="text-danger">*</i></label>
+            <input value="{{@$record->sha_cost_per_kwh}}" placeholder="Enter Cost" class="form-control" name="sha_cost_per_kwh" id="sha_cost_per_kwh" type="text">
+        </div>
+    </div>
+
+    <div class="row form-group mb-5">
+        <div class="col-md-6">
+            <label for="sha_power_consumption">Power Consumption (w / 1TH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->sha_power_consumption}}" placeholder="Enter Power Consumption" class="form-control" name="sha_power_consumption" id="sha_power_consumption" type="text">
+        </div>
+
+        <div class="col-md-6">
+            <label for="sha_maintenance_fee">Maintenance Fee (Percentage) <i class="text-danger">*</i></label>
+            <input value="{{@$record->sha_maintenance_fee}}" placeholder="Enter Maintenance Fee" class="form-control" name="sha_maintenance_fee" id="sha_maintenance_fee" type="text">
+        </div>
+    </div>
+
+
+
+    <div class="row form-group">
+        <b>Calculator Settings (Ethash)</b>
+    </div>
+    <div class="row form-group mb-3">
+        <div class="col-md-6">
+            <label for="eth_price_mh">Price of 1MH/s ($)<i class="text-danger">*</i></label>
+            <input value="{{@$record->eth_price_mh}}" placeholder="Enter Price" class="form-control" name="eth_price_mh" id="eth_price_mh" type="text">
+        </div>
+
+        <div class="col-md-6">
+            <label for="eth_cost_per_kwh">Cost per (KWh) <i class="text-danger">*</i></label>
+            <input value="{{@$record->eth_cost_per_kwh}}" placeholder="Enter Cost" class="form-control" name="eth_cost_per_kwh" id="eth_cost_per_kwh" type="text">
+        </div>
+    </div>
+
+    <div class="row form-group mb-5">
+        <div class="col-md-6">
+            <label for="eth_power_consumption">Power Consumption (w / 1MH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->eth_power_consumption}}" placeholder="Enter Power Consumption" class="form-control" name="eth_power_consumption" id="eth_power_consumption" type="text">
+        </div>
+
+        <div class="col-md-6">
+            <label for="eth_maintenance_fee">Maintenance Fee (Percentage) <i class="text-danger">*</i></label>
+            <input value="{{@$record->eth_maintenance_fee}}" placeholder="Enter Maintenance Fee" class="form-control" name="eth_maintenance_fee" id="eth_maintenance_fee" type="text">
+        </div>
+    </div>
+
+
+    <div class="row form-group">
+        <b>Calculator Settings (Equihash)</b>
+    </div>
+    <div class="row form-group mb-3">
+        <div class="col-md-6">
+            <label for="equi_price_kh">Price of 1KH/s ($)<i class="text-danger">*</i></label>
+            <input value="{{@$record->equi_price_kh}}" placeholder="Enter Price" class="form-control" name="equi_price_kh" id="equi_price_kh" type="text">
+        </div>
+
+        <div class="col-md-6">
+            <label for="equi_cost_per_kwh">Cost per (KWh) <i class="text-danger">*</i></label>
+            <input value="{{@$record->equi_cost_per_kwh}}" placeholder="Enter Cost" class="form-control" name="equi_cost_per_kwh" id="equi_cost_per_kwh" type="text">
         </div>
     </div>
 
     <div class="row form-group mb-3">
         <div class="col-md-6">
-            <label for="power_consumption">Power Consumption (w / 1TH-s) <i class="text-danger">*</i></label>
-            <input value="{{@$record->power_consumption}}" placeholder="Enter Power Consumption" class="form-control" name="power_consumption" id="power_consumption" type="text">
+            <label for="equi_power_consumption">Power Consumption (w / 1KH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->equi_power_consumption}}" placeholder="Enter Power Consumption" class="form-control" name="equi_power_consumption" id="equi_power_consumption" type="text">
         </div>
 
         <div class="col-md-6">
-            <label for="maintenance_fee">Maintenance Fee (Percentage) <i class="text-danger">*</i></label>
-            <input value="{{@$record->maintenance_fee}}" placeholder="Enter Maintenance Fee" class="form-control" name="maintenance_fee" id="maintenance_fee" type="text">
+            <label for="equi_maintenance_fee">Maintenance Fee (Percentage) <i class="text-danger">*</i></label>
+            <input value="{{@$record->equi_maintenance_fee}}" placeholder="Enter Maintenance Fee" class="form-control" name="equi_maintenance_fee" id="equi_maintenance_fee" type="text">
         </div>
     </div>
    
