@@ -16,6 +16,7 @@
 
     var $hashing_difficulty = $('.miner-select').find('.miner-select-item.active').data('difficulty');
     var $hashing_reward_block = $('.miner-select').find('.miner-select-item.active').data('reward');
+    var $network_hashrate = $('.miner-select').find('.miner-select-item.active').data('network');
     var $coin_price = $('.miner-select').find('.miner-select-item.active').data('coin');
 
     var $n = 1;
@@ -112,7 +113,7 @@
         var S = 86400;
 
         var upper = (B * H * S);
-        var lower = ( D * 4294967296 );
+        var lower = ( D * 4294967296 ); //4294967296 = 2^32
         var btc_production = upper / lower;
 
         power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
@@ -148,9 +149,14 @@
         var H = p * 1000; //Converting megaHash to Hash
         var D = $hashing_difficulty;
         var B = $hashing_reward_block;
+        var N = $network_hashrate
         var S = 86400;
 
-        var equi_production =   ((H * B) / (D * 6000) ) * S;
+        var equi_production =   ((H * B) / (D * 3600) ) * S;
+        //var equi_production = (N / (H * B) ) / S;
+        //var equi_production = (H / N) / (150 * S * B)    //150 = 2.5mins = block time
+        //var equi_production = (H * B * S) / (D * 4294967296)
+        //var equi_production = H / (D / (150 * 8192)) / (150 * S * B)
 
         console.log("result= "+ equi_production);
         power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
@@ -183,6 +189,7 @@
         console.log("miner-select-no-click");
         $hashing_difficulty = $(this).data('difficulty');
         $hashing_reward_block = $(this).data('reward');
+        $network_hashrate = $(this).data('network');
         $coin_price = $(this).data('coin');
 
         instance.update({
