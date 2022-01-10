@@ -279,6 +279,8 @@
 
     </div>
 </section>
+
+
 <section class="ico-apps parallax-2 lightskyblue pt-100">
     <div class="container">
         <div class="row">
@@ -556,5 +558,5 @@
 </section>
 @endsection
 @section('js')
-@include('home_js')
+@include('shared.calculator_js')
 @endsection

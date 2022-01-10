@@ -23,7 +23,7 @@
                                     <i data-acorn-icon="dollar" class="text-primary"></i>
                                 </div>
                                 <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Your balance</div>
-                                <div class="text-primary cta-4">0.00000000</div>
+                                <div class="text-primary cta-4">$ {{to_cash_format(0.00000000)}}</div>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                             <div class="cta-3 "></div>
                             <div class="mb-3 cta-3 text-primary">You have no miners</div>
                         </div>
-                        <a href="#" class="btn btn-icon btn-icon-start btn-outline-primary stretched-link">
+                        <a href="{{url('miners/create')}}" class="btn btn-icon btn-icon-start btn-outline-primary stretched-link">
                             <i data-acorn-icon="plus"></i>
                             <span>Add Miner</span>
                         </a>

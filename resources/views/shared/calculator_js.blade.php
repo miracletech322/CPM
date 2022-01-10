@@ -7,7 +7,7 @@
     var $prefix = $('.miner-select').find('.miner-select-item.active').data('prefix');
     var $step = $('.miner-select').find('.miner-select-item.active').data('step');
     var $system = $('.miner-select').find('.miner-select-item.active').data('system');
-    var instance;
+    var calculator;
     var $calc_min = $min_deposit / $item_price;
     var $calc_max = $max_deposit / $item_price;
     var $min = $calc_min.toFixed(2);
@@ -169,7 +169,7 @@
     }
 
 
-    instance = setup.data("ionRangeSlider");
+    calculator = setup.data("ionRangeSlider");
     $('.miner-select').on('click', '.miner-select-item:not(.active)', function (event) {
         $(this).closest('.miner-select').find('.miner-select-item').removeClass('active');
         $(this).addClass('active');
@@ -192,7 +192,7 @@
         $network_hashrate = $(this).data('network');
         $coin_price = $(this).data('coin');
 
-        instance.update({
+        calculator.update({
             min: $min,
             max: $max,
             from: $from,
@@ -219,7 +219,7 @@
         }
       
         $average_input_home.val(val);
-        instance.update({
+        calculator.update({
             from: $average_input.val(), step: $step, onUpdate: function (data) {
                 var $average = data.from
                 getProfit($average);
@@ -245,7 +245,7 @@
         }
 
         $average_input.val(val);
-        instance.update({
+        calculator.update({
             from: val, step: $step, onUpdate: function (data) {
                 var $average = data.from;
                 var $money = $average * $item_price;
@@ -270,7 +270,7 @@
             $investition_input.val($min_deposit);
         }
         $calc = val / $item_price;
-        instance.update({
+        calculator.update({
             from: $calc, onUpdate: function (data) {
                 var $average = data.from;
                 var $money = $average * $item_price;

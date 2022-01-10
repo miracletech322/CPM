@@ -29,7 +29,7 @@ function to_time($time){
 }
 
 function to_cash_format($number){
-    return number_format ( (float) $number, 2 , '.','' );
+    return number_format ( (float) $number, 6 , '.','' );
 }
 
 

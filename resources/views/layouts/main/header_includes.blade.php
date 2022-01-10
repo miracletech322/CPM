@@ -24,6 +24,12 @@
 <link rel="preconnect" href="{{asset('backend')}}/https://fonts.gstatic.com/">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/style.css">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/cal/ion.rangeSlider.css">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/cal/adstyle_backend.css">
+
 <link rel="stylesheet" href="{{asset('backend')}}/font/CS-Interface/style.css">
 
 <link rel="stylesheet" href="{{asset('template/css/bootstrap.css')}}" id="bscss">

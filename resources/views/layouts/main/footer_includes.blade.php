@@ -43,3 +43,7 @@
         $("."+active_item).addClass("active");
     });
 </script>
+
+
+<script src="{{asset('frontend')}}/js/custom.js"></script>
+<script src="{{asset('frontend')}}/cal/ion.rangeSlider.min.js"></script>
