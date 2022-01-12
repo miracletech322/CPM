@@ -217,6 +217,12 @@ function copy_url(url){
 }
 
 
+function show_global_modal(title, body){
+    $(".global-modal-title").html(title);
+    $(".global-modal-body").html(body);
+    $('.global-modal').modal('show');
+}
+
 
 
 function setAlert(msg, type, tip = 0) {

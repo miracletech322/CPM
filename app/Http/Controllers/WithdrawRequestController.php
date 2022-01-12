@@ -60,9 +60,13 @@ class WithdrawRequestController extends Controller
                 $reject_url = url("reject-withdraw") . "/" . $records->public_id;
                 $reject = "<a data-toggle='tooltip'
                         onclick='goto_url(\"" . $reject_url . "\" , \""."You want to reject this request?"."\" )'
-                        data-placement='left' title='Reject Request' class='fa fa-times  fa-lg action-icon text-danger'></a>";
+                        data-placement='left' title='Reject Request' class='fa fa-times  fa-lg action-icon text-danger'></a>&nbsp;&nbsp;&nbsp;";
 
-                return  $accept . $reject;
+                $global_modal = "<a data-toggle='tooltip'
+                onclick='show_global_modal(\"" . "Additional Details" . "\" , \"". $records->additional_details ."\" )'
+                data-placement='left' title='Additional Information' class='fa fa-list  fa-lg action-icon text-warning'></a>";
+
+                return  $accept . $reject. $global_modal;
             })
             ->rawColumns(['action'])
             ->make(true);
