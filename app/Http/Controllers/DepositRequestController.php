@@ -98,6 +98,7 @@ class DepositRequestController extends Controller
         $ledger->hashing_id = $record->hashing_id;
         $ledger->type = 2;
         $ledger->payment_method = 2;
+        $ledger->action_performmed_by = Auth::user()->id;
         $ledger->save();
 
         //LOGGING PAYMENT

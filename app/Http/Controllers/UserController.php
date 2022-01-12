@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Invoice;
 use App\locationAeds;
 use App\Models\Business;
+use App\Models\Ledger;
 use App\Models\User;
+use App\Models\Wallet;
 use Auth, Hash, File, Image, Session, Str;
 use Yajra\DataTables\DataTables;
 use Carbon\Carbon;
@@ -62,18 +64,14 @@ class UserController extends Controller
             ->addColumn('action', function ($records) {
 
                 $show_url = url("users") . "/" . $records->public_id;
-                $show = "<a data-toggle='tooltip' data-placement='left' href='" . $show_url . "' title='Show Details' class='fa fa-eye  fa-lg action-icon text-warning'></a>&nbsp;&nbsp;&nbsp;";
+                $button = "<a data-toggle='tooltip' data-placement='left' href='" . $show_url . "' title='Show Details' class='fa fa-eye  fa-lg action-icon text-warning'></a>&nbsp;&nbsp;&nbsp;";
 
-                // $edit_url = url("users") . "/" . $records->public_id . "/edit";
-                // $edit = "<a data-toggle='tooltip' data-placement='left' href='" . $edit_url . "' title='Edit' class='fa fa-edit  fa-lg action-icon  text-primary'></a>&nbsp;&nbsp;&nbsp;";
+                if(Auth::user()->role_id == 1){
+                    $ledger_url = url("user-ledger") . "/" . $records->public_id;
+                    $button .= "<a data-toggle='tooltip' data-placement='left' href='" . $ledger_url . "' title='Show User Ledger' class='fa fa-list fa-lg action-icon text-info'></a>";
+                }
 
-                // $delete_url = url("delete-user") . "/" . $records->public_id;
-                // $delete = "<a data-toggle='tooltip'
-                //         onclick='delete_record(\"" . $delete_url . "\" )'
-                //         data-placement='left' title='Delete' class='fa fa-trash  fa-lg action-icon  text-danger'></a>";
-
-                // return  $show . $edit . $delete;
-                return  $show;
+                return  $button;
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -134,6 +132,70 @@ class UserController extends Controller
         $is_show = 1;
         $active_item = "users";
         return view($this->directory . "show", compact('record', 'title_singular', 'directory', 'is_show', 'active_item'));
+    }
+
+
+    public function user_ledger($user_id)
+    {
+        $user = User::where("public_id", $user_id)->first();
+        $wallet = Wallet::where("user_id", $user->id)->first();
+
+        $total_deposited = to_cash_format_small(Ledger::where("user_id", $user->id)->where("type", 2)->sum("amount"));
+        $total_withdrawn = to_cash_format_small(Ledger::where("user_id", $user->id)->where("type", 1)->sum("amount"));
+        $total_earned_referral = to_cash_format_small(Ledger::where("user_id", $user->id)->where("type", 3)->sum("amount"));
+        $total_earned = to_cash_format_small(Ledger::where("user_id", $user->id)->where("type", 4)->sum("amount"));
+        $total_wallet = $wallet ? to_cash_format_small($wallet->balance) : "0.00";
+
+        $title_plurar = "Ledger";
+        $directory = $this->directory;
+        $active_item = "users";
+
+        return view($this->directory . "ledger", compact('title_plurar', 'directory', 'active_item', 'user', 'total_deposited', 'total_withdrawn', 'total_earned_referral', 'total_earned', 'total_wallet'));
+    }
+
+    public $type = [
+        "",
+        "Withdraw",
+        "Deposit",
+        "Referral",
+        "Daily Income (Auto)"
+    ];
+
+    public $method = [
+        "",
+        "Coin",
+        "Bank",
+        "Card",
+        "Referral"
+    ];
+
+    public function user_ledger_listing($id)
+    {
+        $records = Ledger::where("user_id", $id)
+                            ->with('hashings', 'action_by')
+                            ->get();
+
+        return DataTables::of($records)
+            ->addColumn('hashing', function ($records) { //
+                return $records->hashings ? ($records->hashings->name) : '';
+            })
+            ->addColumn('wallet_amount', function ($records) { //
+                return to_cash_format_small($records->current_wallet_balance);
+            })
+            ->addColumn('type', function ($records) { //
+                return $this->type[$records->type];
+            })
+            ->addColumn('transaction_by', function ($records) {
+                return $this->method[$records->payment_method];
+            })
+            ->addColumn('action_by', function ($records) {
+                return $records->action_by ? ($records->action_by->first_name . " " . $records->action_by->last_name) : '';
+            })
+            ->addColumn('action_at', function ($records) { //
+                return to_date($records->created_at, 1);
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
 
 

@@ -94,6 +94,7 @@ class WithdrawRequestController extends Controller
         $ledger->amount = $record->amount_withdraw;
         $ledger->type = 1;
         $ledger->payment_method = 2;
+        $ledger->action_performmed_by = Auth::user()->id;
         $ledger->save();
 
         

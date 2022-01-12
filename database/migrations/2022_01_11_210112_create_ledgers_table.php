@@ -21,7 +21,7 @@ class CreateLedgersTable extends Migration
             $table->string("current_wallet_balance")->nullable()->comment="Wallet balance after action";
             $table->string("amount")->nullable();
             $table->integer("hashing_id")->nullable();
-            $table->string("type")->nullable()->comment="1=withdraw, 2=deposit, 3=referral";
+            $table->string("type")->nullable()->comment="1=withdraw, 2=deposit, 3=referral, 4=daily_income_cron";
             $table->string("payment_method")->nullable()->comment="1=coin, 2=bank, 3=card, 4=referral";
             $table->bigInteger("action_performmed_by")->nullable()->comment="For requests only";
             $table->datetime("action_performmed_at")->nullable()->comment="For requests only";

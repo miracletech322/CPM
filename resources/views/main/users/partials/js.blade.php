@@ -1,11 +1,20 @@
 <script>
     
     var oTable = '';
+    var oLTable = '';
+
     $(function(){
         
         if ($('#datatables').length) {
             make_table();
             $('#datatables').on('draw.dt', function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        }
+
+        if ($('#ledger_datatables').length) {
+            make_ledger_table();
+            $('#ledger_datatables').on('draw.dt', function () {
                 $('[data-toggle="tooltip"]').tooltip();
             });
         }
@@ -60,6 +69,52 @@
                     "targets":[6]
                 }
             ],
+            "order": [
+                [5,'desc']
+            ],
+        });
+
+    }
+
+
+    function make_ledger_table(){
+
+        @if(@$user)
+        url = "{{ url('user-ledger-listing') .'/'. "$user->id" }}";
+        @endif
+
+        var table = $('#ledger_datatables');
+        oLTable = table.DataTable({
+            destroy: true,
+            processing: true,
+            serverSide: true,
+            iDisplayLength: 25,
+            responsive: true,
+            oLanguage: {
+                sSearch: '<em class="fa fa-search"></em>',
+                sLengthMenu: '_MENU_ records per page',
+                info: 'Showing page _PAGE_ of _PAGES_',
+                zeroRecords: 'Nothing found - sorry',
+                infoEmpty: 'No records available',
+                infoFiltered: '(filtered from _MAX_ total records)',
+                oPaginate: {
+                    sNext: '<em class="fa fa-caret-right"></em>',
+                    sPrevious: '<em class="fa fa-caret-left"></em>'
+                }
+            },
+            ajax: {
+                "url": url,
+                "type": "GET",
+            },
+            columns: [
+                {data: 'wallet_amount', name: 'wallet_amount'},
+                {data: 'hashing', name: 'hashing'},
+                {data: 'type', name: 'type'},
+                {data: 'transaction_by', name: 'transaction_by'},
+                {data: 'action_by', name: 'action_by'},
+                {data: 'action_at', name: 'created_at'},
+            ],
+            fnDrawCallback: function (oSettings) { oLTable.page(oSettings.page) },
             "order": [
                 [5,'desc']
             ],

@@ -84,16 +84,22 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get("processed-withdraw-request", controller_path() . "WithdrawRequestController@processed_withdraw_request");
     Route::get("processed-withdraw-listing", controller_path() . "WithdrawRequestController@processed_withdraw_listing");
 
+    //Ledger
+    Route::get("user-ledger/{user_id}", controller_path() . "UserController@user_ledger");
+    Route::get("user-ledger-listing/{user_id}", controller_path() . "UserController@user_ledger_listing");
+
 });
 
 
 
 //*****************SuperAdmin | Admin*********************/
 Route::group(['middleware' => ['auth', 'role:superadmin|admin']], function () {
+
     //users
     Route::resource("users", controller_path() . "UserController");
     Route::get("user-listing", controller_path() . "UserController@get_listing");
     Route::get("delete-user/{id}", controller_path() . "UserController@destroy");
+    
 });
 
 //*****************User*********************/

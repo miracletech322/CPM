@@ -10,7 +10,6 @@
 @section('content')
 
 <div class="row mt-5">
-
     <div class="col-md-12 mb-2">
         <div class="d-flex">
             <h2 class="small-title me-2"><a href="{{url('admins')}}">Admins</a></h2>
