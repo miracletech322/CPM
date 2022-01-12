@@ -116,6 +116,7 @@ class DepositRequestController extends Controller
         $payment->amount_deposit = $record->amount_deposited;
         $payment->payment_notes = $record->additional_details;
         $payment->auto_payment = 0;
+        $payment->energy_bought = $record->energy_bought;
         $payment->save();
         
         //UPDATING REQUEST

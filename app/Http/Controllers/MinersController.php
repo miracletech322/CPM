@@ -103,6 +103,15 @@ class MinersController extends Controller
 
     }
 
+    public function get_power($hashing, $cash){
+        $pricing = [ "sha_price_th","eth_price_mh", "equi_price_kh"];        
+        $setting = Setting::first();
+        $hashing = in_array($hashing, [1,2,3]) ? $hashing : 1;
+        $hash_price = $pricing[$hashing-1];
+        $p = $cash / $setting->$hash_price;
+        return $p;
+    }
+
     public function process_payment(Request $request){
 
         $payment_method = in_array($request->payment_method, [1,2,3]) ? $request->payment_method : 1;
@@ -157,6 +166,8 @@ class MinersController extends Controller
 
     public function bank_payment(Request $request){
 
+        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
+
         $record = new DepositRequest();
         $record->public_id = (string) Str::uuid();
         $record->user_id = Auth::user()->id;
@@ -165,8 +176,9 @@ class MinersController extends Controller
         $record->action_performed_by = NULL;
         $record->action_performed_at = NULL;
         $record->amount_deposited = $request->cash;
-        $record->hashing_id = $request->hashing;
+        $record->hashing_id = $hashing;
         $record->additional_details = $request->additional_information;
+        $record->energy_bought = $this->get_power($hashing, $request->cash);
         $record->save();
 
         Session::flash('success', 'Your request has been submitted. After verfication your earning will start.');
