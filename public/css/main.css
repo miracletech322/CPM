@@ -91,9 +91,12 @@
     float: right !important;
 }
 
-[name="datatables_length"]{
+[name="datatables_length"] , .dataTables_length label select{
     width: 65px !important;
 }
+
+
+
 
 
 div.dataTables_wrapper table.dataTable {
@@ -136,4 +139,9 @@ html[data-footer=true] #root>footer {
 
 body {
     min-height: calc(100vh) !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white;
+    background: #1ea962;
 }

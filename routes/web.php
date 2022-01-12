@@ -46,9 +46,13 @@ Route::get('/clear', function () {
 
 //*****************ALL*********************/
 Route::group(['middleware' => ['auth', 'role:superadmin|admin|user']], function () {
-        Route::get('dashboard', controller_path().'DashboardController@index')->name('dashboard');
-        Route::get("account", controller_path() . "AccountController@edit");
-        Route::post("account/update", controller_path() . "AccountController@update");
+
+    //DASHBOARD
+    Route::get('dashboard', controller_path().'DashboardController@index')->name('dashboard');
+    
+    //ACCOUNT
+    Route::get("account", controller_path() . "AccountController@edit");
+    Route::post("account/update", controller_path() . "AccountController@update");
 });
 
 
@@ -56,21 +60,30 @@ Route::group(['middleware' => ['auth', 'role:superadmin|admin|user']], function 
 //*****************SuperAdmin*********************/
 Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
 
+    //SETTINGS
     Route::resource("settings", controller_path() . "SettingController");
 
+    //ADMIN
     Route::resource("admins", controller_path() . "AdminController");
     Route::get("admin-listing", controller_path() . "AdminController@get_listing");
     Route::get("delete-admins/{id}", controller_path() . "AdminController@destroy");
 
+    //DEPOSIT REQUESTS
+    Route::resource("deposit-requests", controller_path() . "DepositRequestController");
+    Route::get("deposit-requests-listing", controller_path() . "DepositRequestController@get_listing");
+    Route::get("accept-deposit/{id}", controller_path() . "DepositRequestController@accept_deposit");
+    Route::get("reject-deposit/{id}", controller_path() . "DepositRequestController@reject_deposit");
+    Route::get("processed-deposit-request", controller_path() . "DepositRequestController@processed_deposit_request");
+    Route::get("processed-deposit-listing", controller_path() . "DepositRequestController@processed_deposit_listing");
 
-    Route::resource("withdraw-requests", controller_path() . "WithdrawController");
-    Route::get("withdraw-requests-listing", controller_path() . "WithdrawController@get_listing");
+    //WITHDRAW REQUESTS
+    Route::resource("withdraw-requests", controller_path() . "WithdrawRequestController");
+    Route::get("withdraw-requests-listing", controller_path() . "WithdrawRequestController@get_listing");
+    Route::get("accept-withdraw/{id}", controller_path() . "WithdrawRequestController@accept_withdraw");
+    Route::get("reject-withdraw/{id}", controller_path() . "WithdrawRequestController@reject_withdraw");
+    Route::get("processed-withdraw-request", controller_path() . "WithdrawRequestController@processed_withdraw_request");
+    Route::get("processed-withdraw-listing", controller_path() . "WithdrawRequestController@processed_withdraw_listing");
 
-    Route::resource("deposit-requests", controller_path() . "DepositController");
-    Route::get("deposit-requests-listing", controller_path() . "DepositController@get_listing");
-
-    
-    
 });
 
 
@@ -85,10 +98,16 @@ Route::group(['middleware' => ['auth', 'role:superadmin|admin']], function () {
 
 //*****************User*********************/
 Route::group(['middleware' => ['auth','verified','role:user']], function () {
-        Route::resource('/miners', controller_path().'MinersController');
-        Route::get('/pay/miners', controller_path().'MinersController@pay');
-        Route::post('/pay/miners', controller_path().'MinersController@process_payment');
-        Route::resource('/statistics', controller_path().'StatisticsController');
-        Route::resource('/referrals', controller_path().'ReferralsController');
-        Route::resource('/withdraw', controller_path().'WithdrawController');
+        
+    //MINERS
+    Route::resource('/miners', controller_path().'MinersController');
+    Route::get('/pay/miners', controller_path().'MinersController@pay');
+    Route::post('/pay/miners', controller_path().'MinersController@process_payment');
+
+    //WITHDRAW
+    Route::resource('/withdraw', controller_path().'WithdrawController');
+    Route::post('/process-withdraw', controller_path().'WithdrawController@process_withdraw');
+
+    Route::resource('/statistics', controller_path().'StatisticsController');
+    Route::resource('/referrals', controller_path().'ReferralsController');
 });

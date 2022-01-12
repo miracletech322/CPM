@@ -21,10 +21,10 @@ class CreatePaymentsTable extends Migration
             $table->bigInteger("request_id")->nullable()->comment="if deposit request";
             $table->integer("hashing_id")->nullable();
             $table->text("card_data")->nullable();
-            $table->bigInteger("payment_tranfered_to")->nullable(); //weather trasnfered to us or the business users (if null then us)
+            $table->bigInteger("payment_tranfered_to")->nullable();
             $table->string("temp_id", 255)->nullable();
-            $table->string("payment_method")->nullable();
-            $table->string("payment_type")->nullable();
+            $table->string("payment_method")->nullable()->comment="1=card,2=bank,3=coin";
+            $table->string("payment_type")->nullable(); //Deposit (Will be a text)
             $table->string("customer_profile_id", 255)->nullable();
             $table->string("payment_profile_id", 255)->nullable();
             $table->string("transaction_id", 255)->nullable();

@@ -1,5 +1,9 @@
 <script>
     
+    function set_payment_method(payment_method){
+        $("#payment_method").val(payment_method);
+    }
+
     var oTable = '';
     $(function(){
         
@@ -14,7 +18,7 @@
 
     function make_table(){
 
-        url = "{{ url('user-listing') }}";
+        url = "{{ url('admin-listing') }}";
 
         var table = $('#datatables');
         oTable = table.DataTable({
@@ -44,8 +48,7 @@
                 {data: 'fullname', name: 'fullname'},
                 {data: 'email', name: 'email'},
                 {data: 'phone', name: 'phone'},
-                {data: 'wallets', name: 'wallets'},
-                {data: 'role_name', name: 'role_name'},
+                {data: 'user_role', name: 'user_role'},
                 {data: 'added_on', name: 'created_at'},
                 {data: 'action', name: 'action'},
             ],
@@ -53,15 +56,15 @@
             "columnDefs": [
                 {
                     "searchable":false,
-                    "targets":[6]
+                    "targets":[5]
                 },
                 {
                     "orderable":false,
-                    "targets":[6]
+                    "targets":[5]
                 }
             ],
             "order": [
-                [5,'desc']
+                [4,'desc']
             ],
         });
 

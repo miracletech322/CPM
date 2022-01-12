@@ -10,21 +10,21 @@
 @section('content')
 <div class="row mt-5">
     <div class="col-md-12 mb-2">
-        <h2 class="small-title">Users</h2>
+        <a href="{{url('processed-withdraw-request')}}" class="btn btn-theme float-right btn-sm">Processesed Requests</a>
+        <h2 class="small-title">Withdraw Requests</h2>
     </div>
     <div class="col-md-12">
         <div class="card card-default">
             <div class="card-body">
                 @include("shared.alerts")
                 <table id="datatables" class="table table-striped my-4 w-100">
-                    <thead class='theme-color'>
+                    <thead class="theme-color">
                         <tr>
-                             <th>Full Name</th>
+                            <th>Full Name</th>
                             <th>Email</th>
                             <th>Phone Number</th>
-                            <th>User Balance</th>
-                            <th>User Type</th>
-                            <th>Added On</th>
+                            <th>Date Requested</th>
+                            <th>Cash Paid</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

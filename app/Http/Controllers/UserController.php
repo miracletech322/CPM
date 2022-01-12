@@ -43,11 +43,15 @@ class UserController extends Controller
         $records = User::select("users.*", "roles.name")
             ->join("roles", "roles.id", "users.role_id")
             ->where("role_id", 3)
+            ->with('wallets')
             ->get();
 
         return DataTables::of($records)
             ->addColumn('fullname', function ($records) {
                 return $records->first_name . " " . $records->last_name;
+            })
+            ->addColumn('wallets', function ($records) {
+                return $records->wallets ? ("$".to_cash_format_small($records->wallets->balance)) : "$0.00";
             })
             ->addColumn('role_name', function ($records) {
                 return ucfirst($records->name);

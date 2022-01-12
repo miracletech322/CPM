@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('withdraw')}}">
+                    <a href="{{ url('withdraw')}}" class='withdraw'>
                         <i data-acorn-icon="cart" class="icon" data-acorn-size="18"></i>
                         <span class="label">Withdraw</span>
                     </a>

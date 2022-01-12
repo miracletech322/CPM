@@ -38,13 +38,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('withdraw-requests')}}">
+                    <a href="{{ url('withdraw-requests')}}" class='withdraw'>
                         <i class="icon fa fa-money" data-acorn-size="18"></i>
                         <span class="label">Withdraw Requests</span>
                     </a>
                 </li>
                  <li>
-                    <a href="{{ url('deposit-requests')}}">
+                    <a href="{{ url('deposit-requests')}}" class='deposit'>
                         <i class="icon fa fa-money" data-acorn-size="18"></i>
                         <span class="label">Deposit Requests</span>
                     </a>

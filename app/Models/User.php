@@ -72,4 +72,8 @@ class User extends Authenticatable
         return strtolower(Role::where("id" , Auth::User()->role_id)->first()->name);
     }
 
+    public function wallets() {
+        return $this->belongsTo(Wallet::class, 'id', 'user_id');
+    }
+
 }

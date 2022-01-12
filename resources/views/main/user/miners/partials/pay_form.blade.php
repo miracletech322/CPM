@@ -166,7 +166,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="float-left">Additional Information </label>
-                                        <textarea class="form-control" rows=5 name="additional_information"></textarea>
+                                        <textarea class="form-control" rows=5 name="additional_information" placeholder="Enter Additional Information"></textarea>
                                     </div>
                                 </div>
 
