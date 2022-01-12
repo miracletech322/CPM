@@ -1,5 +1,7 @@
 @extends('layouts.main.base')
 
+@section('title') {{$title_singular}} @endsection
+
 @section('content')
 <div class="container">
     <div class="page-title-container">
@@ -10,6 +12,11 @@
                 </a>
                 <h1 class="mb-0 pb-0 display-4" id="title">Welcome, {{Auth()->user()->first_name}}!</h1>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            @include("shared.alerts")
         </div>
     </div>
     <div class="row">

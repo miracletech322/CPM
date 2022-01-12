@@ -1,6 +1,6 @@
 @extends('layouts.main.base')
 
-@section('title') {{ $title_singular }} | Buy @endsection
+@section('title') {{ $title_singular }} | Pay @endsection
 
 @section('css')
 <style type="text/css">
@@ -19,16 +19,18 @@
                     <span class="small-title"></span>
                 </i>
             </div>
-            <h2 class="small-title">Buy</h2>
+            <h2 class="small-title">Pay</h2>
         </div>
     </div>
     <div class="col-md-12">
-        <form action="{{ url('pay/miners') }}" method="GET" files="true" enctype="multipart/form-data">
+        <form action="{{ url('pay/miners') }}" class="ajax-form-success" data-success="{{url('miners')}}" method="POST" files="true" enctype="multipart/form-data">
             @csrf
             <div class="mb-5 text-center">
-                    @include("shared.alerts")
-                    @include($directory . "partials.calculator_form")
-                    <button type="submit" class="btn btn-theme submit-btn">{{@$form_button}}</button>
+                @include($directory . "partials.pay_form")
+                <input type="hidden" name="payment_method" id="payment_method" value="1" />
+                <input type="hidden" name="cash" id="cash" value="{{$cash}}" />
+                <input type="hidden" name="hashing" id="hashing" value="{{$hashing}}" />
+                <button type="submit" class="btn btn-theme submit-btn">{{@$form_button}}</button>
             </div>
         </form>
     </div>
@@ -39,5 +41,5 @@
 
 @section('js')
 @include(@$directory."partials.js")
-@include('shared.calculator_js')
+
 @endsection

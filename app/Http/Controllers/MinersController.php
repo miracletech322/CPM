@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DepositRequest;
 use App\Models\Setting;
+use App\Models\User;
+use Hamcrest\Type\IsNumeric;
 use Illuminate\Http\Request;
+use Auth, Hash, File, Image, Session, Str;
 
 class MinersController extends Controller
 {
@@ -25,41 +29,154 @@ class MinersController extends Controller
     {
 
         $calculationController = new CalculationController();
+        $pageData = $calculationController->get_page_data();
 
-        $pageData['sha_256'] = $calculationController->getValue("SHA-256"); //BTC
-        $pageData['ethash'] = $calculationController->getValue("Ethash"); //AKA //ETH
-        $pageData['equihash'] = $calculationController->getValue("Equihash"); //CMM //ZEC
-
-        $settings = Setting::first();
-        
-        $pageData["sha_price_th"] = $settings->sha_price_th;
-        $pageData["sha_cost_per_kwh"] = $settings->sha_cost_per_kwh;
-        $pageData["sha_power_consumption"] = $settings->sha_power_consumption;
-        $pageData["sha_maintenance_fee"] = $settings->sha_maintenance_fee;
-
-        $pageData["eth_price_mh"] = $settings->eth_price_mh;
-        $pageData["eth_cost_per_kwh"] = $settings->eth_cost_per_kwh;
-        $pageData["eth_power_consumption"] = $settings->eth_power_consumption;
-        $pageData["eth_maintenance_fee"] = $settings->eth_maintenance_fee;
-
-        $pageData["equi_price_kh"] = $settings->equi_price_kh;
-        $pageData["equi_cost_per_kwh"] = $settings->equi_cost_per_kwh;
-        $pageData["equi_power_consumption"] = $settings->equi_power_consumption;
-        $pageData["equi_maintenance_fee"] = $settings->equi_maintenance_fee;
-
-        $form_button = "Buy";
+        $form_button = "Proceed to payment";
         $directory = $this->directory;
         $title_singular = $this->title_singular;
         $active_item = "miners";
         return view($this->directory . "create", compact('form_button', 'title_singular', 'directory', 'active_item', 'pageData'));
 
+    }
+
+    public function pay(Request $request){
+
+        if(!isset($request->hashing)){
+            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+        }
+        else if(!is_numeric($request->hashing)){
+            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+        }
+        else if(!isset($request->cash)){
+            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+        }
+        else if(!is_numeric($request->cash)){
+            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+        }
+        
+        $setting = Setting::first();
+
+        $hashings = [ "SHA-256","Ethash", "Equihash"];
+        $techniques_min = [ "sha_min","eth_min", "equi_min"];
+        $techniques_max = [ "sha_max","eth_max", "equi_max"];
+        $techniques_cost = [ "sha_cost_per_kwh","eth_cost_per_kwh", "equi_cost_per_kwh"];
+        $techniques_consumption = [ "sha_power_consumption","eth_power_consumption", "equi_power_consumption"];
+        $pricing = [ "sha_price_th","eth_price_mh", "equi_price_kh"];        
+        $power_value = [ "TH/s","MH/s", "KH/s"];        
+
+        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
+        $cash  = $request->cash;
+
+        $min = $techniques_min[$hashing-1];
+        $max = $techniques_max[$hashing-1];
+        $techniques_cost = $techniques_cost[$hashing-1];
+        $techniques_consumption = $techniques_consumption[$hashing-1];
+        
+        if( ($cash < $setting->$min) || ($cash > $setting->$max) ){
+            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+        }
+        
+        $hash_price = $pricing[$hashing-1];
+        $p = $cash / $setting->$hash_price;
+        $selected_hash = $hashings[$hashing-1];
+
+        $calculationController = new CalculationController();
+        $coin_data = $calculationController->get_hashing_data($selected_hash);
+
+        if($hashing == 1){
+            $result = calculate_sha($p, $coin_data->difficulty, $coin_data->reward_block, $setting->$techniques_cost, $setting->$techniques_consumption, $coin_data->price, $coin_data->network_hashrate);
+        }
+        else if($hashing == 2){
+            $result = calculate_eth($p, $coin_data->difficulty, $coin_data->reward_block, $setting->$techniques_cost, $setting->$techniques_consumption, $coin_data->price, $coin_data->network_hashrate);
+        }
+        else{
+            $result = calculate_equi($p, $coin_data->difficulty, $coin_data->reward_block, $setting->$techniques_cost, $setting->$techniques_consumption, $coin_data->price, $coin_data->network_hashrate);
+        }
+
+        $form_button = "Pay $".$cash;
+        $directory = $this->directory;
+        $title_singular = $this->title_singular;
+        $active_item = "miners";
+        $power_value_selected = $power_value[$hashing-1];
+
+        return view($this->directory . "pay", compact('form_button', 'title_singular', 'directory', 'active_item', 'cash', 'hashing', 'power_value_selected', 'result', 'p', 'selected_hash', 'setting'));
 
     }
 
-    
+    public function process_payment(Request $request){
 
+        $payment_method = in_array($request->payment_method, [1,2,3]) ? $request->payment_method : 1;
 
-   
+        if(!isset($request->hashing)){
+            return [array("error" => "Operation failed.")];
+        }
+        else if(!is_numeric($request->hashing)){
+            return [array("error" => "Operation failed.")];
+        }
+        else if(!isset($request->cash)){
+            return [array("error" => "Operation failed.")];
+        }
+        else if(!is_numeric($request->cash)){
+            return [array("error" => "Operation failed.")];
+        }
+        
+        $setting = Setting::first();
+
+        $techniques_min = [ "sha_min","eth_min", "equi_min"];
+        $techniques_max = [ "sha_max","eth_max", "equi_max"];
+        $techniques_cost = [ "sha_cost_per_kwh","eth_cost_per_kwh", "equi_cost_per_kwh"];
+        $techniques_consumption = [ "sha_power_consumption","eth_power_consumption", "equi_power_consumption"];
+
+        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
+        $cash  = $request->cash;
+
+        $min = $techniques_min[$hashing-1];
+        $max = $techniques_max[$hashing-1];
+        $techniques_cost = $techniques_cost[$hashing-1];
+        $techniques_consumption = $techniques_consumption[$hashing-1];
+        
+        if( ($cash < $setting->$min) || ($cash > $setting->$max) ){
+            return [array("error" => "Operation failed.")];
+        }
+        
+
+        if($payment_method == 3){
+            return $this->coin_payment($request);
+        }
+        else if($payment_method == 2){
+            return $this->bank_payment($request);
+        }
+        else {
+            return $this->card_payment($request);
+        }
+    }
+
+    public function card_payment(Request $request){
+        return [array("error" => "Paymnet method not available.")];
+    }
+
+    public function bank_payment(Request $request){
+
+        $record = new DepositRequest();
+        $record->public_id = (string) Str::uuid();
+        $record->user_id = Auth::user()->id;
+        $record->is_resolved = 0;
+        $record->is_accepted = NULL;
+        $record->action_performed_by = NULL;
+        $record->action_performed_at = NULL;
+        $record->amount_deposited = $request->cash;
+        $record->hashing_id = $request->hashing;
+        $record->additional_details = $request->additional_information;
+        $record->save();
+
+        Session::flash('success', 'Your request has been submitted. After verfication your earning will start.');
+        return 1;
+    }
+
+    public function coin_payment(Request $request){
+        return [array("error" => "Paymnet method not available.")];
+    }
+
 
 
 }

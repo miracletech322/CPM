@@ -73,6 +73,13 @@ class SettingController extends Controller
             'equi_cost_per_kwh' => 'required',
             'equi_power_consumption' => 'required',
             'equi_maintenance_fee' => 'required',
+
+            "sha_min" => "required|numeric",
+            "sha_max" => "required|numeric",
+            "eth_min" => "required|numeric",
+            "eth_max" => "required|numeric",
+            "equi_min" => "required|numeric",
+            "equi_max" => "required|numeric",
         ]);
 
         $record = Setting::first();
@@ -111,6 +118,12 @@ class SettingController extends Controller
         $record->equi_power_consumption = $request->equi_power_consumption;
         $record->equi_maintenance_fee = $request->equi_maintenance_fee;
 
+        $record->sha_min = $request->sha_min;
+        $record->sha_max = $request->sha_max;
+        $record->eth_min = $request->eth_min;
+        $record->eth_max = $request->eth_max;
+        $record->equi_min = $request->equi_min;
+        $record->equi_max = $request->equi_max;
 
         $record->save();
         return [array("success" => "Settings updated successfully")];

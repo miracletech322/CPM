@@ -1,1 +1,0 @@
-<div class="p-3 text-center"><span class="mr-2">&copy;</span><span>2021</span><span class="mx-2">-</span><span>{{@$site_name}}</span></div>

@@ -103,6 +103,9 @@
         $month_income_home.html('$' + $month_calc_home);
         $year_income_home.html('$' + $year_calc_home); 
 
+        $("#hashing").val($system)
+        $("#cash").val($investition_input.val())
+
     }
 
     function getProfitSHA(p){
@@ -114,7 +117,7 @@
 
         var upper = (B * H * S);
         var lower = ( D * 4294967296 ); //4294967296 = 2^32
-        var btc_production = upper / lower;
+        var btc_production = upper / lower; 
 
         power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
 

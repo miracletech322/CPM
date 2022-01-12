@@ -33,18 +33,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('withdraw-requests')}}">
-                        <i class="icon fa fa-money" data-acorn-size="18"></i>
-                        <span class="label">Withdraw Requests</span>
-                    </a>
-                </li>
-                 <li>
-                    <a href="{{ url('deposit-requests')}}">
-                        <i class="icon fa fa-money" data-acorn-size="18"></i>
-                        <span class="label">Deposit Requests</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ url('settings')}}" class='settings'>
                         <i class="icon fa fa-cog" data-acorn-size="18"></i>
                         <span class="label">Settings</span>

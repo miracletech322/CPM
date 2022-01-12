@@ -1,5 +1,9 @@
 <script>
     
+    function set_payment_method(payment_method){
+        $("#payment_method").val(payment_method);
+    }
+
     var oTable = '';
     $(function(){
         

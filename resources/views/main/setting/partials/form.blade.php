@@ -62,6 +62,18 @@
     </div>
 
 
+    <div class="row form-group mb-5">
+        <div class="col-md-6">
+            <label for="sha_min">Min Buyable (TH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->sha_min}}" placeholder="Enter Min Buyable (TH-s)" class="form-control" name="sha_min" id="sha_min" type="text">
+        </div>
+
+        <div class="col-md-6">
+            <label for="sha_max">Max Buyable (TH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->sha_max}}" placeholder="Enter Max Buyable (TH-s)" class="form-control" name="sha_max" id="sha_max" type="text">
+        </div>
+    </div>
+    
 
     <div class="row form-group">
         <b>Calculator Settings (Ethash)</b>
@@ -91,6 +103,18 @@
     </div>
 
 
+    <div class="row form-group mb-5">
+        <div class="col-md-6">
+            <label for="eth_min">Min Buyable (MH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->eth_min}}" placeholder="Enter Min Buyable (MH-s)" class="form-control" name="eth_min" id="eth_min" type="text">
+        </div>
+
+        <div class="col-md-6">
+            <label for="eth_max">Max Buyable (MH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->eth_max}}" placeholder="Enter Max Buyable (MH-s)" class="form-control" name="eth_max" id="eth_max" type="text">
+        </div>
+    </div>
+
     <div class="row form-group">
         <b>Calculator Settings (Equihash)</b>
     </div>
@@ -117,6 +141,25 @@
             <input value="{{@$record->equi_maintenance_fee}}" placeholder="Enter Maintenance Fee" class="form-control" name="equi_maintenance_fee" id="equi_maintenance_fee" type="text">
         </div>
     </div>
+
+
+    <div class="row form-group mb-5">
+        <div class="col-md-6">
+            <label for="equi_min">Min Buyable (KH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->equi_min}}" placeholder="Enter Min Buyable (KH-s)" class="form-control" name="equi_min" id="equi_min" type="text">
+        </div>
+
+        <div class="col-md-6">
+            <label for="equi_max">Max Buyable (KH-s) <i class="text-danger">*</i></label>
+            <input value="{{@$record->equi_max}}" placeholder="Enter Max Buyable (KH-s)" class="form-control" name="equi_max" id="equi_max" type="text">
+        </div>
+    </div>
+    
+
+
+
+
+
    
 
 </div>

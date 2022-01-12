@@ -15,6 +15,23 @@ class InitialSeeder extends Seeder
     public function run()
     {
 
+        
+        DB::table("hashings")->truncate();
+        DB::table("hashings")->insert(
+            [
+                [
+                    "name" => "SHA-256",
+                ],
+                [
+                    "name" => "Ethash",
+                ],
+                [
+                    "name" => "Equihash",
+                ]
+            ]
+        );
+
+
         DB::table("roles")->truncate();
         DB::table("roles")->insert(
             [
@@ -51,7 +68,14 @@ class InitialSeeder extends Seeder
                     "equi_price_kh" => "5",
                     "equi_cost_per_kwh" => "0.12",
                     "equi_power_consumption" => "10",
-                    "equi_maintenance_fee" => "15"
+                    "equi_maintenance_fee" => "15",
+
+                    "sha_min" => "250",
+                    "sha_max" => "50000",
+                    "eth_min" => "250",
+                    "eth_max" => "50000",
+                    "equi_min" => "250",
+                    "equi_max" => "50000"
                 ],
             ]
         );

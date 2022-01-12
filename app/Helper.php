@@ -32,6 +32,10 @@ function to_cash_format($number){
     return number_format ( (float) $number, 6 , '.','' );
 }
 
+function to_cash_format_small($number){
+    return number_format ( (float) $number, 2 , '.','' );
+}
+
 
 function get_countries(){
     return array(
@@ -282,4 +286,63 @@ function get_from_name(){
     $site_name = "SuperHumanTools";
     $settings = DB::table("settings")->first();
     return $settings ? (!blank($settings->site_name) ? $settings->site_name : $site_name) : $site_name;
+}
+
+function calculate_sha($p, $hashing_difficulty, $hashing_reward_block, $cost, $consumption, $coin_price, $network_hashrate){
+
+
+    $H = $p * 1000000000000; //Converting TaraHash to Hash
+    $D = $hashing_difficulty;
+    $B = $hashing_reward_block;
+    $S = 86400;
+
+    $upper = ($B * $H * $S);
+    $lower = ( $D * 4294967296 ); //4294967296 = 2^32
+    $btc_production = $upper / $lower;
+
+    $power_consumption_cost =  ( $cost * $consumption/ 1000 ) * 24 * $p;
+    $result["daily"] = ( $coin_price / (1 / $btc_production) ) - $power_consumption_cost;
+    $result["monthly"] =  $result["daily"] * 30;
+    $result["yearly"] = $result["daily"] * 365;
+
+    return $result;
+}
+
+
+function calculate_eth($p, $hashing_difficulty, $hashing_reward_block, $cost, $consumption, $coin_price, $network_hashrate){
+
+    $H = $p * 1000000; //Converting megaHash to Hash
+    $D = $hashing_difficulty;
+    $B = $hashing_reward_block;
+    $S = 86400;
+
+    $eth_production = (($H * $B) / $D) * $S;
+    $power_consumption_cost =  ( ($cost * $consumption)/ 1000 ) * 24 * $p;
+
+    $result["daily"] = ( $coin_price / (1 / $eth_production) ) - $power_consumption_cost;
+    $result["monthly"] =  $result["daily"] * 30;
+    $result["yearly"] = $result["daily"] * 365;
+
+    return $result;
+
+}
+
+
+function calculate_equi($p, $hashing_difficulty, $hashing_reward_block, $cost, $consumption, $coin_price, $network_hashrate){
+
+    $H = $p * 1000; //Converting megaHash to Hash
+    $D = $hashing_difficulty;
+    $B = $hashing_reward_block;
+    $N = $network_hashrate;
+    $S = 86400;
+
+    $equi_production =   (($H * $B) / ($D * 3600) ) * $S;
+    $power_consumption_cost =  ( ($cost * $consumption)/ 1000 ) * 24 * $p;
+
+    $result["daily"] = ( $coin_price / (1 / $equi_production) ) - $power_consumption_cost;
+    $result["monthly"] =  $result["daily"] * 30;
+    $result["yearly"] = $result["daily"] * 365;
+
+    return $result;
+
 }
