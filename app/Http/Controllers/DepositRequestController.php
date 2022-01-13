@@ -117,6 +117,7 @@ class DepositRequestController extends Controller
         $payment->payment_notes = $record->additional_details;
         $payment->auto_payment = 0;
         $payment->energy_bought = $record->energy_bought;
+        $payment->last_wallet_updated = date("Y-m-d H:i:s");
         $payment->save();
 
         $ledger->payment_id = $payment->id;
