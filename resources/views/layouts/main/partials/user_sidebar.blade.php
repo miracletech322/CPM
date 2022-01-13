@@ -10,11 +10,6 @@
                 <img class="profile" alt="profile" src="{{asset('backend')}}/img/blank-profile-picture-973460__480.png">
                 <div class="name">{{ Auth()->user()->first_name.' '.Auth()->user()->last_name}}</div>
             </a>
-            <div class="dropdown-menu dropdown-menu-end user-menu wide">
-                <div class="row mb-1 ms-0 me-0">
-                    <p class="text-success"><i class="far fa-check-circle"></i> Verified User</p>
-                </div>
-            </div>
         </div>
 
         <div class="menu-container flex-grow-1">
