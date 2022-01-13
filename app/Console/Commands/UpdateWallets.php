@@ -49,6 +49,8 @@ class UpdateWallets extends Command
 
     public function save_profits(){
 
+        info("Mining cron running...");
+
         $setting = Setting::first();
         $techniques_cost_arr = ["sha_cost_per_kwh","eth_cost_per_kwh","equi_cost_per_kwh"];
         $techniques_consumption_arr = [ "sha_power_consumption","eth_power_consumption", "equi_power_consumption"];
