@@ -118,6 +118,9 @@ class DepositRequestController extends Controller
         $payment->auto_payment = 0;
         $payment->energy_bought = $record->energy_bought;
         $payment->save();
+
+        $ledger->payment_id = $payment->id;
+        $ledger->save();
         
         //UPDATING REQUEST
         $record->is_accepted = 1;

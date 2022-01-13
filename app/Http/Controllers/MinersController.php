@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\DepositRequest;
+use App\Models\Ledger;
+use App\Models\Payment;
 use App\Models\Setting;
 use App\Models\User;
 use Hamcrest\Type\IsNumeric;
@@ -21,7 +23,20 @@ class MinersController extends Controller
         $directory = $this->directory;
         $title_singular = $this->title_singular;
         $active_item = "miners";
-        return view($this->directory . "index", compact('title_singular', 'directory','active_item'));
+
+        $miners = Payment::where("user_id", Auth::user()->id)
+                        ->with("users", "hashings")
+                        ->get();
+
+        $incomes = Ledger::where("user_id", Auth::user()->id)
+                            ->where("type", 4)
+                            ->with("hashings", "payments")
+                            ->where("created_at", ">", date("Y-m-d H:i:s", strtotime("-7 Days")))
+                            ->get();
+
+        $energy = ["TH/s","MH/s", "KH/s"];
+
+        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy'));
     }  
 
     

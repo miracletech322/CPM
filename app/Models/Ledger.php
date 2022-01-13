@@ -16,4 +16,8 @@ class Ledger extends Model
     public function action_by() {
         return $this->belongsTo(User::class, 'action_performmed_by', 'id');
     }
+
+    public function payments(){
+        return $this->belongsTo(Payment::class, 'payment_id', 'id');
+    }
 }

@@ -30,7 +30,7 @@
                                     <i data-acorn-icon="dollar" class="text-primary"></i>
                                 </div>
                                 <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Your balance</div>
-                                <div class="text-primary cta-4">$ {{to_cash_format(0.00000000)}}</div>
+                                <div class="text-primary cta-4">$ {{get_user_balance()}}</div>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                     <i data-acorn-icon="cart" class="text-primary"></i>
                                 </div>
                                 <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Number of miners</div>
-                                <div class="text-primary cta-4">0 M</div>
+                                <div class="text-primary cta-4">{{count(@$miners)}} Miners</div>
                             </div>
                         </div>
                     </div>
@@ -61,21 +61,46 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 col-xxl-auto mb-5">
-            <h2 class="small-title"></h2>
-            <h1 class="mb-0 pb-0 display-4 text-center" id="title">Your miners</h1>
-            <br>
-            <br>
+    <div class="row mb-5">
+        <div class="col-md-12">
 
-            <div class="card h-100-card sw-xxl-40">
-                <div class="card-body row g-0 text-center">
-                    <div class="col-12 d-flex flex-column justify-content-between align-items-center">
-                        <div>
+            <div class="d-flex">
+                <h2 class="small-title">Your Miners</h2>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="slim_scroll" style="max-height: 500px !important;">
+                        <table id="datatables" class="table table-striped my-4 w-100">
+                            <thead class="theme-color">
+                                <tr>
+                                    <th>Hashing</th>
+                                    <th>Energy Bought</th>
+                                    <th>Created At</th>
+                                </tr>
+                            </thead>
+                            @if(count($miners) > 0)
+                            <tbody>
+                                @foreach($miners as $key => $miner)
+                                <tr>
+                                    <th>{{$miner->hashings ? ($miner->hashings->name) : ""}}</th>
+                                    <th>{{$miner->energy_bought}} {{$energy[$miner->hashing_id - 1]}}</th>
+                                    <th>{{to_date($miner->created_at)}}</th>
+                                </tr>
+                                @endforeach
+                            </thead>
+                            @endif
+                        </table>
+                    </div>
+
+                    <div class="text-center">
+
+                        @if(count($miners) == 0)
                             <div class="cta-3 "></div>
                             <div class="mb-3 cta-3 text-primary">You have no miners</div>
-                        </div>
-                        <a href="{{url('miners/create')}}" class="btn btn-icon btn-icon-start btn-outline-primary stretched-link">
+                        @endif
+
+                        <a href="{{url('miners/create')}}" class="btn btn-icon btn-icon-start btn-outline-primary stretched-link mt-5">
                             <i data-acorn-icon="plus"></i>
                             <span>Add Miner</span>
                         </a>
@@ -84,36 +109,55 @@
             </div>
         </div>
     </div>
-    <br><br><br><br>
-    <div class="row">
-        <div class="col-xl-12 mb-5">
+
+
+    <div class="row mb-5">
+        <div class="col-md-12">
+
             <div class="d-flex">
-                <div class="dropdown-as-select me-3" data-setactive="false" data-childselector="span">
-                    <a class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                        <span class="small-title"></span>
-                    </a>
-                    <div class="dropdown-menu font-standard">
-                        <div class="nav flex-column" role="tablist">
-                            <a class="active dropdown-item text-medium" href="#" aria-selected="true" role="tab">Today's</a>
-                            <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">Day 2</a>
-                            <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">Day 3</a>
-                            <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">Day 4</a>
-                        </div>
-                    </div>
-                </div>
                 <h2 class="small-title">Income for the last 7 days</h2>
             </div>
-            <div class="card sh-45 h-xl-100-card">
-                <div class="card-body h-100">
-                    <div class="h-100">
-                        <h4 class="text-center">There is no data</h4>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="slim_scroll" style="max-height: 500px !important;">
+                        <table id="datatables" class="table table-striped my-4 w-100">
+                            <thead class="theme-color">
+                                <tr>
+                                    <th>Hashing</th>
+                                    <th>Energy</th>
+                                    <th>Income</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            @if(count($incomes) > 0)
+                            <tbody>
+                                @foreach($incomes as $key => $income)
+                                <tr>
+                                    <th>{{$income->hashings ? ($income->hashings->name) : ""}}</th>
+                                    <th>{{$income->payments ? $income->payments->energy_bought : ""}} {{$energy[$income->hashing_id - 1]}}</th>
+                                    <th>{{to_cash_format($income->amount)}}</th>
+                                    <th>{{to_date($income->created_at)}}</th>
+                                </tr>
+                                @endforeach
+                            </thead>
+                            @endif
+                        </table>
+                    </div>
+
+                    <div class="text-center">
+
+                        @if(count($incomes) == 0)
+                            <div class="cta-3 "></div>
+                            <div class="mb-3 cta-3 text-primary">No Record Found</div>
+                        @endif
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 </div>
-<br>
-<br>
-<br>
 @endsection
