@@ -32,6 +32,10 @@ function to_cash_format($number){
     return number_format ( (float) $number, 6 , '.','' );
 }
 
+function to_power_format($number){
+    return number_format ( (float) $number, 3 , '.',',');
+}
+
 function to_cash_format_small($number){
     return number_format ( (float) $number, 2 , '.','' );
 }

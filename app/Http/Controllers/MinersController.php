@@ -9,7 +9,7 @@ use App\Models\Setting;
 use App\Models\User;
 use Hamcrest\Type\IsNumeric;
 use Illuminate\Http\Request;
-use Auth, Hash, File, Image, Session, Str;
+use Auth, DB, Hash, File, Image, Session, Str;
 
 class MinersController extends Controller
 {
@@ -31,12 +31,27 @@ class MinersController extends Controller
         $incomes = Ledger::where("user_id", Auth::user()->id)
                             ->where("type", 4)
                             ->with("hashings", "payments")
-                            ->where("created_at", ">", date("Y-m-d H:i:s", strtotime("-7 Days")))
+                            ->where("action_performmed_at", ">", date("Y-m-d H:i:s", strtotime("-7 Days")))
                             ->get();
 
         $energy = ["TH/s","MH/s", "KH/s"];
 
-        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy'));
+        $get_power = Payment::select(
+                                DB::RAW("SUM( (IF (hashing_id=1 , energy_bought, 0) ) ) as sha"),
+                                DB::RAW("SUM( (IF (hashing_id=2 , energy_bought, 0) ) ) as ethash"),
+                                DB::RAW("SUM( (IF (hashing_id=3 , energy_bought, 0) ) ) as equihash")
+                            )
+                            ->where("user_id", Auth::user()->id)
+                            ->groupBy("user_id")
+                            ->first();
+        
+        $total_power_th_gh = $get_power->sha * 1000;
+        $total_power_mh_gh = $get_power->ethash > 0 ? ($get_power->ethash/1000) : 0;
+        $total_power_kh_gh = $get_power->equihash > 0 ? ( ($get_power->equihash/1000)/1000 ) : 0; 
+
+        $total_power = $total_power_th_gh + $total_power_mh_gh + $total_power_kh_gh;
+
+        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy', 'total_power'));
     }  
 
     

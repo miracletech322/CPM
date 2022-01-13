@@ -41,6 +41,7 @@ class CalculationController extends Controller
         }
     }
 
+    //THIS FUNCTION IS BEING USED AT MULTIPLE PLACE. PLEASE DO NOT CHANGE.
     public function get_page_data(){
 
         $pageData['sha_256'] = $this->getValue("SHA-256"); //BTC

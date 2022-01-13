@@ -112,7 +112,7 @@
                 {data: 'type', name: 'type'},
                 {data: 'transaction_by', name: 'transaction_by'},
                 {data: 'action_by', name: 'action_by'},
-                {data: 'action_at', name: 'created_at'},
+                {data: 'action_at', name: 'action_performmed_at'},
             ],
             fnDrawCallback: function (oSettings) { oLTable.page(oSettings.page) },
             "order": [

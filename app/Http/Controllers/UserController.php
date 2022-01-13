@@ -192,7 +192,7 @@ class UserController extends Controller
                 return $records->action_by ? ($records->action_by->first_name . " " . $records->action_by->last_name) : '';
             })
             ->addColumn('action_at', function ($records) { //
-                return to_date($records->created_at, 1);
+                return to_date($records->action_performmed_at, 1);
             })
             ->rawColumns(['action'])
             ->make(true);

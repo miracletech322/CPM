@@ -52,7 +52,7 @@
                                     <i data-acorn-icon="server" class="text-primary"></i>
                                 </div>
                                 <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Your power</div>
-                                <div class="text-primary cta-4">0 GH/S</div>
+                                <div class="text-primary cta-4">{{to_power_format($total_power)}} GH/S</div>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                             <thead class="theme-color">
                                 <tr>
                                     <th>Hashing</th>
-                                    <th>Energy Bought</th>
+                                    <th>Power Bought</th>
                                     <th>Created At</th>
                                 </tr>
                             </thead>
@@ -125,7 +125,7 @@
                             <thead class="theme-color">
                                 <tr>
                                     <th>Hashing</th>
-                                    <th>Energy</th>
+                                    <th>Power</th>
                                     <th>Income</th>
                                     <th>Date</th>
                                 </tr>
