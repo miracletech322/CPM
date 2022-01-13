@@ -17,15 +17,14 @@ class UpdateWallets extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'wallet:update';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
-
+    protected $description = 'Update user wallets.';
     /**
      * Create a new command instance.
      *
