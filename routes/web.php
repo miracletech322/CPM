@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 // Auth::routes(['verify' => true]);
 
 //Auth Less Routes
+Route::get('test', controller_path() . 'TestController@test');
 Route::get('/', controller_path() . 'CalculationController@index');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
@@ -59,6 +60,9 @@ Route::group(['middleware' => ['auth', 'role:superadmin|admin|user']], function 
 
 //*****************SuperAdmin*********************/
 Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
+
+    //LOGS
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
     //SETTINGS
     Route::resource("settings", controller_path() . "SettingController");

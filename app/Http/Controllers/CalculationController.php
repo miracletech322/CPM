@@ -75,9 +75,17 @@ class CalculationController extends Controller
         return $pageData;
     }
 
+    //THIS FUNCTION IS BEING USED AT MULTIPLE PLACE. PLEASE DO NOT CHANGE.
     public function get_hashing_data($hashing){
-
         $data = $this->getValue($hashing);
         return $data;
+    }
+
+    public function get_all_hashing_data(){
+        $pageData['sha_256'] = $this->getValue("SHA-256"); //BTC
+        $pageData['ethash'] = $this->getValue("Ethash"); //AKA //ETH
+        $pageData['equihash'] = $this->getValue("Equihash"); //CMM //ZEC
+
+        return $pageData;
     }
 }
