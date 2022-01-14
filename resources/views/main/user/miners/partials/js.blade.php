@@ -18,7 +18,7 @@
 
     function make_table(){
 
-        url = "{{ url('admin-listing') }}";
+        url = "{{ url('miners-income-listing') }}";
 
         var table = $('#datatables');
         oTable = table.DataTable({
@@ -44,27 +44,14 @@
                 "type": "GET",
             },
             columns: [
-                // {data: 'id', name: 'id'},
-                {data: 'fullname', name: 'fullname'},
-                {data: 'email', name: 'email'},
-                {data: 'phone', name: 'phone'},
-                {data: 'user_role', name: 'user_role'},
-                {data: 'added_on', name: 'created_at'},
-                {data: 'action', name: 'action'},
+                {data: 'hashing', name: 'hashing'},
+                {data: 'power', name: 'power'},
+                {data: 'income', name: 'income'},
+                {data: 'date', name: 'action_performmed_at'},
             ],
             fnDrawCallback: function (oSettings) { oTable.page(oSettings.page) },
-            "columnDefs": [
-                {
-                    "searchable":false,
-                    "targets":[5]
-                },
-                {
-                    "orderable":false,
-                    "targets":[5]
-                }
-            ],
             "order": [
-                [4,'desc']
+                [3,'desc']
             ],
         });
 

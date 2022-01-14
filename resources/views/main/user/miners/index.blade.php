@@ -127,11 +127,7 @@
                             <div class="cta-3 "></div>
                             <div class="mb-3 cta-3 text-primary">You have no miners</div>
                         @endif
-
-                        <a href="{{url('miners/create')}}" class="btn btn-icon btn-icon-start btn-outline-primary stretched-link mt-5">
-                            <i data-acorn-icon="plus"></i>
-                            <span>Add Miner</span>
-                        </a>
+                        <a href="{{url('miners/create')}}" class="btn btn-theme submit-btn">Add Miner</a>
                     </div>
                 </div>
             </div>
@@ -179,7 +175,7 @@
                             <div class="cta-3 "></div>
                             <div class="mb-3 cta-3 text-primary">No Record Found</div>
                         @endif
-                        
+                        <a href="{{url('miners-income')}}" class="btn btn-theme submit-btn">Show More</a>
                     </div>
                 </div>
             </div>

@@ -10,6 +10,8 @@ use App\Models\User;
 use Hamcrest\Type\IsNumeric;
 use Illuminate\Http\Request;
 use Auth, DB, Hash, File, Image, Session, Str;
+use Yajra\DataTables\DataTables;
+
 
 class MinersController extends Controller
 {
@@ -218,5 +220,38 @@ class MinersController extends Controller
     }
 
 
+    public function miners_income()
+    {
+        $directory = $this->directory;
+        $title_plurar = "Income";
+        $active_item = "miners";
+        return view($this->directory . "income", compact('title_plurar', 'directory','active_item'));
+    }  
+
+    public $energy = ["TH/s","MH/s", "KH/s"];
+    public function miners_income_listing()
+    {
+     
+        $records = Ledger::where("user_id", Auth::user()->id)
+                            ->where("type", 4)
+                            ->with("hashings", "payments")
+                            ->get();
+
+        return DataTables::of($records)
+            ->addColumn('hashing', function ($records) { //
+                return $records->hashings ? ($records->hashings->name) : '';
+            })
+            ->addColumn('power', function ($records) { //
+                return ( ($records->payments ? $records->payments->energy_bought : "") . $this->energy[$records->hashing_id - 1] );
+            })
+            ->addColumn('income', function ($records) { //
+                return to_cash_format_small($records->amount);
+            })
+            ->addColumn('date', function ($records) { //
+                return to_date($records->action_performmed_at, 1);
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+    }
 
 }
