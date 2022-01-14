@@ -23,7 +23,7 @@
         <div class="col-12">
             <div class="mb-5">
                 <div class="row g-2">
-                    <div class="col-6 col-md-4 col-lg-4">
+                    <div class="col-md-6">
                         <div class="card h-100 hover-scale-up cursor-pointer">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-4">
+                    <div class="col-md-6">
                         <div class="card h-100 hover-scale-up cursor-pointer">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -45,17 +45,45 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-4">
+
+                    
+                    <div class="col-md-4">
                         <div class="card h-100 hover-scale-up cursor-pointer">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
-                                    <i data-acorn-icon="server" class="text-primary"></i>
+                                    <i data-acorn-icon="check-circle" class="text-primary"></i>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Your power</div>
-                                <div class="text-primary cta-4">{{to_power_format($total_power)}} GH/S</div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-small lh-1-25">POWER SOLD (BTC - TH/s)</div>
+                                <div class="text-primary cta-4">{{to_power_format($total_power["total_power_th"])}}</div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 hover-scale-up cursor-pointer">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
+                                    <i data-acorn-icon="check-circle" class="text-primary"></i>
+                                </div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-small lh-1-25">POWER SOLD (ETH - MH/s)</div>
+                                <div class="text-primary cta-4">{{to_power_format($total_power["total_power_mh"])}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="col-md-4">
+                        <div class="card h-100 hover-scale-up cursor-pointer">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
+                                    <i data-acorn-icon="check-circle" class="text-primary"></i>
+                                </div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-small lh-1-25">POWER SOLD (ZEC - KH/s)</div>
+                                <div class="text-primary cta-4">{{to_power_format($total_power["total_power_kh"])}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
                 </div>
             </div>
         </div>
@@ -136,7 +164,7 @@
                                 <tr>
                                     <th>{{$income->hashings ? ($income->hashings->name) : ""}}</th>
                                     <th>{{$income->payments ? $income->payments->energy_bought : ""}} {{$energy[$income->hashing_id - 1]}}</th>
-                                    <th>{{to_cash_format($income->amount)}}</th>
+                                    <th>{{to_cash_format_small($income->amount)}}</th>
                                     <th>{{to_date($income->created_at)}}</th>
                                 </tr>
                                 @endforeach

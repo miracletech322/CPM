@@ -29,7 +29,7 @@
                     <div class="card-body pt-0 pb-0 h-100">
                         <div class="row g-0 h-100 align-content-center">
                             <div class="col-10 col-md-3 d-flex align-items-center mb-3 mb-md-0 h-md-100">
-                                <a href="Orders.Detail.html" class="body-link stretched-link"><b>User Details</b></a>
+                                <a class="body-link stretched-link"><b>User Details</b></a>
                             </div>
                             <div class="col-10 col-md-3 d-flex align-items-center mb-3 mb-md-0 h-md-100">
                                 <span class="badge bg-outline-primary me-1" style="font-size: inherit;"><i class='fa fa-user'></i> {{$user->first_name." ".$user->last_name}}</span>
@@ -116,6 +116,7 @@
                     <thead class='theme-color'>
                         <tr>
                             <th>Wallet Amount</th> 
+                            <th>Amount</th> 
                             <th>Hashing</th> {{-- (SHA, Ethash, Equihash) --}}
                             <th>Type</th> {{-- (Withdraw, Deposit, Referral, Daily_income_cron) --}}
                             <th>Transaction By</th> {{--  (Coinbase, Card, Bank, Referral) --}}

@@ -45,11 +45,9 @@ class MinersController extends Controller
                             ->groupBy("user_id")
                             ->first();
         
-        $total_power_th_gh = $get_power->sha * 1000;
-        $total_power_mh_gh = $get_power->ethash > 0 ? ($get_power->ethash/1000) : 0;
-        $total_power_kh_gh = $get_power->equihash > 0 ? ( ($get_power->equihash/1000)/1000 ) : 0; 
-
-        $total_power = $total_power_th_gh + $total_power_mh_gh + $total_power_kh_gh;
+        $total_power["total_power_th"] = $get_power->sha;
+        $total_power["total_power_mh"] = $get_power->ethash;
+        $total_power["total_power_kh"] = $get_power->equihash;
 
         return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy', 'total_power'));
     }  

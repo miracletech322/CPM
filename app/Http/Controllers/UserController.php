@@ -182,6 +182,9 @@ class UserController extends Controller
             ->addColumn('wallet_amount', function ($records) { //
                 return to_cash_format_small($records->current_wallet_balance);
             })
+            ->addColumn('amount', function ($records) { //
+                return to_cash_format_small($records->amount);
+            })
             ->addColumn('type', function ($records) { //
                 return $this->type[$records->type];
             })

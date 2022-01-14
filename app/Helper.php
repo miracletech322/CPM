@@ -353,7 +353,7 @@ function calculate_equi($p, $hashing_difficulty, $hashing_reward_block, $cost, $
 
 function get_user_balance(){
     $record = DB::table("wallets")->where('user_id', Auth::user()->id)->first();
-    return $record ? to_cash_format($record->balance) : "0.00";
+    return $record ? to_cash_format_small($record->balance) : "0.00";
 }
 
 
@@ -363,5 +363,5 @@ function get_user_withdraw(){
                 ->where("is_resolved", 0)
                 ->sum('amount_withdraw');
 
-    return $record ? to_cash_format($record) : "0.00";
+    return $record ? to_cash_format_small($record) : "0.00";
 }

@@ -108,6 +108,7 @@
             },
             columns: [
                 {data: 'wallet_amount', name: 'wallet_amount'},
+                {data: 'amount', name: 'amount'},
                 {data: 'hashing', name: 'hashing'},
                 {data: 'type', name: 'type'},
                 {data: 'transaction_by', name: 'transaction_by'},
@@ -116,7 +117,7 @@
             ],
             fnDrawCallback: function (oSettings) { oLTable.page(oSettings.page) },
             "order": [
-                [5,'desc']
+                [6,'desc']
             ],
         });
 

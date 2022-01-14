@@ -50,10 +50,9 @@ class DashboardController extends Controller
                     )
                     ->first();
 
-        $total_power_th = $get_power->sha;
-        $total_power_mh_th = $get_power->ethash > 0 ? (($get_power->ethash / 1000) / 1000) : 0;
-        $total_power_kh_th = $get_power->equihash > 0 ? ((($get_power->equihash / 1000) / 1000)/ 1000) : 0;
-        $total_power = $total_power_th + $total_power_mh_th + $total_power_kh_th;
+        $total_power["total_power_th"] = $get_power->sha;
+        $total_power["total_power_mh"] = $get_power->ethash;
+        $total_power["total_power_kh"] = $get_power->equihash;
 
         return view($this->directory . "index", compact('title_singular', 'directory', 'active_item', 'pageData', 'total_earning', 'total_users', 'total_withdraw_requests', 'total_deposit_requests', 'total_power', 'total_admins'));
     }

@@ -21,12 +21,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('statistics')}}">
-                        <i data-acorn-icon="screen" class="icon" data-acorn-size="18"></i>
-                        <span class="label">Statistics</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ url('referrals')}}">
                         <i data-acorn-icon="tag" class="icon" data-acorn-size="18"></i>
                         <span class="label">Referrals</span>

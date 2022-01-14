@@ -10,7 +10,7 @@
                         <i data-acorn-icon="dollar" class="text-primary"></i>
                     </div>
                     <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Your balance</div>
-                    <div class="text-primary cta-4">$ {{to_cash_format(get_user_balance() - get_user_withdraw())}}</div>
+                    <div class="text-primary cta-4">$ {{to_cash_format_small(get_user_balance() - get_user_withdraw())}}</div>
                 </div>
             </div>
         </div>
