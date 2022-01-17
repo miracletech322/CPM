@@ -33,7 +33,7 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 
 
-Route::get('/coinbase-webhooks', "WebhookController@coinbase_webhooks");
+Route::get('/coinbase-webhooks', controller_path()."WebhookController@coinbase_webhooks");
 
 
 Route::get('/clear', function () {
