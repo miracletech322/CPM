@@ -33,6 +33,8 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 
 
+Route::get('/coinbase-webhooks', "WebhookController@coinbase_webhooks");
+
 
 Route::get('/clear', function () {
     $exitCode = Artisan::call('config:clear');
