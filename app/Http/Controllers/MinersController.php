@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CoinbasePayment;
 use App\Models\DepositRequest;
 use App\Models\Ledger;
 use App\Models\Payment;
@@ -238,6 +239,30 @@ class MinersController extends Controller
 
         if($result[0] == false)
             return [array("error" => $result[1])];
+
+        //Adding Entries
+        $coinbase_payment = new CoinbasePayment();
+        $coinbase_payment->public_id = (string) Str::uuid();
+        $coinbase_payment->user_id = Auth::user()->id;
+        $coinbase_payment->coinbase_code = $result[1]->data->code;
+        $coinbase_payment->coinbase_id = $result[1]->data->id;
+        $coinbase_payment->amount_deposit = $result[1]->data->pricing->local->amount;
+        $coinbase_payment->is_resolved = 0;
+        $coinbase_payment->timeline = json_encode($result[1]->data->timeline);
+        $coinbase_payment->save();
+
+        $ledger = new Ledger();
+        $ledger->public_id = (string) Str::uuid();
+        $ledger->user_id = Auth::user()->id;
+        $ledger->current_wallet_balance = get_user_balance();
+        $ledger->amount = $result[1]->data->pricing->local->amount;
+        $ledger->hashing_id = $hashing;
+        $ledger->type = 2;
+        $ledger->payment_method = 1;
+        $ledger->coinbase_payment_id = $coinbase_payment->id;
+        $ledger->coinbase_timeline_status = $result[1]->data->timeline[count($result[1]->data->timeline) - 1]->status;
+        $ledger->action_performmed_at = date("Y-m-d H:i:s");
+        $ledger->save();
 
         return [2, $result[1]->data->hosted_url];
 
