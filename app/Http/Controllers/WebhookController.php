@@ -9,5 +9,6 @@ class WebhookController extends Controller
     public function coinbase_webhooks(Request $request){
         info("Coin base webhook call");
         info($request->all());
+        return true;
     }
 }

@@ -6,10 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-
-
-
-
 // Auth::routes(['verify' => true]);
 
 //Auth Less Routes
@@ -31,9 +27,6 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
-
-
-Route::post('/coinbase-webhooks', controller_path()."WebhookController@coinbase_webhooks");
 
 
 Route::get('/clear', function () {
