@@ -7,6 +7,7 @@ use App\Models\Ledger;
 use App\Models\Payment;
 use App\Models\Setting;
 use App\Models\User;
+use App\Services\CoinbaseService;
 use Hamcrest\Type\IsNumeric;
 use Illuminate\Http\Request;
 use Auth, DB, Hash, File, Image, Session, Str;
@@ -20,11 +21,19 @@ class MinersController extends Controller
     private $title_singular = "Miners";
     private $title_plurar = "Miners";
 
+    
+    protected $coinbase_call;
+    function __construct()
+     {
+         $this->coinbase_call = new CoinbaseService();
+     }
+
     public function index()
     {
         $directory = $this->directory;
         $title_singular = $this->title_singular;
         $active_item = "miners";
+        
 
         $miners = Payment::where("user_id", Auth::user()->id)
                         ->with("users", "hashings")
@@ -123,13 +132,17 @@ class MinersController extends Controller
             $result = calculate_equi($p, $coin_data->difficulty, $coin_data->reward_block, $setting->$techniques_cost, $setting->$techniques_consumption, $coin_data->price, $coin_data->network_hashrate);
         }
 
+        $btc_price_obj = $selected_hash == "SHA-256" ? $coin_data : $calculationController->get_hashing_data("SHA-256");
+        $btc_price = $btc_price_obj->price;
+        $cash_btc = (1 / $btc_price) * $cash;
+
         $form_button = "Pay $".$cash;
         $directory = $this->directory;
         $title_singular = $this->title_singular;
         $active_item = "miners";
         $power_value_selected = $power_value[$hashing-1];
 
-        return view($this->directory . "pay", compact('form_button', 'title_singular', 'directory', 'active_item', 'cash', 'hashing', 'power_value_selected', 'result', 'p', 'selected_hash', 'setting'));
+        return view($this->directory . "pay", compact('form_button', 'title_singular', 'directory', 'active_item', 'cash', 'hashing', 'power_value_selected', 'result', 'p', 'selected_hash', 'setting', 'cash_btc'));
 
     }
 
@@ -216,7 +229,18 @@ class MinersController extends Controller
     }
 
     public function coin_payment(Request $request){
-        return [array("error" => "Paymnet method not available.")];
+
+        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
+        $cash = $request->cash;
+        $redirect_url = url("coinbase-success");
+        $cancel_url = url('pay/miners')."?hashing=".$hashing."&cash=".$cash;
+        $result = $this->coinbase_call->make_charge($cash, $redirect_url, $cancel_url);
+
+        if($result[0] == false)
+            return [array("error" => $result[1])];
+
+        return [2, $result[1]->data->hosted_url];
+
     }
 
 
@@ -254,4 +278,8 @@ class MinersController extends Controller
             ->make(true);
     }
 
+    public function coinbase_success(){
+        Session::flash('success', 'Your request has been submitted. After verfication your earning will start.');
+        return redirect("miners");
+    }
 }

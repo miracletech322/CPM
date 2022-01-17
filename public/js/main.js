@@ -164,6 +164,11 @@ function submit_form(method, url, form, obj = null, reloadOnSuccess = false, got
             else if (gotoURL === true && (response === 2 || response === "2")) {
                 location.reload();
             }
+            else if (gotoURL === true && (response[0] === 2 || response[0] === "2")) {
+                window.location.replace(response[1]);
+                return;
+            }
+
 
             $(".alert_div").html("");
             $.each(response, function(index, value) {

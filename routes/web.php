@@ -113,6 +113,7 @@ Route::group(['middleware' => ['auth','verified','role:user']], function () {
     Route::resource('/miners', controller_path().'MinersController');
     Route::get('/pay/miners', controller_path().'MinersController@pay');
     Route::post('/pay/miners', controller_path().'MinersController@process_payment');
+    Route::get('coinbase-success', controller_path().'MinersController@coinbase_success');
     Route::get('miners-income', controller_path().'MinersController@miners_income');
     Route::get('miners-income-listing', controller_path().'MinersController@miners_income_listing');
     

@@ -32,6 +32,14 @@ function to_cash_format($number){
     return number_format ( (float) $number, 6 , '.','' );
 }
 
+function to_coinbase_format($number){
+    return number_format ( (float) $number, 2 , '.','' );
+}
+
+function to_btc_format($number){
+    return number_format ( (float) $number, 8 , '.','' );
+}
+
 function to_power_format($number){
     return number_format ( (float) $number, 3 , '.',',');
 }

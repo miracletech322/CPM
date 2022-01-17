@@ -179,7 +179,22 @@
                 <div class="tab-pane fade" id="pills-coin" role="tabpanel" aria-labelledby="pills-coin-tab">
                     <div class="card card-default card-margined">
                         <div class="card-body">
-                            Coin Base Payment
+                            
+                            <h5>You will be redirected to coinbase for making payment.</h5>
+                            <div class="row form-group mb-3 mt-3">
+
+                                <div class="col-md-6 mb-3">
+                                    <label class='float-left'>Amount Payable </label>
+                                    <input class="form-control" value="${{$cash}}" readonly style="background-color: #fff !important;">
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class='float-left'>Amount BTC </label>
+                                    <input class="form-control" value="{{to_btc_format($cash_btc)}}" readonly style="background-color: #fff !important;">
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
