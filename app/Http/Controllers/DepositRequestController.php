@@ -29,7 +29,7 @@ class DepositRequestController extends Controller
     {
         
         $records = DepositRequest::where("is_resolved", 0)
-                            ->with('users', 'hashings', 'action_performer')
+                            ->with('users', 'hashings', 'action_performer', 'coinbase_payments')
                             ->get();
 
                     
@@ -53,7 +53,7 @@ class DepositRequestController extends Controller
                 return $records->hashings->name;
             })
             ->addColumn('payment_method', function ($records) {
-                return $this->payment_method[$records->payment_method];
+                return ($this->payment_method[$records->payment_method-1]. ( ($records->payment_method == 3 && $records->coinbase_payments) ? (" (".$records->coinbase_payments->coinbase_code.")") : '') );
             })
             ->addColumn('action', function ($records) {
 
@@ -105,8 +105,8 @@ class DepositRequestController extends Controller
         $ledger->hashing_id = $record->hashing_id;
         $ledger->type = 2;
         $ledger->payment_method = $record->payment_method;
-        if($record->payment_mothod == 1){
-            $ledger->coinbase_timeline_status = "Accepted";
+        if($record->payment_mothod == 3){
+            $ledger->coinbase_timeline_status = "ACCEPTED";
         }
         $ledger->action_performmed_by = Auth::user()->id;
         $ledger->action_performmed_at = date("Y-m-d H:i:s");
@@ -172,7 +172,7 @@ class DepositRequestController extends Controller
     {
         
         $records = DepositRequest::where("is_resolved", 1)
-                            ->with('users', 'hashings', 'action_performer')
+                            ->with('users', 'hashings', 'action_performer', 'coinbase_payments')
                             ->get();
 
                     
@@ -196,7 +196,7 @@ class DepositRequestController extends Controller
                 return $records->hashings->name;
             })
             ->addColumn('payment_method', function ($records) {
-                return $this->payment_method[$records->payment_method];
+                return ($this->payment_method[$records->payment_method-1]. ( ($records->payment_method == 3 && $records->coinbase_payments) ? (" (".$records->coinbase_payments->coinbase_code.")") : '') );
             })
             ->addColumn('action_performer', function ($records) {
                 return $records->action_performer ? ($records->action_performer->first_name . " " . $records->action_performer->last_name) : '';

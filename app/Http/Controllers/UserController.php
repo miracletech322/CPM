@@ -163,9 +163,9 @@ class UserController extends Controller
 
     public $method = [
         "",
-        "Coin",
-        "Bank",
         "Card",
+        "Bank",
+        "Coin",
         "Referral"
     ];
 
@@ -189,7 +189,7 @@ class UserController extends Controller
                 return $this->type[$records->type];
             })
             ->addColumn('transaction_by', function ($records) {
-                return ( $this->method[$records->payment_method]. ($records->payment_method == 1 ? (" (".$records->coinbase_timeline_status.")") : '') );
+                return ( $this->method[$records->payment_method]. ($records->payment_method == 3 ? (" (".$records->coinbase_timeline_status.")") : '') );
             })
             ->addColumn('action_by', function ($records) {
                 return $records->action_by ? ($records->action_by->first_name . " " . $records->action_by->last_name) : '';

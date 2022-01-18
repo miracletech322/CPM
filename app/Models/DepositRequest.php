@@ -21,4 +21,7 @@ class DepositRequest extends Model
         return $this->belongsTo(User::class, 'action_performed_by', 'id');
     }
     
+    public function coinbase_payments(){
+        return $this->belongsTo(CoinbasePayment::class, 'coinbase_payment_id', 'id');
+    }
 }
