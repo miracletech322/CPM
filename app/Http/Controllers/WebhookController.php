@@ -86,8 +86,6 @@ class WebhookController extends Controller
                                 $this->save_webhook($request);
 
                             }
-
-                           
                         }
                     }
 

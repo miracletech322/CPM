@@ -105,7 +105,8 @@ class DepositRequestController extends Controller
         $ledger->hashing_id = $record->hashing_id;
         $ledger->type = 2;
         $ledger->payment_method = $record->payment_method;
-        if($record->payment_mothod == 3){
+        if($record->payment_method == 3){
+            $ledger->coinbase_payment_id = $record->coinbase_payment_id;
             $ledger->coinbase_timeline_status = "ACCEPTED";
         }
         $ledger->action_performmed_by = Auth::user()->id;

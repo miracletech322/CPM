@@ -20,4 +20,8 @@ class Ledger extends Model
     public function payments(){
         return $this->belongsTo(Payment::class, 'payment_id', 'id');
     }
+
+    public function coinbase_payments(){
+        return $this->belongsTo(CoinbasePayment::class, 'coinbase_payment_id', 'id');
+    }
 }

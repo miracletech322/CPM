@@ -120,6 +120,7 @@
                             <th>Hashing</th> {{-- (SHA, Ethash, Equihash) --}}
                             <th>Type</th> {{-- (Withdraw, Deposit, Referral, Daily_income_cron) --}}
                             <th>Transaction By</th> {{--  (Coinbase, Card, Bank, Referral) --}}
+                            <th>Transaction Code</th>
                             <th>Action performed by</th>
                             <th>Action Performed At</th>
                         </tr>

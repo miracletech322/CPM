@@ -172,7 +172,7 @@ class UserController extends Controller
     public function user_ledger_listing($id)
     {
         $records = Ledger::where("user_id", $id)
-                            ->with('hashings', 'action_by')
+                            ->with('hashings', 'action_by', 'coinbase_payments')
                             ->get();
 
         return DataTables::of($records)
@@ -190,6 +190,9 @@ class UserController extends Controller
             })
             ->addColumn('transaction_by', function ($records) {
                 return ( $this->method[$records->payment_method]. ($records->payment_method == 3 ? (" (".$records->coinbase_timeline_status.")") : '') );
+            })
+            ->addColumn('transaction_code', function ($records) {
+                return ($records->coinbase_payments ? $records->coinbase_payments->coinbase_code : '');
             })
             ->addColumn('action_by', function ($records) {
                 return $records->action_by ? ($records->action_by->first_name . " " . $records->action_by->last_name) : '';

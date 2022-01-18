@@ -112,12 +112,13 @@
                 {data: 'hashing', name: 'hashing'},
                 {data: 'type', name: 'type'},
                 {data: 'transaction_by', name: 'transaction_by'},
+                {data: 'transaction_code', name: 'transaction_code'},
                 {data: 'action_by', name: 'action_by'},
                 {data: 'action_at', name: 'action_performmed_at'},
             ],
             fnDrawCallback: function (oSettings) { oLTable.page(oSettings.page) },
             "order": [
-                [6,'desc']
+                [7,'desc']
             ],
         });
 
