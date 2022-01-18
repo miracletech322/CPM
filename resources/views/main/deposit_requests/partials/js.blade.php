@@ -52,6 +52,7 @@
                 {data: 'fullname', name: 'fullname'},
                 {data: 'email', name: 'email'},
                 {data: 'phone', name: 'phone'},
+                {data: 'payment_method', name: 'payment_method'},
                 {data: 'date_requested', name: 'date_requested'},
                 {data: 'cash_paid', name: 'cash_paid'},
                 {data: 'hashing', name: 'hashing'},
@@ -61,15 +62,15 @@
             "columnDefs": [
                 {
                     "searchable":false,
-                    "targets":[6]
+                    "targets":[7]
                 },
                 {
                     "orderable":false,
-                    "targets":[6]
+                    "targets":[7]
                 }
             ],
             "order": [
-                [3,'desc']
+                [4,'desc']
             ],
         });
 
@@ -106,6 +107,7 @@
                 {data: 'fullname', name: 'fullname'},
                 {data: 'email', name: 'email'},
                 {data: 'phone', name: 'phone'},
+                {data: 'payment_method', name: 'payment_method'},
                 {data: 'date_requested', name: 'date_requested'},
                 {data: 'cash_paid', name: 'cash_paid'},
                 {data: 'hashing', name: 'hashing'},
@@ -114,7 +116,7 @@
             ],
             fnDrawCallback: function (oSettings) { oPTable.page(oSettings.page) },
             "order": [
-                [3,'desc']
+                [4,'desc']
             ],
         });
 

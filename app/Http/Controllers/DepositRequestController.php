@@ -52,6 +52,9 @@ class DepositRequestController extends Controller
             ->addColumn('hashing', function ($records) {
                 return $records->hashings->name;
             })
+            ->addColumn('payment_method', function ($records) {
+                return $this->payment_method[$records->payment_method];
+            })
             ->addColumn('action', function ($records) {
 
                 $accept_url = url("accept-deposit") . "/" . $records->public_id;
@@ -101,7 +104,10 @@ class DepositRequestController extends Controller
         $ledger->amount = $record->amount_deposited;
         $ledger->hashing_id = $record->hashing_id;
         $ledger->type = 2;
-        $ledger->payment_method = 2;
+        $ledger->payment_method = $record->payment_method;
+        if($record->payment_mothod == 1){
+            $ledger->coinbase_timeline_status = "Accepted";
+        }
         $ledger->action_performmed_by = Auth::user()->id;
         $ledger->action_performmed_at = date("Y-m-d H:i:s");
         $ledger->save();
@@ -112,7 +118,7 @@ class DepositRequestController extends Controller
         $payment->user_id = $record->user_id;
         $payment->request_id = $record->id;
         $payment->hashing_id = $record->hashing_id;
-        $payment->payment_method = 2;
+        $payment->payment_method = $record->payment_method;
         $payment->payment_type = "Deposit";
         $payment->amount_deposit = $record->amount_deposited;
         $payment->payment_notes = $record->additional_details;
@@ -161,6 +167,7 @@ class DepositRequestController extends Controller
         return view($this->directory . "processed_deposit_request", compact('title_plurar', 'directory','active_item'));
     } 
 
+    public $payment_method = ["Card", "Bank", "Coinbase"];
     public function processed_deposit_listing()
     {
         
@@ -187,6 +194,9 @@ class DepositRequestController extends Controller
             })
             ->addColumn('hashing', function ($records) {
                 return $records->hashings->name;
+            })
+            ->addColumn('payment_method', function ($records) {
+                return $this->payment_method[$records->payment_method];
             })
             ->addColumn('action_performer', function ($records) {
                 return $records->action_performer ? ($records->action_performer->first_name . " " . $records->action_performer->last_name) : '';

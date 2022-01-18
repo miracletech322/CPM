@@ -221,6 +221,7 @@ class MinersController extends Controller
         $record->action_performed_at = NULL;
         $record->amount_deposited = $request->cash;
         $record->hashing_id = $hashing;
+        $record->payment_method = 2;
         $record->additional_details = $request->additional_information;
         $record->energy_bought = $this->get_power($hashing, $request->cash);
         $record->save();
@@ -248,6 +249,8 @@ class MinersController extends Controller
         $coinbase_payment->coinbase_id = $result[1]->data->id;
         $coinbase_payment->amount_deposit = $result[1]->data->pricing->local->amount;
         $coinbase_payment->is_resolved = 0;
+        $coinbase_payment->energy_bought = $this->get_power($hashing, $cash);
+        $coinbase_payment->hashing_id = $hashing;
         $coinbase_payment->timeline = json_encode($result[1]->data->timeline);
         $coinbase_payment->save();
 
@@ -258,7 +261,7 @@ class MinersController extends Controller
         $ledger->amount = $result[1]->data->pricing->local->amount;
         $ledger->hashing_id = $hashing;
         $ledger->type = 2;
-        $ledger->payment_method = 1;
+        $ledger->payment_method = 3;
         $ledger->coinbase_payment_id = $coinbase_payment->id;
         $ledger->coinbase_timeline_status = $result[1]->data->timeline[count($result[1]->data->timeline) - 1]->status;
         $ledger->action_performmed_at = date("Y-m-d H:i:s");

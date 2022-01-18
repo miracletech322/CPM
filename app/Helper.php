@@ -359,8 +359,8 @@ function calculate_equi($p, $hashing_difficulty, $hashing_reward_block, $cost, $
 
 }
 
-function get_user_balance(){
-    $record = DB::table("wallets")->where('user_id', Auth::user()->id)->first();
+function get_user_balance($user_id=""){
+    $record = DB::table("wallets")->where('user_id', ($user_id == "" ? Auth::user()->id : $user_id) )->first();
     return $record ? to_cash_format_small($record->balance) : "0.00";
 }
 

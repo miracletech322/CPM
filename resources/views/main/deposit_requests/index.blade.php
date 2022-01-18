@@ -23,6 +23,7 @@
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Phone Number</th>
+                            <th>Payment Method</th>
                             <th>Date Requested</th>
                             <th>Cash Paid</th>
                             <th>Hashing</th>

@@ -76,4 +76,8 @@ class User extends Authenticatable
         return $this->belongsTo(Wallet::class, 'id', 'user_id');
     }
 
+    public static function get_record_public($public_id){
+        return User::where("public_id", $public_id)->first();
+    }
+
 }
