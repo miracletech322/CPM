@@ -16,6 +16,14 @@
 
     });
 
+    function set_chargeby(){
+        if(document.getElementById('customer_transaction').checked){
+            $(".card-cpay").addClass("d-none");
+        }else{
+            $(".card-cpay").removeClass("d-none");
+        }
+    }
+
     function make_table(){
 
         url = "{{ url('miners-income-listing') }}";

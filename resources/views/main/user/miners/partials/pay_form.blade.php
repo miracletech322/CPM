@@ -1,60 +1,4 @@
 <section class="calculate-earnings container-fluid">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h2 class="calculate-earnings__title">Miner Payment</h2>
-            <h3 class="">({{$selected_hash}})</b></h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="row">
-            <div class="col-md-12 ">
-
-                <div class="calculate-earnings__calculator-data">
-                    <div class="calculate-earnings__calculator-data-item">
-                        <h4 class="calculate-earnings__calculator-data-title">Investment in $</h4>
-                        <input type="text" value="{{$cash}}" readonly class="calculate-earnings__calculator-data-input" id="data-input-price">
-                    </div>
-
-                    <div class="calculate-earnings__calculator-data-item">
-                        <h4 class="calculate-earnings__calculator-data-title">
-                            Power <span class="input-prefix"> {{$power_value_selected}}</span>
-                        </h4>
-                        <input type="text" value="{{$p}}" readonly class="calculate-earnings__calculator-data-input" id="data-input-ghs">
-                    </div>
-                </div>
-
-                <div class="calculate-earnings__calculator-results">
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per day</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="daily">${{to_cash_format_small($result["daily"])}}</p>
-                    </div>
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per month</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="month">${{to_cash_format_small($result["monthly"])}}</p>
-                    </div>
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per year</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="year">${{to_cash_format_small($result["yearly"])}}</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-<div class="d-none">
-    <input type="hidden" name="hashing" id="hashing">
-    <input type="hidden" name="cash" id="cash">
-</div>
-
-
-<section class="calculate-earnings container-fluid">
     <h2 class="calculate-earnings__title">Miner Payment</h2>
     <div class="row">
         <div class="col-md-12 p-4">
@@ -77,41 +21,35 @@
 
                 <div class="tab-pane fade show active" id="pills-card" role="tabpanel" aria-labelledby="pills-card-tab">
 
-                    {{-- @if(!blank($ending_at))
+                    @if(!blank($ending_at))
                     <div class="card card-default card-margined">
                         <div class="card-body">
 
                             <div class="row form-group mb-3">
-                                <div class="col-12 form-group">
-                                    <label><b>Current Card</b></label>
-                                </div>
-
-                                <div class="col-md-6">
+                                <div class="col-md-12 mb-3">
                                     <div class="form-group">
-                                        <label>Card: </label>
+                                        <label class='float-left' for="customer_transaction"><input type="checkbox" name="customer_transaction" id="customer_transaction" onchange="set_chargeby()" value="1"> Charge by current card</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label class='float-left'>Card: </label>
                                         <input class="form-control" type="text" value="{{@$company}}" readonly>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <label>Ending At: </label>
+                                        <label class='float-left'>Ending At: </label>
                                         <input class="form-control" type="text" value="{{@$ending_at}}" readonly>
                                     </div>
-                                </div>
-
-                                <input type="hidden" name="customer_transaction" value="1">
-                                <input type="hidden" name="payment_period" value="{{@$payment_period}}">
-
-                                <div class="col-md-12 mb-3">
-                                    <button type="submit" class="btn btn-success submit-btn">Charge by Current Card</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endif --}}
+                    @endif
 
-                    <div class="card card-default card-margined">
+                    <div class="card card-default card-margined card-cpay">
                         <div class="card-body">
 
                             <div class="row form-group mb-3">
