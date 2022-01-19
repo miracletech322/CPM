@@ -36,6 +36,10 @@ function to_coinbase_format($number){
     return number_format ( (float) $number, 2 , '.','' );
 }
 
+function to_stripe_format($number){
+    return number_format ( (float) $number, 2 , '.','' );
+}
+
 function to_btc_format($number){
     return number_format ( (float) $number, 8 , '.','' );
 }

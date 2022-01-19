@@ -29,7 +29,7 @@ class DepositRequestController extends Controller
     {
         
         $records = DepositRequest::where("is_resolved", 0)
-                            ->with('users', 'hashings', 'action_performer', 'coinbase_payments')
+                            ->with('users', 'hashings', 'action_performer', 'coinbase_payments', 'stripe_payments')
                             ->get();
 
                     
@@ -53,7 +53,15 @@ class DepositRequestController extends Controller
                 return $records->hashings->name;
             })
             ->addColumn('payment_method', function ($records) {
-                return ($this->payment_method[$records->payment_method-1]. ( ($records->payment_method == 3 && $records->coinbase_payments) ? (" (".$records->coinbase_payments->coinbase_code.")") : '') );
+                if($records->payment_method == 3 && $records->coinbase_payments){
+                    return $this->payment_method[$records->payment_method-1] .(" (".$records->coinbase_payments->coinbase_code.")");
+                }
+                else if($records->payment_method == 1 && $records->stripe_payments){
+                    return $this->payment_method[$records->payment_method-1] .(" (".$records->stripe_payments->card_data.")");
+                }
+                else{
+                    return $this->payment_method[$records->payment_method-1];
+                }
             })
             ->addColumn('action', function ($records) {
 
@@ -109,6 +117,10 @@ class DepositRequestController extends Controller
             $ledger->coinbase_payment_id = $record->coinbase_payment_id;
             $ledger->status_text = "ACCEPTED";
         }
+        else if($record->payment_method == 1){
+            $ledger->stripe_payment_id = $record->stripe_payment_id;
+            $ledger->status_text = "ACCEPTED";
+        }
         $ledger->action_performmed_by = Auth::user()->id;
         $ledger->action_performmed_at = date("Y-m-d H:i:s");
         $ledger->save();
@@ -125,6 +137,9 @@ class DepositRequestController extends Controller
         $payment->payment_notes = $record->additional_details;
         if($record->payment_method == 3){
             $payment->coinbase_payment_id = $record->coinbase_payment_id;
+        }
+        else if($record->payment_method == 1){
+            $payment->stripe_payment_id = $record->stripe_payment_id;
         }
         $payment->auto_payment = 0;
         $payment->energy_bought = $record->energy_bought;
@@ -176,7 +191,7 @@ class DepositRequestController extends Controller
     {
         
         $records = DepositRequest::where("is_resolved", 1)
-                            ->with('users', 'hashings', 'action_performer', 'coinbase_payments')
+                            ->with('users', 'hashings', 'action_performer', 'coinbase_payments', 'stripe_payments')
                             ->get();
 
                     
@@ -199,8 +214,16 @@ class DepositRequestController extends Controller
             ->addColumn('hashing', function ($records) {
                 return $records->hashings->name;
             })
-            ->addColumn('payment_method', function ($records) {
-                return ($this->payment_method[$records->payment_method-1]. ( ($records->payment_method == 3 && $records->coinbase_payments) ? (" (".$records->coinbase_payments->coinbase_code.")") : '') );
+             ->addColumn('payment_method', function ($records) {
+                if($records->payment_method == 3 && $records->coinbase_payments){
+                    return $this->payment_method[$records->payment_method-1] .(" (".$records->coinbase_payments->coinbase_code.")");
+                }
+                else if($records->payment_method == 1 && $records->stripe_payments){
+                    return $this->payment_method[$records->payment_method-1] .(" (".$records->stripe_payments->card_data.")");
+                }
+                else{
+                    return $this->payment_method[$records->payment_method-1];
+                }
             })
             ->addColumn('action_performer', function ($records) {
                 return $records->action_performer ? ($records->action_performer->first_name . " " . $records->action_performer->last_name) : '';

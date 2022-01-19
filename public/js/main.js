@@ -190,17 +190,18 @@ function submit_form(method, url, form, obj = null, reloadOnSuccess = false, got
         $(obj).find('.submit-btn').removeAttr("disabled");
         $(obj).find('.submit-btn').text(btn_text);
 
-        if (result.responseJSON.errors) {
-            msg = "";
-            $.each(result.responseJSON.errors, function(index, value) {
-                msg += value[0];
-                msg += "<br>";
-            });
-            setAlert(msg, "error");
-        } else {
-            setAlert("Something went wrong. Try again!", "error");
+        if(result.responseJSON){
+            if (result.responseJSON.errors) {
+                msg = "";
+                $.each(result.responseJSON.errors, function(index, value) {
+                    msg += value[0];
+                    msg += "<br>";
+                });
+                setAlert(msg, "error");
+            } else {
+                setAlert("Something went wrong. Try again!", "error");
+            }
         }
-
     });
 }
 

@@ -6,24 +6,6 @@
         </div>
     </div>
     <div class="row">
-        {{-- <div class="col-md-12 p-4">
-            <div class="calculate-earnings__calculator">
-                <div class="calculate-earnings__calculator-data-item-select">
-                    <div class="miner-select">
-                        @if($hashing == 1)
-                        <div class="miner-select-item active">SHA-256
-                        </div>
-                        @elseif($hashing == 2)
-                        <div class="miner-select-item active">Ethash
-                        </div>
-                        @elseif($hashing == 3)
-                        <div class="miner-select-item active">Equihash
-                        </div>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         <div class="row">
             <div class="col-md-12 ">
 
@@ -94,18 +76,53 @@
             <div class="tab-content" id="pills-tabContent">
 
                 <div class="tab-pane fade show active" id="pills-card" role="tabpanel" aria-labelledby="pills-card-tab">
+
+                    {{-- @if(!blank($ending_at))
+                    <div class="card card-default card-margined">
+                        <div class="card-body">
+
+                            <div class="row form-group mb-3">
+                                <div class="col-12 form-group">
+                                    <label><b>Current Card</b></label>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Card: </label>
+                                        <input class="form-control" type="text" value="{{@$company}}" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Ending At: </label>
+                                        <input class="form-control" type="text" value="{{@$ending_at}}" readonly>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="customer_transaction" value="1">
+                                <input type="hidden" name="payment_period" value="{{@$payment_period}}">
+
+                                <div class="col-md-12 mb-3">
+                                    <button type="submit" class="btn btn-success submit-btn">Charge by Current Card</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif --}}
+
                     <div class="card card-default card-margined">
                         <div class="card-body">
 
                             <div class="row form-group mb-3">
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Card Number <i class="text-danger">*</i></label>
-                                    <input class="form-control" name="first_name" id="first_name" type="text" placeholder="Enter Card Number">
+                                    <input class="form-control card-mask" name="cnumber" id="cnumber" type="text" placeholder="Enter Card Number">
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Card Expiry Month <i class="text-danger"> *</i></label>
-                                    <select class="form-control" id="card_expiry_month"  name="card_expiry_month">
+                                    <select class="form-control" id="card_expiry_month" name="card_expiry_month">
                                         <option value="">Select Expiry Month</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -124,7 +141,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Card Expiry Year <i class="text-danger"> *</i></label>
-                                    <select id="card_expiry_year" class="form-control"  name="card_expiry_year">
+                                    <select id="card_expiry_year" class="form-control" name="card_expiry_year">
                                         <option value="">Select Expiry Year</option>
                                         @php
                                         $now = date("Y-m-d");
@@ -179,7 +196,7 @@
                 <div class="tab-pane fade" id="pills-coin" role="tabpanel" aria-labelledby="pills-coin-tab">
                     <div class="card card-default card-margined">
                         <div class="card-body">
-                            
+
                             <h5>You will be redirected to coinbase for making payment.</h5>
                             <div class="row form-group mb-3 mt-3">
 

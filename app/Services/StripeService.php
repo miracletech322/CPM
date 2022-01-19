@@ -11,28 +11,23 @@ use Stripe\Refund;
 use Stripe\Stripe;
 use Stripe\Token;
 use Auth;
+use App\Services\Interfaces\GatewayAdapterInterface;
 
-class StripeService
+class StripeService implements GatewayAdapterInterface
 {
 
     private $getStripeSecretKey;
     public function __construct()
     {
+        
     }
 
     public function charge_card(Request $request)
     {
 
-        $mode = env('GATEWAY_MODE');
-        if ($mode == 'local') {
-            $this->getStripeSecretKey = env("STRIPE_TEST_SECRET");
-            Stripe::setApiKey($this->getStripeSecretKey);
-        } else {
-            $this->getStripeSecretKey = env('STRIPE_SECRET');
-            Stripe::setApiKey($this->getStripeSecretKey);
-        }
+        $this->getStripeSecretKey = env('STRIPE_SECRET');
+        Stripe::setApiKey($this->getStripeSecretKey);
 
-        info("creating stripe transaction for amount: $request->amount");
         try {
 
             if (!$request->charge_customer) {
@@ -58,8 +53,6 @@ class StripeService
                 $customer_profile = $request->customer_profile_id;
             }
 
-
-            info("STRIPE CREATED CUSTOMER ID: " . $customer_profile);
             $charge = Charge::create(array(
                 "description" => env("SITE_NAME") . " $request->plan_title ($request->first_name $request->last_name) ",
                 'amount'      => $request->amount * 100,
@@ -69,9 +62,6 @@ class StripeService
 
 
             $customer_profile_id = $customer_profile;
-            info("STRIPE RESULT: " . print_r($charge, 1));
-
-
             $data['success'] = true;
             $transaction_id = $charge->id;
             $card_last_four = $charge->source->last4;
@@ -85,7 +75,6 @@ class StripeService
             return (object) $data;
         } catch (\Exception $e) {
 
-            info("stripe charge error " . $e->getMessage());
             $data['success'] = false;
             $data['status'] = "error";
             $data['transactionId'] = 0;
@@ -93,6 +82,7 @@ class StripeService
             $data['customerProfile'] = "";
             $data['customerProfilePayment'] = "";
             $data['error'] = "ERROR: " . $e->getMessage();
+
             return (object) $data;
         }
     }
@@ -101,19 +91,12 @@ class StripeService
     public function get_customer($cutomer_id)
     {
 
-        $mode = env('GATEWAY_MODE');
-        if ($mode == 'local') {
-            $this->getStripeSecretKey = env("STRIPE_TEST_SECRET");
-            Stripe::setApiKey($this->getStripeSecretKey);
-        } else {
-            $this->getStripeSecretKey = env('STRIPE_SECRET');
-            Stripe::setApiKey($this->getStripeSecretKey);
-        }
+        $this->getStripeSecretKey = env('STRIPE_SECRET');
+        Stripe::setApiKey($this->getStripeSecretKey);
 
         $stripe = new \Stripe\StripeClient(
             $this->getStripeSecretKey
         );
-
 
         $data["last4"] = "";
         $data["brand"] = "";
@@ -137,22 +120,16 @@ class StripeService
 
     public function update_customer(Request $request)
     {
-
-        $mode = env('GATEWAY_MODE');
-        if ($mode == 'local') {
-            $this->getStripeSecretKey = env("STRIPE_TEST_SECRET");
-            Stripe::setApiKey($this->getStripeSecretKey);
-        } else {
-            $this->getStripeSecretKey = env('STRIPE_SECRET');
-            Stripe::setApiKey($this->getStripeSecretKey);
-        }
+        
+        $this->getStripeSecretKey = env('STRIPE_SECRET');
+        Stripe::setApiKey($this->getStripeSecretKey);
 
         $stripe = new \Stripe\StripeClient(
             $this->getStripeSecretKey
         );
 
-        try {
 
+        try {
             $request->cnumber = str_replace(" ", "", $request->cnumber);
             $token = \Stripe\Token::create([
                 'card' => [
@@ -192,7 +169,7 @@ class StripeService
                 ));
 
                 $customer_profile = $customer->id;
-                Business::where("id", Auth::user()->business_id)->update(["stripe_customer_id" => $customer_profile]);
+                User::where("id", Auth::user()->id)->update(["stripe_customer_id" => $customer_profile]);
             }
 
             return true;

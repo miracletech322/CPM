@@ -18,7 +18,7 @@
 <script src="{{asset('backend')}}/js/scripts.js"></script>
 <script src="{{asset('backend')}}/js/vendor/select2.full.min.js"></script>
 
-
+<script src="{{ asset('plugins/inputmask/jquery.mask.min.js')}}"></script>
 <script src="{{asset("plugins\sweetalerts2\sweetalert2.min.js")}}"></script>
 <script src="{{asset("js/main.js")}}"></script>
  <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>

@@ -7,6 +7,7 @@ use App\Models\DepositRequest;
 use App\Models\Ledger;
 use App\Models\Payment;
 use App\Models\Setting;
+use App\Models\StripePayment;
 use App\Models\User;
 use App\Services\CoinbaseService;
 use App\Services\StripeService;
@@ -146,7 +147,16 @@ class MinersController extends Controller
         $active_item = "miners";
         $power_value_selected = $power_value[$hashing-1];
 
-        return view($this->directory . "pay", compact('form_button', 'title_singular', 'directory', 'active_item', 'cash', 'hashing', 'power_value_selected', 'result', 'p', 'selected_hash', 'setting', 'cash_btc'));
+        $ending_at = "";
+        $company = "";
+        $stripe_customer_id = Auth::user()->stripe_customer_id;
+        if (!blank($stripe_customer_id)) {
+            $data = $this->stripe_service->get_customer($stripe_customer_id);
+            $ending_at = $data["last4"];
+            $company = $data["brand"];
+        }
+
+        return view($this->directory . "pay", compact('form_button', 'title_singular', 'directory', 'active_item', 'cash', 'hashing', 'power_value_selected', 'result', 'p', 'selected_hash', 'setting', 'cash_btc', 'ending_at', 'company'));
 
     }
 
@@ -210,11 +220,10 @@ class MinersController extends Controller
     public function card_payment(Request $request){
 
         $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
-        $charges = $request->cash;
+        $charges = to_stripe_format($request->cash);
 
         $user = Auth::user();
         if (!isset($request->customer_transaction) || blank($user->stripe_customer_id)) {
-
             $request->validate([
                 "cnumber" => "required",
                 "card_expiry_month" => "required",
@@ -248,7 +257,6 @@ class MinersController extends Controller
         }
 
         $user = Auth::user();
-
         $amount_to_charge = $charges;
         $charge_customer = true;
         $customer_profile_id = $user->stripe_customer_id;
@@ -257,7 +265,7 @@ class MinersController extends Controller
             'email' => $user->email,
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
-            'plan_title' => "Miner Deposit Payment",
+            'plan_title' => "Stripe Deposit Payment",
             'amount' => $amount_to_charge,
             'payment_method' => 'card',
             'payment_type' => "Integrate header and footer",
@@ -270,41 +278,79 @@ class MinersController extends Controller
             $response = $this->stripe_service->charge_card($request);
             if($response->success == true){
 
+                $stripe_payment = new StripePayment();
+                $stripe_payment->public_id = (string) Str::uuid();
+                $stripe_payment->hashing_id = $hashing;
+                $stripe_payment->user_id = $user->id;
+                $stripe_payment->is_failed = 0;
+                $stripe_payment->transaction_id = $response->transaction_id;
+                $stripe_payment->last4 = $response->last4;
+                $stripe_payment->card_data = $response->card_data;
+                $stripe_payment->customer_profile_id = $response->customer_profile_id;
+                $stripe_payment->amount_deposit = $charges;
+                $stripe_payment->energy_bought = $this->get_power($hashing, $charges);
+                $stripe_payment->save();
+
                 $ledger = new Ledger();
                 $ledger->public_id = (string) Str::uuid();
                 $ledger->user_id = Auth::user()->id;
                 $ledger->current_wallet_balance = get_user_balance();
-                $ledger->amount = $result[1]->data->pricing->local->amount;
+                $ledger->amount = $charges;
                 $ledger->hashing_id = $hashing;
                 $ledger->type = 2;
-                $ledger->payment_method = 3;
-                $ledger->coinbase_payment_id = $coinbase_payment->id;
-                $ledger->status_text = $result[1]->data->timeline[count($result[1]->data->timeline) - 1]->status;
+                $ledger->payment_method = 1;
+                $ledger->stripe_payment_id = $stripe_payment->id;
+                $ledger->status_text = "PASSED";
                 $ledger->action_performmed_at = date("Y-m-d H:i:s");
                 $ledger->save();
-        
+
+                $record = new DepositRequest();
+                $record->public_id = (string) Str::uuid();
+                $record->user_id = $user->id;
+                $record->stripe_payment_id = $stripe_payment->id;
+                $record->is_resolved = 0;
+                $record->is_accepted = NULL;
+                $record->action_performed_by = NULL;
+                $record->action_performed_at = NULL;
+                $record->amount_deposited = $charges;
+                $record->hashing_id = $hashing;
+                $record->payment_method = 1;
+                $record->additional_details = "";
+                $record->energy_bought = $stripe_payment->energy_bought;
+                $record->save();
 
                 Session::flash("success", "Your request has been submitted. After verfication your earning will start.");
                 return 1;
             } else {
-                $error = true;
+
+                $stripe_payment = new StripePayment();
+                $stripe_payment->public_id = (string) Str::uuid();
+                $stripe_payment->hashing_id = $hashing;
+                $stripe_payment->user_id = $user->id;
+                $stripe_payment->is_failed = 1;
+                $stripe_payment->transaction_id = NULL;
+                $stripe_payment->last4 = NULL;
+                $stripe_payment->card_data = NULL;
+                $stripe_payment->customer_profile_id = NULL;
+                $stripe_payment->amount_deposit = $charges;
+                $stripe_payment->energy_bought = $this->get_power($hashing, $request->cash);
+                $stripe_payment->save();
+    
+                $ledger = new Ledger();
+                $ledger->public_id = (string) Str::uuid();
+                $ledger->user_id = Auth::user()->id;
+                $ledger->current_wallet_balance = get_user_balance();
+                $ledger->amount = $charges;
+                $ledger->hashing_id = $hashing;
+                $ledger->type = 2;
+                $ledger->payment_method = 1;
+                $ledger->status_text = "FAILED";
+                $ledger->action_performmed_at = date("Y-m-d H:i:s");
+                $ledger->save();
+                //$error = true;
             }
         } catch (Exception $e) {
-            $error = true;
-        }
-
-        if($error){
-            $ledger = new Ledger();
-            $ledger->public_id = (string) Str::uuid();
-            $ledger->user_id = Auth::user()->id;
-            $ledger->current_wallet_balance = get_user_balance();
-            $ledger->amount = $result[1]->data->pricing->local->amount;
-            $ledger->hashing_id = $hashing;
-            $ledger->type = 2;
-            $ledger->payment_method = 3;
-            $ledger->status_text = "FAILED";
-            $ledger->action_performmed_at = date("Y-m-d H:i:s");
-            $ledger->save();
+            //$error = true;
         }
 
         return array(["error" =>  "Payment failed. Please check your card details."]);
