@@ -61,9 +61,9 @@ class MinersController extends Controller
                             ->groupBy("user_id")
                             ->first();
         
-        $total_power["total_power_th"] = $get_power->sha;
-        $total_power["total_power_mh"] = $get_power->ethash;
-        $total_power["total_power_kh"] = $get_power->equihash;
+        $total_power["total_power_th"] = $get_power->sha ?? 0;
+        $total_power["total_power_mh"] = $get_power->ethash ?? 0;
+        $total_power["total_power_kh"] = $get_power->equihash ?? 0;
 
         return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy', 'total_power'));
     }  
@@ -439,13 +439,13 @@ class MinersController extends Controller
 
         return DataTables::of($records)
             ->addColumn('hashing', function ($records) { //
-                return $records->hashings ? ($records->hashings->name) : '';
+                return ($records->hashings ? ($records->hashings->name) : ''). ($records->reference_ledger_id ? " Referral" : "");
             })
             ->addColumn('power', function ($records) { //
-                return ( ($records->payments ? $records->payments->energy_bought : "") . $this->energy[$records->hashing_id - 1] );
+                return ( ($records->payments ? ($records->payments->energy_bought. " ". $this->energy[$records->hashing_id - 1]) : "") ) . ($records->reference_ledger_id ? " Referral" : "");
             })
             ->addColumn('income', function ($records) { //
-                return to_cash_format_small($records->amount);
+                return "$ ".to_cash_format_small($records->amount);
             })
             ->addColumn('date', function ($records) { //
                 return to_date($records->action_performmed_at, 1);

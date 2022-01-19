@@ -24,6 +24,11 @@ function to_date($date_in_any_format, $with_time = 0) {
     }
 }
 
+function get_percentage($percentage, $amount){
+    $one_percent = $amount / 100;
+    return ($one_percent * $percentage);
+}
+
 function to_time($time){
     return date("g:i A", strtotime($time));
 }

@@ -8,10 +8,6 @@
             <div class="col-md-12 wow fadeInUp">
                 <div class="page-banner text-center">
                     <h1 class="sub-banner-title">Register</h1>
-                    {{-- <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li>FAQ</li>
-                    </ul> --}}
                 </div>
             </div>
         </div>
@@ -104,12 +100,13 @@
                             </div>
                         </div>
 
+                        <input type="hidden" name="referral" id="referral" />	
+
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 Already have an account? <a href="{{url('login')}}" class="text-info">Signin!</a>
                             </div>
                         </div>
-
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -125,4 +122,18 @@
     </div>
 </div>
 
+@endsection
+
+@section('js')
+<script>
+$(function(){
+    var searchParams = new URLSearchParams(window.location.search);
+    var referral = localStorage.getItem('referral');
+    if(searchParams.get("referral")){
+        referral = searchParams.get("referral")
+        localStorage.setItem('referral', referral);
+    }
+    $('#referral').val(referral);
+});
+</script>
 @endsection

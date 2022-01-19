@@ -156,7 +156,42 @@ class DepositRequestController extends Controller
         $record->is_resolved = 1;
         $record->save();
 
-        return redirect()->back()->with("success" , "Request rejected successfully.");
+
+        //ADDING THE REFERRAL PERCENTAGE
+        $user = User::where("id", $record->user_id)->whereNotNull("referred_by")->first();
+        if($user){
+            $referred_by = User::where("id", $user->referred_by)->first();
+            if($referred_by){
+                //UPDATING REFERRER WALLET
+                $referr_wallet = Wallet::where("user_id", $record->referred_by)->first();
+                if(!$referr_wallet){
+                    $referr_wallet = new Wallet();
+                    $referr_wallet->public_id = (string) Str::uuid();
+                    $referr_wallet->user_id = $referred_by->id;
+                    $referr_wallet->balance = 0;
+                    $referr_wallet->save();
+                }
+
+                $amount_for_referrer = get_percentage(4 ,$record->amount_deposited);
+                $referr_wallet->balance = $referr_wallet->balance + $amount_for_referrer;
+                $referr_wallet->save();
+
+                //UPDATING REFERRER LEDGER
+                $referr_ledger = new Ledger();
+                $referr_ledger->public_id = (string) Str::uuid();
+                $referr_ledger->user_id = $referred_by->id;
+                $referr_ledger->current_wallet_balance = $referr_wallet->balance;
+                $referr_ledger->amount = $amount_for_referrer;
+                $referr_ledger->type = 3;
+                $referr_ledger->payment_method = 4;
+                $referr_ledger->reference_ledger_id = $ledger->id;
+                $referr_ledger->action_performmed_by = NULL;
+                $referr_ledger->action_performmed_at = date("Y-m-d H:i:s");
+                $referr_ledger->save();
+            }
+        }
+
+        return redirect()->back()->with("success" , "Request accepted successfully.");
     } 
 
     public function reject_deposit($public_id)

@@ -158,9 +158,9 @@
                             <tbody>
                                 @foreach($incomes as $key => $income)
                                 <tr>
-                                    <th>{{$income->hashings ? ($income->hashings->name) : ""}}</th>
-                                    <th>{{$income->payments ? $income->payments->energy_bought : ""}} {{$energy[$income->hashing_id - 1]}}</th>
-                                    <th>{{to_cash_format_small($income->amount)}}</th>
+                                    <th>{{$income->hashings ? ($income->hashings->name) : ""}} {{$income->reference_ledger_id ? " Referral" : ""}}</th>
+                                    <th>{{$income->payments ? ($income->payments->energy_bought ." ". $energy[$income->hashing_id - 1]) : ""}} {{$income->reference_ledger_id ? " Referral" : ""}}</th>
+                                    <th>$ {{to_cash_format_small($income->amount)}}</th>
                                     <th>{{to_date($income->created_at)}}</th>
                                 </tr>
                                 @endforeach

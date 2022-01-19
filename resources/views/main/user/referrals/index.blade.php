@@ -1,106 +1,73 @@
 @extends('layouts.main.base')
 
 @section('content')
-<div class="container">
-    <div class="page-title-container">
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <a class="muted-link pb-2 d-inline-block hidden" href="#">
-                    <span class="align-middle lh-1 text-small">&nbsp;</span>
-                </a>
-                <h1 class="mb-0 pb-0 display-4 text-center" id="title">Share with others the TRUSTMINING platform and get a reward for it.</h1>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-12 col-xxl-auto mb-5">
-            <h2 class="small-title"></h2>
-            <div class="card h-100-card sw-xxl-40">
-                <div class="card-body row g-0 text-center">
-                    <div class="col-12 d-flex flex-column justify-content-between align-items-center">
-                        <div class="mb-1 w-100">
-                            <label class="form-label">Referral link:</label>
-                            <input type="text" id="myInput" class="form-control " value="https://testing.com/referral?1xosdf">
-                        </div>
-                        <a onclick="myFunction()" class="btn btn-icon btn-icon-start btn-outline-primary">
-                            <i data-acorn-icon="plus"></i>
-                            <span>Copy</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+<div class="row mt-5">
+    <div class="col-md-12 mb-2">
+        <div class="d-flex">
+            <h2 class="small-title me-2">Referral Program</h2>
         </div>
     </div>
+    <div class="col-12">
+        @include("shared.alerts")
+    </div>
+</div>
 
-    <div class="page-title-container">
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <a class="muted-link pb-2 d-inline-block hidden" href="#">
-                    <span class="align-middle lh-1 text-small">&nbsp;</span>
-                </a>
-                <h1 class="mb-0 pb-0 display-5 text-center" id="">The TRUSTMINING referral program gives everyone the opportunity to earn 20% on the deposits of the people you invite.</h1>
-            </div>
-        </div>
-    </div>
-    <div class="page-title-container">
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <a class="muted-link pb-2 d-inline-block hidden" href="#">
-                    <span class="align-middle lh-1 text-small">&nbsp;</span>
-                </a>
-                <h1 class="mb-0 pb-0 display-6 text-center" id="">You invited a friend, he bought a mining contract for $ 1000, you will receive $ 200.</h1>
-            </div>
-        </div>
-    </div>
-    <br><br><br><br>
-    <div class="row">
-        <div class="col-12 col-xxl-auto mb-5">
-            <h2 class="small-title"></h2>
-            <h1 class="mb-0 pb-0 display-4 text-center" id="title">Income History </h1>
-            <br>
-            <br>
-
-            <div class="card h-100-card sw-xxl-40">
-                <div class="card-body row g-0 text-center">
-                    <div class="col-12 d-flex flex-row justify-content-center align-items-center">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Referral</th>
-                                    <th>Deposit amount</th>
-                                    <th>Your bonus</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan=4>There is no data</td>
-                                </tr>
-                            </tbody>
-                        </table>
+<div class="row">
+    <div class="col-12 mb-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <label class="float-left">Get 4% of each deposit made by people you refer</label>
+                        <a onclick="copy_url('{{url('register?referral=').Auth::user()->public_id}}')" class="btn btn-theme btn-sm float-right">Copy Referral Link</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<br>
-<br>
-<br>
-<script type="text/javascript">
-    function myFunction() {
-        /* Get the text field */
-        var copyText = document.getElementById("myInput");
 
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-        /* Copy the text inside the text field */
-        navigator.clipboard.writeText(copyText.value);
+<div class="row">
+    <div class="col-12 mb-2">
+        <div class="d-flex">
+            <h2 class="small-title me-2">Referral Stats</h2>
+        </div>
+    </div>
 
-    }
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-5">
+                <div class="row g-2">
 
-</script>
+                    <div class="col-md-6">
+                        <div class="card h-100 hover-scale-up cursor-pointer">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
+                                    <i data-acorn-icon="list" class="text-primary"></i>
+                                </div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Referrals</div>
+                                <div class="text-primary cta-4">{{@$refered_by_user}} User(s)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card h-100 hover-scale-up cursor-pointer">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
+                                    <i data-acorn-icon="dollar" class="text-primary"></i>
+                                </div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Income by Referrals</div>
+                                <div class="text-primary cta-4">$ {{@$earned_via_referral}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

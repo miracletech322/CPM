@@ -35,7 +35,8 @@ class User extends Authenticatable
         'public_id',
         'role_id',
         'email',
-        'password'
+        'password',
+        'referred_by'
     ];
 
     /**

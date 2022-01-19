@@ -28,4 +28,12 @@ class Ledger extends Model
     public function stripe_payments(){
         return $this->belongsTo(StripePayment::class, 'stripe_payment_id', 'id');
     }
+
+    public function users(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function ledger_users(){
+        return $this->belongsTo(Ledger::class, 'reference_ledger_id', 'id')->with('users');
+    }
 }

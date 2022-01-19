@@ -34,12 +34,21 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
+        $referral_id = NULL;
+        if(isset($input["referral"])){
+            $user = User::where("public_id", $input["referral"])->first();
+            if($user){
+                $referral_id = $user->id;
+            }
+        }
+
         return User::create([
             "public_id" => (string) Str::uuid(),
             'role_id' => 3,
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
             'email' => $input['email'],
+            'referred_by' => $referral_id,
             'password' => Hash::make($input['password']),
         ]);
     }
