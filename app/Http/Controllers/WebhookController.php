@@ -64,7 +64,7 @@ class WebhookController extends Controller
                                 $ledger->type = $ledger_old->type;
                                 $ledger->payment_method = $ledger_old->payment_method;
                                 $ledger->coinbase_payment_id = $coinbase_payment->id;
-                                $ledger->coinbase_timeline_status = $event["data"]["timeline"][count($event["data"]["timeline"]) - 1]["status"];
+                                $ledger->status_text = $event["data"]["timeline"][count($event["data"]["timeline"]) - 1]["status"];
                                 $ledger->action_performmed_at = date("Y-m-d H:i:s");
                                 $ledger->save();
 
@@ -116,7 +116,7 @@ class WebhookController extends Controller
                             $ledger->type = $ledger_old->type;
                             $ledger->payment_method = $ledger_old->payment_method;
                             $ledger->coinbase_payment_id = $coinbase_payment->id;
-                            $ledger->coinbase_timeline_status = $event["data"]["timeline"][count($event["data"]["timeline"]) - 1]["status"];
+                            $ledger->status_text = $event["data"]["timeline"][count($event["data"]["timeline"]) - 1]["status"];
                             $ledger->action_performmed_at = date("Y-m-d H:i:s");
                             $ledger->save();
 
@@ -145,7 +145,7 @@ class WebhookController extends Controller
                             $ledger->type = $ledger_old->type;
                             $ledger->payment_method = $ledger_old->payment_method;
                             $ledger->coinbase_payment_id = $coinbase_payment->id;
-                            $ledger->coinbase_timeline_status = $event["data"]["timeline"][count($event["data"]["timeline"]) - 1]["status"];
+                            $ledger->status_text = $event["data"]["timeline"][count($event["data"]["timeline"]) - 1]["status"];
                             $ledger->action_performmed_at = date("Y-m-d H:i:s");
                             $ledger->save();
                             $this->save_webhook($request);

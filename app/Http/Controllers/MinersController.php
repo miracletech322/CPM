@@ -9,6 +9,7 @@ use App\Models\Payment;
 use App\Models\Setting;
 use App\Models\User;
 use App\Services\CoinbaseService;
+use App\Services\StripeService;
 use Hamcrest\Type\IsNumeric;
 use Illuminate\Http\Request;
 use Auth, DB, Hash, File, Image, Session, Str;
@@ -22,11 +23,13 @@ class MinersController extends Controller
     private $title_singular = "Miners";
     private $title_plurar = "Miners";
 
-    
     protected $coinbase_call;
+    protected $stripe_service;
+
     function __construct()
      {
          $this->coinbase_call = new CoinbaseService();
+         $this->stripe_service = new StripeService;
      }
 
     public function index()
@@ -205,7 +208,106 @@ class MinersController extends Controller
     }
 
     public function card_payment(Request $request){
-        return [array("error" => "Paymnet method not available.")];
+
+        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
+        $charges = $request->cash;
+
+        $user = Auth::user();
+        if (!isset($request->customer_transaction) || blank($user->stripe_customer_id)) {
+
+            $request->validate([
+                "cnumber" => "required",
+                "card_expiry_month" => "required",
+                "card_expiry_year" => "required",
+                "cvv" => "required",
+            ], [
+                "cnumber.required" => "The card number field is required"
+            ]);
+
+            $request->merge([
+                'email' => $user->email,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+            ]);
+
+            if (!blank($user->stripe_customer_id)) {
+
+                $request->merge([
+                    'is_customer' => true,
+                    "customer_profile_id" => $user->stripe_customer_id
+                ]);
+            } else {
+                $request->merge([
+                    'is_customer' => false,
+                ]);
+            }
+
+            $response = $this->stripe_service->update_customer($request);
+            if ($response == false)
+                return [array("error" => "Something went wrong. Check card details and try again.")];
+        }
+
+        $user = Auth::user();
+
+        $amount_to_charge = $charges;
+        $charge_customer = true;
+        $customer_profile_id = $user->stripe_customer_id;
+
+        $request->merge([
+            'email' => $user->email,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'plan_title' => "Miner Deposit Payment",
+            'amount' => $amount_to_charge,
+            'payment_method' => 'card',
+            'payment_type' => "Integrate header and footer",
+            'charge_customer' => $charge_customer,
+            "customer_profile_id" => $customer_profile_id
+        ]);
+
+        $error = false;
+        try {
+            $response = $this->stripe_service->charge_card($request);
+            if($response->success == true){
+
+                $ledger = new Ledger();
+                $ledger->public_id = (string) Str::uuid();
+                $ledger->user_id = Auth::user()->id;
+                $ledger->current_wallet_balance = get_user_balance();
+                $ledger->amount = $result[1]->data->pricing->local->amount;
+                $ledger->hashing_id = $hashing;
+                $ledger->type = 2;
+                $ledger->payment_method = 3;
+                $ledger->coinbase_payment_id = $coinbase_payment->id;
+                $ledger->status_text = $result[1]->data->timeline[count($result[1]->data->timeline) - 1]->status;
+                $ledger->action_performmed_at = date("Y-m-d H:i:s");
+                $ledger->save();
+        
+
+                Session::flash("success", "Your request has been submitted. After verfication your earning will start.");
+                return 1;
+            } else {
+                $error = true;
+            }
+        } catch (Exception $e) {
+            $error = true;
+        }
+
+        if($error){
+            $ledger = new Ledger();
+            $ledger->public_id = (string) Str::uuid();
+            $ledger->user_id = Auth::user()->id;
+            $ledger->current_wallet_balance = get_user_balance();
+            $ledger->amount = $result[1]->data->pricing->local->amount;
+            $ledger->hashing_id = $hashing;
+            $ledger->type = 2;
+            $ledger->payment_method = 3;
+            $ledger->status_text = "FAILED";
+            $ledger->action_performmed_at = date("Y-m-d H:i:s");
+            $ledger->save();
+        }
+
+        return array(["error" =>  "Payment failed. Please check your card details."]);
     }
 
     public function bank_payment(Request $request){
@@ -263,7 +365,7 @@ class MinersController extends Controller
         $ledger->type = 2;
         $ledger->payment_method = 3;
         $ledger->coinbase_payment_id = $coinbase_payment->id;
-        $ledger->coinbase_timeline_status = $result[1]->data->timeline[count($result[1]->data->timeline) - 1]->status;
+        $ledger->status_text = $result[1]->data->timeline[count($result[1]->data->timeline) - 1]->status;
         $ledger->action_performmed_at = date("Y-m-d H:i:s");
         $ledger->save();
 

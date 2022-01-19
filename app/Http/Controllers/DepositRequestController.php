@@ -107,7 +107,7 @@ class DepositRequestController extends Controller
         $ledger->payment_method = $record->payment_method;
         if($record->payment_method == 3){
             $ledger->coinbase_payment_id = $record->coinbase_payment_id;
-            $ledger->coinbase_timeline_status = "ACCEPTED";
+            $ledger->status_text = "ACCEPTED";
         }
         $ledger->action_performmed_by = Auth::user()->id;
         $ledger->action_performmed_at = date("Y-m-d H:i:s");
@@ -123,6 +123,9 @@ class DepositRequestController extends Controller
         $payment->payment_type = "Deposit";
         $payment->amount_deposit = $record->amount_deposited;
         $payment->payment_notes = $record->additional_details;
+        if($record->payment_method == 3){
+            $payment->coinbase_payment_id = $record->coinbase_payment_id;
+        }
         $payment->auto_payment = 0;
         $payment->energy_bought = $record->energy_bought;
         $payment->last_wallet_updated = date("Y-m-d H:i:s");

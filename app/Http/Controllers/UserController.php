@@ -189,7 +189,7 @@ class UserController extends Controller
                 return $this->type[$records->type];
             })
             ->addColumn('transaction_by', function ($records) {
-                return ( $this->method[$records->payment_method]. ($records->payment_method == 3 ? (" (".$records->coinbase_timeline_status.")") : '') );
+                return ( $this->method[$records->payment_method]. ($records->payment_method == 3 ? (" (".$records->status_text.")") : '') );
             })
             ->addColumn('transaction_code', function ($records) {
                 return ($records->coinbase_payments ? $records->coinbase_payments->coinbase_code : '');
