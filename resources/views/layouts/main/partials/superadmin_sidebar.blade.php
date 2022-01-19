@@ -2,7 +2,7 @@
     <div class="nav-content d-flex">
         <div class=" position-relative">
             <a href="{{url('/')}}">
-                <img src="{{asset('backend')}}/img/logo/icons8-omega-96 (1).png" width="50px" height="50px">
+                <img src="{{$site_data["site_logo"] ? $site_data["site_logo"] : asset('backend/img/logo/icons8-omega-96 (1).png')}}" style="max-height:55px !important" alt="{{$site_data["site_name"]}}">
             </a>
         </div>
         <div class="user-container d-flex">
