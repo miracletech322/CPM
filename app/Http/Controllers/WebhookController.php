@@ -43,9 +43,7 @@ class WebhookController extends Controller
                             $coinbase_payment->timeline = json_encode($event["data"]["timeline"]);
                             $coinbase_payment->save();
 
-                            $payment_already_exist = Payment::where("coinbase_id", $event["data"]["id"])
-                                                            ->where("coinbase_payment_id", $coinbase_payment["id"])
-                                                            ->where("coinbase_code", $event["data"]["code"])
+                            $payment_already_exist = Payment::where("coinbase_payment_id", $coinbase_payment["id"])
                                                             ->where("user_id", $user->id)
                                                             ->first();
 
