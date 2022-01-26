@@ -87,6 +87,9 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
     Route::get("user-ledger/{user_id}", controller_path() . "UserController@user_ledger");
     Route::get("user-ledger-listing/{user_id}", controller_path() . "UserController@user_ledger_listing");
 
+    //Update Coin Prices
+    Route::get("update-coin-prices", controller_path() . "SettingController@update_coin_prices");
+    
 });
 
 

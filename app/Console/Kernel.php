@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\EnsureQueueListenerIsRunning::class,
         Commands\UpdateWallets::class,
+        Commands\UpdateCoinPrices::class,
     ];
 
     /**
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('queue:checkup')->everyFiveMinutes();
         $schedule->command('wallet:update')->everyThirtyMinutes();
+        $schedule->command('coins:update')->everyTenMinutes();
     }
 
     /**

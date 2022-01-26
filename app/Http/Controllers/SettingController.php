@@ -29,28 +29,13 @@ class SettingController extends Controller
     }
 
 
-    public function create()
+    public function update_coin_prices()
     {
-
+        \Artisan::call('coins:update');
+        return redirect()->back()->with("success", "Coin prices updated successfully");
     }
 
-
-    public function store(Request $request)
-    {
-
-    }
-
-    public function show($id)
-    {
-
-    }
-
-
-    public function edit($id)
-    {
-
-    }
-
+  
     public function update(Request $request, $id)
     {
 

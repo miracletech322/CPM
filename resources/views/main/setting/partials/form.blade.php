@@ -1,8 +1,14 @@
 <div class="">
 
     <div class="row form-group">
-        <b>Site Settings</b>
+        <div class="col-md-12 mb-2">
+            <a href="{{url('update-coin-prices')}}" class="btn btn-theme float-right btn-sm">Update Coin Prices</a>
+            <b class="">Site Settings</b>
+        </div>
     </div>
+
+    
+
     <div class="row form-group mb-5">
         <div class="col-md-6">
             <label for="site_name">Site Name <i class="text-danger">*</i></label>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CoinData;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -15,30 +16,19 @@ class CalculationController extends Controller
         return view('home')->with('pageData',$pageData);
     }
 
+    public $hashings = [
+        "SHA-256" => 1,
+        "Ethash" => 2,
+        "Equihash" => 3
+    ];
+
     public function getValue($algo)
     {
-        $curl = curl_init();
+        $coin_data = CoinData::where("hashing_id", $this->hashings[$algo])->first();
+        if($coin_data)
+            return json_decode($coin_data->data);
 
-        curl_setopt_array($curl, array(
-          CURLOPT_URL => 'https://api.minerstat.com/v2/coins?algo='.$algo,
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => '',
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 0,
-          CURLOPT_FOLLOWLOCATION => true,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => 'GET',
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        $data = json_decode($response);
-        foreach($data as $key => $d)
-        {
-            if($d->coin == "BTC" || $d->coin == "ZEC" || $d->coin == "ETH")
-                return $d;
-        }
+        return [];
     }
 
     //THIS FUNCTION IS BEING USED AT MULTIPLE PLACE. PLEASE DO NOT CHANGE.
