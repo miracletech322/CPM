@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Http\Controllers\CalculationController;
+use App\Models\CoinData;
 use App\Models\Ledger;
 use App\Models\Payment;
 use App\Models\Setting;
@@ -101,6 +102,9 @@ class UpdateWallets extends Command
             $wallet->balance = $is_new ? $result["daily"] : ($wallet->balance + $result["daily"]);     
             $wallet->save();
 
+            $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
+            $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
+            $coin_values["3"] = json_decode(CoinData::where("coin", "ZEC")->first()->data)->price; //ZEC
 
             //UPDATING LEDGER
             $ledger = new Ledger();
@@ -109,9 +113,9 @@ class UpdateWallets extends Command
             $ledger->current_wallet_balance = $wallet->balance;
             $ledger->amount = $result["daily"];
             $ledger->type = 4;
-            $ledger->payment_method = 2;
             $ledger->payment_id = $payment->id;
             $ledger->hashing_id = $payment->hashing_id;
+            $ledger->coin_value = to_btc_format(convert_to_coin_earning($coin_values[$payment->hashing_id] ,$result["daily"]));
             $ledger->action_performmed_at = date("Y-m-d H:i:s", strtotime($payment->last_wallet_updated. "+24 Hours"));
             $ledger->save();
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CoinData;
 use Illuminate\Http\Request;
 use App\Models\DepositRequest;
 use App\Models\Ledger;
@@ -25,7 +26,12 @@ class WithdrawController extends Controller
         $title_singular = $this->title_singular;
         $active_item = "withdraw";
         $form_button = "Withdraw";
-        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'form_button'));
+        $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
+        $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
+        $coin_values["3"] = json_decode(CoinData::where("coin", "ZEC")->first()->data)->price; //ZEC
+        $user_balance = get_user_balance();
+
+        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'form_button', 'coin_values', 'user_balance'));
     }  
 
 

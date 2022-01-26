@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CoinbasePayment;
+use App\Models\CoinData;
 use App\Models\DepositRequest;
 use App\Models\Ledger;
 use App\Models\Payment;
@@ -65,7 +66,12 @@ class MinersController extends Controller
         $total_power["total_power_mh"] = $get_power->ethash ?? 0;
         $total_power["total_power_kh"] = $get_power->equihash ?? 0;
 
-        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy', 'total_power'));
+        $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
+        $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
+        $coin_values["3"] = json_decode(CoinData::where("coin", "ZEC")->first()->data)->price; //ZEC
+
+        $user_balance = get_user_balance();
+        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy', 'total_power', 'coin_values', 'user_balance'));
     }  
 
     
@@ -222,15 +228,27 @@ class MinersController extends Controller
         $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
         $charges = to_stripe_format($request->cash);
 
+
+
+        if(!isset($request->full_name)){
+            $request->merge([
+                'full_name' => Auth::user()->stripe_full_name,
+            ]);
+        }else{
+            User::where("id", Auth::user()->id)->update(["stripe_full_name" => $request->full_name]);
+        }
+
         $user = Auth::user();
         if (!isset($request->customer_transaction) || blank($user->stripe_customer_id)) {
             $request->validate([
                 "cnumber" => "required",
+                "full_name" => "required",
                 "card_expiry_month" => "required",
                 "card_expiry_year" => "required",
                 "cvv" => "required",
             ], [
-                "cnumber.required" => "The card number field is required"
+                "cnumber.required" => "The card number field is required",
+                "cvv.required" => "The CVN field is required"
             ]);
 
             $request->merge([
@@ -429,9 +447,10 @@ class MinersController extends Controller
     }  
 
     public $energy = ["TH/s","MH/s", "KH/s"];
+    
     public function miners_income_listing()
     {
-     
+    
         $records = Ledger::where("user_id", Auth::user()->id)
                             ->where("type", 4)
                             ->with("hashings", "payments")
@@ -439,7 +458,7 @@ class MinersController extends Controller
 
         return DataTables::of($records)
             ->addColumn('hashing', function ($records) { //
-                return ($records->hashings ? ($records->hashings->name) : ''). ($records->reference_ledger_id ? " Referral" : "");
+                return ($records->hashings ? ($records->hashings->name ." (".get_hash_name($records->hashings->id).")") : ''). ($records->reference_ledger_id ? " Referral" : "");
             })
             ->addColumn('power', function ($records) { //
                 return ( ($records->payments ? ($records->payments->energy_bought. " ". $this->energy[$records->hashing_id - 1]) : "") ) . ($records->reference_ledger_id ? " Referral" : "");

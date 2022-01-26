@@ -196,7 +196,7 @@ class UserController extends Controller
                     return $this->method[$records->payment_method] . " (". $records->status_text.")";
                 }
                 else {
-                    return $this->method[$records->payment_method];
+                    return $records->type == 4 ? "Auto" : $this->method[$records->payment_method];
                 }
             })
             ->addColumn('transaction_code', function ($records) {

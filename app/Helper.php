@@ -7,6 +7,11 @@ function controller_path(){
 }
 
 
+function get_hash_name($id){
+    $hash_name = ["1" => "BTC", "2" => "ETH", "3" => "ZEC"]; 
+    return $hash_name[$id];
+}
+
 function to_date($date_in_any_format, $with_time = 0) {
     if ($date_in_any_format) {
         if($with_time == 0) {
@@ -22,6 +27,10 @@ function to_date($date_in_any_format, $with_time = 0) {
     } else {
         return "Invalid date";
     }
+}
+
+function convert_to_coin_earning($coin_to_dollar, $amount){
+    return $amount / $coin_to_dollar;
 }
 
 function get_percentage($percentage, $amount){
@@ -381,4 +390,9 @@ function get_user_withdraw(){
                 ->sum('amount_withdraw');
 
     return $record ? to_cash_format_small($record) : "0.00";
+}
+
+function get_payent_method($id){
+    $payment_method = ["1" => "Card", "2"=> "Bank", "3" => "Coin", "4" => "Referral"];
+    return $payment_method[$id];
 }

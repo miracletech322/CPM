@@ -44,7 +44,7 @@ class StripeService implements GatewayAdapterInterface
 
                 $customer = Customer::create(array(
                     'email'       => $request->email,
-                    'description' => $request->first_name . " " . $request->last_name,
+                    'description' => "CardFullName: $request->full_name, SystemName: $request->first_name $request->last_name",
                     'source'      => $token['id'],
                 ));
 
@@ -54,7 +54,7 @@ class StripeService implements GatewayAdapterInterface
             }
 
             $charge = Charge::create(array(
-                "description" => env("SITE_NAME") . " $request->plan_title ($request->first_name $request->last_name) ",
+                "description" => "Folex Payment By: (CardFullName: $request->full_name, SystemName: $request->first_name $request->last_name) ",
                 'amount'      => $request->amount * 100,
                 'currency'    => 'usd',
                 'customer'    => $customer_profile,
@@ -164,7 +164,7 @@ class StripeService implements GatewayAdapterInterface
 
                 $customer = Customer::create(array(
                     'email'       => $request->email,
-                    'description' => $request->first_name . " " . $request->last_name,
+                    'description' => "CardFullName: $request->full_name, SystemName: $request->first_name $request->last_name",
                     'source'      => $token['id'],
                 ));
 

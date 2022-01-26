@@ -55,11 +55,12 @@
                 {data: 'hashing', name: 'hashing'},
                 {data: 'power', name: 'power'},
                 {data: 'income', name: 'income'},
+                {data: 'coin_value', name: 'coin_value'},
                 {data: 'date', name: 'action_performmed_at'},
             ],
             fnDrawCallback: function (oSettings) { oTable.page(oSettings.page) },
             "order": [
-                [3,'desc']
+                [4,'desc']
             ],
         });
 

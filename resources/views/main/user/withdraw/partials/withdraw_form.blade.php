@@ -1,8 +1,9 @@
 <section class="calculate-earnings">
     <div class="row">
         <div class="col-md-12">
-                @include("shared.alerts")
+            @include("shared.alerts")
         </div>
+
         <div class="col-md-6">
             <div class="card h-100 hover-scale-up cursor-pointer">
                 <div class="card-body d-flex flex-column align-items-center">
@@ -14,6 +15,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-6">
             <div class="card h-100 hover-scale-up cursor-pointer">
                 <div class="card-body d-flex flex-column align-items-center">
@@ -25,6 +27,32 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-12 mb-5 mt-2">
+            <div class="mb-n2 scroll-out">
+                <div class="scroll-by-count" data-count="6">
+                    <div class="card mb-2">
+                        <div class="card-body h-100">
+                            <div class="row">
+                                <div class="col-md-12 text-center mb-3 text-alternate text-large lh-1-25">
+                                    <div>${{$user_balance}} TO COINS</div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <span class="badge bg-outline-primary" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["1"] ,$user_balance))}} BTC</span>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <span class="badge bg-outline-primary" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["2"] ,$user_balance))}} ETH</span>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <span class="badge bg-outline-primary" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["3"] ,$user_balance))}} ZEC</i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="row">

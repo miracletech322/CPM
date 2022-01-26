@@ -53,6 +53,12 @@
                         <div class="card-body">
 
                             <div class="row form-group mb-3">
+
+                                <div class="col-md-6 mb-3">
+                                    <label class='float-left'>Full Name <i class="text-danger">*</i></label>
+                                    <input class="form-control" name="full_name" id="full_name" type="text" placeholder="Enter Full Name">
+                                </div>
+
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Card Number <i class="text-danger">*</i></label>
                                     <input class="form-control card-mask" name="cnumber" id="cnumber" type="text" placeholder="Enter Card Number">
@@ -91,8 +97,8 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label class='float-left'>CVV <i class="text-danger">*</i></label>
-                                    <input class="form-control" name="cvv" id="cvv" placeholder="Enter CVV" type="text">
+                                    <label class='float-left'>CVN <i class="text-danger">*</i></label>
+                                    <input class="form-control" name="cvv" id="cvv" placeholder="Enter CVN" type="text">
                                 </div>
                             </div>
 

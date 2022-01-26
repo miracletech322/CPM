@@ -30,7 +30,8 @@
                         <tr>
                             <th>Hashing</th>
                             <th>Power</th>
-                            <th>Icome</th>
+                            <th>Income</th>
+                            <th>Coin Value</th>
                             <th>Date</th>
                         </tr>
                     </thead>
