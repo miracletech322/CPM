@@ -75,53 +75,26 @@
                     <div class="card card-default card-margined">
                         <div class="card-body">
 
-                            <h5>Please enter your bank details below click withdraw.</h5>
+                            <div class="row form-group mb-3 mt-3">
+                                <div class="col-md-12 mb-3">
+                                    <h5>Please select your bank account below and click withdraw.</h5>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <a class="btn btn-theme btn-sm float-right" href="{{url('bank-account')}}">Manage Bank Accounts</a>
+                                </div>
+                            </div>
+
                             <div class="row form-group mb-3 mt-3">
 
                                 <div class="col-md-6 mb-3">
-                                    <label class='float-left'>Account Holder Name <i class="text-danger">*</i></label>
-                                    <input class="form-control" value="{{Auth::user()->bank_full_name}}" name="full_name" placeholder="Enter Full Name">
+                                    <label class='float-left'>Bank Account <i class="text-danger">*</i></label>
+                                    <select name="account" id="account" class="form-control">
+                                        <option value="">Select Bank Account</option>
+                                    </select>
+                                    @if($banks->count() == 0)
+                                    <label class='float-left'><small>No bank accounts available. <a class='text-info' href="{{url('bank-account/create')}}">Add New</a></small></label>
+                                    @endif
                                 </div>
-
-
-                                <div class="col-md-6 mb-3">
-                                    <label class='float-left'>Account Number <i class="text-danger">*</i></label>
-                                    <input class="form-control" value="{{Auth::user()->bank_account_number}}" name="account_number" placeholder="Enter Account Number">
-                                </div>
-
-
-                                <div class="col-md-6 mb-3">
-                                    <label class='float-left'>Country <i class="text-danger">*</i></label>
-                                    <input class="form-control" value="{{Auth::user()->bank_account_number}}" name="account_number" placeholder="Enter Account Number">
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label class='float-left'>Bank Currency <i class="text-danger">*</i></label>
-                                    <input class="form-control" value="{{Auth::user()->bank_account_number}}" name="account_number" placeholder="Enter Account Number">
-                                </div>
-
-
-                                <div class="col-md-6 mb-3">
-                                    <label class='float-left'>Bank Name <i class="text-danger">*</i></label>
-                                    <input class="form-control" value="{{Auth::user()->bank_account_number}}" name="account_number" placeholder="Enter Account Number">
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label class='float-left'>Branch Name <i class="text-danger">*</i></label>
-                                    <input class="form-control" value="{{Auth::user()->bank_account_number}}" name="account_number" placeholder="Enter Account Number">
-                                </div>
-
-
-                                <div class="col-md-6 mb-3">
-                                    <label class='float-left'>Swift Code / BIC <i class="text-danger">*</i></label>
-                                    <input class="form-control" value="{{Auth::user()->bank_swift_bic}}" name="swift_bic" placeholder="Enter Swift/BIC">
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label class='float-left'>IBAN Number </label>
-                                    <input class="form-control" value="{{Auth::user()->bank_swift_bic}}" name="swift_bic" placeholder="Enter Swift/BIC">
-                                </div>
-
 
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Withdraw Amount <i class="text-danger">*</i></label>
@@ -136,12 +109,38 @@
                 <div class="tab-pane fade" id="pills-coin" role="tabpanel" aria-labelledby="pills-coin-tab">
                     <div class="card card-default card-margined">
                         <div class="card-body">
-                            Coin Base Payment
+
+                            <div class="row form-group mb-3 mt-3">
+                                <div class="col-md-12 mb-3">
+                                    <h5>Please select your bank account below and click withdraw.</h5>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <a class="btn btn-theme btn-sm float-right" href="{{url('crypto-wallet')}}">Manage Crypto Wallets</a>
+                                </div>
+                            </div>
+
+                            <div class="row form-group mb-3 mt-3">
+
+                                <div class="col-md-6 mb-3">
+                                    <label class='float-left'>Crypto Wallet <i class="text-danger">*</i></label>
+                                    <select name="account" id="account" class="form-control">
+                                        <option value="">Select Crypto Wallet</option>
+                                    </select>
+                                    @if($cryptos->count() == 0)
+                                    <label class='float-left'><small>No crypto wallets available. <a class='text-info' href="{{url('crypto-wallet/create')}}">Add New</a></small></label>
+                                    @endif
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class='float-left'>Withdraw Amount <i class="text-danger">*</i></label>
+                                    <input class="form-control" name="withdraw_amount" id="withdraw_amount" placeholder="Enter Withdraw Amount" type="text">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-    </div>
 </section>

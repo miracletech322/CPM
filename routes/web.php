@@ -119,6 +119,20 @@ Route::group(['middleware' => ['auth','verified','role:user']], function () {
     Route::resource('/withdraw', controller_path().'WithdrawController');
     Route::post('/process-withdraw', controller_path().'WithdrawController@process_withdraw');
 
+    //STATISTICS
     Route::resource('/statistics', controller_path().'StatisticsController');
+
+    //REFERRALS
     Route::resource('/referrals', controller_path().'ReferralsController');
+
+    //Bank ACCOUNT
+    Route::resource('/bank-account', controller_path().'BankAccountController');
+    Route::get("bank-account-listing", controller_path() . "BankAccountController@get_listing");
+    Route::get("delete-bank-account/{id}", controller_path() . "BankAccountController@destroy");
+
+    //CRYPTO ACCOUNT
+    Route::resource('/crypto-wallet', controller_path().'CryptoWalletController');
+    Route::get("crypto-wallet-listing", controller_path() . "CryptoWalletController@get_listing");
+    Route::get("delete-crypto-wallet/{id}", controller_path() . "CryptoWalletController@destroy");
+
 });

@@ -8,9 +8,12 @@ use App\Models\DepositRequest;
 use App\Models\Ledger;
 use App\Models\Payment;
 use App\Models\User;
+use App\Models\UserBank;
+use App\Models\UserCrypto;
 use App\Models\Wallet;
 use App\Models\WithdrawRequest;
 use Auth, Hash, File, Image, Session, Str;
+use Stripe\BankAccount;
 use Yajra\DataTables\DataTables;
 
 class WithdrawController extends Controller
@@ -31,7 +34,10 @@ class WithdrawController extends Controller
         $coin_values["3"] = json_decode(CoinData::where("coin", "ZEC")->first()->data)->price; //ZEC
         $user_balance = get_user_balance();
 
-        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'form_button', 'coin_values', 'user_balance'));
+        $banks = UserBank::where("user_id", Auth::user()->id)->get();
+        $cryptos = UserCrypto::where("user_id", Auth::user()->id)->get();
+
+        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'form_button', 'coin_values', 'user_balance', 'banks', 'cryptos'));
     }  
 
 
@@ -81,9 +87,6 @@ class WithdrawController extends Controller
     public function bank_withdraw(Request $request){
 
         $user = User::where("id", Auth::user()->id)->first();
-        $user->bank_swift_bic = $request->swift_bic;
-        $user->bank_account_number	 = $request->account_number;
-        $user->bank_full_name = $request->full_name;
         $user->save();
 
         $record = new WithdrawRequest();

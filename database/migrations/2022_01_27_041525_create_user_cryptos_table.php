@@ -17,7 +17,7 @@ class CreateUserCryptosTable extends Migration
             $table->id();
             $table->uuid("public_id");
             $table->bigInteger("user_id")->nullable();
-            $table->integer("crypto_account_id")->nullable();
+            $table->integer("crypto_option_id")->nullable();
             $table->text("wallet_address")->nullable();
             $table->boolean("is_active")->default(0)->comment="Recent Selected = active when multiple";
             $table->timestamps();
