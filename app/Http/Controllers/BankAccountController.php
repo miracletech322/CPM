@@ -184,4 +184,20 @@ class BankAccountController extends Controller
         return redirect()->back()->with("success", "Deleted Successfully");
        
     }
+
+    public function get_bank_details($id){
+        $record = UserBank::where("user_id", Auth::user()->id)->where("id", $id)->first();
+        $html = "<div>
+                    <p class='text-left'>
+                        <b>Account Holder Name: </b>".$record->account_holder_name."<br>
+                        <b>Account Number: </b>".$record->account_number."<br>
+                        <b>Country: </b>".$record->country."<br><b>Bank Currency: </b>".$record->bank_currency."<br>
+                        <b>Bank Name: </b>".$record->bank_name."<br>
+                        <b>Branch Name: </b>".$record->branch_name."<br>
+                        <b>Swift Code / BIC: </b>".$record->swift_bic."<br>
+                        <b>IBAN Number: </b>".$record->iban_number."
+                    </p>
+                </div>";
+        return $html;
+    }
 }

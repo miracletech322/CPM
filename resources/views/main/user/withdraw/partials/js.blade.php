@@ -6,7 +6,6 @@
 
     var oTable = '';
     $(function(){
-        
         if ($('#datatables').length) {
             make_table();
             $('#datatables').on('draw.dt', function () {
@@ -15,6 +14,13 @@
         }
 
     });
+
+    function option_changed(_val, _class, _url){
+        $("."+_class).html("");
+        $.get((_url+"/"+_val), function(response){
+            $("."+_class).html(response);
+        });
+    }
 
     function make_table(){
 

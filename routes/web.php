@@ -129,10 +129,13 @@ Route::group(['middleware' => ['auth','verified','role:user']], function () {
     Route::resource('/bank-account', controller_path().'BankAccountController');
     Route::get("bank-account-listing", controller_path() . "BankAccountController@get_listing");
     Route::get("delete-bank-account/{id}", controller_path() . "BankAccountController@destroy");
+    Route::get("get-bank-details/{id}", controller_path() . "BankAccountController@get_bank_details");
 
     //CRYPTO ACCOUNT
     Route::resource('/crypto-wallet', controller_path().'CryptoWalletController');
     Route::get("crypto-wallet-listing", controller_path() . "CryptoWalletController@get_listing");
     Route::get("delete-crypto-wallet/{id}", controller_path() . "CryptoWalletController@destroy");
+    Route::get("get-crypto-details/{id}", controller_path() . "CryptoWalletController@get_crypto_details");
+    
 
 });

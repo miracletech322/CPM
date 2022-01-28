@@ -177,6 +177,16 @@ class CryptoWalletController extends Controller
         }
 
         return redirect()->back()->with("success", "Deleted Successfully");
-       
+    }
+
+    public function get_crypto_details($id){
+        $record = UserCrypto::where("user_id", Auth::user()->id)->where("id", $id)->with("crypto_options")->first();
+        $html = "<div>
+                    <p class='text-left'>
+                        <b>Crypto Option: </b>".$record->crypto_options->name."<br>
+                        <b>Crypto Wallet Address: </b>".$record->wallet_address."<br>
+                    </p>
+                </div>";
+        return $html;
     }
 }

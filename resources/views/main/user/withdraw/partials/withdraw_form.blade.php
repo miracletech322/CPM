@@ -88,8 +88,11 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Bank Account <i class="text-danger">*</i></label>
-                                    <select name="account" id="account" class="form-control">
+                                    <select name="account" id="account" onchange="option_changed($(this).val(), 'bank_details_row', '{{url('get-bank-details')}}')" class="form-control">
                                         <option value="">Select Bank Account</option>
+                                        @foreach($banks as $key => $bank)
+                                            <option value="{{$bank->id}}">{{$bank->account_number ." - ". $bank->bank_name}}</option>
+                                        @endforeach
                                     </select>
                                     @if($banks->count() == 0)
                                     <label class='float-left'><small>No bank accounts available. <a class='text-info' href="{{url('bank-account/create')}}">Add New</a></small></label>
@@ -98,8 +101,10 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Withdraw Amount <i class="text-danger">*</i></label>
-                                    <input class="form-control" name="withdraw_amount" id="withdraw_amount" placeholder="Enter Withdraw Amount" type="text">
+                                    <input class="form-control" name="withdraw_amount_bank" placeholder="Enter Withdraw Amount" type="text">
                                 </div>
+
+                                <div class="col-md-12 mb-3 float-left bank_details_row"></div>
 
                             </div>
                         </div>
@@ -112,7 +117,7 @@
 
                             <div class="row form-group mb-3 mt-3">
                                 <div class="col-md-12 mb-3">
-                                    <h5>Please select your bank account below and click withdraw.</h5>
+                                    <h5>Please select your crypto wallet below and click withdraw.</h5>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <a class="btn btn-theme btn-sm float-right" href="{{url('crypto-wallet')}}">Manage Crypto Wallets</a>
@@ -123,8 +128,11 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Crypto Wallet <i class="text-danger">*</i></label>
-                                    <select name="account" id="account" class="form-control">
+                                    <select name="wallet" id="wallet" onchange="option_changed($(this).val(), 'crypto_details_row', '{{url('get-crypto-details')}}')" class="form-control">
                                         <option value="">Select Crypto Wallet</option>
+                                        @foreach($cryptos as $key => $crypto)
+                                            <option value="{{$crypto->id}}">{{$crypto->crypto_options->name ." - ". $crypto->wallet_address}}</option>
+                                        @endforeach
                                     </select>
                                     @if($cryptos->count() == 0)
                                     <label class='float-left'><small>No crypto wallets available. <a class='text-info' href="{{url('crypto-wallet/create')}}">Add New</a></small></label>
@@ -133,8 +141,10 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label class='float-left'>Withdraw Amount <i class="text-danger">*</i></label>
-                                    <input class="form-control" name="withdraw_amount" id="withdraw_amount" placeholder="Enter Withdraw Amount" type="text">
+                                    <input class="form-control" name="withdraw_amount_crypto" placeholder="Enter Withdraw Amount" type="text">
                                 </div>
+
+                                <div class="col-md-12 mb-3 float-left crypto_details_row"></div>
                             </div>
 
                         </div>

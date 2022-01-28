@@ -33,5 +33,4 @@
 
 @section('js')
 @include(@$directory."partials.js")
-
 @endsection

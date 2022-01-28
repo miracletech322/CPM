@@ -35,7 +35,7 @@ class WithdrawController extends Controller
         $user_balance = get_user_balance();
 
         $banks = UserBank::where("user_id", Auth::user()->id)->get();
-        $cryptos = UserCrypto::where("user_id", Auth::user()->id)->get();
+        $cryptos = UserCrypto::where("user_id", Auth::user()->id)->with("crypto_options")->get();
 
         return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'form_button', 'coin_values', 'user_balance', 'banks', 'cryptos'));
     }  
@@ -43,9 +43,11 @@ class WithdrawController extends Controller
 
     public function process_withdraw(Request $request){
 
-        $payment_method = in_array($request->payment_method, [1,2,3]) ? $request->payment_method : 1;
+        $payment_method = in_array($request->payment_method, [2,3]) ? $request->payment_method : 2;
         $user_balance = get_user_balance();
-        $withdraw_amount  = $request->withdraw_amount;
+        
+
+        $withdraw_amount = isset($request->withdraw_amount_bank) ? $request->withdraw_amount_bank : $request->withdraw_amount_crypto;
         $requested_withdraw = get_user_withdraw();
         
         if( $withdraw_amount > ($user_balance - $requested_withdraw) ){
@@ -53,60 +55,58 @@ class WithdrawController extends Controller
         }
 
         $min_withdraw = 20;
+
         if( $withdraw_amount < $min_withdraw ){
             return [array("error" => "Withdraw amount must be atleast $$min_withdraw.")];
         }
         
-        if(!is_numeric($request->withdraw_amount)){
+        if(!is_numeric($withdraw_amount)){
             return [array("error" => "Withdraw amount should be a valid number.")];
         }
 
         if($payment_method == 3){
-            return $this->coin_withdraw($request);
-        }
-        else if($payment_method == 2){
 
             $this->validate($request, [
-                'full_name' => 'required',
-                'account_number' => 'required',
-                'swift_bic' => 'required',
-                'withdraw_amount' => 'required',
+                'wallet' => 'required',
+                'withdraw_amount_crypto' => 'required',
             ]);
 
-            return $this->bank_withdraw($request);
+            $payment_via = UserCrypto::where("user_id", Auth::user()->id)
+                        ->where("id", $request->wallet)
+                        ->first();
+
+            if(!$payment_via)
+                return [array("error" => "Selected crypto wallet not found.")];
+
         }
-        else {
-            return $this->card_withdraw($request);
+        else{
+
+            $this->validate($request, [
+                'account' => 'required',
+                'withdraw_amount_bank' => 'required',
+            ]);
+
+            $payment_via = UserBank::where("user_id", Auth::user()->id)
+                        ->where("id", $request->account)
+                        ->first();
+
+            if(!$payment_via)
+                return [array("error" => "Selected bank account not found.")];
+
         }
-    }
-
-    public function card_withdraw(Request $request){
-        return [array("error" => "Withdraw method not available.")];
-    }
-
-    public function bank_withdraw(Request $request){
-
-        $user = User::where("id", Auth::user()->id)->first();
-        $user->save();
 
         $record = new WithdrawRequest();
         $record->public_id = (string) Str::uuid();
         $record->user_id = Auth::user()->id;
         $record->is_resolved = 0;
-        $record->is_accepted = NULL;
-        $record->action_performed_by = NULL;
-        $record->action_performed_at = NULL;
-        $record->amount_withdraw = $request->withdraw_amount;
-        $record->hashing_id = $request->hashing;
-        $record->additional_details = $request->additional_information;
+        $record->amount_withdraw = $withdraw_amount;
+        $record->payment_via_id = $payment_via->id;
+        $record->payment_method = $payment_method;
         $record->save();
 
         Session::flash('success', 'Your request has been submitted. After verfication you will receive your payment.');
         return 1;
     }
 
-    public function coin_withdraw(Request $request){
-        return [array("error" => "Withdraw method not available.")];
-    }
 
 }

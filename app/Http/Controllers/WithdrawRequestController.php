@@ -30,9 +30,8 @@ class WithdrawRequestController extends Controller
     {
         
         $records = WithdrawRequest::where("is_resolved", 0)
-                            ->with('users', 'hashings', 'action_performer')
+                            ->with('users', 'hashings', 'action_performer', 'user_banks', 'user_cryptos')
                             ->get();
-
                     
         return DataTables::of($records)
             ->addColumn('fullname', function ($records) {
@@ -62,9 +61,22 @@ class WithdrawRequestController extends Controller
                         onclick='goto_url(\"" . $reject_url . "\" , \""."You want to reject this request?"."\" )'
                         data-placement='left' title='Reject Request' class='fa fa-times  fa-lg action-icon text-danger'></a>&nbsp;&nbsp;&nbsp;";
 
+                $model_body = "";
+                $model_header = "";
+                if($records->payment_method == 2 && $records->user_banks){
+                    //Bank
+                    $model_header = "Bank Details";
+                    $model_body = "<div><p><b>Account Holder Name: </b>".$records->user_banks->account_holder_name."<br><b>Account Number: </b>".$records->user_banks->account_number."<br><b>Country: </b>".$records->user_banks->country."<br><b>Bank Currency: </b>".$records->user_banks->bank_currency."<br><b>Bank Name: </b>".$records->user_banks->bank_name."<br><b>Branch Name: </b>".$records->user_banks->branch_name."<br><b>Swift Code / BIC: </b>".$records->user_banks->swift_bic."<br><b>IBAN Number: </b>".$records->user_banks->iban_number."</p></div>";
+
+                }else if($records->payment_method == 3 && $records->user_cryptos){
+                    //Coin
+                    $model_header = "Wallet Details";
+                    $model_body = "<div><p><b>Crypto Option: </b>".$records->user_cryptos->crypto_options->name."<br><b>Crypto Wallet Address: </b>".$records->user_cryptos->wallet_address."</p></div>";
+                }
+
                 $global_modal = "<a data-toggle='tooltip'
-                onclick='show_global_modal(\"" . "Additional Details" . "\" , \"". $records->additional_details ."\" )'
-                data-placement='left' title='Additional Information' class='fa fa-list  fa-lg action-icon text-warning'></a>";
+                onclick='show_global_modal(\"" . $model_header . "\" , \"". $model_body ."\" )'
+                data-placement='left' title='Show Details' class='fa fa-list  fa-lg action-icon text-warning'></a>";
 
                 return  $accept . $reject. $global_modal;
             })

@@ -20,4 +20,12 @@ class WithdrawRequest extends Model
     public function action_performer() {
         return $this->belongsTo(User::class, 'action_performed_by', 'id');
     }
+    
+    public function user_banks(){
+        return $this->belongsTo(UserBank::class, 'payment_via_id', 'id');
+    }
+
+    public function user_cryptos(){
+        return $this->belongsTo(UserCrypto::class, 'payment_via_id', 'id')->with("crypto_options");
+    }
 }
