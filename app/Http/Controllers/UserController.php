@@ -192,8 +192,8 @@ class UserController extends Controller
                 if($records->payment_method == 4){
                     return ($records->ledger_users ? ($records->ledger_users->users ? $records->ledger_users->users->email : "" ) : "");
                 }
-                else if($records->payment_method != 2){
-                    return $this->method[$records->payment_method] . " (". $records->status_text.")";
+                else if(in_array($records->payment_method, [1,2,3])){
+                    return $records->type == 1 ? $this->method[$records->payment_method] : ($this->method[$records->payment_method] . " (". $records->status_text.")");
                 }
                 else {
                     return $records->type == 4 ? "Auto" : $this->method[$records->payment_method];

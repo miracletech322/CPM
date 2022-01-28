@@ -109,8 +109,9 @@ class WithdrawRequestController extends Controller
         $ledger->current_wallet_balance = $wallet->balance;
         $ledger->amount = $record->amount_withdraw;
         $ledger->type = 1;
-        $ledger->payment_method = 2;
+        $ledger->payment_method = $record->payment_method;
         $ledger->action_performmed_by = Auth::user()->id;
+        $ledger->withdraw_request_id = $record->id;
         $ledger->action_performmed_at = date("Y-m-d H:i:s");
         $ledger->save();
 
@@ -144,7 +145,7 @@ class WithdrawRequestController extends Controller
     } 
 
 
-    public function processed_withdraw_request ()
+    public function processed_withdraw_request()
     {
         $directory = $this->directory;
         $title_plurar = $this->title_plurar;
