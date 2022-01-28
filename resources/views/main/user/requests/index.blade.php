@@ -42,7 +42,7 @@
                             <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                                 <i data-acorn-icon="dollar" class="text-primary"></i>
                             </div>
-                            <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Deposited Amount (Pending)</div>
+                            <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Deposit Amount (Pending)</div>
                             <div class="text-primary cta-4">$ {{@$total_drequests_amount}}</div>
                         </div>
                     </div>
