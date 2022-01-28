@@ -26,6 +26,7 @@ class WithdrawRequestController extends Controller
         return view($this->directory . "index", compact('title_plurar', 'directory','active_item'));
     }  
 
+    public $payment_method = ["Card", "Bank", "Crypto"];
     public function get_listing()
     {
         
@@ -45,6 +46,9 @@ class WithdrawRequestController extends Controller
             })
             ->addColumn('date_requested', function ($records) {
                 return to_date($records->created_at);
+            })
+            ->addColumn('payment_method', function ($records) {
+                return $this->payment_method[$records->payment_method-1];
             })
             ->addColumn('cash_paid', function ($records) {
                 return "$".to_cash_format_small($records->amount_withdraw);
@@ -176,6 +180,9 @@ class WithdrawRequestController extends Controller
             })
             ->addColumn('cash_paid', function ($records) {
                 return "$".to_cash_format_small($records->amount_withdraw);
+            })
+            ->addColumn('payment_method', function ($records) {
+                return $this->payment_method[$records->payment_method-1];
             })
             ->addColumn('action_performer', function ($records) {
                 return $records->action_performer ? ($records->action_performer->first_name . " " . $records->action_performer->last_name) : '';

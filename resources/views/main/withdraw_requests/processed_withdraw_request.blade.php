@@ -32,6 +32,7 @@
                             <th>Phone Number</th>
                             <th>Date Requested</th>
                             <th>Cash Paid</th>
+                            <th>Withdrawl Method</th>
                             <th>Action Performed By</th>
                             <th>Action Performed</th>
                         </tr>

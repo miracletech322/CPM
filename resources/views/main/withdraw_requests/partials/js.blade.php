@@ -54,17 +54,18 @@
                 {data: 'phone', name: 'phone'},
                 {data: 'date_requested', name: 'date_requested'},
                 {data: 'cash_paid', name: 'cash_paid'},
+                {data: 'payment_method', name: 'payment_method'},
                 {data: 'action', name: 'action'},
             ],
             fnDrawCallback: function (oSettings) { oTable.page(oSettings.page) },
             "columnDefs": [
                 {
                     "searchable":false,
-                    "targets":[5]
+                    "targets":[6]
                 },
                 {
                     "orderable":false,
-                    "targets":[5]
+                    "targets":[6]
                 }
             ],
             "order": [
@@ -107,6 +108,7 @@
                 {data: 'phone', name: 'phone'},
                 {data: 'date_requested', name: 'date_requested'},
                 {data: 'cash_paid', name: 'cash_paid'},
+                {data: 'payment_method', name: 'payment_method'},
                 {data: 'action_performer', name: 'action_performer'},
                 {data: 'action_performed', name: 'action_performed'},
             ],
