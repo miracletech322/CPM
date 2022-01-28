@@ -10,7 +10,7 @@
                     <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                         <i data-acorn-icon="dollar" class="text-primary"></i>
                     </div>
-                    <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Your balance</div>
+                    <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Your balance</div>
                     <div class="text-primary cta-4">$ {{to_cash_format_small(get_user_balance() - get_user_withdraw())}}</div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                         <i data-acorn-icon="list" class="text-primary"></i>
                     </div>
-                    <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Withdraw Requested</div>
+                    <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Withdraw Requested</div>
                     <div class="text-primary cta-4">$ {{to_cash_format(get_user_withdraw())}}</div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <div class="card mb-2">
                         <div class="card-body h-100">
                             <div class="row">
-                                <div class="col-md-12 text-center mb-3 text-alternate text-large lh-1-25">
+                                <div class="col-md-12 text-center mb-3 text-alternate text-smaller lh-1-25">
                                     <div>${{$user_balance}} TO COINS</div>
                                 </div>
                                 <div class="col-md-4 text-center">

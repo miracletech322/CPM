@@ -1,5 +1,7 @@
 @extends('layouts.main.base')
 
+@section('title') Referral Program @endsection
+
 @section('content')
 
 <div class="row mt-5">
@@ -47,7 +49,7 @@
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                                     <i data-acorn-icon="list" class="text-primary"></i>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Referrals</div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Referrals</div>
                                 <div class="text-primary cta-4">{{@$refered_by_user}} User(s)</div>
                             </div>
                         </div>
@@ -59,7 +61,7 @@
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                                     <i data-acorn-icon="dollar" class="text-primary"></i>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Income by Referrals</div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Income by Referrals</div>
                                 <div class="text-primary cta-4">$ {{@$earned_via_referral}}</div>
                             </div>
                         </div>

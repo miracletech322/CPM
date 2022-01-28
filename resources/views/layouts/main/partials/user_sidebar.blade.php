@@ -21,18 +21,24 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('referrals')}}">
-                        <i data-acorn-icon="tag" class="icon" data-acorn-size="18"></i>
-                        <span class="label">Referrals</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ url('withdraw')}}" class='withdraw'>
                         <i data-acorn-icon="cart" class="icon" data-acorn-size="18"></i>
                         <span class="label">Withdraw</span>
                     </a>
                 </li>
                  <li>
+                    <a href="{{ url('user-requests')}}" class='requests'>
+                        <i data-acorn-icon="list" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Requests</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('referrals')}}">
+                        <i data-acorn-icon="tag" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Referrals</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ url('account')}}" class='account'>
                         <i data-acorn-icon="user" class="icon" data-acorn-size="18"></i>
                         <span class="label">Account</span>

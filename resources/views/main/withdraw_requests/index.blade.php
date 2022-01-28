@@ -24,7 +24,7 @@
                             <th>Email</th>
                             <th>Phone Number</th>
                             <th>Date Requested</th>
-                            <th>Cash Paid</th>
+                            <th>Cash Requested</th>
                             <th>Withdrawl Method</th>
                             <th>Actions</th>
                         </tr>

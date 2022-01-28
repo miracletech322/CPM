@@ -137,5 +137,12 @@ Route::group(['middleware' => ['auth','verified','role:user']], function () {
     Route::get("delete-crypto-wallet/{id}", controller_path() . "CryptoWalletController@destroy");
     Route::get("get-crypto-details/{id}", controller_path() . "CryptoWalletController@get_crypto_details");
     
+    
+    //USER REQUESTS
+    Route::get("user-requests", controller_path() . "UserRequestController@index");
+    Route::get("user-drequests", controller_path() . "UserRequestController@user_drequest");
+    Route::get("user-drequests-listing", controller_path() . "UserRequestController@user_drequest_listing");
+    Route::get("user-wrequests", controller_path() . "UserRequestController@user_wrequest");
+    Route::get("user-wrequests-listing", controller_path() . "UserRequestController@user_wrequest_listing");
 
 });

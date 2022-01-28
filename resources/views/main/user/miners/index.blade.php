@@ -30,7 +30,7 @@
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                                     <i data-acorn-icon="dollar" class="text-primary"></i>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Your balance</div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Your balance</div>
                                 <div class="text-primary cta-4">$ {{$user_balance}}</div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                                     <i data-acorn-icon="cart" class="text-primary"></i>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-large lh-1-25">Number of miners</div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Number of miners</div>
                                 <div class="text-primary cta-4">{{count(@$miners)}} Miners</div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                                     <i data-acorn-icon="check-circle" class="text-primary"></i>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-small lh-1-25">POWER BOUGHT (BTC - TH/s)</div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">POWER BOUGHT (BTC - TH/s)</div>
                                 <div class="text-primary cta-4">{{to_power_format($total_power["total_power_th"])}}</div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                                     <i data-acorn-icon="check-circle" class="text-primary"></i>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-small lh-1-25">POWER BOUGHT (ETH - MH/s)</div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">POWER BOUGHT (ETH - MH/s)</div>
                                 <div class="text-primary cta-4">{{to_power_format($total_power["total_power_mh"])}}</div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
                                     <i data-acorn-icon="check-circle" class="text-primary"></i>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-small lh-1-25">POWER BOUGHT (ZEC - KH/s)</div>
+                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">POWER BOUGHT (ZEC - KH/s)</div>
                                 <div class="text-primary cta-4">{{to_power_format($total_power["total_power_kh"])}}</div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                 <div class="card mb-2">
                                     <div class="card-body h-100">
                                         <div class="row">
-                                            <div class="col-md-12 text-center mb-3 text-alternate text-large lh-1-25">
+                                            <div class="col-md-12 text-center mb-3 text-alternate text-smaller lh-1-25">
                                                 <div>${{$user_balance}} TO COINS</div>
                                             </div>
                                             <div class="col-md-4 text-center">
