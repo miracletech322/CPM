@@ -54,6 +54,7 @@
                 {data: 'phone', name: 'phone'},
                 {data: 'date_requested', name: 'date_requested'},
                 {data: 'cash_paid', name: 'cash_paid'},
+                {data: 'after_vat', name: 'after_vat'},
                 {data: 'payment_method', name: 'payment_method'},
                 {data: 'action', name: 'action'},
             ],
@@ -61,11 +62,11 @@
             "columnDefs": [
                 {
                     "searchable":false,
-                    "targets":[6]
+                    "targets":[7]
                 },
                 {
                     "orderable":false,
-                    "targets":[6]
+                    "targets":[7]
                 }
             ],
             "order": [

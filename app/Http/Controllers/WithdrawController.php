@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\DepositRequest;
 use App\Models\Ledger;
 use App\Models\Payment;
+use App\Models\Setting;
 use App\Models\User;
 use App\Models\UserBank;
 use App\Models\UserCrypto;
@@ -104,7 +105,9 @@ class WithdrawController extends Controller
         $record->payment_method = $payment_method;
         $record->save();
 
-        Session::flash('success', 'Your request has been submitted. After verfication you will receive your payment.');
+        $vat = Setting::first()->vat ?? 0;
+        $vat_msg = $vat == 0 ? "" : "$vat% VAT will be deducted.";
+        Session::flash('success', 'Your request has been submitted. After verfication you will receive your payment. '.$vat_msg);
         return 1;
     }
 

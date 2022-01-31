@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ledger;
 use App\Models\Payment;
+use App\Models\Setting;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Models\WithdrawRequest;
@@ -27,6 +28,7 @@ class WithdrawRequestController extends Controller
     }  
 
     public $payment_method = ["Card", "Bank", "Crypto"];
+    public $vat = 0;
     public function get_listing()
     {
         
@@ -34,6 +36,7 @@ class WithdrawRequestController extends Controller
                             ->with('users', 'hashings', 'action_performer', 'user_banks', 'user_cryptos')
                             ->get();
                     
+        $this->vat = Setting::first()->vat;
         return DataTables::of($records)
             ->addColumn('fullname', function ($records) {
                 return $records->users ? ($records->users->first_name . " " . $records->users->last_name) : '';
@@ -52,6 +55,9 @@ class WithdrawRequestController extends Controller
             })
             ->addColumn('cash_paid', function ($records) {
                 return "$".to_cash_format_small($records->amount_withdraw);
+            })
+            ->addColumn('after_vat', function ($records) {
+                return "$".to_cash_format_small(( ($records->amount_withdraw/100) * (100 - $this->vat) ) );
             })
             ->addColumn('action', function ($records) {
 
