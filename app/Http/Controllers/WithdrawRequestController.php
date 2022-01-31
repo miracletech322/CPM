@@ -131,9 +131,10 @@ class WithdrawRequestController extends Controller
         $record->action_performed_by = Auth::user()->id;
         $record->action_performed_at = date("Y-m-d H:i:s");
         $record->is_resolved = 1;
+        $record->vat = Setting::first()->vat ?? 0;
         $record->save();
 
-        return redirect()->back()->with("success" , "Request rejected successfully.");
+        return redirect()->back()->with("success" , "Request accepted successfully.");
     } 
 
     public function reject_withdraw($public_id)

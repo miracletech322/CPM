@@ -62,7 +62,7 @@
                                     <th>Transaction ID</th>
                                     <th>Withdrawl Method</th>
                                     <th>Account Used</th>
-                                    <th>Total Paid</th>
+                                    <th>Total Withdraw</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>

@@ -163,11 +163,11 @@ class InvoiceController extends Controller
                                     </tr>
                                     <tr>
                                         <td class='text-bold-800'>VAT</td>
-                                        <td class='text-bold-800 text-right'>".($setting->vat ?? 0)."%</td>
+                                        <td class='text-bold-800 text-right'>".($record->vat ?? 0)."%</td>
                                     </tr>
                                     <tr>
                                         <td class='text-bold-800'>Total</td>
-                                        <td class='text-bold-800 text-right'>$". to_cash_format_small( (($data['cash']/100)*(100-$setting->vat)) ) ."</td>
+                                        <td class='text-bold-800 text-right'>$". to_cash_format_small( (($data['cash']/100)*(100-$record->vat)) ) ."</td>
                                     </tr>";
 
         }
@@ -246,11 +246,11 @@ class InvoiceController extends Controller
                                     </tr>
                                     <tr>
                                         <td class='text-bold-800'>VAT</td>
-                                        <td class='text-bold-800 text-right'>".($setting->vat ?? 0)."%</td>
+                                        <td class='text-bold-800 text-right'>".($record->vat ?? 0)."%</td>
                                     </tr>
                                     <tr>
                                         <td class='text-bold-800'>Total</td>
-                                        <td class='text-bold-800 text-right'>$". to_cash_format_small( (($data['cash']/100)*(100-$setting->vat)) ) ."</td>
+                                        <td class='text-bold-800 text-right'>$". to_cash_format_small( (($data['cash']/100)*(100-$record->vat)) ) ."</td>
                                     </tr>";
 
         }
