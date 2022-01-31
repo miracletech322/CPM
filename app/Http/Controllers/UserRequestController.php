@@ -115,8 +115,8 @@ class UserRequestController extends Controller
             })
             ->addColumn('account_used', function ($records) {
 
-                $model_body = "";
-                $model_header = "";
+                $model_body = "No record found.";
+                $model_header = "Details";
                 if($records->payment_method == 2 && $records->user_banks){
                     //Bank
                     $model_header = "Bank Details";

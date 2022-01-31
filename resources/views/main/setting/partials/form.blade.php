@@ -22,6 +22,11 @@
             @endif
             <input value="{{@$record->site_logo}}" class="form-control" name="site_logo" id="site_logo" type="file">
         </div>
+
+        <div class="col-md-6 mt-3">
+            <label for="site_name">VAT <i class="text-danger">*</i></label>
+            <input value="{{@$record->vat}}" placeholder="Enter VAT" class="form-control" name="vat" id="vat" type="number">
+        </div>
     </div>
 
     <div class="row form-group">

@@ -145,4 +145,11 @@ Route::group(['middleware' => ['auth','verified','role:user']], function () {
     Route::get("user-wrequests", controller_path() . "UserRequestController@user_wrequest");
     Route::get("user-wrequests-listing", controller_path() . "UserRequestController@user_wrequest_listing");
 
+    //INVOICE
+    Route::get('invoice', controller_path().'InvoiceController@index');
+    Route::get("invoice-deposit-listing", controller_path() . "InvoiceController@get_deposit_listing");
+    Route::get("invoice-withdrawl-listing", controller_path() . "InvoiceController@get_withdrawl_listing");
+    Route::get("invoice/{public_id}", controller_path() . "InvoiceController@show");
+    Route::get("invoice-pdf/{public_id}", controller_path() . "InvoiceController@pdf");
+   
 });

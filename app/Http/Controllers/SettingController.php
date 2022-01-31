@@ -65,7 +65,11 @@ class SettingController extends Controller
             "eth_max" => "required|numeric",
             "equi_min" => "required|numeric",
             "equi_max" => "required|numeric",
+            "vat" => "required|numeric",
         ]);
+
+        if($request->vat < 0 || $request->vat > 100)
+            return [array("error" => "VAT must be between 0 and 100")];
 
         $record = Setting::first();
         if(!$record){
@@ -83,6 +87,8 @@ class SettingController extends Controller
             Image::make($request->file('site_logo'))->save($path);
             $record->site_logo = $imagename;
         }
+
+        $record->vat = $request->vat;
 
         $record->site_name = $request->site_name;
         $record->account_number = $request->account_number;

@@ -12,6 +12,11 @@ function get_hash_name($id){
     return $hash_name[$id];
 }
 
+function get_power_name($id){
+    $hash_name = ["1" => "TH/s", "2" => "MH/s", "3" => "KH/s"]; 
+    return $hash_name[$id];
+}
+
 function to_date($date_in_any_format, $with_time = 0) {
     if ($date_in_any_format) {
         if($with_time == 0) {
@@ -512,6 +517,11 @@ function get_user_withdraw(){
 }
 
 function get_payent_method($id){
-    $payment_method = ["1" => "Card", "2"=> "Bank", "3" => "Coin", "4" => "Referral"];
+    $payment_method = ["1" => "Card", "2"=> "Bank", "3" => "Coinbase", "4" => "Referral"];
+    return $payment_method[$id];
+}
+
+function get_withdraw_method($id){
+    $payment_method = ["1" => "Card", "2"=> "Bank", "3" => "Crypto"];
     return $payment_method[$id];
 }

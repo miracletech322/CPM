@@ -65,8 +65,8 @@ class WithdrawRequestController extends Controller
                         onclick='goto_url(\"" . $reject_url . "\" , \""."You want to reject this request?"."\" )'
                         data-placement='left' title='Reject Request' class='fa fa-times  fa-lg action-icon text-danger'></a>&nbsp;&nbsp;&nbsp;";
 
-                $model_body = "";
-                $model_header = "";
+                $model_body = "No record found.";
+                $model_header = "Details";
                 if($records->payment_method == 2 && $records->user_banks){
                     //Bank
                     $model_header = "Bank Details";

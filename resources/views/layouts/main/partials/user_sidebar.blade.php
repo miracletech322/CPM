@@ -39,6 +39,14 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ url('invoice')}}" class="invoice">
+                        <i data-acorn-icon="invoice" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Invoices</span>
+                    </a>
+                </li>
+
+                
+                <li>
                     <a href="{{ url('account')}}" class='account'>
                         <i data-acorn-icon="user" class="icon" data-acorn-size="18"></i>
                         <span class="label">Account</span>
