@@ -45,18 +45,20 @@ class FortifyServiceProvider extends ServiceProvider
                 $user->two_factor_secret = encrypt(random_int(10000000, 99999999));
                 $user->save();
                 
-                if($user->role_id == 3){
+                // if($user->role_id == 3){
                     try {
                         $email_data = [
                             'code' => decrypt($user->two_factor_secret),
                             'to_name' => $user->first_name
                         ];
+
+                        info("Code: ". $email_data["code"]);
                         Mail::to($user->email)->send(new SendCodeMail($email_data));
                 
                     } catch (Exception $e) {
                         info("Error: ". $e->getMessage());
                     }
-                }
+                // }
 
                 return $user;
             }

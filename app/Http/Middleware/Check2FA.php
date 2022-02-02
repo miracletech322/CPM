@@ -18,8 +18,8 @@ class Check2FA
     public function handle(Request $request, Closure $next)
     {
 
-        if(Auth::user()->role_id != 3)
-            return $next($request);
+        // if(Auth::user()->role_id != 3)
+        //     return $next($request);
 
         if (!Session::has('user_2fa')){
             return redirect('two-factor-challenge');

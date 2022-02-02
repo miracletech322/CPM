@@ -24,7 +24,7 @@ Hi {{@$email_data["to_name"]}},
 
 
 @section('text')
-    <p>Your {{$site_name}} authentication code is: {{ $email_data['code'] }}</p>
+    <p>Your {{$site_name}} authentication code is: <b>{{ $email_data['code'] }}</b></p>
 @endsection
 
 

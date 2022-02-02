@@ -39,6 +39,11 @@ Route::get('/clear', function () {
 });
 
 
+//TEMPORARY REMOVE FROM HERE AND UNCOMMENT IN SUPERADMIN SECTION
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+
+
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get("two-factor-challenge", function(){
@@ -66,7 +71,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['middleware' => ['role:superadmin']], function () {
 
             //LOGS
-            Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+            // Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
             //SETTINGS
             Route::resource("settings", controller_path() . "SettingController");
