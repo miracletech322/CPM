@@ -5,6 +5,7 @@
  <script src="{{asset('frontend')}}/js/jquery.listtopie.min.js"></script>
  <script src="{{asset('frontend')}}/js/animation.js"></script>
  <script src="{{asset('frontend')}}/js/custom.js"></script>
+
  <script type="text/javascript">
      var failed_input = 'Fill in the field';
      var failed_select = 'Select a value';
@@ -26,4 +27,6 @@
  </script>
  <script src="{{asset('frontend')}}/cal/jquery-3.4.1.min.js"></script>
  <script src="{{asset('frontend')}}/cal/ion.rangeSlider.min.js"></script>
+ <script src="{{ asset('plugins/inputmask/jquery.mask.min.js')}}"></script>
  {{-- <script src="{{asset('frontend')}}/cal/miner-setup.js"></script> --}}
+ <script src="{{asset("js/main.js")}}"></script>

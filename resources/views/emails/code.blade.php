@@ -3,7 +3,7 @@
 
 
  @php
-    $site_name = "SuperHumanTools";
+    $site_name = "Folex Mining";
     $site_logo = "/template/img/logo.png";
     $settings = DB::table("settings")->first();
     if($settings){
@@ -24,9 +24,7 @@ Hi {{@$email_data["to_name"]}},
 
 
 @section('text')
-    <p>
-        Welcome to SuperHumanTools.
-    </p>
+    <p>Your {{$site_name}} authentication code is: {{ $email_data['code'] }}</p>
 @endsection
 
 

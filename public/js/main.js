@@ -96,6 +96,16 @@ $(function() {
             }
         });
     }
+
+    if ($('.code').length){
+        $('.code').mask('Z Z Z Z Z Z Z Z', {
+            translation: {
+              'Z': {
+                pattern: /[a-zA-Z0-9]/, optional: true
+              }
+            }
+        });
+    }
            
    
 
