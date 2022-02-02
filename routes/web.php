@@ -126,9 +126,6 @@ Route::group(['middleware' => ['auth']], function () {
             Route::resource('/withdraw', controller_path() . 'WithdrawController');
             Route::post('/process-withdraw', controller_path() . 'WithdrawController@process_withdraw');
 
-            //STATISTICS
-            Route::resource('/statistics', controller_path() . 'StatisticsController');
-
             //REFERRALS
             Route::resource('/referrals', controller_path() . 'ReferralsController');
 
