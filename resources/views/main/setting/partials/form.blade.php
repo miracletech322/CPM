@@ -16,7 +16,7 @@
         </div>
 
         <div class="col-md-6">
-            <label for="site_logo">Site Logo <i class="text-danger">*</i></label>
+            <label for="site_logo">Site Logo </label>
              @if(!blank(@$record->site_logo))
                 <a class="ml-2" href="{{url('/').@$record->site_logo}}" target="_blank">(Show Logo)</a>
             @endif

@@ -74,9 +74,9 @@ class SettingController extends Controller
         $record = Setting::first();
         if(!$record){
             $record = new Setting();
-            $this->validate($request,[
-                'site_logo'=>'required',
-            ]);
+            // $this->validate($request,[
+            //     'site_logo'=>'required',
+            // ]);
         }
 
         if(isset($request->site_logo)){
