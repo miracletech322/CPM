@@ -2,12 +2,12 @@
 <html lang="en" data-footer="true" data-navcolor="dark" data-color="light-green">
     @php
         $site_data["site_name"] = "Folex Mining";
-        $site_data["site_logo"] = asset('frontend') . '/images/logo.svg';
+        $site_data["site_logo"] = asset('frontend') . '/images/logo-admin.svg';
         $settings = DB::table("settings")->first();
 
         if($settings){
             $site_data["site_name"] = @$settings->site_name;
-            $site_data["site_logo"] = @$settings->site_logo;
+            $site_data["site_logo"] = @$settings->site_logo ? @$settings->site_logo : $site_data["site_logo"];
         }
     @endphp
     <head>

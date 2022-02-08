@@ -25,7 +25,7 @@
     </div>
 </section>
 
-<section class="work-part lightskyblue ptb-100">
+<section class="work-part ptb-100 lightskyblue">
     <div class="container">
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
@@ -150,7 +150,7 @@
     </div>
 </section>
 
-<section class="calculate-earnings" id="calculator">
+<section class="calculate-earnings lightskyblue" id="calculator">
     <div class="container">
         <h2 class="calculate-earnings__title">Calculate earnings</h2>
         <div class="calculate-earnings__wrap">
@@ -271,8 +271,7 @@
     </div>
 </section>
 
-
-<section class="ico-apps parallax-2 lightskyblue pt-100">
+<section class="ico-apps pt-100">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 wow fadeInLeft flex-bottom order-r-2">
@@ -301,7 +300,7 @@
     </div>
 </section>
 
-<section class="faq-part pt-100" id="faq">
+<section class="faq-part pt-100 lightskyblue parallax-2" id="faq">
     <div class="container">
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
@@ -523,6 +522,8 @@
         </div>
     </div>
 </section>
+
+
 @endsection
 @section('js')
 @include('shared.calculator_js')

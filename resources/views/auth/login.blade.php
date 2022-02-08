@@ -71,14 +71,14 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                Don't have an account? <a href="{{url('register')}}" class="text-info">Register Account!</a>
+                                Don't have an account? <a href="{{url('register')}}" class="text-info-template">Register Account!</a>
                             </div>
                         </div>
 
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-link">
                                     {{ __('Login') }}
                                 </button>
 

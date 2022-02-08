@@ -27,12 +27,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('settings')}}" class='settings'>
-                        <i class="icon fa fa-cog" data-acorn-size="18"></i>
-                        <span class="label">Settings</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ url('account')}}" class='account'>
                         <i data-acorn-icon="user" class="icon" data-acorn-size="18"></i>
                         <span class="label">Account</span>

@@ -105,11 +105,67 @@ div.dataTables_wrapper table.dataTable {
 }
 
 .theme-color {
-    background-color: #3abd7a !important;
+    background-color: #f8ae4c !important;
 }
 
 .btn-theme {
-    background-color: #3abd7a !important;
+    background-color: #f8ae4c !important;
+}
+
+.btn:before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+    transition: all 400ms ease;
+}
+
+.btn {
+    color: #ffffff;
+    background: #f8ae4c;
+    border: 1px solid #f8ae4c;
+    border-color: #f8ae4c;
+}
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid;
+    padding: 9px 22px;
+    border-radius: 5px;
+    position: relative;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+.btn:hover {
+    -webkit-transform: translateY(-5px) !important;
+    transform: translateY(-5px) !important;
+}
+
+.btn:hover {
+    text-decoration: none !important;
+}
+
+
+.btn:hover:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+}
+
+.btn:before {
+    background: -webkit-radial-gradient(center, ellipse, rgb(255 155 22 / 50%) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgb(255 155 22 / 50%) 0%, rgba(0, 0, 0, 0) 80%);
 }
 
 .theme-color th {
@@ -143,5 +199,5 @@ body {
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: white;
-    background: #1ea962;
+    background: #f8ae4c;
 }

@@ -7,7 +7,7 @@ $settings = DB::table("settings")->first();
 
 if($settings){
     $site_data["site_name"] = @$settings->site_name;
-    $site_data["site_logo"] = url('/').@$settings->site_logo;
+    $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_logo) : $site_data["site_logo"];
 }
 @endphp
 <head>

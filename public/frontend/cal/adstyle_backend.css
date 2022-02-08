@@ -134,7 +134,7 @@
     color:#fff;
     border-radius:3px;
     padding:2px 6px;
-    background:linear-gradient(272.47deg,#ce0ca1 0%,#16d5ff 100%)
+    background:linear-gradient(272.47deg,#ce0ca1 0%,#f8ae4c 100%)
 }
 .active-miners__item-add{
     display:flex;
@@ -193,7 +193,7 @@
     width:100%
 }
 .calculate-earnings__calculator-range-line.fill{
-    background:linear-gradient(272.47deg,#ce0ca1 0%,#16d5ff 100%);
+    background:linear-gradient(272.47deg,#ce0ca1 0%,#f8ae4c 100%);
     box-shadow:10px 10px 42px rgba(0,20,33,.2);
     width:25%;
     top:0;
@@ -210,7 +210,7 @@
     padding:.4rem;
     width:fit-content;
     color:#fff;
-    background:linear-gradient(272.47deg,#ce0ca1 0%,#16d5ff 100%);
+    background:linear-gradient(272.47deg,#ce0ca1 0%,#f8ae4c 100%);
     z-index:3
 }
 .calculate-earnings__calculator-range-data:before{
@@ -226,13 +226,13 @@
     border-left:10px solid transparent;
     border-right:10px solid transparent;
     z-index:2;
-    border-top:9px solid #16d5ff
+    border-top:9px solid #f8ae4c
 }
 .calculate-earnings__calculator-range-point{
     position:absolute;
     top:-50%;
     left:25%;
-    background-color:#16d5ff;
+    background-color:#f8ae4c;
     width:3rem;
     height:3rem;
     border-radius:50rem;
@@ -483,7 +483,7 @@
 }
 .accessibility__list-ul-li i{
     margin-left:-3rem;
-    color:#16d5ff;
+    color:#f8ae4c;
     float:left;
     margin-top:2px
 }
@@ -891,7 +891,7 @@
 }
 .three-stat-count span{
     font-size:1.4rem;
-    background:linear-gradient( 272.47deg,#ce0ca1 0%,#16d5ff 100%);
+    background:linear-gradient( 272.47deg,#ce0ca1 0%,#f8ae4c 100%);
     color:#fff;
     padding:3px 10px;
     border-radius:4px
@@ -1084,7 +1084,7 @@
 }
 .pricing-palden .pricing-deco{
     border-radius:10px 10px 0 0;
-    background:linear-gradient( 272.47deg,#ce0ca1 0%,#16d5ff 100%);
+    background:linear-gradient( 272.47deg,#ce0ca1 0%,#f8ae4c 100%);
     padding:3em 0 0;
     position:relative
 }
