@@ -4,7 +4,7 @@
 
  @php
     $site_name = "Folex Mining";
-    $site_logo = "/template/img/logo.png";
+    $site_logo = asset('frontend') . '/images/logo-admin.svg';
     $settings = DB::table("settings")->first();
     if($settings){
         $site_name = $settings->site_name ? $settings->site_name : $site_name;
