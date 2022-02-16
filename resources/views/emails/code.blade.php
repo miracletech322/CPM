@@ -8,13 +8,13 @@
     $settings = DB::table("settings")->first();
     if($settings){
         $site_name = $settings->site_name ? $settings->site_name : $site_name;
-        $site_logo = $settings->site_logo ? $settings->site_logo : $site_logo;
+        $site_logo = @$settings->site_logo ? @$settings->site_logo : $site_logo;
     }
 @endphp
 
 
 @section('top_image')
-    <img src="{{url("/").$site_logo }}" alt="{{@$site_name}}" height="50" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100%; border: none;">
+    <img src="{{@$settings->site_logo ? (url("/").$site_logo) : $site_logo}}" alt="{{@$site_name}}" height="50" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100%; border: none;">
 @endsection
 
 
