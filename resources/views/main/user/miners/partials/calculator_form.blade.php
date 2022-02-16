@@ -95,7 +95,7 @@
             </div>
 
             <div class="col-md-12 mt-3">
-                @if(Auth::check())
+                {{-- @if(Auth::check())
                 @if(auth()->user()->role_id == 3)
                 <a href="{{url('miners')}}" class="calculate-earnings__calculator-btn btn">Buy</a>
                 @else
@@ -103,7 +103,7 @@
                 @endif
                 @else
                 <a href="{{route('login')}}" class="calculate-earnings__calculator-btn btn">Buy</a>
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>
