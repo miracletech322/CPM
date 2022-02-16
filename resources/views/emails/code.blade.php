@@ -4,7 +4,7 @@
 
  @php
     $site_name = "Folex Mining";
-    $site_logo = asset('frontend') . '/images/logo-admin.svg';
+    $site_logo = '/frontend/images/logo.png';
     $settings = DB::table("settings")->first();
     if($settings){
         $site_name = $settings->site_name ? $settings->site_name : $site_name;
@@ -14,7 +14,7 @@
 
 
 @section('top_image')
-    <img src="{{@$settings->site_logo ? (url("/").$site_logo) : $site_logo}}" alt="{{@$site_name}}" height="50" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100%; border: none;">
+    <img src="{{url("/").$site_logo}}" alt="{{@$site_name}}" height="50" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100%; border: none;">
 @endsection
 
 
