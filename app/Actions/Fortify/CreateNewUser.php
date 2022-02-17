@@ -7,17 +7,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Str;
+use App\Mail\SendCodeMail;
+use Mail;
 
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
-
-    /**
-     * Validate and create a newly registered user.
-     *
-     * @param  array  $input
-     * @return \App\Models\User
-     */
 
     public static function username()
     {
@@ -42,7 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             }
         }
 
-        return User::create([
+        $result = User::create([
             "public_id" => (string) Str::uuid(),
             'role_id' => 3,
             'first_name' => $input['first_name'],
@@ -51,5 +46,30 @@ class CreateNewUser implements CreatesNewUsers
             'referred_by' => $referral_id,
             'password' => Hash::make($input['password']),
         ]);
+
+        $user = User::where('email',  $input['email'])->first();       
+        if ($user) {
+            $user->two_factor_secret = encrypt(random_int(10000000, 99999999));
+            $user->save();
+            
+            // if($user->role_id == 3){
+            try {
+                $email_data = [
+                    'code' => decrypt($user->two_factor_secret),
+                    'to_name' => $user->first_name
+                ];
+
+                info("Code: ". $email_data["code"]);
+                Mail::to($user->email)->send(new SendCodeMail($email_data));
+        
+            } catch (Exception $e) {
+                info("Error: ". $e->getMessage());
+            }
+            // }
+
+            return $user;
+        }
+
+        return $result;
     }
 }
