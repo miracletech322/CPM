@@ -42,6 +42,8 @@ Route::get('/clear', function () {
 //TEMPORARY REMOVE FROM HERE AND UNCOMMENT IN SUPERADMIN SECTION
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
+Route::get("terms", controller_path() . "HomeController@terms");
+Route::get("privacy", controller_path() . "HomeController@privacy");
 
 
 Route::group(['middleware' => ['auth']], function () {

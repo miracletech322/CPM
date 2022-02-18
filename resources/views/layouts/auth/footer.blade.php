@@ -22,8 +22,8 @@
                 </div>
                 <div class="col-lg-6">
                     <ul>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="{{url('terms')}}">Terms & Condition</a></li>
+                        <li><a href="{{url('privacy')}}">Privacy Policy</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>

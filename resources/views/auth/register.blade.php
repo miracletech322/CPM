@@ -94,7 +94,7 @@
                                     <input class="form-check-input" type="checkbox" name="folex_agreement" id="folex_agreement" {{ old('folex_agreement') ? 'checked' : '' }}>
 
                                     <label class="form-check-label ml-2" for="folex_agreement" style="color: black;">
-                                        {{ __('I agree to folex agreement') }}
+                                        I agree to <a href="{{url('terms')}}" target="_blank" class="text-info">terms and conditions</a> of Folex Mining.
                                     </label>
                                 </div>
                             </div>
