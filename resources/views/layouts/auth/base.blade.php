@@ -27,6 +27,10 @@ if($settings){
             text-shadow: 0 1px 0 #fff;
             opacity: .5;
         }
+
+        .form-control {
+            font-size: 1.5rem !important;
+        }
     </style>
 </head>
 
