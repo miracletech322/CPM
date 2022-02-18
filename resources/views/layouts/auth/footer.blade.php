@@ -24,7 +24,7 @@
                     <ul>
                         <li><a href="{{url('terms')}}">Terms & Condition</a></li>
                         <li><a href="{{url('privacy')}}">Privacy Policy</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="mailto:support@folex-mining.com">Contact Us</a></li>
                     </ul>
                 </div>
             </div>

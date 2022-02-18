@@ -12,7 +12,7 @@
             <div class="col-lg-6 col-md-6 position-u flex-align wow fadeInLeft">
                 <div class="banner-contain">
                     <h1 class="banner-heading">Transparent Crypto Mining - Made easy, made for you</h1>
-                    <p class="banner-des">Mine Bitcoin, Ether and Litecoin with our state of the art mining ASICs and GPU. <br>Feel free to <a href="mailto:">contact us</a> for any query or details.</p>
+                    <p class="banner-des">Mine Bitcoin, Ether and Litecoin with our state of the art mining ASICs and GPU. <br>Feel free to <a href="mailto:support@folex-mining.com">contact us</a> for any query or details.</p>
                     <a href="#calculator" class="btn">Calculator</a>
                 </div>
             </div>
