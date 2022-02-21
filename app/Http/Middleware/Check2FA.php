@@ -21,13 +21,14 @@ class Check2FA
         // if(Auth::user()->role_id != 3)
         //     return $next($request);
 
-        if (!Session::has('user_2fa')){
-            return redirect('two-factor-challenge');
-        }
+        
+        // if (!Session::has('user_2fa')){
+        //     return redirect('two-factor-challenge');
+        // }
 
-        if(decrypt(Session::get('user_2fa')) != decrypt(Auth::user()->two_factor_secret)){
-            return redirect('two-factor-challenge');
-        }
+        // if(decrypt(Session::get('user_2fa')) != decrypt(Auth::user()->two_factor_secret)){
+        //     return redirect('two-factor-challenge');
+        // }
   
         return $next($request);
     }
