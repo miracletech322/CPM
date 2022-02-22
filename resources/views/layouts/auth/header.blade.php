@@ -31,7 +31,7 @@
                     </div>
                     @else
                     <div class="signin d-inline-block">
-                        <a href="{{ route('login')}}" class="btn">Login</a>
+                        <a href="{{ route('login')}}" class="btn mr-2">Login</a>
                         <a href="{{url('register')}}" class="btn">Register</a>
                     </div>
                     @endif

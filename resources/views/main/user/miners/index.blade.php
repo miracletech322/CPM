@@ -24,7 +24,7 @@
         <div class="col-12">
             <div class="mb-5">
                 <div class="row g-2">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-6">
                         <div class="card h-100 hover-scale-up cursor-pointer">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-6">
                         <div class="card h-100 hover-scale-up cursor-pointer">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -48,7 +48,7 @@
                     </div>
 
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <div class="card h-100 hover-scale-up cursor-pointer">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <div class="card h-100 hover-scale-up cursor-pointer">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -72,7 +72,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <div class="card h-100 hover-scale-up cursor-pointer">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -93,13 +93,13 @@
                                             <div class="col-md-12 text-center mb-3 text-alternate text-smaller lh-1-25">
                                                 <div>${{$user_balance}} TO COINS</div>
                                             </div>
-                                            <div class="col-md-4 text-center">
+                                            <div class="col-md-4 text-center mb-2">
                                                 <span class="badge bg-outline-primary" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["1"] ,$user_balance))}} BTC</span>
                                             </div>
-                                            <div class="col-md-4 text-center">
+                                            <div class="col-md-4 text-center mb-2">
                                                 <span class="badge bg-outline-primary" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["2"] ,$user_balance))}} ETH</span>
                                             </div>
-                                            <div class="col-md-4 text-center">
+                                            <div class="col-md-4 text-center mb-2">
                                                 <span class="badge bg-outline-primary" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["3"] ,$user_balance))}} ZEC</i></span>
                                             </div>
                                         </div>
@@ -126,7 +126,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="slim_scroll" style="max-height: 500px !important;">
+                    <div class="slim_scroll mb-3" style="max-height: 500px !important;">
                         <table id="datatables" class="table table-striped my-4 w-100">
                             <thead class="theme-color">
                                 <tr>
@@ -176,7 +176,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="slim_scroll" style="max-height: 500px !important;">
+                    <div class="slim_scroll mb-3" style="max-height: 500px !important;">
                         <table id="datatables" class="table table-striped my-4 w-100">
                             <thead class="theme-color">
                                 <tr>
