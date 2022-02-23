@@ -3,7 +3,7 @@ $(function() {
  "use strict";
     /* -------- preloader ------- */
     $(window).on("load", function() {
-        $('#preloader').delay(2000).fadeOut(500);
+        $('#preloader').delay(0).fadeOut(300);
     });
     /* -------- preloader End ------- */
 
