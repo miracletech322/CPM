@@ -49,6 +49,11 @@ class AccountController extends Controller
         $record->first_name = $request->first_name;
         $record->last_name = $request->last_name;
         $record->phone = isset($request->phone_number) ? $request->phone_number : NULL;
+
+        if($record->role_id == 3)
+            if($record->isDirty(["first_name", "last_name", "email"]))
+                $record->is_mailchimp_synced = 0;
+
         $record->save();
 
         return [array("success" => "Account updated Successfully")];

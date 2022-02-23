@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         Commands\EnsureQueueListenerIsRunning::class,
         Commands\UpdateWallets::class,
         Commands\UpdateCoinPrices::class,
+        Commands\SyncMailchimp::class,
     ];
 
     /**
@@ -29,6 +30,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('queue:checkup')->everyFiveMinutes();
         $schedule->command('wallet:update')->everyThirtyMinutes();
         $schedule->command('coins:update')->everyTenMinutes();
+        $schedule->command('sync:mailchimp')->daily();
     }
 
     /**
