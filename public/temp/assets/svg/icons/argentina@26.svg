@@ -1,0 +1,8 @@
+<svg id="Argentina" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <circle id="Oval" cx="13" cy="13" r="13" fill="#f0f0f0"/>
+  <g id="Group" transform="translate(1.29)">
+    <path id="Path" d="M11.71,0A13,13,0,0,0,0,7.348H23.42A13,13,0,0,0,11.71,0Z" transform="translate(0)" fill="#338af3"/>
+    <path id="Path-2" data-name="Path" d="M11.71,7.348A13,13,0,0,0,23.42,0H0A13,13,0,0,0,11.71,7.348Z" transform="translate(0 18.652)" fill="#338af3"/>
+  </g>
+  <path id="Path-3" data-name="Path" d="M7.771,3.7l-1.588.747.845,1.538L5.3,5.651,5.086,7.392l-1.2-1.281-1.2,1.281L2.466,5.651l-1.724.33.845-1.538L0,3.7l1.588-.747L.742,1.412l1.724.33L2.685,0l1.2,1.281L5.086,0,5.3,1.742l1.724-.33L6.183,2.949Z" transform="translate(9.114 9.304)" fill="#ffda44"/>
+</svg>

@@ -1,0 +1,4 @@
+<svg id="Icons_Tabler_Folder" data-name="Icons/Tabler/Folder" xmlns="http://www.w3.org/2000/svg" width="40.001" height="40" viewBox="0 0 40.001 40">
+  <rect id="Icons_Tabler_Folder_background" data-name="Icons/Tabler/Folder background" width="40" height="40" fill="none"/>
+  <path id="Color" d="M34.36,33.847H5.641A5.628,5.628,0,0,1,0,28.449l0-.243V5.641A5.627,5.627,0,0,1,5.4,0l.245,0h8.206a1.549,1.549,0,0,1,.958.335l.128.115,5.7,5.7H34.36a5.622,5.622,0,0,1,5.634,5.4l.007.245V28.206a5.626,5.626,0,0,1-5.4,5.634ZM5.641,3.078A2.569,2.569,0,0,0,3.083,5.465l0,.175V28.206a2.572,2.572,0,0,0,2.387,2.558l.175,0H34.36a2.569,2.569,0,0,0,2.558-2.387l0-.175V11.795a2.569,2.569,0,0,0-2.387-2.558l-.176,0H20a1.539,1.539,0,0,1-.958-.335l-.13-.117-5.7-5.7Z" transform="translate(0 2.5)" fill="#495057"/>
+</svg>

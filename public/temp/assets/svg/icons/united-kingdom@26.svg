@@ -1,0 +1,20 @@
+<svg id="United_Kingdom" data-name="United Kingdom" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <circle id="Oval" cx="13" cy="13" r="13" fill="#f0f0f0"/>
+  <g id="Group" transform="translate(0.448 0.448)">
+    <path id="Path" d="M2.24,0A12.953,12.953,0,0,0,0,4.523H6.763Z" transform="translate(0 4.637)" fill="#0052b4"/>
+    <path id="Path-2" data-name="Path" d="M6.763,4.523A12.954,12.954,0,0,0,4.523,0L0,4.523Z" transform="translate(18.341 4.638)" fill="#0052b4"/>
+    <path id="Path-3" data-name="Path" d="M0,0A12.954,12.954,0,0,0,2.24,4.523L6.763,0Z" transform="translate(0 15.944)" fill="#0052b4"/>
+    <path id="Path-4" data-name="Path" d="M4.523,2.24A12.953,12.953,0,0,0,0,0V6.763Z" transform="translate(15.943 0)" fill="#0052b4"/>
+    <path id="Path-5" data-name="Path" d="M0,4.523a12.954,12.954,0,0,0,4.523,2.24V0Z" transform="translate(4.637 18.341)" fill="#0052b4"/>
+    <path id="Path-6" data-name="Path" d="M4.523,0A12.954,12.954,0,0,0,0,2.24L4.523,6.763Z" transform="translate(4.637 0)" fill="#0052b4"/>
+    <path id="Path-7" data-name="Path" d="M0,6.763a12.954,12.954,0,0,0,4.523-2.24L0,0Z" transform="translate(15.943 18.341)" fill="#0052b4"/>
+    <path id="Path-8" data-name="Path" d="M0,0,4.523,4.523A12.953,12.953,0,0,0,6.763,0Z" transform="translate(18.341 15.944)" fill="#0052b4"/>
+  </g>
+  <g id="Group-2" data-name="Group">
+    <path id="Path-9" data-name="Path" d="M25.89,11.3H14.7V.11A13.119,13.119,0,0,0,11.3.11V11.3H.11a13.119,13.119,0,0,0,0,3.391H11.3V25.89a13.119,13.119,0,0,0,3.391,0V14.7H25.89a13.119,13.119,0,0,0,0-3.391Z" fill="#d80027"/>
+    <path id="Path-10" data-name="Path" d="M0,0H0L5.8,5.8q.4-.4.764-.835L1.6,0H0Z" transform="translate(16.391 16.391)" fill="#d80027"/>
+    <path id="Path-11" data-name="Path" d="M5.8,0h0L0,5.8q.4.4.835.764L5.8,1.6Z" transform="translate(3.808 16.391)" fill="#d80027"/>
+    <path id="Path-12" data-name="Path" d="M6.565,5.8h0L.764,0Q.364.4,0,.835L4.967,5.8h1.6Z" transform="translate(3.043 3.808)" fill="#d80027"/>
+    <path id="Path-13" data-name="Path" d="M0,6.565H0L5.8.764Q5.4.364,4.967,0L0,4.967v1.6Z" transform="translate(16.391 3.044)" fill="#d80027"/>
+  </g>
+</svg>

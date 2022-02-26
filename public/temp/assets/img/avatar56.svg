@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>UI/Circle/Default/Number</title>
+    <g id="🌕-Light-Mode" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Projects---New-project-Details" transform="translate(-346.000000, -1566.000000)">
+            <g id="Activity" transform="translate(306.000000, 1146.000000)">
+                <g id="Content" transform="translate(0.000000, 86.000000)">
+                    <g id="Row-03" transform="translate(0.000000, 302.000000)">
+                        <g id="UI/Circle/Default/Number" transform="translate(40.000000, 32.000000)">
+                            <circle id="Background" fill="#C8A9FA" cx="24" cy="24" r="24"></circle>
+                            <text id="Number" font-family="Montserrat-Bold, Montserrat" font-size="20" font-weight="bold" line-spacing="28" fill="#FFFFFF">
+                                <tspan x="15.74" y="29">D</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

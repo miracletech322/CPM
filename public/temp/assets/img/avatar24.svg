@@ -1,0 +1,7 @@
+<svg id="Group_9" data-name="Group 9" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <circle id="Background" cx="16" cy="16" r="16" fill="#ffead8"/>
+  <g id="Icon" transform="translate(10 10)">
+    <rect id="Icons_Tabler_Plug_background" data-name="Icons/Tabler/Plug background" width="12" height="12" fill="none"/>
+    <path id="Color" d="M5.027,12a1.783,1.783,0,0,1-1.78-1.675l0-.109V9.405H2.433A2.431,2.431,0,0,1,0,7.1l0-.13V3.081A.487.487,0,0,1,.421,2.6l.066,0H1.3V.487A.487.487,0,0,1,2.266.421l0,.066V2.595H5.189V.487A.487.487,0,0,1,6.158.421l0,.066V2.595h.811a.487.487,0,0,1,.482.421l0,.066V6.973A2.431,2.431,0,0,1,5.156,9.4l-.13,0H4.216v.811a.811.811,0,0,0,.728.807l.082,0H6.973A.487.487,0,0,1,7.039,12l-.066,0Zm0-3.567A1.463,1.463,0,0,0,6.483,7.073l0-.1V3.567H.972V6.973a1.463,1.463,0,0,0,1.36,1.457l.1,0H5.027Z" transform="translate(2.25)" fill="#fd7e14"/>
+  </g>
+</svg>

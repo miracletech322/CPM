@@ -1,0 +1,10 @@
+<svg id="United_States" data-name="United States" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <circle id="Oval" cx="9" cy="9" r="9" fill="#f0f0f0"/>
+  <g id="Group" transform="translate(0.31 1.957)">
+    <path id="Path" d="M0,2.348H9.391A9.01,9.01,0,0,0,9.081,0H0Z" transform="translate(8.299 4.696)" fill="#d80027"/>
+    <path id="Path-2" data-name="Path" d="M0,2.348H8.07A9.047,9.047,0,0,0,5.994,0H0Z" transform="translate(8.299 0)" fill="#d80027"/>
+    <path id="Path-3" data-name="Path" d="M5.6,1.957A8.961,8.961,0,0,0,11.2,0H0A8.961,8.961,0,0,0,5.6,1.957Z" transform="translate(3.088 14.087)" fill="#d80027"/>
+    <path id="Path-4" data-name="Path" d="M1.011,2.348H16.369A8.946,8.946,0,0,0,17.38,0H0A8.946,8.946,0,0,0,1.011,2.348Z" transform="translate(0 9.391)" fill="#d80027"/>
+  </g>
+  <path id="Shape" d="M0,9A9.129,9.129,0,0,1,.069,7.878l.457-.332.763.554L1,7.2l.763-.554H.818L.562,5.862q.132-.356.294-.7l.433.314-.232-.714q.1-.2.218-.385l.486-.353H1.5A9.056,9.056,0,0,1,3.243,2.082l-.251.775L3.755,2.3l.763.554-.291-.9.763-.554h-.82A8.957,8.957,0,0,1,9,0V9Z" fill="#0052b4"/>
+</svg>

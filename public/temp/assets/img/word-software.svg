@@ -1,0 +1,15 @@
+<svg id="UI_Logo_Software_Word" data-name="UI/Logo/Software/Word" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="UI_Logo_Software_Word-2" data-name="UI/Logo/Software/Word">
+    <path id="Path" d="M28.333,0H1.666A1.666,1.666,0,0,0,0,1.666V8.75l15,4.375L30,8.75V1.666A1.666,1.666,0,0,0,28.333,0Z" transform="translate(10 2.5)" fill="#41a5ee"/>
+    <path id="Path-2" data-name="Path" d="M30,0H0V8.75l15,4.375L30,8.75Z" transform="translate(10 11.25)" fill="#2b7cd3"/>
+    <path id="Path-3" data-name="Path" d="M30,0H0V8.75l15,4.375L30,8.75Z" transform="translate(10 19.999)" fill="#185abd"/>
+    <path id="Path-4" data-name="Path" d="M30,0H0V7.083A1.666,1.666,0,0,0,1.666,8.75H28.333A1.666,1.666,0,0,0,30,7.083Z" transform="translate(10 28.749)" fill="#103f91"/>
+    <path id="Path-5" data-name="Path" d="M10.833,0H0V23.749H10.833A1.671,1.671,0,0,0,12.5,22.083V1.666A1.671,1.671,0,0,0,10.833,0Z" transform="translate(10 8.75)" opacity="0.1"/>
+    <path id="Path-6" data-name="Path" d="M9.583,0H0V23.749H9.583a1.671,1.671,0,0,0,1.666-1.666V1.666A1.671,1.671,0,0,0,9.583,0Z" transform="translate(10 10)" opacity="0.2"/>
+    <path id="Path-7" data-name="Path" d="M9.583,0H0V21.249H9.583a1.671,1.671,0,0,0,1.666-1.666V1.666A1.671,1.671,0,0,0,9.583,0Z" transform="translate(10 10)" opacity="0.2"/>
+    <path id="Path-8" data-name="Path" d="M8.333,0H0V21.249H8.333A1.671,1.671,0,0,0,10,19.583V1.666A1.671,1.671,0,0,0,8.333,0Z" transform="translate(10 10)" opacity="0.2"/>
+    <path id="Path-9" data-name="Path" d="M1.666,0H18.333A1.666,1.666,0,0,1,20,1.666V18.333A1.666,1.666,0,0,1,18.333,20H1.666A1.666,1.666,0,0,1,0,18.333V1.666A1.666,1.666,0,0,1,1.666,0Z" transform="translate(0 10)" fill="#185abd"/>
+    <path id="Path-10" data-name="Path" d="M12.375,12.5h-2.25L7.5,3.875,4.75,12.5H2.5L0,0H2.25L4,8.75,6.625.25H8.5L11,8.75,12.749,0h2.125Z" transform="translate(2.562 13.749)" fill="#fff"/>
+    <path id="Path-11" data-name="Path" d="M0,0H40V40H0Z" fill="none"/>
+  </g>
+</svg>

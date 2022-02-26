@@ -1,0 +1,9 @@
+<svg id="Brazil" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <circle id="Oval" cx="13" cy="13" r="13" fill="#6da544"/>
+  <path id="Path" d="M10.739,0,21.478,7.913,10.739,15.826,0,7.913Z" transform="translate(2.261 5.087)" fill="#ffda44"/>
+  <circle id="Oval-2" data-name="Oval" cx="4.522" cy="4.522" r="4.522" transform="translate(8.478 8.478)" fill="#f0f0f0"/>
+  <g id="Group" transform="translate(8.48 8.478)">
+    <path id="Path-2" data-name="Path" d="M2.259,0A7.6,7.6,0,0,0,0,.342,4.521,4.521,0,0,0,4.52,4.8a4.515,4.515,0,0,0,3.7-1.928A7.62,7.62,0,0,0,2.259,0Z" transform="translate(0 4.239)" fill="#0052b4"/>
+    <path id="Path-3" data-name="Path" d="M8.593,5.388A4.522,4.522,0,0,0,0,2.737,9.321,9.321,0,0,1,8.593,5.388Z" transform="translate(0.365 0)" fill="#0052b4"/>
+  </g>
+</svg>

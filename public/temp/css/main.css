@@ -1,0 +1,110 @@
+.slim_scroll {
+    display: block;
+    overflow: auto;
+}
+
+
+.slim_scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.slim_scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #F5F5F5;
+}
+
+.scroll_2_slim::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+    background-color: #F5F5F5;
+}
+
+.slim_scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #c3c3c3;
+}
+
+
+.dataTables_processing {
+    box-shadow: 0 2px 20px rgb(204 197 185 / 50%) !important;
+}
+
+
+td {
+    vertical-align: middle !important;
+    color: black !important;
+}
+
+
+#preloader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    overflow: hidden;
+    background: #fff;
+}
+
+#preloader:before {
+    content: '';
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #2c80ff;
+    border-top-color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: animate-preloader 1s linear infinite;
+    animation: animate-preloader 1s linear infinite;
+}
+@-webkit-keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+
+.select2-selection--multiple, .select2-results {
+    border: 1px solid #ced4da !important;
+    border-color: #dee2e6 !important;
+}
+
+.select2-selection--multiple {
+    height: 3.625rem !important;
+}
+
+
+.select2-selection--multiple:focus, .select2-container--default:focus{
+    color: #212529 !important;
+    background-color: #fff !important;
+    border-color: #86b7fe !important;
+    outline: 0 !important;
+}
+
+.select2-container--default {
+    width: 100% !important;
+}

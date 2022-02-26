@@ -1,0 +1,16 @@
+<svg id="UI_Logo_Software_Word" data-name="UI/Logo/Software/Word" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="excel-4">
+    <path id="Path" d="M15,0H1.666A1.666,1.666,0,0,0,0,1.666V8.75L15,17.5l7.5,3.165L30,17.5V8.75Z" transform="translate(10 2.5)" fill="#21a366"/>
+    <path id="Path-2" data-name="Path" d="M0,0H15V8.75H0Z" transform="translate(10 11.25)" fill="#107c41"/>
+    <path id="Path-3" data-name="Path" d="M13.333,0H0V8.75H15V1.666A1.666,1.666,0,0,0,13.333,0Z" transform="translate(24.999 2.5)" fill="#33c481"/>
+    <path id="Path-4" data-name="Path" d="M15,0H0V15.833A1.666,1.666,0,0,0,1.666,17.5H28.333A1.666,1.666,0,0,0,30,15.833V8.75Z" transform="translate(10 19.999)" fill="#185c37"/>
+    <path id="Path-5" data-name="Path" d="M0,0H15V8.75H0Z" transform="translate(24.999 19.999)" fill="#107c41"/>
+    <path id="Path-6" data-name="Path" d="M10.833,0H0V23.749H10.833A1.671,1.671,0,0,0,12.5,22.083V1.666A1.671,1.671,0,0,0,10.833,0Z" transform="translate(10 8.75)" opacity="0.1"/>
+    <path id="Path-7" data-name="Path" d="M9.583,0H0V23.749H9.583a1.671,1.671,0,0,0,1.666-1.666V1.666A1.671,1.671,0,0,0,9.583,0Z" transform="translate(10 10)" opacity="0.2"/>
+    <path id="Path-8" data-name="Path" d="M9.583,0H0V21.249H9.583a1.671,1.671,0,0,0,1.666-1.666V1.666A1.671,1.671,0,0,0,9.583,0Z" transform="translate(10 10)" opacity="0.2"/>
+    <path id="Path-9" data-name="Path" d="M8.333,0H0V21.249H8.333A1.671,1.671,0,0,0,10,19.583V1.666A1.671,1.671,0,0,0,8.333,0Z" transform="translate(10 10)" opacity="0.2"/>
+    <path id="Path-10" data-name="Path" d="M1.666,0H18.333A1.666,1.666,0,0,1,20,1.666V18.333A1.666,1.666,0,0,1,18.333,20H1.666A1.666,1.666,0,0,1,0,18.333V1.666A1.666,1.666,0,0,1,1.666,0Z" transform="translate(0 10)" fill="#107c41"/>
+    <path id="Path-11" data-name="Path" d="M0,12.5,4.045,6.232.34,0H3.321L5.344,3.984q.279.566.384.845h.026q.2-.452.419-.88L8.333,0H11.07L7.27,6.2l3.9,6.3H8.253L5.917,8.125a3.652,3.652,0,0,1-.279-.585H5.6a2.759,2.759,0,0,1-.27.566L2.93,12.5Z" transform="translate(4.416 13.749)" fill="#fff"/>
+    <path id="Path-12" data-name="Path" d="M0,0H40V40H0Z" fill="none"/>
+  </g>
+</svg>

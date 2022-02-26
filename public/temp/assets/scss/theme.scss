@@ -1,0 +1,7 @@
+/* Bootstrap setup */
+@import '../vendor/bootstrap/scss/functions';
+/* Muze setup */
+@import 'muze/variables';
+/* Bootstrap core */
+@import '../vendor/bootstrap/scss/bootstrap';
+@import 'muze/muze';

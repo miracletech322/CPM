@@ -1,4 +1,4 @@
-<meta charset="UTF-8">
+{{-- <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="description" content="Ecommerce Dashboard">
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{asset('backend')}}/img/favicon/apple-touch-icon-57x57.png">
@@ -49,5 +49,31 @@
 <link rel="stylesheet" href="{{asset('template/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
 <link rel="stylesheet" href="{{asset('template/vendor/datatables.net-keytable-bs/css/keyTable.bootstrap.css')}}">
 <link rel="stylesheet" href="{{asset('template/vendor/datatables.net-responsive-bs/css/responsive.bootstrap.css')}}">
-{{-- <script src="{{asset('template/vendor/jquery/dist/jquery.js')}}"></script> --}}
-<script src="{{asset('backend')}}/js/vendor/jquery-3.5.1.min.js"></script>
+<script src="{{asset('backend')}}/js/vendor/jquery-3.5.1.min.js"></script> --}}
+
+
+
+
+<meta charset="UTF-8">
+<meta name="description" content="{{$site_data["site_name"]}}">
+<meta name="keywords" content="{{$site_data["site_name"]}}">
+<meta name="author" content="{{$site_data["site_name"]}}">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="{{$site_data["site_logo"]}}">
+
+<meta name="apple-mobile-web-app-title" content="{{$site_data["site_name"]}}">
+<meta name="application-name" content="{{$site_data["site_name"]}}">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<link href="{{asset('temp/assets/vendor/simplebar/dist/simplebar.min.css')}}" rel="stylesheet" type="text/css" media="all">
+<link href="{{asset('temp/assets/css/theme.min.css')}}" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="{{asset("plugins\sweetalerts2\sweetalert2.min.css")}}">
+
+<link href="{{ asset('temp/css/font-awesome.min.css') }}" rel="stylesheet">
+<link href="{{ asset('temp/css/main.css') }}" rel="stylesheet">
+<script src="{{ asset('temp/js/jquery.bundle.js') }}"></script>
+
+<link rel="stylesheet" href="{{asset("admintem/css/default-assets/datatables.bootstrap4.css")}}">
+<link rel="stylesheet" href="{{asset('plugins/select2/select2.min.css')}}">

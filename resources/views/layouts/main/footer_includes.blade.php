@@ -1,3 +1,5 @@
+{{-- 
+
 <script src="{{asset('backend')}}/js/vendor/OverlayScrollbars.min.js"></script>
 <script src="{{asset('backend')}}/js/vendor/autoComplete.min.js"></script>
 <script src="{{asset('backend')}}/js/vendor/clamp.min.js"></script>
@@ -19,7 +21,6 @@
 <script src="{{asset('backend')}}/js/vendor/select2.full.min.js"></script>
 
 <script src="{{ asset('plugins/inputmask/jquery.mask.min.js')}}"></script>
-<script src="{{asset("plugins\sweetalerts2\sweetalert2.min.js")}}"></script>
 <script src="{{asset("js/main.js")}}"></script>
  <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>
 
@@ -35,15 +36,52 @@
 <script src="{{asset('template/vendor/datatables.net-keytable/js/dataTables.keyTable.js')}}"></script>
 <script src="{{asset('template/vendor/datatables.net-responsive/js/dataTables.responsive.js')}}"></script>
 <script src="{{asset('template/vendor/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
-<script src="{{asset('backend')}}/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="{{asset('backend')}}/js/vendor/bootstrap.bundle.min.js"></script> 
+
+
+--}}
+
+
+<script src="{{asset("plugins\sweetalerts2\sweetalert2.min.js")}}"></script>
+<script src="{{asset('temp/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('temp/assets/vendor/lodash/lodash.min.js')}}"></script>
+<script src="{{asset('temp/assets/vendor/highcharts/highmaps.js')}}"></script>
+<script src="{{asset('temp/assets/vendor/apexcharts/dist/apexcharts.min.js')}}"></script>
+<script src="{{asset('temp/assets/vendor/simplebar/dist/simplebar.min.js')}}"></script>
+<script src="{{asset('temp/assets/js/theme-custom.js')}}"></script>
+<script src="{{ asset('plugins\select2\select2.min.js')}}"></script>
+
+<script src="{{ asset('plugins/datatable/datatables.min.js')}}"></script>
+<script src="{{ asset('plugins\inputmask\jquery.mask.min.js')}}"></script>
+<script src="{{asset("js/main.js")}}"></script>
+
+
+
+
+
+
+
 
 <script>
     $(function() {
         active_item = "{{@$active_item}}";
-        $("."+active_item).addClass("active");
+        $("."+active_item + " .nav-link").addClass("active");
     });
 </script>
 
 
 <script src="{{asset('frontend')}}/js/custom.js"></script>
 <script src="{{asset('frontend')}}/cal/ion.rangeSlider.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+

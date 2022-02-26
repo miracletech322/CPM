@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="50px" viewBox="0 0 41 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>flutter</title>
+    <defs>
+        <linearGradient x1="43.8920865%" y1="43.8592815%" x2="56.1421442%" y2="56.1089009%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0.15" offset="20%"></stop>
+            <stop stop-color="#616161" stop-opacity="0.01" offset="85%"></stop>
+        </linearGradient>
+        <linearGradient x1="0.0238420661%" y1="50.002857%" x2="100.02225%" y2="50.002857%" id="linearGradient-2">
+            <stop stop-color="#000000" stop-opacity="0.55" offset="20%"></stop>
+            <stop stop-color="#616161" stop-opacity="0.01" offset="85%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="🧠-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UI/Logo/Skill/Flutter" transform="translate(-25.000000, -20.000000)" fill-rule="nonzero">
+            <g id="flutter" transform="translate(25.000000, 20.000000)">
+                <path d="M7.6969697,32.6868687 L0,24.989899 L24.9919192,0 L40.3838384,0 M40.3838384,23.0606061 L24.9919192,23.0606061 L19.2262626,28.8262626 L26.9232323,36.5232323" id="Shape" fill-opacity="0.8" fill="#42A5F5"></path>
+                <polyline id="Path" fill="#0D47A1" points="19.2262626 44.2181818 24.9919192 49.9838384 40.3838384 49.9838384 26.9232323 36.5232323"></polyline>
+                <polygon id="Path" fill="#42A5F5" points="11.5474747 36.5272727 19.2323232 28.840404 26.9171717 36.5252525 19.2323232 44.2121212"></polygon>
+                <polygon id="Path" fill="url(#linearGradient-1)" points="19.2323232 44.2121212 26.9171717 36.5272727 27.989899 37.6 20.3050505 45.2848485"></polygon>
+                <polyline id="Path" fill="url(#linearGradient-2)" points="19.2262626 44.2181818 30.6464646 40.2727273 26.9232323 36.5212121"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,15 +1,13 @@
-{{-- <footer>
-    <div class="footer-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-6">
-                    <p class="mb-0 text-muted text-medium"> {{@$site_name}} &copy; {{date("Y")}} </p>
-                </div>
+<footer class="pt-xxl-5 mt-lg-2">
+    <div class="container-fluid px-0 border-top border-gray-200 pt-2 pt-lg-3">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <p class="fs-16 text-gray-600 my-2">{{date("Y")}} &copy; {{$site_data["site_name"]}} - All rights reserved.</p>
             </div>
         </div>
     </div>
-</footer> --}}
-{{-- </div> --}}
+</footer>
+
 
 <div class="modal global-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

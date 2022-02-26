@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27" height="22" viewBox="0 0 27 22">
+  <g id="Group_7" data-name="Group 7" transform="translate(-30 -14)">
+    <path id="Color" d="M9.648,21a11.5,11.5,0,0,0,3.994-.66A8.848,8.848,0,0,0,16.689,18.5a8.01,8.01,0,0,0,1.93-2.811,9.285,9.285,0,0,0,.677-3.586h0V0H14.015V12.393A4.481,4.481,0,0,1,12.9,15.52a4.161,4.161,0,0,1-3.25,1.234A4.161,4.161,0,0,1,6.4,15.52a4.481,4.481,0,0,1-1.117-3.127h0V0H0V12.107a9.868,9.868,0,0,0,.677,3.773,7.7,7.7,0,0,0,1.93,2.8,8.239,8.239,0,0,0,3.047,1.736A12.777,12.777,0,0,0,9.648,21Z" transform="translate(30 14)" fill="#fff"/>
+    <g id="Oval" transform="translate(47 26)" fill="#ffc107" stroke="#fff" stroke-miterlimit="10" stroke-width="1">
+      <circle cx="4.5" cy="4.5" r="4.5" stroke="none"/>
+      <circle cx="4.5" cy="4.5" r="5" fill="none"/>
+    </g>
+  </g>
+</svg>

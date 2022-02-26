@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="50px" viewBox="0 0 48 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>angular-icon-1</title>
+    <g id="🧠-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UI/Logo/Skill/Angular" transform="translate(-21.000000, -20.000000)" fill-rule="nonzero">
+            <g id="angular-icon-1" transform="translate(21.000000, 20.000000)">
+                <polygon id="Path" fill="#E23237" points="0.0184789028 8.29133887 23.2664169 0.00817069072 47.1404202 8.14406201 43.2748185 38.9021957 23.2664169 49.9832546 3.57104797 39.0494726"></polygon>
+                <polygon id="Path" fill="#B52E31" points="47.1404202 8.14406201 23.2664169 0.00817069072 23.2664169 49.9832546 43.2748185 38.9206746"></polygon>
+                <path d="M23.3031899,5.84325383 L8.81702368,38.0739713 L14.2285704,37.9819464 L17.1369649,30.7110525 L30.1322533,30.7110525 L33.3167226,38.0739713 L38.4889675,38.1659962 L23.3031899,5.84325383 Z M23.3401478,16.1696343 L28.2363178,26.403805 L19.0327155,26.403805 L23.3401478,16.1696343 Z" id="Shape" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

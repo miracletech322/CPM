@@ -1,0 +1,7 @@
+<svg id="Group_7" data-name="Group 7" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <circle id="Background" cx="16" cy="16" r="16" fill="#e6f0ff"/>
+  <g id="Icon" transform="translate(10 10)">
+    <rect id="Icons_Tabler_Circle_background" data-name="Icons/Tabler/Circle background" width="12" height="12" fill="none"/>
+    <path id="Oval" d="M4.5,9A4.5,4.5,0,1,1,9,4.5,4.5,4.5,0,0,1,4.5,9Zm0-7.962A3.462,3.462,0,1,0,7.962,4.5,3.466,3.466,0,0,0,4.5,1.038Z" transform="translate(1.5 1.5)" fill="#0d6efd"/>
+  </g>
+</svg>

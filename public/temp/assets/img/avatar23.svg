@@ -1,0 +1,7 @@
+<svg id="Group_8" data-name="Group 8" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <circle id="Background" cx="16" cy="16" r="16" fill="#dcfff5"/>
+  <g id="Icon" transform="translate(10 10)">
+    <rect id="Icons_Tabler_Check_background" data-name="Icons/Tabler/Check background" width="12" height="12" fill="none"/>
+    <path id="Color" d="M11.069.16a.545.545,0,0,1,.824.71L11.84.931,4.568,8.2a.546.546,0,0,1-.71.053L3.8,8.2.16,4.568a.545.545,0,0,1,.71-.824L.931,3.8l3.251,3.25Z" transform="translate(0 1.5)" fill="#1ba97f"/>
+  </g>
+</svg>

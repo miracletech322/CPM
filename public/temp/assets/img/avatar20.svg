@@ -1,0 +1,7 @@
+<svg id="Group_5" data-name="Group 5" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <circle id="Background" cx="16" cy="16" r="16" fill="#e6f0ff"/>
+  <g id="Icon" transform="translate(10 10)">
+    <rect id="Icons_Tabler_User_background" data-name="Icons/Tabler/User background" width="12" height="12" fill="none"/>
+    <path id="Color" d="M8.5,12H.5a.5.5,0,0,1-.5-.426l0-.067V10.2A3.134,3.134,0,0,1,3.022,7.08l.144,0H5.833A3.14,3.14,0,0,1,9,10.052L9,10.2v1.312A.5.5,0,0,1,8.568,12ZM3.166,8.062A2.152,2.152,0,0,0,1,10.074L1,10.2v.82H8V10.2a2.143,2.143,0,0,0-1.922-2.12l-.122-.01-.123,0ZM4.5,6.236A3.146,3.146,0,0,1,1.333,3.118a3.167,3.167,0,0,1,6.334,0A3.146,3.146,0,0,1,4.5,6.236ZM4.5.985A2.153,2.153,0,0,0,2.333,3.118a2.167,2.167,0,0,0,4.334,0A2.153,2.153,0,0,0,4.5.985Z" transform="translate(1.5 0)" fill="#0d6efd"/>
+  </g>
+</svg>

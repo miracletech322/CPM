@@ -1,0 +1,11 @@
+<svg id="Icons_Tabler_Paperclip_Copy_3" data-name="Icons/Tabler/Paperclip Copy 3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Brazil">
+    <circle id="Oval" cx="10" cy="10" r="10" fill="#6da544"/>
+    <path id="Path" d="M8.261,0l8.261,6.087L8.261,12.174,0,6.087Z" transform="translate(1.739 3.913)" fill="#ffda44"/>
+    <circle id="Oval-2" data-name="Oval" cx="3.478" cy="3.478" r="3.478" transform="translate(6.522 6.522)" fill="#f0f0f0"/>
+    <g id="Group" transform="translate(6.523 6.522)">
+      <path id="Path-2" data-name="Path" d="M1.738,0A5.849,5.849,0,0,0,0,.263,3.478,3.478,0,0,0,3.477,3.7,3.473,3.473,0,0,0,6.326,2.213,5.861,5.861,0,0,0,1.738,0Z" transform="translate(0 3.261)" fill="#0052b4"/>
+      <path id="Path-3" data-name="Path" d="M6.61,4.145A3.478,3.478,0,0,0,0,2.105,7.17,7.17,0,0,1,6.61,4.145Z" transform="translate(0.281 0)" fill="#0052b4"/>
+    </g>
+  </g>
+</svg>
