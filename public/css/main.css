@@ -201,3 +201,7 @@ body {
     color: white;
     background: #f8ae4c;
 }
+
+.float-right {
+    float: right !important;
+}

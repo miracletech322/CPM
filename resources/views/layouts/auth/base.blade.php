@@ -31,6 +31,7 @@ if($settings){
         .form-control {
             font-size: 1.5rem !important;
         }
+
     </style>
 </head>
 

@@ -56,32 +56,20 @@
 <script src="{{asset("js/main.js")}}"></script>
 
 
-
-
-
-
-
-
 <script>
+    (function ($) {
+    'use strict';
+    $(window).on('load', function () {
+            $('#preloader')
+                .delay(500)
+                .fadeOut('slow', function () {
+                    $(this).remove();
+                });
+            });
+    })(window.jQuery);
+    
     $(function() {
         active_item = "{{@$active_item}}";
         $("."+active_item + " .nav-link").addClass("active");
     });
 </script>
-
-
-<script src="{{asset('frontend')}}/js/custom.js"></script>
-<script src="{{asset('frontend')}}/cal/ion.rangeSlider.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-

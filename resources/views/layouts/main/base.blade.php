@@ -42,10 +42,6 @@
 
 <body class="bg-gray-100 analytics-template">
 
-    <div id="preloader">
-        <div class="lds-hourglass"></div>
-    </div>
-
     @include('layouts.main.sidebar' , $site_data)
 
     <div class="main-content">

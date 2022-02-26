@@ -75,5 +75,5 @@
 <link href="{{ asset('temp/css/main.css') }}" rel="stylesheet">
 <script src="{{ asset('temp/js/jquery.bundle.js') }}"></script>
 
-<link rel="stylesheet" href="{{asset("admintem/css/default-assets/datatables.bootstrap4.css")}}">
+<link rel="stylesheet" href="{{asset("temp/assets/css/datatables.bootstrap4.css")}}">
 <link rel="stylesheet" href="{{asset('plugins/select2/select2.min.css')}}">

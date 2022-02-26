@@ -3,7 +3,7 @@
 @endphp
 <nav class="navbar navbar-vertical navbar-expand-lg navbar-light">
     <a class="navbar-brand mx-auto d-none d-lg-block my-0 my-lg-4 text-center" href="{{$home_url}}">
-        <img src="{{$site_data["site_logo"]}}" alt="{{$site_data["site_name"]}}" style="max-width: 180px !important; height: 75px !important;">
+        <img src="{{$site_data["site_logo"]}}" alt="{{$site_data["site_name"]}}" style="max-width: 180px !important; max-height: 75px !important;">
         <img src="{{$site_data["site_logo"]}}" width="40" class="muze-icon" alt="{{$site_data["site_name"]}}">
     </a>
 
