@@ -1,5 +1,4 @@
 <section class="calculate-earnings container-fluid">
-    <h2 class="calculate-earnings__title">Miner Payment</h2>
     <div class="row">
         <div class="col-md-12 pt-4">
             @include("shared.alerts")

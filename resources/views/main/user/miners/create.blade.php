@@ -16,10 +16,11 @@
         </div>
     </div>
 
-    <div class=" border-gray-200 after-header">
+
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-gray-200 after-header">
         <div class="container-fluid px-0">
             <div class="col-xxl-12 mb-4">
-                <div class="pb-2 mb-4 mb-xl-2">
+                <div class="mb-4">
                     <div class="row">
                         <div class="col-12">
                             @include("shared.alerts")

@@ -1,9 +1,9 @@
 <div class="col-12">
     <div class="mb-4">
-        <div class="p-xl-3 p-xxl-4">
+        <div class="">
             <div class="mb-5 text-center">
                 <section class="calculate-earnings">
-                    <div class="p-xl-3 p-xxl-4">
+                    <div class="">
                         <h2 class="calculate-earnings__title">Calculate earnings</h2>
                         <div class="calculate-earnings__wrap">
                             <div class="form-loading"></div>
@@ -48,7 +48,7 @@
 
                                 <div class="calculate-earnings__calculator-results">
                                     <div class="row" style="width: 100%;">
-                                        <div class="col-md-4 mb-1">
+                                        <div class="col-md-4 mb-1 buy_cal">
                                             <div class="calculate-earnings__calculator-results-item">
                                                 <h4 class="calculate-earnings__calculator-results-title">
                                                     Income <strong>per day</strong>
@@ -56,7 +56,7 @@
                                                 <p class="calculate-earnings__calculator-results-numbers" id="daily">$1.46</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-1">
+                                        <div class="col-md-4 mb-1 buy_cal">
                                             <div class="calculate-earnings__calculator-results-item">
                                                 <h4 class="calculate-earnings__calculator-results-title">
                                                     Income <strong>per month</strong>
@@ -64,7 +64,7 @@
                                                 <p class="calculate-earnings__calculator-results-numbers" id="month">$43.80</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-1">
+                                        <div class="col-md-4 mb-1 buy_cal">
                                             <div class="calculate-earnings__calculator-results-item">
                                                 <h4 class="calculate-earnings__calculator-results-title">
                                                     Income <strong>per year</strong>
@@ -88,7 +88,7 @@
 
                                 <div class="calculate-earnings__calculator-results">
                                     <div class="row" style="width: 100%;">
-                                        <div class="col-md-4 mb-1">
+                                        <div class="col-md-4 mb-1 buy_cal">
                                             <div class="calculate-earnings__calculator-results-item">
                                                 <h4 class="calculate-earnings__calculator-results-title">
                                                     Income <strong>per day</strong>
@@ -96,7 +96,7 @@
                                                 <p class="calculate-earnings__calculator-results-numbers" id="daily_home">$1.46</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-1">
+                                        <div class="col-md-4 mb-1 buy_cal">
                                             <div class="calculate-earnings__calculator-results-item">
                                                 <h4 class="calculate-earnings__calculator-results-title">
                                                     Income <strong>per month</strong>
@@ -104,8 +104,7 @@
                                                 <p class="calculate-earnings__calculator-results-numbers" id="month_home">$43.80</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-1">
-
+                                        <div class="col-md-4 mb-1 buy_cal">
                                             <div class="calculate-earnings__calculator-results-item">
                                                 <h4 class="calculate-earnings__calculator-results-title">
                                                     Income <strong>per year</strong>

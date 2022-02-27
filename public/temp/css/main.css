@@ -195,8 +195,15 @@ td {
     border-radius: 5px;
     padding: 1rem;
     padding-bottom: 0px;
-    width: 110% !important;
     overflow-wrap: break-word !important;
+}
+
+.buy_cal .calculate-earnings__calculator-results-item {
+    width: 110% !important;
+}
+
+.pay_cal .calculate-earnings__calculator-results-item {
+    width: 100% !important;
 }
 
 .calculate-earnings__calculator-results-title {
