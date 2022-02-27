@@ -108,7 +108,7 @@
 
                                             <div class="row form-group mb-3 px-3 px-md-4">
                                                 <div class="col-md-12 mb-3">
-                                                    <a class="btn btn-warning btn-lg float-right" href="{{url('bank-account')}}">Manage Bank Accounts</a>
+                                                    <a class="btn btn-warning btn-lg" href="{{url('bank-account')}}">Manage Bank Accounts</a>
                                                 </div>
                                             </div>
 

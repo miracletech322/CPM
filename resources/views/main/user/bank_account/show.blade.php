@@ -1,39 +1,39 @@
 @extends('layouts.main.base')
 
-@section('title') {{ $title_singular }} | Details @endsection
-
-@section('css')
-<style type="text/css">
-</style>
-@endsection
+@section('title') {{ $title_singular }} @endsection
 
 @section('content')
-
-<div class="row mt-5">
-    <div class="col-md-12 mb-2">
-        <div class="d-flex">
-            <h2 class="small-title me-2"><a href="{{url('withdraw')}}">Withdraw payment</a></h2>
-            <div class="dropdown-as-select me-3 small-title">
-                <i class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" aria-expanded="false">
-                    <span class="small-title"></span>
-                </i>
+<div class="container-fluid px-0">
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-bottom border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('bank-account')}}">{{$title_singular}}</a></span>
+                    <h1 class="h2 mb-0 lh-sm">{{$title_singular}} Details</h1>
+                </div>
             </div>
-            <h2 class="small-title me-2"><a href="{{url('bank-account')}}">{{$title_singular}}</a></h2>
-            <div class="dropdown-as-select me-3 small-title">
-                <i class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" aria-expanded="false">
-                    <span class="small-title"></span>
-                </i>
-            </div>
-            <h2 class="small-title">Details</h2>
         </div>
     </div>
 
-    <div class="col-md-12">
-        <div class="card card-default">
-            <div class="card-body">
-                @include("shared.alerts")
-                @include($directory . "partials.form")
-                <a href="{{url("bank-account")."/".@$record->public_id."/edit"}}" class="btn btn-theme btn-sm">Edit</a>
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-gray-200 after-header">
+        <div class="container-fluid px-0 py-lg-3">
+            <div class="col-xxl-12 mb-4">
+
+                <div class="">
+                    @include("shared.alerts")
+                </div>
+
+                <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
+                    <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
+                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold"> {{$title_singular}} Details</h5>
+                    </div>
+                    <div class="card-body px-0 p-md-4">
+                        <div class="bd-example px-3">
+                            @include($directory."partials.form")
+                            <a href="{{url("bank-account")."/".@$record->public_id."/edit"}}" class="btn btn-warning btn-lg">Edit</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

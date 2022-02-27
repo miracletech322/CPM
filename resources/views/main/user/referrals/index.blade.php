@@ -4,69 +4,74 @@
 
 @section('content')
 
-<div class="row mt-5">
-    <div class="col-md-12 mb-2">
-        <div class="d-flex">
-            <h2 class="small-title me-2">Referral Program</h2>
-        </div>
-    </div>
-    <div class="col-12">
-        @include("shared.alerts")
-    </div>
-</div>
+<div class="container-fluid px-0">
 
-<div class="row">
-    <div class="col-12 mb-5">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <label class="float-left">Get 4% of each deposit made by people you refer</label>
-                        <a onclick="copy_url('{{url('register?referral=').Auth::user()->public_id}}')" class="btn btn-theme btn-sm float-right">Copy Referral Link</a>
-                    </div>
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-bottom border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h1 class="h2 mb-0 lh-sm">Referral Program</h1>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-
-<div class="row">
-    <div class="col-12 mb-2">
-        <div class="d-flex">
-            <h2 class="small-title me-2">Referral Stats</h2>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12">
-            <div class="mb-5">
-                <div class="row g-2">
-
-                    <div class="col-md-6">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
-                                    <i data-acorn-icon="list" class="text-primary"></i>
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="col-xxl-12 mb-4">
+                <div class="pb-2 pt-3 mb-4 mb-xl-2">
+                    <div class="row">
+                        <div class="col-12">
+                            @include("shared.alerts")
+                        </div>
+                        <div class="col-12">
+                            <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                                <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                    <label class="float-left">Get 4% of each deposit made by people you refer</label>
+                                    <a onclick="copy_url('{{url('register?referral=').Auth::user()->public_id}}')" class="btn btn-warning btn-lg float-right">Copy Referral Link</a>
                                 </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Referrals</div>
-                                <div class="text-primary cta-4">{{@$refered_by_user}} User(s)</div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6 col-12">
+                            <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                                <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <span class="small text-gray-600 d-block mb-1">Referrals</span>
+                                            <span class="h5 mb-0">{{@$refered_by_user}} User(s)</span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="position-relative">
+                                                <i class="fa fa-users fa-3x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 col-12">
+                            <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                                <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <span class="small text-gray-600 d-block mb-1">Income by Referrals</span>
+                                            <span class="h5 mb-0">$ {{@$earned_via_referral}}</span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="position-relative">
+                                                <i class="fa fa-dollar fa-3x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
-                                    <i data-acorn-icon="dollar" class="text-primary"></i>
-                                </div>
-                                <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Income by Referrals</div>
-                                <div class="text-primary cta-4">$ {{@$earned_via_referral}}</div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>

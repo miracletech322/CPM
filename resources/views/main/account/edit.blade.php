@@ -1,31 +1,49 @@
 @extends('layouts.main.base')
 
-@section('title') {{ $title_singular }} @endsection
-
-@section('css')
-<style type="text/css">
-</style>
-@endsection
+@section('title') Account @endsection
 
 @section('content')
 
-<div class="row mt-5">
-    <div class="col-md-12 mb-2">
-        <h2 class="small-title">Account</h2>
-    </div>
-    <div class="col-md-12">
-        <div class="card card-default">
-            <form action="{{ url('account/update') }}" method="POST" class="ajax-form" class="form-horizontal">
-                @csrf
-                <div class="card-body">
-                    @include("shared.alerts")
-                    @include($directory . "partials.form")
-                    <button type="submit" class="btn btn-theme submit-btn btn-sm">{{@$form_button}}</button>
+<div class="container-fluid px-0">
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-bottom border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h1 class="h2 mb-0 lh-sm">Account</h1>
                 </div>
-            </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-gray-200 after-header">
+        <div class="container-fluid px-0 py-lg-3">
+            <div class="col-xxl-12 mb-4">
+
+                <div class="">
+                    @include("shared.alerts")
+                </div>
+
+                <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
+                    <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
+                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Account</h5>
+                    </div>
+                    <div class="card-body px-0 p-md-4">
+                        <div class="bd-example">
+                            <form action="{{ url('account/update') }}" method="POST" class="ajax-form px-3" class="form-horizontal">
+                                @csrf
+                                @include($directory . "partials.form")
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-warning submit-btn btn-lg">{{@$form_button}}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('js')

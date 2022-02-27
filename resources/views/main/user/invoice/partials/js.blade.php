@@ -17,7 +17,18 @@
             $('#datatables-withdrawl').on('draw.dt', function () {
                 $('[data-toggle="tooltip"]').tooltip();
             });
+            
+            $(".search_box_withdrawl").keyup(function(){
+                $('#pills-withdrawl input[type="search"]').val( $(".search_box_withdrawl").val() );
+                $('#pills-withdrawl input[type="search"]').trigger("keyup");
+            });
+
+            $(".search_box_deposit").keyup(function(){
+                $('#pills-deposit input[type="search"]').val( $(".search_box_deposit").val() );
+                $('#pills-deposit input[type="search"]').trigger("keyup");
+            });
         }
+        
 
     });
 
