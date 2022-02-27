@@ -104,15 +104,15 @@
                                             <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Please select your bank account below and click withdraw.</h5>
                                         </div>
 
-                                        <div class="card-body px-0 p-md-4">
+                                        <div class="card-body">
 
-                                            <div class="row form-group mb-3">
+                                            <div class="row form-group mb-3 px-3 px-md-4">
                                                 <div class="col-md-12 mb-3">
                                                     <a class="btn btn-warning btn-lg float-right" href="{{url('bank-account')}}">Manage Bank Accounts</a>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row px-3 px-md-4">
 
                                                 <div class="col-md-6 pb-3 mb-md-4">
                                                     <label class="form-label form-label-lg">Bank Account <i class="text-danger">*</i></label>
@@ -145,15 +145,15 @@
                                             <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Please select your crypto wallet below and click withdraw.</h5>
                                         </div>
                                         
-                                        <div class="card-body px-0 p-md-4">
+                                        <div class="card-body">
 
-                                            <div class="row form-group mb-3">
+                                            <div class="row form-group mb-3 px-md-4">
                                                 <div class="col-md-12 mb-3">
                                                     <a class="btn btn-warning btn-lg" href="{{url('crypto-wallet')}}">Manage Crypto Wallets</a>
                                                 </div>
                                             </div>
 
-                                            <div class="row form-group mb-3 mt-3">
+                                            <div class="row form-group mb-3 mt-3 px-md-4">
 
                                                 <div class="col-md-6 pb-3 mb-md-4">
                                                     <label class="form-label form-label-lg">Crypto Wallet <i class="text-danger">*</i></label>
