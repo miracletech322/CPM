@@ -53,6 +53,7 @@
 
 <script src="{{ asset('plugins/datatable/datatables.min.js')}}"></script>
 <script src="{{ asset('plugins\inputmask\jquery.mask.min.js')}}"></script>
+ <script src="{{asset('frontend')}}/cal/ion.rangeSlider.min.js"></script>
 <script src="{{asset("js/main.js")}}"></script>
 
 

@@ -77,3 +77,4 @@
 
 <link rel="stylesheet" href="{{asset("temp/assets/css/datatables.bootstrap4.css")}}">
 <link rel="stylesheet" href="{{asset('plugins/select2/select2.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/cal/ion.rangeSlider.css">

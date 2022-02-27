@@ -1,38 +1,40 @@
 @extends('layouts.main.base')
 
-@section('title') {{ $title_singular }} | Buy @endsection
-
-@section('css')
-<style type="text/css">
-</style>
-@endsection
+@section('title') Miners @endsection
 
 @section('content')
+<div class="container-fluid px-0">
 
-<div class="row mt-5">
-
-    <div class="col-md-12 mb-2">
-        <div class="d-flex">
-            <h2 class="small-title me-2"><a href="{{url('miners')}}">Miners</a></h2>
-            <div class="dropdown-as-select me-3 small-title">
-                <i class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" aria-expanded="false">
-                    <span class="small-title"></span>
-                </i>
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-bottom border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('miners')}}">Miners</a></span>
+                    <h1 class="h2 mb-0 lh-sm">Buy</h1>
+                </div>
             </div>
-            <h2 class="small-title">Buy</h2>
         </div>
     </div>
-    <div class="col-md-12">
-        <form action="{{ url('pay/miners') }}" method="GET" files="true" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-5 text-center">
-                    @include("shared.alerts")
-                    @include($directory . "partials.calculator_form")
-                    <button type="submit" class="btn btn-theme submit-btn">{{@$form_button}}</button>
+
+    <div class=" border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="col-xxl-12 mb-4">
+                <div class="pb-2 mb-4 mb-xl-2">
+                    <div class="row">
+                        <div class="col-12">
+                            @include("shared.alerts")
+                        </div>
+                        <form action="{{ url('pay/miners') }}" method="GET" files="true" enctype="multipart/form-data">
+                            @csrf
+                            @include($directory . "partials.calculator_form")
+                        </form>
+                    </div>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
+
 
 @endsection
 
