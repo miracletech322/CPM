@@ -1,6 +1,6 @@
 @extends('layouts.main.base')
 
-@section('title') {{@$title}} @endsection
+@section('title') Miners @endsection
 
 @section('content')
 <div class="container-fluid px-0">
@@ -9,7 +9,7 @@
         <div class="container-fluid px-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <h1 class="h2 mb-0 lh-sm">Dashboard</h1>
+                    <h1 class="h2 mb-0 lh-sm">Miners</h1>
                 </div>
             </div>
         </div>
@@ -81,8 +81,6 @@
                     </div>
 
 
-
-
                     <div class="col-4">
                         <div class="card mb-4 rounded-12 shadow border border-gray-50">
                             <div class="card-body p-3 p-xl-3 p-xxl-4">
@@ -100,9 +98,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
 
 
                     <div class="col-4">
@@ -185,8 +180,8 @@
                                         </table>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{url('miners/create')}}" class="btn btn-lg btn-outline-dark me-2 me-md-4 btn-sm">Add Miner</a>
-                                    </span>
+                                        <a href="{{url('miners/create')}}" class="btn btn-warning">Add Miner</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +226,7 @@
                                         </table>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{url('miners-income')}}" class="btn btn-lg btn-outline-dark me-2 me-md-4 btn-sm">Show All</a>
+                                        <a href="{{url('miners-income')}}" class="btn btn btn-warning">Show All</a>
                                     </div>
                                 </div>
                             </div>

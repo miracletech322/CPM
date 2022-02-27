@@ -1,40 +1,71 @@
 @extends('layouts.main.base')
 
-@section('title') {{ $title_plurar }} @endsection
-
-@section('css')
-<style type="text/css">
-</style>
-@endsection
+@section('title') {{@$title_plurar}} @endsection
 
 @section('content')
-<div class="row mt-5">
-    <div class="col-md-12 mb-2">
-        <a href="{{url('crypto-wallet/create')}}" class="btn btn-theme float-right btn-sm">Add Crypto Wallet</a>
-        <div class="d-flex">
-            <h2 class="small-title me-2"><a href="{{url('withdraw')}}">Withdraw payment</a></h2>
-            <div class="dropdown-as-select me-3 small-title">
-                <i class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" aria-expanded="false">
-                    <span class="small-title"></span>
-                </i>
+
+<div class="container-fluid px-0">
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-bottom border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('withdraw')}}">Withdraw</a></span>
+                    <h1 class="h2 mb-0 lh-sm">{{@$title_plurar}}</h1>
+                </div>
             </div>
-            <h2 class="small-title">{{$title_plurar}}</h2>
         </div>
     </div>
-    <div class="col-md-12">
-        <div class="card card-default">
-            <div class="card-body">
-                @include("shared.alerts")
-                <table id="datatables" class="table table-striped my-4 w-100">
-                    <thead class="theme-color">
-                        <tr>
-                            <th>Crypto Option</th>
-                            <th>Wallet Address</th>
-                            <th>Withdrawl Processing</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                </table>
+
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="col-xxl-12 mb-4">
+                <div class="pb-2 pt-3 mb-4 mb-xl-5">
+                    @include("shared.alerts")
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="input-group input-group-xl bg-white border border-gray-300 rounded px-3 me-2 me-xl-4">
+                                <button type="button" class="border-0 bg-transparent p-1"><img src="{{asset('temp/assets/svg/icons/search@14.svg')}}" alt="Search"></button>
+                                <input class="form-control border-0 search_box" placeholder="Search records...">
+                            </div>
+                        </div>
+                        @if(Auth::user()->role_id != 7)
+                        <div class="col-12 col-md-auto mt-3 mt-md-0 d-grid">
+                            <a href="{{url('crypto-wallet/create')}}" class="btn btn-xl btn-primary text-nowrap ms-xl-2">
+                                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14">
+                                    <rect data-name="Icons/Tabler/Add background" width="14" height="14" fill="none"></rect>
+                                    <path d="M6.329,13.414l-.006-.091V7.677H.677A.677.677,0,0,1,.585,6.329l.092-.006H6.323V.677A.677.677,0,0,1,7.671.585l.006.092V6.323h5.646a.677.677,0,0,1,.091,1.348l-.091.006H7.677v5.646a.677.677,0,0,1-1.348.091Z" fill="#ffffff"></path>
+                                </svg> Add Crypto Wallet</a>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="col-xxl-12 mb-4">
+                    <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
+                        <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
+                            <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">{{@$title_plurar}}</h5>
+                        </div>
+                        <div class="card-body px-0 p-md-4">
+                            <div class="bd-example">
+                                <div class="slim_scroll pb-5">
+                                    <table id="datatables" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Crypto Option</th>
+                                                <th>Wallet Address</th>
+                                                <th>Withdrawl Processing</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -43,5 +74,5 @@
 
 
 @section('js')
-@include(@$directory."partials.js")
+@include($directory.'partials.js')
 @endsection

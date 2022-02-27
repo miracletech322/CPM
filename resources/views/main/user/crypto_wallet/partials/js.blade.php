@@ -49,15 +49,15 @@
             "columnDefs": [
                 {
                     "searchable":false,
-                    "targets":[0]
+                    "targets":[3]
                 },
                 {
                     "orderable":false,
-                    "targets":[0]
+                    "targets":[3]
                 }
             ],
             "order": [
-                [3,'desc']
+                [0,'desc']
             ],
         });
 

@@ -3,6 +3,12 @@ $(function(){
     $('[data-toggle="minimize"]').on("click",function(){
         e.hasClass("sidebar-toggle-display")||e.hasClass("sidebar-absolute")?e.toggleClass("sidebar-hidden"):e.toggleClass("sidebar-icon-only")
     });
+
+    $(".search_box").keyup(function(){
+        $('input[type="search"]').val( $(".search_box").val() );
+        $('input[type="search"]').trigger("keyup");
+    });
+
 })
 
 

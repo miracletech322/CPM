@@ -41,7 +41,7 @@
 
 
 <body class="bg-gray-100 analytics-template">
-
+    <div id="preloader"></div>
     @include('layouts.main.sidebar' , $site_data)
 
     <div class="main-content">

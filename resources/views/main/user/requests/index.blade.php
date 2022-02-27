@@ -1,80 +1,114 @@
 @extends('layouts.main.base')
 
-@section('title') {{$title_plurar}} @endsection
+@section('title') {{@$title_plurar}} @endsection
 
 @section('content')
 
-<div class="row mt-5">
-    <div class="col-md-12 mb-2">
-        <div class="d-flex">
-            <h2 class="small-title me-2"> {{$title_plurar}}</h2>
+<div class="container-fluid px-0">
+
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-bottom border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h1 class="h2 mb-0 lh-sm">User Requests</h1>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-md-12 mb-3">
-        <div class="d-flex float-right">
-            <a class="btn btn-sm btn-theme" href="{{url('user-drequests')}}">Deposit Requests</a>
-            <a class="ml-2 btn btn-sm btn-theme" href="{{url('user-wrequests')}}">Withdrawl Requests</a>
-        </div>
-    </div>
-    <div class="col-12">
-        @include("shared.alerts")
-    </div>
 
-    <div class="col-12">
-        <div class="mb-5">
-            <div class="row g-2">
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="col-xxl-12 mb-4">
+                <div class="pb-2 pt-3 mb-4 mb-xl-2">
+                    @include("shared.alerts")
+                </div>
 
-                <div class="col-md-6">
-                    <div class="card h-100 hover-scale-up cursor-pointer">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
-                                <i data-acorn-icon="list" class="text-primary"></i>
+                <div class="row">
+                    <div class="col-12 mb-5">
+                        <div class="float-right">
+                            <a class="btn btn-lg btn-warning float-right" href="{{url('user-drequests')}}">Deposit Requests</a>
+                            <a class="btn btn-lg btn-warning float-right" href="{{url('user-wrequests')}}">Withdrawl Requests</a>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                            <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <span class="small text-gray-600 d-block mb-1">Pending Deposit Requests</span>
+                                        <span class="h5 mb-0">{{@$total_drequests}}</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="position-relative">
+                                            <i class="fa fa-list fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Pending Deposit Requests</div>
-                            <div class="text-primary cta-4">{{@$total_drequests}}</div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-6">
+                        <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                            <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <span class="small text-gray-600 d-block mb-1">Deposit Amount (Pending)</span>
+                                        <span class="h5 mb-0">$ {{@$total_drequests_amount}}</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="position-relative">
+                                            <i class="fa fa-dollar fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-6">
+                        <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                            <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <span class="small text-gray-600 d-block mb-1">Pending Withdrawl Requests</span>
+                                        <span class="h5 mb-0">{{@$total_wrequests}}</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="position-relative">
+                                            <i class="fa fa-list fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-6">
+                        <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                            <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <span class="small text-gray-600 d-block mb-1">Withdrawl Amount (Pending)</span>
+                                        <span class="h5 mb-0">$ {{@$total_wrequests_amount}}</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="position-relative">
+                                            <i class="fa fa-dollar fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 hover-scale-up cursor-pointer">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
-                                <i data-acorn-icon="dollar" class="text-primary"></i>
-                            </div>
-                            <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Deposit Amount (Pending)</div>
-                            <div class="text-primary cta-4">$ {{@$total_drequests_amount}}</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 hover-scale-up cursor-pointer">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
-                                <i data-acorn-icon="list" class="text-primary"></i>
-                            </div>
-                            <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Pending Withdrawl Requests</div>
-                            <div class="text-primary cta-4">{{@$total_wrequests}}</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 hover-scale-up cursor-pointer">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <div class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
-                                <i data-acorn-icon="dollar" class="text-primary"></i>
-                            </div>
-                            <div class="mb-1 d-flex align-items-center text-alternate text-smaller lh-1-25">Withdrawl Amount (Pending)</div>
-                            <div class="text-primary cta-4">$ {{@$total_wrequests_amount}}</div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
 </div>
-
 @endsection
