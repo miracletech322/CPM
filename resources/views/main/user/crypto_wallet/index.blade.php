@@ -28,15 +28,13 @@
                                 <input class="form-control border-0 search_box" placeholder="Search records...">
                             </div>
                         </div>
-                        @if(Auth::user()->role_id != 7)
                         <div class="col-12 col-md-auto mt-3 mt-md-0 d-grid">
-                            <a href="{{url('crypto-wallet/create')}}" class="btn btn-xl btn-primary text-nowrap ms-xl-2">
+                            <a href="{{url('crypto-wallet/create')}}" class="btn btn-xl btn-warning text-nowrap ms-xl-2">
                                 <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14">
                                     <rect data-name="Icons/Tabler/Add background" width="14" height="14" fill="none"></rect>
-                                    <path d="M6.329,13.414l-.006-.091V7.677H.677A.677.677,0,0,1,.585,6.329l.092-.006H6.323V.677A.677.677,0,0,1,7.671.585l.006.092V6.323h5.646a.677.677,0,0,1,.091,1.348l-.091.006H7.677v5.646a.677.677,0,0,1-1.348.091Z" fill="#ffffff"></path>
+                                    <path d="M6.329,13.414l-.006-.091V7.677H.677A.677.677,0,0,1,.585,6.329l.092-.006H6.323V.677A.677.677,0,0,1,7.671.585l.006.092V6.323h5.646a.677.677,0,0,1,.091,1.348l-.091.006H7.677v5.646a.677.677,0,0,1-1.348.091Z" fill="#212529"></path>
                                 </svg> Add Crypto Wallet</a>
                         </div>
-                        @endif
                     </div>
                 </div>
 

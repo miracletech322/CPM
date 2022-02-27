@@ -1,36 +1,45 @@
 @extends('layouts.main.base')
 
-@section('title') {{ $title_singular }} | Create @endsection
-
-@section('css')
-<style type="text/css">
-</style>
-@endsection
+@section('title') {{ $title_singular }} @endsection
 
 @section('content')
-
-<div class="row mt-5">
-    <div class="col-md-12 mb-2">
-        <div class="d-flex">
-            <h2 class="small-title me-2"><a href="{{url('admins')}}">Admins</a></h2>
-            <div class="dropdown-as-select me-3 small-title">
-                <i class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" aria-expanded="false">
-                    <span class="small-title"></span>
-                </i>
+<div class="container-fluid px-0">
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-bottom border-gray-200 after-header">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('admins')}}">Admins</a></span>
+                    <h1 class="h2 mb-0 lh-sm">Create {{$title_singular}}</h1>
+                </div>
             </div>
-            <h2 class="small-title">Create</h2>
         </div>
     </div>
-    <div class="col-md-12">
-        <div class="card card-default">
-            <form action="{{ url('admins') }}" class="ajax-form-success" data-success="{{url('admins')}}" method="POST" files="true" enctype="multipart/form-data">
-                @csrf
-                <div class="card-body">
+
+    <div class="px-3 px-xxl-5 py-3 py-lg-4 border-gray-200 after-header">
+        <div class="container-fluid px-0 py-lg-3">
+            <div class="col-xxl-12 mb-4">
+
+                <div class="">
                     @include("shared.alerts")
-                    @include($directory . "partials.form")
-                    <button type="submit" class="btn btn-theme submit-btn btn-sm">{{@$form_button}}</button>
                 </div>
-            </form>
+
+                <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
+                    <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
+                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Create {{$title_singular}}</h5>
+                    </div>
+                    <div class="card-body px-0 p-md-4">
+                        <div class="bd-example">
+                            <form action="{{ url('admins') }}" class="ajax-form-success px-3" data-success="{{url('admins')}}" method="POST" files="true" enctype="multipart/form-data">
+                                @csrf()
+                                @include($directory."partials.form")
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-warning submit-btn btn-lg">{{@$form_button}}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
