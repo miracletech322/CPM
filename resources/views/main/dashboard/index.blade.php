@@ -28,7 +28,7 @@
                             <div class="mb-2 mb-md-3 mb-xl-4 pb-3">
                                 <ul class="nav nav-tabs nav-tabs-md nav-tabs-line position-relative zIndex-0">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="user-profile-general.html">Stats</a>
+                                        <a class="nav-link" href="#">Stats</a>
                                     </li>
                                 </ul>
                             </div>
@@ -189,7 +189,7 @@
                             <div class="mb-2 mb-md-3 mb-xl-4 pb-3">
                                 <ul class="nav nav-tabs nav-tabs-md nav-tabs-line position-relative zIndex-0">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="user-profile-general.html">Current Prices</a>
+                                        <a class="nav-link" href="#">Current Prices</a>
                                     </li>
                                 </ul>
                             </div>

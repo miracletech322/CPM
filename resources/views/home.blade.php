@@ -1,4 +1,4 @@
-@extends('layouts.auth.base')
+@extends('layouts.home.base')
 @section('style')
 
 @endsection

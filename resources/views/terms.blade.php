@@ -1,4 +1,4 @@
-@extends('layouts.auth.base')
+@extends('layouts.home.base')
 @section('title') Terms & Conditions @endsection
 
 @section('content')

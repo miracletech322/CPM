@@ -1,98 +1,40 @@
 @extends('layouts.auth.base')
-@section('title') Login @endsection
+@section('title') Sign In @endsection
 
 @section('content')
-<section class="sub-page-banner parallax" id="banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 wow fadeInUp">
-                <div class="page-banner text-center">
-                    <h1 class="sub-banner-title">Login</h1>
-                    {{-- <ul>
-                        <li><a href="LOGIN">Home</a></li>
-                        <li>Signin</li>
-                    </ul> --}}
-                </div>
-            </div>
-        </div>
+
+<div class="simple-login-form rounded-12 shadow-dark-80 bg-white">
+    <h2 class="mb-3">Sign in</h2>
+    @include('shared.alerts')
+    <div class="position-relative">
+        <hr class="bg-gray-200 border-gray-200 opacity-100">
+        <span class="position-absolute top-0 start-50 translate-middle text-gray-600 small bg-white px-2 px-xxl-4 text-nowrap">Don't have an account? <a href="{{url('register')}}" class="text-info-template">Register Now!</a></span>
     </div>
-</section>
-<div class="container my-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header" style="color: black;">{{ __('Login') }}</div>
+    <form method="POST" action="{{ route('login') }}" class="pt-3">
+        @csrf
+        <div class="mb-4 pb-md-2">
+            <label class="form-label form-label-lg" for="email">Email</label>
+            <input id="email" type="email" class="form-control form-control-xl" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
 
-                <div class="card-body">
-                    @include('shared.alerts')
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label ml-2" for="remember" style="color: black;">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                Don't have an account? <a href="{{url('register')}}" class="text-info-template">Register Account!</a>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-link btn mr-2">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
-    </div>
+        <div class="mb-4 pb-md-2">
+            <label class="form-label form-label-lg" for="password">Password</label>
+            <input id="password" type="password" class="form-control form-control-xl" name="password" required autocomplete="current-password" placeholder="Password">
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-xl btn-warning">Sign In</button>
+        </div>
+        <div class="my-3 my-sm-4 d-flex">
+            <div class="form-check form-check-sm mb-0">
+                <input class="form-check-input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                <label class="form-check-label ml-2 form-check-label small text-gray-600" for="remember" style="color: black;">
+                    {{ __('Remember Me') }}
+                </label>
+
+            </div>
+            <a class="small text-gray-600 ms-auto mt-1" href="{{ route('password.request') }}">Forgot password?</a>
+        </div>
+    </form>
 </div>
+
 @endsection

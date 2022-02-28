@@ -2,138 +2,74 @@
 @section('title') Register @endsection
 
 @section('content')
-<section class="sub-page-banner parallax" id="banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 wow fadeInUp">
-                <div class="page-banner text-center">
-                    <h1 class="sub-banner-title">Register</h1>
+
+
+
+
+<div class="container">
+    <div class="simple-login-form rounded-12 shadow-dark-80 bg-white">
+        <h2 class="mb-3">Create Account</h2>
+        @include('shared.alerts')
+        <form method="POST" action="{{ route('register') }}" class="pt-3">
+                @csrf
+                <div class="row">
+                    <div class="col-md-6 mb-4 pb-md-2">
+                        <label class="form-label form-label-lg" for="first_name">First name</label>
+                        <input id="first_name" type="text" class="form-control form-control-xl" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus placeholder="First name">
+                    </div>
+                    <div class="col-md-6 mb-4 pb-md-2">
+                        <label class="form-label form-label-lg" for="last_name">Last name</label>
+                        <input id="last_name" type="text" class="form-control form-control-xl" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus placeholder="Last name">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="container my-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header" style="color: black;">{{ __('Register') }}</div>
+                <div class="mb-4 pb-md-2">
+                    <label class="form-label form-label-lg" for="email">Your email</label>
+                    <input id="email" type="email" class="form-control form-control-xl" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Your Email">
 
-                <div class="card-body">
-                    @include('shared.alerts')
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="first_name" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('First Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
-
-                                @error('first_name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="last_name" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('Last Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
-
-                                @error('last_name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="folex_agreement" id="folex_agreement" {{ old('folex_agreement') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label ml-2" for="folex_agreement" style="color: black;">
-                                        I agree to <a href="{{url('terms')}}" target="_blank" class="text-info">terms and conditions</a> of Folex Mining.
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <input type="hidden" name="referral" id="referral" />	
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                Already have an account? <a href="{{url('login')}}" class="text-info-template">Signin!</a>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-link">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
-            </div>
-        </div>
+                <div class="mb-4 pb-md-2">
+                    <label class="form-label form-label-lg" for="password">Password</label>
+                    <input id="password" type="password" class="form-control form-control-xl" name="password" required autocomplete="new-password" placeholder="Password">
+                </div>
+
+                <div class="mb-4 pb-md-2">
+                    <label class="form-label form-label-lg" for="password-confirm">Confirm Password</label>
+                    <input id="password-confirm" type="password" class="form-control form-control-xl" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                </div>
+
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-xl btn-warning">Register</button>
+                </div>
+                <div class="my-3 my-sm-4 d-flex pb-1">
+                    <div class="form-check form-check-sm mb-0">
+                        <input class="form-check-input" type="checkbox" id="folex_agreement" name="folex_agreement" {{ old('folex_agreement') ? 'checked' : '' }}>
+                    </div>
+                    <label class="form-check-label small text-gray-600" for="folex_agreement">
+                        I agree to <a href="{{url('terms')}}" target="_blank">terms and conditions</a> of Folex Mining.
+                    </label>
+                </div>
+                <div class="border-top border-gray-200 pt-3 pt-sm-4 text-center">
+                    <span class="text-gray-700">Already have an account? <a href="{{url('login')}}">Sign in</a></span>
+                </div>
+            </form>
     </div>
 </div>
-
 @endsection
+
+
 
 @section('js')
 <script>
-$(function(){
-    var searchParams = new URLSearchParams(window.location.search);
-    var referral = localStorage.getItem('referral');
-    if(searchParams.get("referral")){
-        referral = searchParams.get("referral")
-        localStorage.setItem('referral', referral);
-    }
-    $('#referral').val(referral);
-});
+    $(function() {
+        var searchParams = new URLSearchParams(window.location.search);
+        var referral = localStorage.getItem('referral');
+        if (searchParams.get("referral")) {
+            referral = searchParams.get("referral")
+            localStorage.setItem('referral', referral);
+        }
+        $('#referral').val(referral);
+    });
+
 </script>
 @endsection

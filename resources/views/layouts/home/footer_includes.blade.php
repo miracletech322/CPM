@@ -1,0 +1,32 @@
+ <script src="{{asset('frontend')}}/js/jquery-3.4.1.min.js"></script>
+ <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>
+ <script src="{{asset('frontend')}}/js/owl.carousel.min.js"></script>
+ <script src="{{asset('frontend')}}/js/snap.svg-min.js"></script>
+ <script src="{{asset('frontend')}}/js/jquery.listtopie.min.js"></script>
+ <script src="{{asset('frontend')}}/js/animation.js"></script>
+ <script src="{{asset('frontend')}}/js/custom.js"></script>
+
+ <script type="text/javascript">
+     var failed_input = 'Fill in the field';
+     var failed_select = 'Select a value';
+     var failed_info = 'Required field';
+     var failed_email = 'Invalid email format';
+     var busy_email = 'Email is busy';
+     var failed_code = 'The entered code is incorrect';
+     var failed_policy = 'Confirm that you have read the rules';
+     var failed_repeat_password = 'Password confirmation does not match';
+     var failed_balance = 'Balance not available';
+     var cancel_order = 'Are you sure you want to cancel the application?';
+     var variable4 = 'to power';
+     var variable5 = 'No bonus';
+     var variable164 = 'Invalid number';
+     var variable165 = 'Invalid country code';
+     var variable166 = 'Too short';
+     var variable167 = 'Too long';
+     var language = 'en';
+ </script>
+ <script src="{{asset('frontend')}}/cal/jquery-3.4.1.min.js"></script>
+ <script src="{{asset('frontend')}}/cal/ion.rangeSlider.min.js"></script>
+ <script src="{{ asset('plugins/inputmask/jquery.mask.min.js')}}"></script>
+ {{-- <script src="{{asset('frontend')}}/cal/miner-setup.js"></script> --}}
+ <script src="{{asset("js/main.js")}}"></script>

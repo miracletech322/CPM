@@ -6,51 +6,28 @@ $site_data["site_logo"] = asset('frontend') . '/images/logo.svg';
 $settings = DB::table("settings")->first();
 
 if($settings){
-    $site_data["site_name"] = @$settings->site_name;
-    $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_logo) : $site_data["site_logo"];
+$site_data["site_name"] = @$settings->site_name;
+$site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_logo) : $site_data["site_logo"];
 }
 @endphp
 <head>
     @include('layouts.auth.header_includes' , $site_data)
     <title>@yield('title')</title>
     @yield('css')
-
-    <style>
-        button.close {
-            top: 5px !important;
-            right: 6px !important;
-            float: right;
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-            color: #000;
-            text-shadow: 0 1px 0 #fff;
-            opacity: .5;
-        }
-
-        .form-control {
-            font-size: 1.5rem !important;
-        }
-
-    </style>
 </head>
 
 
-<body>
-    <!-- Start preloader -->
+<body class="signup-simple-template bg-gray-100" data-new-gr-c-s-check-loaded="14.1050.0" data-gr-ext-installed="">
     <div id="preloader"></div>
-    <!-- End preloader -->
 
-    <!-- Top scroll -->
-    <div class="top-scroll transition">
-        <a href="#banner" class="scrollTo"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+    <div class="signup-header text-center" style="background-image:url('{{url("images/cover.jpg")}}'); background-size: contain;">
+        <div class="container">
+            <a href="{{url("/")}}"><img src="{{$site_data["site_logo"]}}" alt="Muze"></a>
+        </div>
     </div>
-
-    @include('layouts.auth.header', $site_data)
-
-    @yield('content')
-
-    @include('layouts.auth.footer', $site_data)
+    <div class="container">
+        @yield('content')
+    </div>
     @include('layouts.auth.footer_includes', $site_data)
     @yield('js')
 </body>
