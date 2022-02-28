@@ -128,9 +128,22 @@ class UserRequestController extends Controller
                     $model_body = "<div><p><b>Crypto Option: </b>".$records->user_cryptos->crypto_options->name."<br><b>Crypto Wallet Address: </b>".$records->user_cryptos->wallet_address."</p></div>";
                 }
 
-                $global_modal = "<a data-toggle='tooltip'
-                onclick='show_global_modal(\"" . $model_header . "\" , \"". $model_body ."\" )'
-                data-placement='left' title='Show Details' class='fa fa-list  fa-lg action-icon text-warning'></a>";
+                $global_modal = "";
+
+                return '<div class="dropdown">
+                    <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg data-name="Icons/Tabler/Notification" xmlns="http://www.w3.org/2000/svg" width="13.419" height="13.419" viewBox="0 0 13.419 13.419">
+                            <rect data-name="Icons/Tabler/Dots background" width="13.419" height="13.419" fill="none"></rect>
+                            <path d="M0,10.4a1.342,1.342,0,1,1,1.342,1.342A1.344,1.344,0,0,1,0,10.4Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,10.4ZM0,5.871A1.342,1.342,0,1,1,1.342,7.213,1.344,1.344,0,0,1,0,5.871Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,5.871ZM0,1.342A1.342,1.342,0,1,1,1.342,2.684,1.344,1.344,0,0,1,0,1.342Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,1.342Z" transform="translate(5.368 0.839)" fill="#6c757d"></path>
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" style="margin: 0px;">
+                            <a onclick="show_global_modal(\'' . $model_header . '\' , \''. $model_body .'\' )"
+                            class="dropdown-item">Show Details</a>
+                    </div>
+                </div>';
+
+
 
                 return  $global_modal;
             })

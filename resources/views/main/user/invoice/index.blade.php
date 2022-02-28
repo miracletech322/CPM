@@ -113,7 +113,6 @@
                                                                         <th>Withdrawl Date</th>
                                                                         <th>Transaction ID</th>
                                                                         <th>Withdrawl Method</th>
-                                                                        <th>Account Used</th>
                                                                         <th>Total Withdraw</th>
                                                                         <th>Action</th>
                                                                     </thead>

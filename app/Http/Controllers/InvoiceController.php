@@ -63,9 +63,20 @@ class InvoiceController extends Controller
                 return to_power_format($records->energy_bought)." ". get_power_name($records->hashing_id);
             })
             ->addColumn('action', function ($records) {
+
                 $show_url = url("invoice") . "/" . $records->public_id ."?type=deposit";
-                $show = "<a data-toggle='tooltip' href='$show_url' data-placement='left' title='Show Invoice' class='fa fa-eye fa-lg action-icon text-info'></a>&nbsp;&nbsp;&nbsp;";
-                return  $show;
+                $show = "<a href='$show_url' class='dropdown-item'>Show Invoice</a>";
+                return '<div class="dropdown">
+                    <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg data-name="Icons/Tabler/Notification" xmlns="http://www.w3.org/2000/svg" width="13.419" height="13.419" viewBox="0 0 13.419 13.419">
+                            <rect data-name="Icons/Tabler/Dots background" width="13.419" height="13.419" fill="none"></rect>
+                            <path d="M0,10.4a1.342,1.342,0,1,1,1.342,1.342A1.344,1.344,0,0,1,0,10.4Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,10.4ZM0,5.871A1.342,1.342,0,1,1,1.342,7.213,1.344,1.344,0,0,1,0,5.871Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,5.871ZM0,1.342A1.342,1.342,0,1,1,1.342,2.684,1.344,1.344,0,0,1,0,1.342Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,1.342Z" transform="translate(5.368 0.839)" fill="#6c757d"></path>
+                    </svg>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" style="margin: 0px;">
+                                '.$show.'
+                        </div>
+                    </div>';
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -93,7 +104,8 @@ class InvoiceController extends Controller
             ->addColumn('total_paid', function ($records) {
                 return "$".to_cash_format_small($records->amount_withdraw);
             })
-            ->addColumn('account_used', function ($records) {
+            ->addColumn('action', function ($records) {
+
                 $model_body = "No record found.";
                 $model_header = "Details";
                 if($records->payment_method == 2 && $records->user_banks){
@@ -107,16 +119,26 @@ class InvoiceController extends Controller
                     $model_body = "<div><p><b>Crypto Option: </b>".$records->user_cryptos->crypto_options->name."<br><b>Crypto Wallet Address: </b>".$records->user_cryptos->wallet_address."</p></div>";
                 }
 
-                $global_modal = "<a data-toggle='tooltip'
-                onclick='show_global_modal(\"" . $model_header . "\" , \"". $model_body ."\" )'
-                data-placement='left' title='Show Details' class='fa fa-list  fa-lg action-icon text-warning'></a>";
+                $global_modal = "<a
+                onclick='show_global_modal(\"" . $model_header . "\" , \"". $model_body ."\" )' class='dropdown-item'>Show Details</a>";
 
-                return $global_modal;
-            })
-            ->addColumn('action', function ($records) {
                 $show_url = url("invoice") . "/" . $records->public_id ."?type=withdraw";
-                $show = "<a data-toggle='tooltip' href='$show_url' data-placement='left' title='Show Invoice' class='fa fa-eye fa-lg action-icon text-info'></a>&nbsp;&nbsp;&nbsp;";
-                return  $show;
+                $show = "<a href='$show_url' class='dropdown-item'>Show Invoice</a>";
+
+                return '<div class="dropdown">
+                    <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg data-name="Icons/Tabler/Notification" xmlns="http://www.w3.org/2000/svg" width="13.419" height="13.419" viewBox="0 0 13.419 13.419">
+                            <rect data-name="Icons/Tabler/Dots background" width="13.419" height="13.419" fill="none"></rect>
+                            <path d="M0,10.4a1.342,1.342,0,1,1,1.342,1.342A1.344,1.344,0,0,1,0,10.4Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,10.4ZM0,5.871A1.342,1.342,0,1,1,1.342,7.213,1.344,1.344,0,0,1,0,5.871Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,5.871ZM0,1.342A1.342,1.342,0,1,1,1.342,2.684,1.344,1.344,0,0,1,0,1.342Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,1.342Z" transform="translate(5.368 0.839)" fill="#6c757d"></path>
+                    </svg>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" style="margin: 0px;">
+                                '.$global_modal. $show.'
+                        </div>
+                    </div>';
+
+
+              
             })
             ->rawColumns(['action', 'account_used'])
             ->make(true);

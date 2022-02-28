@@ -150,7 +150,6 @@
                 {data: 'transaction_date', name: 'created_at'},
                 {data: 'transaction_id', name: 'transaction_id'},
                 {data: 'payment_method', name: 'payment_method'},
-                {data: 'account_used', name: 'account_used'},
                 {data: 'total_paid', name: 'total_paid'},
                 {data: 'action', name: 'action'}
             ],
@@ -158,11 +157,11 @@
             "columnDefs": [
                 {
                     "searchable":false,
-                    "targets":[5]
+                    "targets":[4]
                 },
                 {
                     "orderable":false,
-                    "targets":[5]
+                    "targets":[4]
                 }
             ],
             "order": [

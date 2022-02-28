@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" data-footer="true" data-navcolor="dark" data-color="light-green">
 @php
-    $site_data["site_name"] = "Folex Mining";
-    $site_data["site_logo"] = asset('frontend') . '/images/logo.svg';
-    $settings = DB::table("settings")->first();
-    if($settings){
-        $site_data["site_name"] = @$settings->site_name;
-        $site_data["site_logo"] = @$settings->site_logo ? @$settings->site_logo : $site_data["site_logo"];
-    }
-    @endphp
+$site_data["site_name"] = "Folex Mining";
+$site_data["site_logo"] = asset('frontend') . '/images/logo.svg';
+$settings = DB::table("settings")->first();
+if($settings){
+$site_data["site_name"] = @$settings->site_name;
+$site_data["site_logo"] = @$settings->site_logo ? @$settings->site_logo : $site_data["site_logo"];
+}
+@endphp
 <head>
     @include('layouts.main.header_includes' , $site_data)
     <title>@yield('title')</title>
@@ -47,13 +47,28 @@
     <div class="main-content">
         @include('layouts.main.header', $site_data)
         @yield('content')
-        <div class="container-fluid px-0">
-            <div class="px-3 px-xxl-5 py-3 py-lg-4 border-gray-200 after-header">
-                @include('layouts.main.footer', $site_data)
+        <div class="px-3 px-xxl-5 py-3 py-lg-4 after-header">
+            @include('layouts.main.footer', $site_data)
+        </div>
+    </div>
+
+    @include('layouts.main.footer_includes', $site_data)
+    @yield('js')
+
+
+    <div class="modal global-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="height: 50px;">
+                    <h5 class="modal-title global-modal-title" style="font-weight: 800;"></h5>
+                    <button type="button" class="close" onclick="hide_global_modal()" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body global-modal-body">
+                </div>
             </div>
         </div>
     </div>
-    @include('layouts.main.footer_includes', $site_data)
-    @yield('js')
 </body>
 </html>

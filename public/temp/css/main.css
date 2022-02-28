@@ -310,3 +310,28 @@ td {
 .float-left {
     float: left !important;
 }
+
+.table {
+    padding-bottom: 55px;
+}
+
+svg text {
+    font-family: FontAwesome;
+ }
+
+
+ .sidebar-icons .nav .navbar-nav {
+    align-content: space-evenly !important;
+ }
+
+ .dropdown-item {
+     cursor: pointer !important;
+ }
+
+ body{
+    min-height:100vh;
+ }
+
+ .after-header{
+    bottom: 0;
+ }

@@ -41,17 +41,26 @@ class CryptoWalletController extends Controller
             })
             ->addColumn('action', function ($records) {
                 $show_url = url("crypto-wallet") . "/" . $records->public_id;
-                $show = "<a data-toggle='tooltip' data-placement='left' href='" . $show_url . "' title='Show Details' class='fa fa-eye  fa-lg action-icon text-warning'></a>&nbsp;&nbsp;&nbsp;";
+                $show = "<a href='" . $show_url . "' class='dropdown-item'>Show Details</a>";
 
                 $edit_url = url("crypto-wallet") . "/" . $records->public_id . "/edit";
-                $edit = "<a data-toggle='tooltip' data-placement='left' href='" . $edit_url . "' title='Edit' class=' fa fa-edit fa-lg action-icon  text-primary'></a>&nbsp;&nbsp;&nbsp;";
+                $edit = "<a href='" . $edit_url . "' class='dropdown-item'>Edit</a>";
 
                 $delete_url = url("delete-crypto-wallet") . "/" . $records->public_id;
-                $delete = "<a data-toggle='tooltip'
-                        onclick='delete_record(\"" . $delete_url . "\" )'
-                        data-placement='left' title='Delete' class='fa fa-trash  fa-lg action-icon  text-danger'></a>";
+                $delete = "<a  onclick='delete_record(\"" . $delete_url . "\" )' class='dropdown-item'>Delete</a>";
 
-                return  $show . $edit . $delete;
+                return '<div class="dropdown">
+                        <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg data-name="Icons/Tabler/Notification" xmlns="http://www.w3.org/2000/svg" width="13.419" height="13.419" viewBox="0 0 13.419 13.419">
+                                <rect data-name="Icons/Tabler/Dots background" width="13.419" height="13.419" fill="none"></rect>
+                                <path d="M0,10.4a1.342,1.342,0,1,1,1.342,1.342A1.344,1.344,0,0,1,0,10.4Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,10.4ZM0,5.871A1.342,1.342,0,1,1,1.342,7.213,1.344,1.344,0,0,1,0,5.871Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,5.871ZM0,1.342A1.342,1.342,0,1,1,1.342,2.684,1.344,1.344,0,0,1,0,1.342Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,1.342Z" transform="translate(5.368 0.839)" fill="#6c757d"></path>
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" style="margin: 0px;">
+                                '.$show . $edit . $delete.'
+                        </div>
+                    </div>';
+
             })
             ->rawColumns(['action'])
             ->make(true);

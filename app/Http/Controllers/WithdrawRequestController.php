@@ -62,14 +62,10 @@ class WithdrawRequestController extends Controller
             ->addColumn('action', function ($records) {
 
                 $accept_url = url("accept-withdraw") . "/" . $records->public_id;
-                $accept = "<a data-toggle='tooltip'
-                        onclick='goto_url(\"" . $accept_url . "\" , \""."You want to acccept this request?"."\")'
-                        data-placement='left' title='Accept Request' class='fa fa-check fa-lg action-icon text-primary'></a>&nbsp;&nbsp;&nbsp;";
+                $accept = "<a onclick='goto_url(\"" . $accept_url . "\" , \""."You want to acccept this request?"."\")' class='dropdown-item'>Accept Request</a>";
 
                 $reject_url = url("reject-withdraw") . "/" . $records->public_id;
-                $reject = "<a data-toggle='tooltip'
-                        onclick='goto_url(\"" . $reject_url . "\" , \""."You want to reject this request?"."\" )'
-                        data-placement='left' title='Reject Request' class='fa fa-times  fa-lg action-icon text-danger'></a>&nbsp;&nbsp;&nbsp;";
+                $reject = "<a onclick='goto_url(\"" . $reject_url . "\" , \""."You want to reject this request?"."\" )' class='dropdown-item'>Reject Request</a>";
 
                 $model_body = "No record found.";
                 $model_header = "Details";
@@ -84,11 +80,22 @@ class WithdrawRequestController extends Controller
                     $model_body = "<div><p><b>Crypto Option: </b>".$records->user_cryptos->crypto_options->name."<br><b>Crypto Wallet Address: </b>".$records->user_cryptos->wallet_address."</p></div>";
                 }
 
-                $global_modal = "<a data-toggle='tooltip'
-                onclick='show_global_modal(\"" . $model_header . "\" , \"". $model_body ."\" )'
-                data-placement='left' title='Show Details' class='fa fa-list  fa-lg action-icon text-warning'></a>";
+                $global_modal = "<a onclick='show_global_modal(\"" . $model_header . "\" , \"". $model_body ."\" )' class='dropdown-item'>Show Details</a>";
 
-                return  $accept . $reject. $global_modal;
+                $buttons =  $accept . $reject. $global_modal;
+
+                return '<div class="dropdown">
+                    <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg data-name="Icons/Tabler/Notification" xmlns="http://www.w3.org/2000/svg" width="13.419" height="13.419" viewBox="0 0 13.419 13.419">
+                            <rect data-name="Icons/Tabler/Dots background" width="13.419" height="13.419" fill="none"></rect>
+                            <path d="M0,10.4a1.342,1.342,0,1,1,1.342,1.342A1.344,1.344,0,0,1,0,10.4Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,10.4ZM0,5.871A1.342,1.342,0,1,1,1.342,7.213,1.344,1.344,0,0,1,0,5.871Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,5.871ZM0,1.342A1.342,1.342,0,1,1,1.342,2.684,1.344,1.344,0,0,1,0,1.342Zm1.15,0a.192.192,0,1,0,.192-.192A.192.192,0,0,0,1.15,1.342Z" transform="translate(5.368 0.839)" fill="#6c757d"></path>
+                    </svg>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" style="margin: 0px;">
+                                ' . $buttons. '
+                        </div>
+                    </div>';
+
             })
             ->rawColumns(['action'])
             ->make(true);

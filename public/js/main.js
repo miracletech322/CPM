@@ -8,7 +8,6 @@ $(function(){
         $('input[type="search"]').val( $(".search_box").val() );
         $('input[type="search"]').trigger("keyup");
     });
-
 })
 
 
@@ -243,6 +242,10 @@ function show_global_modal(title, body){
     $(".global-modal-title").html(title);
     $(".global-modal-body").html(body);
     $('.global-modal').modal('show');
+}
+
+function hide_global_modal(){
+    $('.global-modal').modal('hide');
 }
 
 

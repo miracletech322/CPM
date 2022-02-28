@@ -1,25 +1,14 @@
-<footer class="pt-xxl-5 mt-lg-2">
+<footer class="pt-xxl-5 mt-lg-2 footer_main border-gray-200">
     <div class="container-fluid px-0 border-top border-gray-200 pt-2 pt-lg-3">
         <div class="row align-items-center">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <p class="fs-16 text-gray-600 my-2">{{date("Y")}} &copy; {{$site_data["site_name"]}} - All rights reserved.</p>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav navbar">
+                    <li><a href="mailto:support@folex-mining.com">Support</a></li>
+                </ul>
             </div>
         </div>
     </div>
 </footer>
-
-
-<div class="modal global-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 50px;">
-                <h5 class="modal-title global-modal-title" style="font-weight: 800;"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body global-modal-body">
-            </div>
-        </div>
-    </div>
-</div>
