@@ -51,38 +51,6 @@ td {
     background: #fff;
 }
 
-#preloader:before {
-    content: '';
-    position: fixed;
-    top: calc(50% - 30px);
-    left: calc(50% - 30px);
-    border: 6px solid #2c80ff;
-    border-top-color: #fff;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: animate-preloader 1s linear infinite;
-    animation: animate-preloader 1s linear infinite;
-}
-@-webkit-keyframes animate-preloader {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes animate-preloader {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-
 .cursor-pointer {
     cursor: pointer !important;
 }
@@ -349,3 +317,5 @@ svg text {
  .after-header{
     bottom: 0;
  }
+
+#preloader{background: url(../../frontend/images/loader.svg) center no-repeat #fff;}

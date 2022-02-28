@@ -1,11 +1,11 @@
 @php
-    $site_name = "SuperHumanTools";
-    $site_logo = "/template/img/logo.png";
-    $settings = DB::table("settings")->first();
-    if($settings){
-        $site_name = $settings->site_name;
-        $site_logo = $settings->site_logo ? $settings->site_logo : $site_logo;
-    }
+$site_data["site_name"] = "Folex Mining";
+$site_data["site_logo"] = asset('frontend') . '/images/logo.svg';
+$settings = DB::table("settings")->first();
+if($settings){
+    $site_data["site_name"] = @$settings->site_name;
+    $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_logo) : $site_data["site_logo"];
+}
 @endphp
 
 
@@ -15,7 +15,7 @@
 @component('mail::header', ['url' => url("/")])
 {{-- {{ config('app.name') }} --}}
 <div>
-    <img src="{{ url('/').@$site_logo }}" alt="" height="50">
+    <img src="{{ $site_data["site_logo"] }}" alt="" height="50">
 </div>
 @endcomponent
 @endslot
@@ -35,7 +35,7 @@
 {{-- Footer --}}
 @slot('footer')
 @component('mail::footer')
-© {{ date('Y') }} {{ @$settings->site_name }}. @lang('All rights reserved.')
+© {{ date('Y') }} {{ $site_data["site_name"] }}. @lang('All rights reserved.')
 @endcomponent
 @endslot
 @endcomponent
