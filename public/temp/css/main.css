@@ -320,6 +320,20 @@ svg text {
  }
 
 
+ .sidebar-compact .navbar-vertical.navbar-expand-lg .navbar-nav .nav-item>.nav-link, .sidebar-icons .navbar-vertical.navbar-expand-lg .navbar-nav .nav-item>.nav-link {
+    font-size: unset;
+ }
+
+
+ .sidebar-compact .navbar-vertical.navbar-expand-lg .navbar-nav .nav-item>.nav-link, .sidebar-icons .navbar-vertical.navbar-expand-lg .navbar-nav .nav-item>.nav-link i {
+    font-size: 1.33333333em !important;
+ }
+
+
+ .sidebar-compact .navbar-vertical.navbar-expand-lg .navbar-nav .nav-item>.nav-link, .sidebar-icons .navbar-vertical.navbar-expand-lg .navbar-nav .nav-item>.nav-link span {
+    font-size: 0px;
+ }
+
  .sidebar-icons .nav .navbar-nav {
     align-content: space-evenly !important;
  }
