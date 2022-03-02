@@ -36,6 +36,34 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
             box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
         }
 
+        .btn {
+            font-size: 1.67rem !important;
+            color: #1e1e1e !important;
+            font-weight: 600 !important;
+            text-transform: unset !important;
+            font-family: Montserrat,sans-serif !important;
+            padding: 1.39rem 2.5rem !important;
+        }
+
+        .text-black {
+            color: #999999 !important;
+            font-weight: 600 !important;
+        }
+
+        .miner-select-item.active, .irs--round .irs-from, .irs--round .irs-to, .irs--round .irs-single{
+            color: #1e1e1e !important;
+            font-weight: 600 !important;
+        }
+
+        .btn:hover {
+            -webkit-transform: unset !important;
+            transform: unset !important;
+        }
+
+        .btn:before {
+            content: unset !important;
+        }
+
     </style>
 </head>
 

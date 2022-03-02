@@ -134,7 +134,7 @@
     color:#fff;
     border-radius:3px;
     padding:2px 6px;
-    background:linear-gradient(272.47deg,#ce0ca1 0%,#f8ae4c 100%)
+    background:linear-gradient(272.47deg,#ce0ca1 0%,#ffc107 100%)
 }
 .active-miners__item-add{
     display:flex;
@@ -193,7 +193,7 @@
     width:100%
 }
 .calculate-earnings__calculator-range-line.fill{
-    background:linear-gradient(272.47deg,#ce0ca1 0%,#f8ae4c 100%);
+    background:linear-gradient(272.47deg,#ce0ca1 0%,#ffc107 100%);
     box-shadow:10px 10px 42px rgba(0,20,33,.2);
     width:25%;
     top:0;
@@ -210,7 +210,7 @@
     padding:.4rem;
     width:fit-content;
     color:#fff;
-    background:linear-gradient(272.47deg,#ce0ca1 0%,#f8ae4c 100%);
+    background:linear-gradient(272.47deg,#ce0ca1 0%,#ffc107 100%);
     z-index:3
 }
 .calculate-earnings__calculator-range-data:before{
@@ -226,13 +226,13 @@
     border-left:10px solid transparent;
     border-right:10px solid transparent;
     z-index:2;
-    border-top:9px solid #f8ae4c
+    border-top:9px solid #ffc107
 }
 .calculate-earnings__calculator-range-point{
     position:absolute;
     top:-50%;
     left:25%;
-    background-color:#f8ae4c;
+    background-color:#ffc107;
     width:3rem;
     height:3rem;
     border-radius:50rem;
@@ -279,7 +279,7 @@
     height: 1.6rem;
     background: linear-gradient(
 272.47deg
-,#f8ae4c 0%,#f8ae4c 100%);
+,#ffc107 0%,#ffc107 100%);
     box-shadow: 10px 10px 42px rgb(0 20 33 / 20%);
     border-radius: 50px;
 }
@@ -323,7 +323,7 @@
     text-transform:uppercase
 }
 .calculate-earnings__calculator-results-numbers{
-    color:#f8ae4c ;
+    color:#ffc107 ;
     font-weight:600;
     font-size:16px;
     line-height:1rem
@@ -346,8 +346,8 @@
     transition:.2s ease
 }
 .miner-select-item.active{
-    color:#fff;
-    background:linear-gradient(272.47deg,#f8ae4c 0%,#f8ae4c 100%);
+    color:#1e1e1e;
+    background:linear-gradient(272.47deg,#ffc107 0%,#ffc107 100%);
 }
 
 .irs--round .irs-from, .irs--round .irs-to, .irs--round .irs-single {
@@ -358,8 +358,8 @@
     padding: 0.6rem !important;
     background: linear-gradient(
 272.47deg
-,#f8ae4c 0%,#f8ae4c 100%) !important;
-    color: #fff;
+,#ffc107 0%,#ffc107 100%) !important;
+    color: #1e1e1e;
     top: -13px;
 }
 
@@ -374,7 +374,7 @@
     margin-left: -6px;
     overflow: hidden;
     border: 6px solid transparent;
-    border-top-color: #f8ae4c;
+    border-top-color: #ffc107;
 }
 
 .irs--round .irs-handle {
@@ -382,7 +382,7 @@
     width: 1.8rem !important;
     height: 1.8rem !important;
     border-radius: 50rem;
-    background-color: #f8ae4c !important;
+    background-color: #ffc107 !important;
     cursor: pointer;
 }
 
@@ -400,7 +400,7 @@
     height: 1.3rem;
     background: linear-gradient( 
 272.47deg
- ,#f8ae4c 0%,#f8ae4c 100%);
+ ,#ffc107 0%,#ffc107 100%);
     box-shadow: 10px 10px 42px rgb(0 20 33 / 20%);
     border-radius: 50px;
 }
@@ -455,7 +455,7 @@
         width:calc(36% - 0.4rem)
     }
     .calculate-earnings__calculator-results-numbers{
-        color:#f8ae4c ;
+        color:#ffc107 ;
         font-weight:600;
         font-size:16px;
         line-height:1rem
@@ -483,7 +483,7 @@
 }
 .accessibility__list-ul-li i{
     margin-left:-3rem;
-    color:#f8ae4c;
+    color:#ffc107;
     float:left;
     margin-top:2px
 }
@@ -891,7 +891,7 @@
 }
 .three-stat-count span{
     font-size:1.4rem;
-    background:linear-gradient( 272.47deg,#ce0ca1 0%,#f8ae4c 100%);
+    background:linear-gradient( 272.47deg,#ce0ca1 0%,#ffc107 100%);
     color:#fff;
     padding:3px 10px;
     border-radius:4px
@@ -1084,7 +1084,7 @@
 }
 .pricing-palden .pricing-deco{
     border-radius:10px 10px 0 0;
-    background:linear-gradient( 272.47deg,#ce0ca1 0%,#f8ae4c 100%);
+    background:linear-gradient( 272.47deg,#ce0ca1 0%,#ffc107 100%);
     padding:3em 0 0;
     position:relative
 }

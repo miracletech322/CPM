@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
                 <div class="section-heading text-center pb-65">
-                    <label class="sub-heading">Folex Crypto Mining</label>
+                    <label class="sub-heading text-black">Folex Crypto Mining</label>
                     <h2 class="heading-title">How it Works</h2>
                     <p class="heading-des">Using state of the art equipment and our low cost of electricity and maintenance, Folex-Mining offers you plans to start mining with us today.</p>
                 </div>
@@ -49,16 +49,16 @@
                     <p class="work-des pb-20">With Folex-Mining, you’re in good hands with </p>
 
                     <ul class="check-list">
-                        <li><span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
                             <p>Access to mine top crypto tokens such as Bitcoin, Ether and Litecoin</p>
                         </li>
-                        <li><span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
                             <p>State of the art mining equipment and farms</p>
                         </li>
-                        <li><span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
                             <p>Easy setup - guided by tutorials</p>
                         </li>
-                        <li><span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
                             <p>24/7 Customer support to ensure your satisfaction</p>
                         </li>
                     </ul>
@@ -73,7 +73,7 @@
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
                 <div class="section-heading text-center pb-65">
-                    <label class="sub-heading">Folex Mining Platform</label>
+                    <label class="sub-heading text-black">Folex Mining Platform</label>
                     <h2 class="heading-title">Best Features</h2>
                     <p class="heading-des">We have put together a platform that ensures smooth running and customer satisfaction so you are never in doubt. Mine crypto from anywhere, at any time! <br>Some of our best features are listed below</p>
                 </div>
@@ -105,7 +105,7 @@
             <div class="col-md-4 wow fadeInUp pb-80">
                 <div class="feature-box">
                     <div class="feature-icon">
-                        <a href="feature.html"><img src="{{asset('frontend')}}/images/feature-6.png" alt="Univarsal Access"></a>
+                        <a><img src="{{asset('frontend')}}/images/feature-6.png" alt="Univarsal Access"></a>
                     </div>
                     <div class="feature-contain pt-25">
                         <a class="feature-title pb-15">Reliable partners</a>
@@ -116,7 +116,7 @@
             <div class="col-md-4 wow fadeInUp pb-80">
                 <div class="feature-box">
                     <div class="feature-icon">
-                        <a href="feature.html"><img src="{{asset('frontend')}}/images/feature-5.png" alt="Secure Storage"></a>
+                        <a><img src="{{asset('frontend')}}/images/feature-5.png" alt="Secure Storage"></a>
                     </div>
                     <div class="feature-contain pt-25">
                         <a class="feature-title pb-15">Low cost</a>
@@ -281,15 +281,15 @@
             </div>
             <div class="col-lg-6 wow fadeInRight pb-100 order-r-1">
                 <div class="section-heading pb-20">
-                    <label class="sub-heading">App For IOS/Android Coming Soon</label>
+                    <label class="sub-heading text-black">App For IOS/Android Coming Soon</label>
                     <h2 class="heading-title">Folex Mining App</h2>
                     <p class="heading-des pb-20">Stay updated on the status of your mining operation with Folex's mining app. Get alerts for high temperature and electricity consumption through the that will be accessible to all through Goolge-Play and App-Store. Stay equipped with real time reports on all your mining hasrate and profitability. </p>
 
                     <ul class="check-list mb-30">
-                        <li><span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: black;" aria-hidden="true"></i></span>
                             <p>Full overview of your status, speed and health</p>
                         </li>
-                        <li><span><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: black;" aria-hidden="true"></i></span>
                             <p>Detailed reports of your mining operation and profitability</p>
                         </li>
                     </ul>
@@ -305,7 +305,7 @@
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
                 <div class="section-heading text-center pb-65">
-                    <label class="sub-heading">Faqs</label>
+                    <label class="sub-heading text-black">Faqs</label>
                     <h2 class="heading-title">Frequently Asked questions</h2>
                     <p class="heading-des">We understand you have many questions, if you find a question that's not already been answered below, please alert us through customer support at <a href="mailto:support@folex-mining.com">support@folex-mining.com</a> Thank you.</p>
                 </div>
@@ -341,25 +341,25 @@
                         <div class="row">
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">Why should I mine crypto?</a>
+                                    <a  class="qus-title">Why should I mine crypto?</a>
                                     <p class="qus-des pt-10">Cryptocurrency mining enables you to not only earn economic value in the form of rewards, it also allows you to become a valuable member of the crypto ecosystem. By ensuring honest transactions between users, you keep this digital network functional and reliable.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">What Crypto Currencies can I mine? </a>
+                                    <a  class="qus-title">What Crypto Currencies can I mine? </a>
                                     <p class="qus-des pt-10">With Folex you can mine Bitcoin, Ethereum, and Litecoin as for now, new Algorithms may available soon.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">What would be the cost of starting my mining operation with Folex?</a>
+                                    <a  class="qus-title">What would be the cost of starting my mining operation with Folex?</a>
                                     <p class="qus-des pt-10">Folex offers you solutions to start mining using either our already established mining rigs all over the world by signing up for a [contact / subscription] with us, or you can use your own hardware, ASICs and GPUs to mine at your own overhead costs and place. <br> To view our pricing plans, please visit: <a href="#calculator">calculator section</a></p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">Which token should I mine?</a>
+                                    <a  class="qus-title">Which token should I mine?</a>
                                     <p class="qus-des pt-10">You can choose to mine one or all three of our supported Cryptos that include Bitcoin, Ethereum and Litecoin, the world's most renowned tokens that have relevance even today a decade after their debut.</p>
                                 </div>
                             </div>
@@ -370,14 +370,14 @@
                         <div class="row">
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">Can I mine on my own?</a>
+                                    <a  class="qus-title">Can I mine on my own?</a>
                                     <p class="qus-des pt-10">Of course! Although, we would advise against it. Mining on your own would require you to invest a sizable sum on the hardware itself, the delivery fee, customs, electricity and any additional equipment that might be required for setting up and maintaining the system. By using our mining farms, you save on both time and money while not having to worry about such factors. Start mining as early as today.</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">What is the benefit of using Folex's Mining? </a>
+                                    <a  class="qus-title">What is the benefit of using Folex's Mining? </a>
                                     <p class="qus-des pt-10">
                                         Folex has established mining operations in several countries with low cost of electricity and parts to ensure the savings are then forwarded to you. We aim to be the largest and most well known Crypto mining platform that users trust and benefit from all over the world.<br>With us, you will not have to worry about the initial setup of hardware, maintenance or cost of electricity as we'll take care of it for you.
                                     </p>
@@ -386,14 +386,14 @@
 
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">How can I get started?</a>
+                                    <a  class="qus-title">How can I get started?</a>
                                     <p class="qus-des pt-10">To start mining using our pre-established mining Power, simply sign up with a contract of your choice at <a href="{{url('/register')}}">registration page</a>.</p>
                                 </div>
                             </div>
                             
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">Why us? </a>
+                                    <a  class="qus-title">Why us? </a>
                                     <p class="qus-des pt-10">
                                         <ul class="ml-3">
                                             <li>●  No barrier to entry: Start mining with an investment as low as [$USD] for [hashrate]</li>
@@ -413,19 +413,19 @@
                         <div class="row">
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">Which Wallet does Folex recommend?</a>
+                                    <a class="qus-title">Which Wallet does Folex recommend?</a>
                                     <p class="qus-des pt-10">Ideally we recommend hardware or paper wallets; however, to start off your mining journey, you may use desktop wallets such as MetaMask or MyEtherWallet or Trustwallet. We are not responsible for which wallet you use, we only give possible options for a wallet.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">What is a hash rate?</a>
+                                    <a class="qus-title">What is a hash rate?</a>
                                     <p class="qus-des pt-10">In layman's terms, a hash rate is the speed at which a token is mined. The higher the hash rate, the faster you can mine. Hash rate depends on the CPU or GPU that you are using. The better and faster the CPU / GPU, the faster you can mine.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">How can I protect my crypto? </a>
+                                    <a class="qus-title">How can I protect my crypto? </a>
                                     <p class="qus-des pt-10">As mentioned earlier, we recommend storing your Crypto in more secure locations such as hardware (Ledger, KeepKey etc.) or paper wallets. If you use desktop wallets like MetaMask or MyEtherWallet, we recommend:
                                         <br><br>
                                         <ul class="ml-3">
@@ -450,31 +450,31 @@
                         <div class="row">
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">When will I get paid?</a>
+                                    <a class="qus-title">When will I get paid?</a>
                                     <p class="qus-des pt-10">Payouts are processed on the 15th and end of month. These are requested in the user dashboard and released by our admins, this is only for self-protection to protect our wallets.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">How do I calculate my mining profit? </a>
+                                    <a  class="qus-title">How do I calculate my mining profit? </a>
                                     <p class="qus-des pt-10">Using our profit calculator on <a href="#calculator">calculator section</a> <br>. You can easily calculate your profit and earnings for both cases in which you use our mining infrastructure or if you were to set up your own.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">Can I purchase crypto currencies through Folex?</a>
+                                    <a  class="qus-title">Can I purchase crypto currencies through Folex?</a>
                                     <p class="qus-des pt-10">Our teams are working diligently to implement trading of various cryptos on Folex; however, this is not yet available. Please check back with us on a later date.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">What payment methods do you accept?</a>
+                                    <a  class="qus-title">What payment methods do you accept?</a>
                                     <p class="qus-des pt-10">Accepted payment methods include VISA, MasterCard, Debit / Credit cards, Coin Payment via CoinBase Commerce, and SEPA Transfer to our Company account.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">How do I contact you if I have further questions?</a>
+                                    <a  class="qus-title">How do I contact you if I have further questions?</a>
                                     <p class="qus-des pt-10">Our customer support is available to cater to your queries at any given time. <a href="mailto:support@folex-mining.com">support@folex-mining.com</a></p>
                                 </div>
                             </div>
@@ -486,7 +486,7 @@
                         <div class="row">
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">What cryptocurrencies can I use to
+                                    <a  class="qus-title">What cryptocurrencies can I use to
                                         purchase? </a>
                                     <p class="qus-des pt-10">Lorem Ipsum is simply dummy text of the printing and
                                         typesetting industry. Lorem Ipsum has been the industry's standard dummy
@@ -497,7 +497,7 @@
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">How do I benefit from the ICO Token?</a>
+                                    <a  class="qus-title">How do I benefit from the ICO Token?</a>
                                     <p class="qus-des pt-10">Lorem Ipsum is simply dummy text of the printing and
                                         typesetting industry. Lorem Ipsum has been the industry's standard dummy
                                         text ever since the 1500s, when an unknown printer took a galley of type and
@@ -507,7 +507,7 @@
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a href="faq.html" class="qus-title">What is Ico Crypto?</a>
+                                    <a  class="qus-title">What is Ico Crypto?</a>
                                     <p class="qus-des pt-10">Lorem Ipsum is simply dummy text of the printing and
                                         typesetting industry. Lorem Ipsum has been the industry's standard dummy
                                         text ever since the 1500s, when an unknown printer took a galley of type and

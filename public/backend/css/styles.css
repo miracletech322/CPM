@@ -3363,11 +3363,11 @@ html[data-color=dark-green] {
 	--foreground-rgb: 36, 36, 36;
 	--background-theme: #242424;
 	--background-light: #292929;
-	--gradient-1: #f8ae4c;
-	--gradient-2: #f8ae4c;
-	--gradient-3: #f8ae4c;
-	--gradient-1-lighter: #f8ae4c;
-	--gradient-1-darker: #f8ae4c;
+	--gradient-1: #ffc107;
+	--gradient-2: #ffc107;
+	--gradient-3: #ffc107;
+	--gradient-1-lighter: #ffc107;
+	--gradient-1-darker: #ffc107;
 	--light-text: #f0f0f0;
 	--dark-text: #191c1f;
 	--light-text-darker: #e9e9e9;
@@ -3887,7 +3887,7 @@ html[data-color=light-blue] {
 }
 
 html[data-color=light-green] {
-	--primary: #f8ae4c;
+	--primary: #ffc107;
 	--secondary: #64e564;
 	--tertiary: #b2e33c;
 	--quaternary: #3ce3a2;
@@ -3915,10 +3915,10 @@ html[data-color=light-green] {
 	--foreground-rgb: 255, 255, 255;
 	--background-theme: #eaf1ec;
 	--background-light: #f8f8f8;
-	--gradient-1: #f8ae4c;
-	--gradient-2: #f8ae4c;
-	--gradient-3: #f8ae4c;
-	--gradient-1-lighter: #f8ae4c;
+	--gradient-1: #ffc107;
+	--gradient-2: #ffc107;
+	--gradient-3: #ffc107;
+	--gradient-1-lighter: #ffc107;
 	--gradient-1-darker: #1a9455;
 	--light-text: #fff;
 	--dark-text: #343a40;
@@ -16232,7 +16232,7 @@ html:not([data-footer=true]) #root>footer {
 }
 
 #settings .green-light {
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 91 6'%3E%3Cpath d='M3,0H51a0,0,0,0,1,0,0V6a0,0,0,0,1,0,0H3A3,3,0,0,1,0,3V3A3,3,0,0,1,3,0Z' style='fill:%23f8ae4c'/%3E%3Cpath d='M74,0H91a0,0,0,0,1,0,0V6a0,0,0,0,1,0,0H74a3,3,0,0,1-3-3V3A3,3,0,0,1,74,0Z' transform='translate(162 6) rotate(180)' style='fill:%23ececec'/%3E%3Crect x='51' width='20' height='6' style='fill:%2364e564'/%3E%3C/svg%3E")
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 91 6'%3E%3Cpath d='M3,0H51a0,0,0,0,1,0,0V6a0,0,0,0,1,0,0H3A3,3,0,0,1,0,3V3A3,3,0,0,1,3,0Z' style='fill:%23ffc107'/%3E%3Cpath d='M74,0H91a0,0,0,0,1,0,0V6a0,0,0,0,1,0,0H74a3,3,0,0,1-3-3V3A3,3,0,0,1,74,0Z' transform='translate(162 6) rotate(180)' style='fill:%23ececec'/%3E%3Crect x='51' width='20' height='6' style='fill:%2364e564'/%3E%3C/svg%3E")
 }
 
 #settings .green-dark {

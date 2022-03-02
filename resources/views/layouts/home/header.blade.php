@@ -26,13 +26,13 @@
                     </ul>
                      @endif
                     @if(Auth()->check())
-                    <div class="signin d-inline-block">
+                    <div class="d-inline-block">
                         <a href="{{ route('dashboard')}}" class="btn">Dashboard</a>
                     </div>
                     @else
-                    <div class="signin d-inline-block">
-                        <a href="{{ route('login')}}" class="btn mr-2">Login</a>
-                        <a href="{{url('register')}}" class="btn">Register</a>
+                    <div class="d-inline-block">
+                        <a href="{{ route('login')}}" class="btn btn-lg mr-2">Login</a>
+                        <a href="{{url('register')}}" class="btn btn-lg">Register</a>
                     </div>
                     @endif
                 </div>
