@@ -623,7 +623,7 @@
                                 <div id="invoice-template" class="card-block" style="margin-top: 40px !important;">
                                     <div id="invoice-company-details" class="row" style="width: 100% !important; display: block !important;">
                                         <div class="col-6 text-left" style="width: 40% !important; display: inline-block !important; text-align:left !important;">
-                                            <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo.svg')}}" alt="folex-logo" class="mb-2" width="200">
+                                            <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo1.svg')}}" alt="folex-logo" class="mb-2" width="200">
                                             <h3 style="margin-top: 10px !important;">INVOICE # INV{{@$data['invoice_letter'].@$record->id}}</h3>
                                         </div>
                                         <div class="col-6 text-right" style="width: 40% !important; display: inline-block !important; float:right !important;">

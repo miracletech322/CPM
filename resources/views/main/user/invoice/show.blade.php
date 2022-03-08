@@ -40,7 +40,7 @@
                                                     <div id="invoice-template" class="card-block">
                                                         <div id="invoice-company-details" class="row">
                                                             <div class="col-6 text-left">
-                                                                <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo.svg')}}" alt="folex-logo" class="mb-2" width="200">
+                                                                <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo1.svg')}}" alt="folex-logo" class="mb-2" width="200">
                                                             </div>
                                                             <div class="col-6 text-right">
                                                                 <h4>{{@$data['status']}}</h4>

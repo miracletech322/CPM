@@ -1,6 +1,6 @@
 @php
 $site_data["site_name"] = "Folex Mining";
-$site_data["site_logo"] = asset('frontend') . '/images/logo.svg';
+$site_data["site_logo"] = asset('frontend') . '/images/logo1.svg';
 $settings = DB::table("settings")->first();
 if($settings){
     $site_data["site_name"] = @$settings->site_name;
