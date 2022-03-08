@@ -64,6 +64,10 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
             content: unset !important;
         }
 
+        .rounded-12 {
+            border-radius: 0.75rem!important;
+        }
+
     </style>
 </head>
 

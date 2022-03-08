@@ -19,6 +19,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/color.css">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/css/responsive.css">
 
+<link rel="shortcut icon" type="image/x-icon" href="{{$site_data["site_logo"]}}">
+
 <!-- Custom CSS -->
 <script src="https://kit.fontawesome.com/09024ba797.js" crossorigin="anonymous"></script>
 

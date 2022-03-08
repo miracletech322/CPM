@@ -30,86 +30,91 @@
 
 
                         <div class="row p-3">
-                            <div class="col-md-6 p-4" style='border: 10px solid #fff !important; border-right: 5px solid #fff !important;'>
+                            <div class="col-md-6">
+                                <div class="card mb-4 rounded-12 shadow border border-gray-50 p-4">
 
-                                <div class="calculate-earnings__calculator-data">
-                                    <div class="calculate-earnings__calculator-data-item">
-                                        <h4 class="calculate-earnings__calculator-data-title">Investment in $</h4>
-                                        <input type="text" value="" class="calculate-earnings__calculator-data-input" id="data-input-price">
-                                    </div>
-
-                                    <div class="calculate-earnings__calculator-data-item">
-                                        <h4 class="calculate-earnings__calculator-data-title">
-                                            Power <span class="input-prefix"> TH/s</span>
-                                        </h4>
-                                        <input type="text" value="25" class="calculate-earnings__calculator-data-input" id="data-input-ghs">
-                                    </div>
-                                </div>
-
-                                <div class="calculate-earnings__calculator-results">
-                                    <div class="row" style="width: 100%;">
-                                        <div class="col-md-4 mb-1 buy_cal">
-                                            <div class="calculate-earnings__calculator-results-item">
-                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                    Income <strong>per day</strong>
-                                                </h4>
-                                                <p class="calculate-earnings__calculator-results-numbers" id="daily">$1.46</p>
-                                            </div>
+                                    <div class="calculate-earnings__calculator-data">
+                                        <div class="calculate-earnings__calculator-data-item">
+                                            <h4 class="calculate-earnings__calculator-data-title"><b>Investment in $</b></h4>
+                                            <input type="text" value="" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" class="calculate-earnings__calculator-data-input" id="data-input-price">
                                         </div>
-                                        <div class="col-md-4 mb-1 buy_cal">
-                                            <div class="calculate-earnings__calculator-results-item">
-                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                    Income <strong>per month</strong>
-                                                </h4>
-                                                <p class="calculate-earnings__calculator-results-numbers" id="month">$43.80</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-1 buy_cal">
-                                            <div class="calculate-earnings__calculator-results-item">
-                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                    Income <strong>per year</strong>
-                                                </h4>
-                                                <p class="calculate-earnings__calculator-results-numbers" id="year">$525.60</p>
-                                            </div>
+
+                                        <div class="calculate-earnings__calculator-data-item">
+                                            <h4 class="calculate-earnings__calculator-data-title">
+                                                <b>Power <span class="input-prefix"> TH/s</span></b>
+                                            </h4>
+                                            <input type="text" value="25" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" class="calculate-earnings__calculator-data-input" id="data-input-ghs">
                                         </div>
                                     </div>
+
+                                    <div class="calculate-earnings__calculator-results">
+                                        <div class="row" style="width: 100%;">
+                                            <div class="col-md-4 mb-1 buy_cal">
+                                                <div class="calculate-earnings__calculator-results-item">
+                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                        Income <strong>per day</strong>
+                                                    </h4>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="daily">$1.46</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-1 buy_cal">
+                                                <div class="calculate-earnings__calculator-results-item">
+                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                        Income <strong>per month</strong>
+                                                    </h4>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="month">$43.80</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-1 buy_cal">
+                                                <div class="calculate-earnings__calculator-results-item">
+                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                        Income <strong>per year</strong>
+                                                    </h4>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="year">$525.60</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
-                            <div class="col-md-6 p-4" style='border: 10px solid #fff !important; border-left: 5px solid #fff !important;'>
-                                <div class="calculate-earnings__calculator-data" style="display: inline-block !important;">
-                                    <div class="">
-                                        <h4 class="calculate-earnings__calculator-data-title">
-                                            Your Own Electricity Cost (Per Watt)
-                                        </h4>
-                                        <input type="text" value="0.2" class="calculate-earnings__calculator-data-input" id="data-input-ghs-home">
+                            <div class="col-md-6">
+                                <div class="card mb-4 rounded-12 shadow border border-gray-50 p-4">
+                                    <div class="calculate-earnings__calculator-data" style="display: inline-block !important;">
+                                        <div class="">
+                                            <h4 class="calculate-earnings__calculator-data-title">
+                                                <b>Your Own Electricity Cost (Per Watt)</b>
+                                            </h4>
+                                            <input type="text" value="0.2" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" class="calculate-earnings__calculator-data-input" id="data-input-ghs-home">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="calculate-earnings__calculator-results">
-                                    <div class="row" style="width: 100%;">
-                                        <div class="col-md-4 mb-1 buy_cal">
-                                            <div class="calculate-earnings__calculator-results-item">
-                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                    Income <strong>per day</strong>
-                                                </h4>
-                                                <p class="calculate-earnings__calculator-results-numbers" id="daily_home">$1.46</p>
+                                    <div class="calculate-earnings__calculator-results">
+                                        <div class="row" style="width: 100%;">
+                                            <div class="col-md-4 mb-1 buy_cal">
+                                                <div class="calculate-earnings__calculator-results-item">
+                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                        Income <strong>per day</strong>
+                                                    </h4>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="daily_home">$1.46</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 mb-1 buy_cal">
-                                            <div class="calculate-earnings__calculator-results-item">
-                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                    Income <strong>per month</strong>
-                                                </h4>
-                                                <p class="calculate-earnings__calculator-results-numbers" id="month_home">$43.80</p>
+                                            <div class="col-md-4 mb-1 buy_cal">
+                                                <div class="calculate-earnings__calculator-results-item">
+                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                        Income <strong>per month</strong>
+                                                    </h4>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="month_home">$43.80</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 mb-1 buy_cal">
-                                            <div class="calculate-earnings__calculator-results-item">
-                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                    Income <strong>per year</strong>
-                                                </h4>
-                                                <p class="calculate-earnings__calculator-results-numbers" id="year_home">$525.60</p>
+                                            <div class="col-md-4 mb-1 buy_cal">
+                                                <div class="calculate-earnings__calculator-results-item">
+                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                        Income <strong>per year</strong>
+                                                    </h4>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="year_home">$525.60</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

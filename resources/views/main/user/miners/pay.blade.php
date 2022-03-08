@@ -32,46 +32,47 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12 ">
+                                            <div class="col-md-12 mt-3">
+                                                <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5 px-3 px-xxl-3 py-3">
+                                                    <div class="calculate-earnings__calculator-data">
+                                                        <div class="calculate-earnings__calculator-data-item">
+                                                            <h4 class="calculate-earnings__calculator-data-title"><b>Investment in $</b></h4>
+                                                            <input type="text" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;"  value="{{$cash}}" readonly class="calculate-earnings__calculator-data-input" id="data-input-price">
+                                                        </div>
 
-                                                <div class="calculate-earnings__calculator-data">
-                                                    <div class="calculate-earnings__calculator-data-item">
-                                                        <h4 class="calculate-earnings__calculator-data-title">Investment in $</h4>
-                                                        <input type="text" value="{{$cash}}" readonly class="calculate-earnings__calculator-data-input" id="data-input-price">
+                                                        <div class="calculate-earnings__calculator-data-item" style="margin-right: 25px;">
+                                                            <h4 class="calculate-earnings__calculator-data-title">
+                                                                <b>Power <span class="input-prefix"> {{$power_value_selected}}</span></b>
+                                                            </h4>
+                                                            <input type="text" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;"  value="{{$p}}" readonly class="calculate-earnings__calculator-data-input" id="data-input-ghs">
+                                                        </div>
                                                     </div>
 
-                                                    <div class="calculate-earnings__calculator-data-item" style="margin-right: 25px;">
-                                                        <h4 class="calculate-earnings__calculator-data-title">
-                                                            Power <span class="input-prefix"> {{$power_value_selected}}</span>
-                                                        </h4>
-                                                        <input type="text" value="{{$p}}" readonly class="calculate-earnings__calculator-data-input" id="data-input-ghs">
-                                                    </div>
-                                                </div>
-
-                                                <div class="calculate-earnings__calculator-results">
-                                                    <div class="row" style="width: 100% !important;">
-                                                        <div class="col-md-4 mb-1 pay_cal">
-                                                            <div class="calculate-earnings__calculator-results-item">
-                                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                                    Income <strong>per day</strong>
-                                                                </h4>
-                                                                <p class="calculate-earnings__calculator-results-numbers" id="daily">${{to_cash_format_small($result["daily"])}}</p>
+                                                    <div class="calculate-earnings__calculator-results">
+                                                        <div class="row" style="width: 100% !important;">
+                                                            <div class="col-md-4 mb-1 pay_cal">
+                                                                <div class="calculate-earnings__calculator-results-item">
+                                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                                        Income <strong>per day</strong>
+                                                                    </h4>
+                                                                    <p class="calculate-earnings__calculator-results-numbers" id="daily">${{to_cash_format_small($result["daily"])}}</p>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-4 mb-1 pay_cal">
-                                                            <div class="calculate-earnings__calculator-results-item">
-                                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                                    Income <strong>per month</strong>
-                                                                </h4>
-                                                                <p class="calculate-earnings__calculator-results-numbers" id="month">${{to_cash_format_small($result["monthly"])}}</p>
+                                                            <div class="col-md-4 mb-1 pay_cal">
+                                                                <div class="calculate-earnings__calculator-results-item">
+                                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                                        Income <strong>per month</strong>
+                                                                    </h4>
+                                                                    <p class="calculate-earnings__calculator-results-numbers" id="month">${{to_cash_format_small($result["monthly"])}}</p>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-4 pay_cal">
-                                                            <div class="calculate-earnings__calculator-results-item">
-                                                                <h4 class="calculate-earnings__calculator-results-title">
-                                                                    Income <strong>per year</strong>
-                                                                </h4>
-                                                                <p class="calculate-earnings__calculator-results-numbers" id="year">${{to_cash_format_small($result["yearly"])}}</p>
+                                                            <div class="col-md-4 pay_cal">
+                                                                <div class="calculate-earnings__calculator-results-item">
+                                                                    <h4 class="calculate-earnings__calculator-results-title">
+                                                                        Income <strong>per year</strong>
+                                                                    </h4>
+                                                                    <p class="calculate-earnings__calculator-results-numbers" id="year">${{to_cash_format_small($result["yearly"])}}</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

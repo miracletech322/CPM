@@ -142,7 +142,7 @@
                     </div>
                     <div class="feature-contain pt-25">
                         <a class="feature-title pb-15">Trusted and Transparent</a>
-                        <p class="feature-des">Folex-Mining believes in being upfront and transparent about our operations, that's why we publish monthly reports of our computational and mining power.  </p>
+                        <p class="feature-des">Folex-Mining believes in being upfront and transparent about our operations, that's why we publish monthly reports of our computational and mining power. </p>
                     </div>
                 </div>
             </div>
@@ -179,72 +179,75 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 p-4" style='border: 2px solid #fff !important'>
+            <div class="col-md-6 p-4">
+                <div class="card mb-4 rounded-12 shadow border border-gray-50 p-4">
+                    <div class="calculate-earnings__calculator-data mt-4">
+                        <div class="calculate-earnings__calculator-data-item">
+                            <h4 class="calculate-earnings__calculator-data-title">Investment in $</h4>
+                            <input type="text" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" value="" class="calculate-earnings__calculator-data-input" id="data-input-price">
+                        </div>
 
-                <div class="calculate-earnings__calculator-data">
-                    <div class="calculate-earnings__calculator-data-item">
-                        <h4 class="calculate-earnings__calculator-data-title">Investment in $</h4>
-                        <input type="text" value="" class="calculate-earnings__calculator-data-input" id="data-input-price">
+                        <div class="calculate-earnings__calculator-data-item">
+                            <h4 class="calculate-earnings__calculator-data-title">
+                                Power <span class="input-prefix"> TH/s</span>
+                            </h4>
+                            <input type="text" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" value="25" class="calculate-earnings__calculator-data-input" id="data-input-ghs">
+                        </div>
                     </div>
 
-                    <div class="calculate-earnings__calculator-data-item">
-                        <h4 class="calculate-earnings__calculator-data-title">
-                            Power <span class="input-prefix"> TH/s</span>
-                        </h4>
-                        <input type="text" value="25" class="calculate-earnings__calculator-data-input" id="data-input-ghs">
-                    </div>
-                </div>
-
-                <div class="calculate-earnings__calculator-results">
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per day</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="daily">$1.46</p>
-                    </div>
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per month</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="month">$43.80</p>
-                    </div>
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per year</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="year">$525.60</p>
+                    <div class="calculate-earnings__calculator-results">
+                        <div class="calculate-earnings__calculator-results-item">
+                            <h4 class="calculate-earnings__calculator-results-title">
+                                Income <strong>per day</strong>
+                            </h4>
+                            <p class="calculate-earnings__calculator-results-numbers" id="daily">$1.46</p>
+                        </div>
+                        <div class="calculate-earnings__calculator-results-item">
+                            <h4 class="calculate-earnings__calculator-results-title">
+                                Income <strong>per month</strong>
+                            </h4>
+                            <p class="calculate-earnings__calculator-results-numbers" id="month">$43.80</p>
+                        </div>
+                        <div class="calculate-earnings__calculator-results-item">
+                            <h4 class="calculate-earnings__calculator-results-title">
+                                Income <strong>per year</strong>
+                            </h4>
+                            <p class="calculate-earnings__calculator-results-numbers" id="year">$525.60</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 p-4" style='border: 2px solid #fff !important'>
-                <div class="calculate-earnings__calculator-data" style="display: inline-block !important;">
-                    <div class="">
-                        <h4 class="calculate-earnings__calculator-data-title">
-                            Your Own Electricity Cost (Per Watt)
-                        </h4>
-                        <input type="text" value="0.2" class="calculate-earnings__calculator-data-input" id="data-input-ghs-home">
+            <div class="col-md-6 p-4">
+                <div class="card mb-4 rounded-12 shadow border border-gray-50 p-4">
+                    <div class="calculate-earnings__calculator-data" style="display: inline-block !important;">
+                        <div class="mt-4">
+                            <h4 class="calculate-earnings__calculator-data-title">
+                                <b>Your Own Electricity Cost (Per Watt)</b>
+                            </h4>
+                            <input type="text" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" value="0.2" class="calculate-earnings__calculator-data-input" id="data-input-ghs-home">
+                        </div>
                     </div>
-                </div>
 
-                <div class="calculate-earnings__calculator-results">
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per day</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="daily_home">$1.46</p>
-                    </div>
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per month</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="month_home">$43.80</p>
-                    </div>
-                    <div class="calculate-earnings__calculator-results-item">
-                        <h4 class="calculate-earnings__calculator-results-title">
-                            Income <strong>per year</strong>
-                        </h4>
-                        <p class="calculate-earnings__calculator-results-numbers" id="year_home">$525.60</p>
+                    <div class="calculate-earnings__calculator-results">
+                        <div class="calculate-earnings__calculator-results-item">
+                            <h4 class="calculate-earnings__calculator-results-title">
+                                Income <strong>per day</strong>
+                            </h4>
+                            <p class="calculate-earnings__calculator-results-numbers" id="daily_home">$1.46</p>
+                        </div>
+                        <div class="calculate-earnings__calculator-results-item">
+                            <h4 class="calculate-earnings__calculator-results-title">
+                                Income <strong>per month</strong>
+                            </h4>
+                            <p class="calculate-earnings__calculator-results-numbers" id="month_home">$43.80</p>
+                        </div>
+                        <div class="calculate-earnings__calculator-results-item">
+                            <h4 class="calculate-earnings__calculator-results-title">
+                                Income <strong>per year</strong>
+                            </h4>
+                            <p class="calculate-earnings__calculator-results-numbers" id="year_home">$525.60</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -341,25 +344,25 @@
                         <div class="row">
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">Why should I mine crypto?</a>
+                                    <a class="qus-title">Why should I mine crypto?</a>
                                     <p class="qus-des pt-10">Cryptocurrency mining enables you to not only earn economic value in the form of rewards, it also allows you to become a valuable member of the crypto ecosystem. By ensuring honest transactions between users, you keep this digital network functional and reliable.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">What Crypto Currencies can I mine? </a>
+                                    <a class="qus-title">What Crypto Currencies can I mine? </a>
                                     <p class="qus-des pt-10">With Folex you can mine Bitcoin, Ethereum, and Litecoin as for now, new Algorithms may available soon.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">What would be the cost of starting my mining operation with Folex?</a>
+                                    <a class="qus-title">What would be the cost of starting my mining operation with Folex?</a>
                                     <p class="qus-des pt-10">Folex offers you solutions to start mining using either our already established mining rigs all over the world by signing up for a [contact / subscription] with us, or you can use your own hardware, ASICs and GPUs to mine at your own overhead costs and place. <br> To view our pricing plans, please visit: <a href="#calculator">calculator section</a></p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">Which token should I mine?</a>
+                                    <a class="qus-title">Which token should I mine?</a>
                                     <p class="qus-des pt-10">You can choose to mine one or all three of our supported Cryptos that include Bitcoin, Ethereum and Litecoin, the world's most renowned tokens that have relevance even today a decade after their debut.</p>
                                 </div>
                             </div>
@@ -370,14 +373,14 @@
                         <div class="row">
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">Can I mine on my own?</a>
+                                    <a class="qus-title">Can I mine on my own?</a>
                                     <p class="qus-des pt-10">Of course! Although, we would advise against it. Mining on your own would require you to invest a sizable sum on the hardware itself, the delivery fee, customs, electricity and any additional equipment that might be required for setting up and maintaining the system. By using our mining farms, you save on both time and money while not having to worry about such factors. Start mining as early as today.</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">What is the benefit of using Folex's Mining? </a>
+                                    <a class="qus-title">What is the benefit of using Folex's Mining? </a>
                                     <p class="qus-des pt-10">
                                         Folex has established mining operations in several countries with low cost of electricity and parts to ensure the savings are then forwarded to you. We aim to be the largest and most well known Crypto mining platform that users trust and benefit from all over the world.<br>With us, you will not have to worry about the initial setup of hardware, maintenance or cost of electricity as we'll take care of it for you.
                                     </p>
@@ -386,26 +389,26 @@
 
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">How can I get started?</a>
+                                    <a class="qus-title">How can I get started?</a>
                                     <p class="qus-des pt-10">To start mining using our pre-established mining Power, simply sign up with a contract of your choice at <a href="{{url('/register')}}">registration page</a>.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">Why us? </a>
+                                    <a class="qus-title">Why us? </a>
                                     <p class="qus-des pt-10">
                                         <ul class="ml-3">
-                                            <li>●  No barrier to entry: Start mining with an investment as low as [$USD] for [hashrate]</li>
-                                            <li>●  State of the art mining equipment: At folex mining, we use the latest devices from bitmain innosillicon goldshell and GPUs from NVIDIA and AMD</li>
-                                            <li>●  Community of experts: Join to ou Telegram Chanel experts and investors that share a common goal of decentralized finance and the future of our economy</li>
-                                            <li>●  Trusted and Transparent: We release reports every month that detail our crypto mining capability and accomplishments for you to review</li>
-                                            <li>●  24/7 Customer support: Our exceptionally trained customer support is with you at every step of the way</li>
+                                            <li>● No barrier to entry: Start mining with an investment as low as [$USD] for [hashrate]</li>
+                                            <li>● State of the art mining equipment: At folex mining, we use the latest devices from bitmain innosillicon goldshell and GPUs from NVIDIA and AMD</li>
+                                            <li>● Community of experts: Join to ou Telegram Chanel experts and investors that share a common goal of decentralized finance and the future of our economy</li>
+                                            <li>● Trusted and Transparent: We release reports every month that detail our crypto mining capability and accomplishments for you to review</li>
+                                            <li>● 24/7 Customer support: Our exceptionally trained customer support is with you at every step of the way</li>
                                         </ul>
                                     </p>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -429,20 +432,20 @@
                                     <p class="qus-des pt-10">As mentioned earlier, we recommend storing your Crypto in more secure locations such as hardware (Ledger, KeepKey etc.) or paper wallets. If you use desktop wallets like MetaMask or MyEtherWallet, we recommend:
                                         <br><br>
                                         <ul class="ml-3">
-                                            <li>●  Running an antivirus frequently to detect and subdue any malware/spyware that may be running on your computer</li>
+                                            <li>● Running an antivirus frequently to detect and subdue any malware/spyware that may be running on your computer</li>
 
-                                            <li>●  Avoid storing private information such as your private key or Seed Phrase / Secret Recover Phrase on your computer.</li>
+                                            <li>● Avoid storing private information such as your private key or Seed Phrase / Secret Recover Phrase on your computer.</li>
 
-                                            <li>●  Be wary of malicious phishing websites that are looking to steal your information.</li>
+                                            <li>● Be wary of malicious phishing websites that are looking to steal your information.</li>
 
-                                            <li>●  Ensure you're not using a fake MetaMask or desktop wallet.</li>
+                                            <li>● Ensure you're not using a fake MetaMask or desktop wallet.</li>
 
-                                            <li>●  In case of breach of security, notify the customer support for your wallet immediately.</li>
+                                            <li>● In case of breach of security, notify the customer support for your wallet immediately.</li>
                                         </ul>
                                     </p>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
 
@@ -456,30 +459,30 @@
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">How do I calculate my mining profit? </a>
+                                    <a class="qus-title">How do I calculate my mining profit? </a>
                                     <p class="qus-des pt-10">Using our profit calculator on <a href="#calculator">calculator section</a> <br>. You can easily calculate your profit and earnings for both cases in which you use our mining infrastructure or if you were to set up your own.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">Can I purchase crypto currencies through Folex?</a>
+                                    <a class="qus-title">Can I purchase crypto currencies through Folex?</a>
                                     <p class="qus-des pt-10">Our teams are working diligently to implement trading of various cryptos on Folex; however, this is not yet available. Please check back with us on a later date.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">What payment methods do you accept?</a>
+                                    <a class="qus-title">What payment methods do you accept?</a>
                                     <p class="qus-des pt-10">Accepted payment methods include VISA, MasterCard, Debit / Credit cards, Coin Payment via CoinBase Commerce, and SEPA Transfer to our Company account.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a  class="qus-title">How do I contact you if I have further questions?</a>
+                                    <a class="qus-title">How do I contact you if I have further questions?</a>
                                     <p class="qus-des pt-10">Our customer support is available to cater to your queries at any given time. <a href="mailto:support@folex-mining.com">support@folex-mining.com</a></p>
                                 </div>
                             </div>
 
-                            
+
                         </div>
                     </div>
                     {{-- <div class="tab-pane fade" id="legal" role="tabpanel">

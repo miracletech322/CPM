@@ -1,5 +1,5 @@
 @php
-$home_url = url("/dashboard");
+$home_url = url("/");
 @endphp
 <nav class="navbar navbar-vertical navbar-expand-lg navbar-light">
     <a class="navbar-brand mx-auto d-none d-lg-block my-0 my-lg-4 text-center" href="{{$home_url}}">
