@@ -120,7 +120,6 @@
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-12">
                                                             </div>
-
                                                             <div class="col-md-6 col-sm-12 text-right">
                                                                 <p class="lead">Total {{$data["total"]}}</p>
                                                                 <div class="table-responsive float-right">
@@ -132,6 +131,14 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <div class="row mt-5">
+                                                            <div class="col-sm-12 text-center">
+                                                                Folex Services OÜ (16389069)<br>
+                                                                Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </section>
                                             </div>
@@ -139,10 +146,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
 
 
                         </div>

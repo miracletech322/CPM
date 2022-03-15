@@ -60,7 +60,7 @@
 <meta name="author" content="{{$site_data["site_name"]}}">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<link rel="shortcut icon" type="image/x-icon" href="{{$site_data["site_logo"]}}">
+<link rel="shortcut icon" type="image/x-icon" href="{{$site_data["favicon"]}}">
 
 <meta name="apple-mobile-web-app-title" content="{{$site_data["site_name"]}}">
 <meta name="application-name" content="{{$site_data["site_name"]}}">

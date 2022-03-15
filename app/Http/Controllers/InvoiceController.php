@@ -308,6 +308,7 @@ class InvoiceController extends Controller
 
         }
 
+        // return view($this->directory . "pdf", compact('title_singular', 'directory','active_item', 'record', 'setting', 'type', 'data'));
 
         $pdf = PDF::loadView($this->directory . "pdf", compact('title_singular', 'directory','active_item', 'record', 'setting', 'type', 'data'));
 

@@ -41,10 +41,6 @@
 
 
         .row {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -moz-box;
-            display: -ms-flexbox;
             display: flex;
             width: 100% !important;
             -webkit-flex-wrap: wrap;
@@ -674,9 +670,9 @@
                                                     <tr>
                                                         <th>{{$data['method']}}</th>
                                                         <th>Amount Paid</th>
-                                                         @if($type == "deposit")
-                                                            <th>Hashing</th>
-                                                            <th>Power Bought</th>
+                                                        @if($type == "deposit")
+                                                        <th>Hashing</th>
+                                                        <th>Power Bought</th>
                                                         @endif
                                                         <th>Payment Date</th>
                                                         <th>Transaction ID</th>
@@ -686,9 +682,9 @@
                                                     <tr>
                                                         <td>{{$data['method_text']}}</td>
                                                         <td>${{$data['cash']}}</td>
-                                                         @if($type == "deposit")
-                                                            <td>{{$record->hashings->name}}</td>
-                                                            <td>{{to_power_format($record->energy_bought)." ". get_power_name($record->hashing_id)}}</td>
+                                                        @if($type == "deposit")
+                                                        <td>{{$record->hashings->name}}</td>
+                                                        <td>{{to_power_format($record->energy_bought)." ". get_power_name($record->hashing_id)}}</td>
                                                         @endif
                                                         <td>{{to_date(@$record->created_at)}}</td>
                                                         <td>{{@$data['transaction_id']}}</td>
@@ -698,24 +694,24 @@
                                         </div>
                                     </div>
                                     <br><br>
-                                    <div class="row">
-
-                                        <div id="invoice-customer-details" class="row pt-2" style="width: 100% !important; display: block !important; margin-top:30px !important;">
-
-                                            <div class="col-6 text-left" style="margin-left: 20px !important; width: 40% !important; display: inline-block !important; text-align:left !important;">
-                                            </div>
-
-                                            <div class="col-6 text-left" style="margin-left: 20px !important; width: 40% !important; display: inline-block !important; float:right !important;">
-                                                <h3>Total {{$data["total"]}}</h3>
-                                                <div class="table-responsive" style="margin-left: -12px !important;">
-                                                    <table class="table">
-                                                        <tbody>
-                                                            {!! $data['table_data'] !!}
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                    <div style="width: 100% !important;">
+                                        <div class="col-6 text-left" style="margin-left: 20px !important; width: 40% !important; display: inline-block !important; text-align:left !important;">
+                                        </div>
+                                        <div class="col-6 text-left" style="margin-left: 20px !important; width: 40% !important; display: inline-block !important;">
+                                        <div>
+                                            <h3>Total {{$data["total"]}}</h3>
+                                            <div class="table-responsive" style="margin-left: -12px !important;">
+                                                <table class="table">
+                                                    <tbody>
+                                                        {!! $data['table_data'] !!}
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div style="width: 100% !important; text-align: center !important;">
+                                        Folex Services OÜ (16389069)<br>
+                                        Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117
                                     </div>
                             </section>
                         </div>
