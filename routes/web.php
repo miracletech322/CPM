@@ -48,10 +48,7 @@ Route::get("privacy", controller_path() . "HomeController@privacy");
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get("two-factor-challenge", function(){
-        return view('auth.two-factor-challenge');
-    });
-
+    Route::get("two-factor-challenge", controller_path() . "TwoFactorController@index");
     Route::post("two-factor-challenge", controller_path() . "TwoFactorController@validate_2fa");
     
     Route::group(['middleware' => ['2fa']], function () {

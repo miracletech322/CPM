@@ -8,7 +8,19 @@ use Auth, Session;
 
 class TwoFactorController extends Controller
 {
+
+    public function index(){
+
+        if (Session::has('user_2fa')){
+            if(decrypt(Session::get('user_2fa')) == decrypt(Auth::user()->two_factor_secret)){
+                return redirect('dashboard');
+            }
+        }
+
+        return view('auth.two-factor-challenge');
+    }
     public function validate_2fa(Request $request){
+        
         $this->validate($request, [
             'code' => 'required'
         ]);

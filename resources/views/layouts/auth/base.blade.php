@@ -23,7 +23,7 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
 
     <div class="signup-header text-center" style="background-image:url('{{url("images/cover.jpg")}}'); background-size: contain;">
         <div class="container">
-            <a href="{{url("/")}}"><img src="{{$site_data["site_logo"]}}" alt="Muze"></a>
+            <a href="{{url("/")}}"><img src="{{$site_data["site_logo"]}}" style="max-height: 100px !important;" alt="Muze"></a>
         </div>
     </div>
     <div class="container">
