@@ -25,10 +25,19 @@
                             @include("shared.alerts")
                         </div>
                         <div class="col-12">
+                            <h5 class="float-left" style="cursor: default;">Get 4% of each deposit made by people you refer</h5>
+                        </div>
+
+
+                        <div class="col-12">
                             <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                    <label class="float-left">Get 4% of each deposit made by people you refer</label>
-                                    <a onclick="copy_url('{{url('register?referral=').Auth::user()->public_id}}')" class="btn btn-warning btn-lg float-right">Copy Referral Link</a>
+                                <div class="card-body p-3 p-xl-3 p-xxl-4 row">
+                                    <div class='col-md-8'>
+                                        <input class='form-control form-control-lg' value='{{url('register?referral=').Auth::user()->public_id}}' disabled>
+                                    </div>
+                                    <div class='col-md-4'>
+                                        <a onclick="copy_url('{{url('register?referral=').Auth::user()->public_id}}')" class="btn btn-warning btn-lg float-right">Copy Referral Link</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
