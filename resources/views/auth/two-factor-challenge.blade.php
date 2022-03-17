@@ -12,7 +12,7 @@
         <hr class="bg-gray-200 border-gray-200 opacity-100">
         <span class="position-absolute top-0 start-50 translate-middle text-gray-600 small bg-white px-2 px-xxl-4 text-nowrap">Please check your email for authentication code</span>
     </div>
-        <form action="{{ url('two-factor-challenge') }}" class="ajax-form-success pt-3" data-success="{{url('miners')}}" method="POST" files="true" enctype="multipart/form-data">
+    <form action="{{ url('two-factor-challenge') }}" class="pt-3" data-success="{{url('miners')}}" method="POST" files="true" enctype="multipart/form-data">
 
         @csrf
         <div class="mb-4 pb-md-2">
@@ -21,7 +21,7 @@
 
         </div>
         <div class="d-grid">
-            <button type="button" class="btn btn-xl btn-warning submit-btn">Confirm</button>
+            <button type="submit" class="btn btn-xl btn-warning submit-btn">Confirm</button>
         </div>
     </form>
 </div>

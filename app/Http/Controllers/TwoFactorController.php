@@ -26,16 +26,16 @@ class TwoFactorController extends Controller
         ]);
 
         $code = str_replace(" ", "", $request->code);
-        if(decrypt(Auth::user()->two_factor_secret) == $code){
+        if(decrypt(Auth::user()->two_factor_secret) / $code === 1){
             $user = User::where('id', Auth::user()->id)->first();        
             $user->two_factor_secret = encrypt(random_int(10000000, 99999999));
             $user->save();
             
             Session::put('user_2fa', $user->two_factor_secret);
-            return 1;
         }
         else{
-            return [array('error' => "Code incorrect.")];
+            Session::flash('error', 'Code incorrect');
         }
+        return redirect()->back();
     }
 }
