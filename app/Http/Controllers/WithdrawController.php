@@ -49,6 +49,16 @@ class WithdrawController extends Controller
         
 
         $withdraw_amount = isset($request->withdraw_amount_bank) ? $request->withdraw_amount_bank : $request->withdraw_amount_crypto;
+
+
+        if($payment_method == 2)
+            $withdraw_amount = isset($request->withdraw_amount_bank) ? $request->withdraw_amount_bank : NULL;
+        else
+            $withdraw_amount = isset($request->withdraw_amount_crypto) ? $request->withdraw_amount_crypto : NULL;
+
+        if(blank($withdraw_amount))
+            return [array("error" => "Withdraw amount can not be empty.")];
+
         $requested_withdraw = get_user_withdraw();
         
         if( $withdraw_amount > ($user_balance - $requested_withdraw) ){
