@@ -274,7 +274,7 @@ class MinersController extends Controller
                 return [array("error" => "Something went wrong. Check card details and try again.")];
         }
 
-        $user = Auth::user();
+        $user = User::where("id", Auth::user()->id)->first();
         $amount_to_charge = $charges;
         $charge_customer = true;
         $customer_profile_id = $user->stripe_customer_id;
