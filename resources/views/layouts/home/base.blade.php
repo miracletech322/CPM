@@ -13,7 +13,7 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
 @endphp
 <head>
     @include('layouts.home.header_includes' , $site_data)
-    <title>11@yield('title')</title>
+    <title>@yield('title')122</title>
     @yield('css')
 
     <style>
