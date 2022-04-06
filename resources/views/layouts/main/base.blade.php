@@ -12,7 +12,7 @@ $site_data["site_logo"] = @$settings->site_logo ? @$settings->site_logo : $site_
 @endphp
 <head>
     @include('layouts.main.header_includes' , $site_data)
-    <title>@yield('title')</title>
+    <title>000@yield('title')</title>
     @yield('css')
     <style>
         .alert .close {
