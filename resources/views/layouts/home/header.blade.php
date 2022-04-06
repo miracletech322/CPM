@@ -14,13 +14,13 @@
                 <div class="menu">
                     @if(url()->current() == url('/'))
                     <ul class="d-inline-block">
-                        <li><a href="#">111Home</a></li>
+                        <li><a href="#">Home</a></li>
                         <li><a href="#calculator">Calculator</a></li>
                         <li><a href="#faq">FAQ</a></li>
                     </ul>
                     @else
                     <ul class="d-inline-block">
-                        <li><a href="{{url('/')}}">111Home</a></li>
+                        <li><a href="{{url('/')}}">Home</a></li>
                         <li><a href="{{url('/')}}#calculator">Calculator</a></li>
                         <li><a href="{{url('/')}}#faq">FAQ</a></li>
                     </ul>
@@ -31,7 +31,7 @@
                     </div>
                     @else
                     <div class="d-inline-block">
-                        <a href="{{ route('login')}}" class="btn btn-lg mr-2">111Login</a>
+                        <a href="{{ route('login')}}" class="btn btn-lg mr-2">Login</a>
                         <a href="{{url('register')}}" class="btn btn-lg">Register</a>
                     </div>
                     @endif
