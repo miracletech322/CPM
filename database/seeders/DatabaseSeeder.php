@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call(CryptoOptionSeeder::class);
-        return;
         $this->call(InitialSeeder::class);
     }
 }
