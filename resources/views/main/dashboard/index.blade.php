@@ -199,7 +199,7 @@
                                         <div class="row align-items-center">
                                             <div class="col">
                                                 <span class="small text-gray-600 d-block mb-1">BTC (SHA-256)</span>
-                                                <span class="h5 mb-0">$ {{to_cash_format($pageData["sha_256"]->price)}}</span>
+                                                <span class="h5 mb-0">$ {{to_cash_format(@$pageData["sha_256"]->price)}}</span>
                                             </div>
                                             <div class="col-auto">
                                                 <div class="position-relative">
@@ -218,7 +218,7 @@
                                         <div class="row align-items-center">
                                             <div class="col">
                                                 <span class="small text-gray-600 d-block mb-1">ETH (Ethash)</span>
-                                                <span class="h5 mb-0">$ {{to_cash_format($pageData["ethash"]->price)}}</span>
+                                                <span class="h5 mb-0">$ {{to_cash_format(@$pageData["ethash"]->price)}}</span>
                                             </div>
                                             <div class="col-auto">
                                                 <div class="position-relative">
@@ -237,7 +237,7 @@
                                         <div class="row align-items-center">
                                             <div class="col">
                                                 <span class="small text-gray-600 d-block mb-1">ZEC (Equihash)</span>
-                                                <span class="h5 mb-0">$ {{to_cash_format($pageData["equihash"]->price)}}</span>
+                                                <span class="h5 mb-0">$ {{to_cash_format(@$pageData["equihash"]->price)}}</span>
                                             </div>
                                             <div class="col-auto">
                                                 <div class="position-relative">

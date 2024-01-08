@@ -48,6 +48,9 @@ function to_time($time){
 }
 
 function to_cash_format($number){
+    if(!$number)
+        return "";
+    
     return number_format ( (float) $number, 6 , '.','' );
 }
 
