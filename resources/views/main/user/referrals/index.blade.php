@@ -1,6 +1,6 @@
 @extends('layouts.main.base')
 
-@section('title') Referral Program @endsection
+@section('title') {{__("Referral Program")}} @endsection
 
 @section('content')
 
@@ -10,7 +10,7 @@
         <div class="container-fluid px-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <h1 class="h2 mb-0 lh-sm">Referral Program</h1>
+                    <h1 class="h2 mb-0 lh-sm">{{__("Referral Program")}}</h1>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                             @include("shared.alerts")
                         </div>
                         <div class="col-12">
-                            <h5 class="float-left" style="cursor: default;">Get 4% of each deposit made by people you refer</h5>
+                            <h5 class="float-left" style="cursor: default;">{{__("Get 4% of each deposit made by people you refer")}}</h5>
                         </div>
 
 
@@ -36,7 +36,7 @@
                                         <input class='form-control form-control-lg' value='{{url('register?referral=').Auth::user()->public_id}}' disabled>
                                     </div>
                                     <div class='col-md-4'>
-                                        <a onclick="copy_url('{{url('register?referral=').Auth::user()->public_id}}')" class="btn btn-warning btn-lg float-right">Copy Referral Link</a>
+                                        <a onclick="copy_url('{{url('register?referral=').Auth::user()->public_id}}')" class="btn btn-warning btn-lg float-right">{{__("Copy Referral Link")}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -49,8 +49,8 @@
                                 <div class="card-body p-3 p-xl-3 p-xxl-4">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">Referrals</span>
-                                            <span class="h5 mb-0">{{@$refered_by_user}} User(s)</span>
+                                            <span class="small text-gray-600 d-block mb-1">{{__("Referrals")}}</span>
+                                            <span class="h5 mb-0">{{@$refered_by_user}} {{__("User(s)")}}</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="position-relative">
@@ -68,7 +68,7 @@
                                 <div class="card-body p-3 p-xl-3 p-xxl-4">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">Income by Referrals</span>
+                                            <span class="small text-gray-600 d-block mb-1">{{__("Income by Referrals")}}</span>
                                             <span class="h5 mb-0">$ {{@$earned_via_referral}}</span>
                                         </div>
                                         <div class="col-auto">

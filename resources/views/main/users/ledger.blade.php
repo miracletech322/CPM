@@ -193,7 +193,7 @@
                                                                     <tr>
                                                                         <th>Wallet Amount</th>
                                                                         <th>Amount</th>
-                                                                        <th>Hashing</th> {{-- (SHA, Ethash, Equihash) --}}
+                                                                        <th>Hashing</th> {{-- (SHA, Ethash, KHeavyHash) --}}
                                                                         <th>Type</th> {{-- (Withdraw, Deposit, Referral, Daily_income_cron) --}}
                                                                         <th>Transaction By / To</th> {{-- (Coinbase, Card, Bank, Referral) --}}
                                                                         <th>Transaction Code</th>

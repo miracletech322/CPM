@@ -19,6 +19,16 @@ $site_data["site_logo"] = @$settings->site_logo ? @$settings->site_logo : $site_
             font-size: x-large;
         }
 
+        .modal-header .close {
+            background: #eee;
+            padding: 2px 5px !important;
+            float: right;
+            border: #eee;
+            border-radius: 5px;
+            color: black;
+            font-weight: 800;
+        }
+
         table {
             width: inherit !important;
         }

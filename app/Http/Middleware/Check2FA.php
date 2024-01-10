@@ -15,6 +15,9 @@ class Check2FA
         // if(Auth::user()->role_id != 3)
         //     return $next($request);
 
+        if(env("APP_ENV") == "local")
+            return $next($request);
+
         if (!Session::has('user_2fa')){
             return redirect('two-factor-challenge');
         }

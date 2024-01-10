@@ -5,13 +5,13 @@
 
             <ul class="nav nav-tabs nav-tabs-md nav-tabs-line position-relative zIndex-0" id="pills-tab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" onclick="set_payment_method(1)" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card" aria-selected="true">Card</a>
+                    <a class="nav-link active" onclick="set_payment_method(1)" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card" aria-selected="true">{{__("Card")}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-bank-tab" onclick="set_payment_method(2)" data-bs-toggle="pill" data-bs-target="#pills-bank" type="button" role="tab" aria-controls="pills-bank" aria-selected="false">Bank Transfer</a>
+                    <a class="nav-link" id="pills-bank-tab" onclick="set_payment_method(2)" data-bs-toggle="pill" data-bs-target="#pills-bank" type="button" role="tab" aria-controls="pills-bank" aria-selected="false">{{__("Bank Transfer")}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-coin-tab" onclick="set_payment_method(3)" data-bs-toggle="pill" data-bs-target="#pills-coin" type="button" role="tab" aria-controls="pills-coin" aria-selected="false">Coinbase</a>
+                    <a class="nav-link" id="pills-coin-tab" onclick="set_payment_method(3)" data-bs-toggle="pill" data-bs-target="#pills-coin" type="button" role="tab" aria-controls="pills-coin" aria-selected="false">{{__("Coinbase")}}</a>
                 </li>
             </ul>
 
@@ -23,15 +23,15 @@
                         <div class="card-body h-100">
                             <div class="row">
                                 <div class="col-md-12 pb-3 mb-md-4">
-                                    <label class="form-label form-label-lg float-left" for="customer_transaction"><input type="checkbox" name="customer_transaction" id="customer_transaction" onchange="set_chargeby()" value="1"> Charge by current card</label>
+                                    <label class="form-label form-label-lg float-left" for="customer_transaction"><input type="checkbox" name="customer_transaction" id="customer_transaction" onchange="set_chargeby()" value="1"> {{__("Charge by current card")}} </label>
                                 </div>
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class="form-label form-label-lg float-left">Card </label>
+                                    <label class="form-label form-label-lg float-left">{{__("Card")}} </label>
                                     <input class="form-control form-control-xl" type="text" value="{{@$company}}" readonly>
                                 </div>
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class="form-label form-label-lg float-left">Ending At </label>
+                                    <label class="form-label form-label-lg float-left">{{__("Ending At")}} </label>
                                     <input class="form-control form-control-xl" type="text" value="{{@$ending_at}}" readonly>
                                 </div>
                             </div>
@@ -45,19 +45,19 @@
                             <div class="row">
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>Full Name <i class="text-danger">*</i></label>
-                                    <input class="form-control form-control-xl" name="full_name" id="full_name" type="text" placeholder="Enter Full Name">
+                                    <label class='float-left form-label form-label-lg'>{{__("Full Name")}} <i class="text-danger">*</i></label>
+                                    <input class="form-control form-control-xl" name="full_name" id="full_name" type="text" placeholder="{{__("Enter Full Name")}}">
                                 </div>
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>Card Number <i class="text-danger">*</i></label>
-                                    <input class="form-control form-control-xl card-mask" name="cnumber" id="cnumber" type="text" placeholder="Enter Card Number">
+                                    <label class='float-left form-label form-label-lg'>{{__("Card Number")}} <i class="text-danger">*</i></label>
+                                    <input class="form-control form-control-xl card-mask" name="cnumber" id="cnumber" type="text" placeholder="{{__("Enter Card Number")}}">
                                 </div>
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>Card Expiry Month <i class="text-danger"> *</i></label>
+                                    <label class='float-left form-label form-label-lg'>{{__("Card Expiry Month")}} <i class="text-danger"> *</i></label>
                                     <select class="form-control form-control-xl" id="card_expiry_month" name="card_expiry_month">
-                                        <option value="">Select Expiry Month</option>
+                                        <option value="">{{__("Select Expiry Month")}}</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
                                         <option value="03">03</option>
@@ -74,9 +74,9 @@
                                 </div>
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>Card Expiry Year <i class="text-danger"> *</i></label>
+                                    <label class='float-left form-label form-label-lg'>{{__("Card Expiry Year")}} <i class="text-danger"> *</i></label>
                                     <select id="card_expiry_year" class="form-control form-control-xl" name="card_expiry_year">
-                                        <option value="">Select Expiry Year</option>
+                                        <option value="">{{__("Select Expiry Year")}}</option>
                                         @php
                                         $now = date("Y-m-d");
                                         @endphp
@@ -87,8 +87,8 @@
                                 </div>
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>CVN <i class="text-danger">*</i></label>
-                                    <input class="form-control form-control-xl" name="cvv" id="cvv" placeholder="Enter CVN" type="text">
+                                    <label class='float-left form-label form-label-lg'>{{__("CVN")}} <i class="text-danger">*</i></label>
+                                    <input class="form-control form-control-xl" name="cvv" id="cvv" placeholder="{{__("Enter CVN")}}" type="text">
                                 </div>
                             </div>
 
@@ -100,23 +100,23 @@
                     <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5 px-3 px-xxl-3 py-3">
                         <div class="card-body h-100">
 
-                            <h5 class="mb-5">Send you payment to the bank details provided below and click pay</h5>
+                            <h5 class="mb-5">{{__("Send you payment to the bank details provided below and click pay")}}</h5>
                             <div class="row">
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>Account Number </label>
+                                    <label class='float-left form-label form-label-lg'>{{__("Account Number")}} </label>
                                     <input class="form-control form-control-xl" value="{{$setting->account_number}}" readonly style="    background-color: #fff !important;">
                                 </div>
 
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>Swift/BIC </label>
+                                    <label class='float-left form-label form-label-lg'>{{__("Swift/BIC")}} </label>
                                     <input class="form-control form-control-xl" value="{{$setting->swift_bic}}" readonly style="    background-color: #fff !important;">
                                 </div>
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class="float-left form-label form-label-lg">Additional Information </label>
-                                    <textarea class="form-control form-control-xl" rows=5 name="additional_information" placeholder="Enter Additional Information"></textarea>
+                                    <label class="float-left form-label form-label-lg">{{__("Additional Information")}} </label>
+                                    <textarea class="form-control form-control-xl" rows=5 name="additional_information" placeholder="{{__("Enter Additional Information")}}"></textarea>
                                 </div>
 
                             </div>
@@ -129,16 +129,16 @@
                     <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5 px-3 px-xxl-3 py-3">
                         <div class="card-body h-100">
 
-                            <h5 class="mb-5">You will be redirected to coinbase for making payment.</h5>
+                            <h5 class="mb-5">{{__("You will be redirected to coinbase for making payment")}}.</h5>
                             <div class="row">
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>Amount Payable </label>
+                                    <label class='float-left form-label form-label-lg'>{{__("Amount Payable")}} </label>
                                     <input class="form-control form-control-xl" value="${{$cash}}" readonly style="background-color: #fff !important;">
                                 </div>
 
                                 <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>Amount BTC </label>
+                                    <label class='float-left form-label form-label-lg'>{{__("Amount BTC")}} </label>
                                     <input class="form-control form-control-xl" value="{{to_btc_format($cash_btc)}}" readonly style="background-color: #fff !important;">
                                 </div>
 

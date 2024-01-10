@@ -1,6 +1,6 @@
 @extends('layouts.main.base')
 
-@section('title') Withdrawl Requests @endsection
+@section('title') {{__("Withdrawl Requests")}} @endsection
 
 @section('content')
 
@@ -9,8 +9,8 @@
         <div class="container-fluid px-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('user-requests')}}">User Requests</a></span>
-                    <h1 class="h2 mb-0 lh-sm">Withdrawl Requests</h1>
+                    <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('user-requests')}}">{{__("User Requests")}}</a></span>
+                    <h1 class="h2 mb-0 lh-sm">{{__("Withdrawl Requests")}}</h1>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                         <div class="col">
                             <div class="input-group input-group-xl bg-white border border-gray-300 rounded px-3 me-2 me-xl-4">
                                 <button type="button" class="border-0 bg-transparent p-1"><img src="{{asset('temp/assets/svg/icons/search@14.svg')}}" alt="Search"></button>
-                                <input class="form-control border-0 search_box" placeholder="Search records...">
+                                <input class="form-control border-0 search_box" placeholder="{{__('Search records...')}}">
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                 <div class="col-xxl-12 mb-4">
                     <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
                         <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
-                            <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Withdrawl Requests</h5>
+                            <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">{{__("Withdrawl Requests")}}</h5>
                         </div>
                         <div class="card-body px-0 p-md-4">
                             <div class="bd-example">
@@ -42,11 +42,11 @@
                                     <table id="datatables" class="table">
                                         <thead>
                                             <tr>
-                                                <th>Withdrawl Method</th>
-                                                <th>Cash Requested</th>
-                                                <th>Status</th>
-                                                <th>Date Requested</th>
-                                                <th>Account Used</th>
+                                                <th>{{__("Withdrawl Method")}}</th>
+                                                <th>{{__("Cash Requested")}}</th>
+                                                <th>{{__("Status")}}</th>
+                                                <th>{{__("Date Requested")}}</th>
+                                                <th>{{__("Account Used")}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

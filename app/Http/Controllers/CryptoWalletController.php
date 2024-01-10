@@ -18,7 +18,7 @@ class CryptoWalletController extends Controller
 
     public function index()
     {
-        $title_plurar = $this->title_plurar;
+        $title_plurar = __($this->title_plurar);
         $directory = $this->directory;
         $active_item = "withdraw";
         return view($this->directory . "index", compact('title_plurar', 'directory', 'active_item'));
@@ -41,13 +41,13 @@ class CryptoWalletController extends Controller
             })
             ->addColumn('action', function ($records) {
                 $show_url = url("crypto-wallet") . "/" . $records->public_id;
-                $show = "<a href='" . $show_url . "' class='dropdown-item'>Show Details</a>";
+                $show = "<a href='" . $show_url . "' class='dropdown-item'>".__("Show Details")."</a>";
 
                 $edit_url = url("crypto-wallet") . "/" . $records->public_id . "/edit";
-                $edit = "<a href='" . $edit_url . "' class='dropdown-item'>Edit</a>";
+                $edit = "<a href='" . $edit_url . "' class='dropdown-item'>".__("Edit")."</a>";
 
                 $delete_url = url("delete-crypto-wallet") . "/" . $records->public_id;
-                $delete = "<a  onclick='delete_record(\"" . $delete_url . "\" )' class='dropdown-item'>Delete</a>";
+                $delete = "<a  onclick='delete_record(\"" . $delete_url . "\" )' class='dropdown-item'>".__("Delete")."</a>";
 
                 return '<div class="dropdown">
                         <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,7 +71,7 @@ class CryptoWalletController extends Controller
     {
         $form_button = "Create";
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "withdraw";
         $crypto_options = CryptoOption::all();
         return view($this->directory . "create", compact('form_button', 'title_singular', 'directory', 'active_item', 'crypto_options'));
@@ -112,7 +112,7 @@ class CryptoWalletController extends Controller
         if (!$record)
             return redirect("crypto-wallet");
 
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $directory = $this->directory;
         $is_show = 1;
         $active_item = "withdraw";
@@ -126,7 +126,7 @@ class CryptoWalletController extends Controller
         $user = Auth::user();
         $form_button = "Update";
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
 
         $record = UserCrypto::where("public_id", $public_id)
                     ->where("user_id", Auth::user()->id)

@@ -1,6 +1,6 @@
 @extends('layouts.main.base')
 
-@section('title') Miners @endsection
+@section('title') {{__("Miners")}} @endsection
 
 @section('content')
 <div class="container-fluid px-0">
@@ -9,8 +9,8 @@
         <div class="container-fluid px-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('miners')}}">Miners</a></span>
-                    <h1 class="h2 mb-0 lh-sm">Buy</h1>
+                    <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('miners')}}">{{__("Miners")}}</a></span>
+                    <h1 class="h2 mb-0 lh-sm">{{__("Buy")}}</h1>
                 </div>
             </div>
         </div>

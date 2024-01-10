@@ -19,9 +19,9 @@ class AccountController extends Controller
     public function edit()
     {
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "account";
-        $form_button = "Update";
+        $form_button = __("Update");
         $record = Auth::user();
         return view($this->directory . "edit", compact('title_singular', 'record', 'directory','active_item', 'form_button'));
 
@@ -56,7 +56,7 @@ class AccountController extends Controller
 
         $record->save();
 
-        return [array("success" => "Account updated Successfully")];
+        return [array("success" => __("Account updated Successfully") )];
     }
 
 }

@@ -8,7 +8,7 @@ function controller_path(){
 
 
 function get_hash_name($id){
-    $hash_name = ["1" => "BTC", "2" => "ETH", "3" => "ZEC"]; 
+    $hash_name = ["1" => "BTC", "2" => "ETH", "3" => "KAS"]; 
     return $hash_name[$id];
 }
 

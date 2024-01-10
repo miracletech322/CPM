@@ -151,7 +151,7 @@
                                     <div class="card-body p-3 p-xl-3 p-xxl-4">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <span class="small text-gray-600 d-block mb-1">Power Sold (ZEC - KH/s)</span>
+                                                <span class="small text-gray-600 d-block mb-1">Power Sold (KAS - KH/s)</span>
                                                 <span class="h5 mb-0">{{to_power_format($total_power["total_power_kh"])}}</span>
                                             </div>
                                             <div class="col-auto">
@@ -236,8 +236,8 @@
                                     <div class="card-body p-3 p-xl-3 p-xxl-4">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <span class="small text-gray-600 d-block mb-1">ZEC (Equihash)</span>
-                                                <span class="h5 mb-0">$ {{to_cash_format(@$pageData["equihash"]->price)}}</span>
+                                                <span class="small text-gray-600 d-block mb-1">KAS (KHeavyHash)</span>
+                                                <span class="h5 mb-0">$ {{to_cash_format(@$pageData["kheavyhash"]->price)}}</span>
                                             </div>
                                             <div class="col-auto">
                                                 <div class="position-relative">

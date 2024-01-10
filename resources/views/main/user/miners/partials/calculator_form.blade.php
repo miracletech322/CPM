@@ -4,11 +4,11 @@
             <div class="mb-5 text-center">
                 <section class="calculate-earnings">
                     <div class="">
-                        <h2 class="calculate-earnings__title">Calculate earnings</h2>
+                        <h2 class="calculate-earnings__title">{{__("Calculate earnings")}}</h2>
                         <div class="calculate-earnings__wrap">
                             <div class="form-loading"></div>
                             <div class="calculate-earnings__calculator">
-                                <h3 class="calculate-earnings__calculator-title">Select the desired power</h3>
+                                <h3 class="calculate-earnings__calculator-title">{{__("Select the desired power")}}</h3>
                                 <br><br>
                                 <div class="calculate-earnings__calculator-data-item-select">
 
@@ -17,7 +17,7 @@
                                         </div>
                                         <div class="miner-select-item" data-system="2" data-price="{{($pageData['eth_price_mh'])}}" data-cost="{{$pageData['eth_cost_per_kwh']}}" data-consumption="{{$pageData['eth_power_consumption']}}" data-coin="{{$pageData['ethash']->price}}" data-difficulty="{{$pageData['ethash']->difficulty}}" data-reward="{{$pageData['ethash']->reward_block}}" data-network="{{$pageData['ethash']->network_hashrate}}" data-min="{{$pageData['eth_min']}}" data-max="{{$pageData['eth_max']}}" data-step="0.001" data-prefix=" MH/s">Ethash
                                         </div>
-                                        <div class="miner-select-item" data-system="3" data-price="{{($pageData['equi_price_kh'])}}" data-cost="{{$pageData['equi_cost_per_kwh']}}" data-consumption="{{$pageData['equi_power_consumption']}}" data-coin="{{$pageData['equihash']->price}}" data-difficulty="{{$pageData['equihash']->difficulty}}" data-network="{{$pageData['equihash']->network_hashrate}}" data-reward="{{$pageData['equihash']->reward_block}}" data-min="{{$pageData['equi_min']}}" data-max="{{$pageData['equi_max']}}" data-step="0.001" data-prefix=" KH/s">Equihash
+                                        <div class="miner-select-item" data-system="3" data-price="{{($pageData['equi_price_kh'])}}" data-cost="{{$pageData['equi_cost_per_kwh']}}" data-consumption="{{$pageData['equi_power_consumption']}}" data-coin="{{$pageData['kheavyhash']->price}}" data-difficulty="{{$pageData['kheavyhash']->difficulty}}" data-network="{{$pageData['kheavyhash']->network_hashrate}}" data-reward="{{$pageData['kheavyhash']->reward_block}}" data-min="{{$pageData['equi_min']}}" data-max="{{$pageData['equi_max']}}" data-step="0.001" data-prefix=" KH/s">KHeavyHash
                                         </div>
                                     </div>
                                 </div>
@@ -35,13 +35,13 @@
 
                                     <div class="calculate-earnings__calculator-data">
                                         <div class="calculate-earnings__calculator-data-item">
-                                            <h4 class="calculate-earnings__calculator-data-title"><b>Investment in $</b></h4>
+                                            <h4 class="calculate-earnings__calculator-data-title"><b>{{__("Investment in")}} $</b></h4>
                                             <input type="text" value="" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" class="calculate-earnings__calculator-data-input" id="data-input-price">
                                         </div>
 
                                         <div class="calculate-earnings__calculator-data-item">
                                             <h4 class="calculate-earnings__calculator-data-title">
-                                                <b>Power <span class="input-prefix"> TH/s</span></b>
+                                                <b>{{__("Power")}} <span class="input-prefix"> TH/s</span></b>
                                             </h4>
                                             <input type="text" value="25" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" class="calculate-earnings__calculator-data-input" id="data-input-ghs">
                                         </div>
@@ -52,7 +52,7 @@
                                             <div class="col-md-4 mb-1 buy_cal">
                                                 <div class="calculate-earnings__calculator-results-item">
                                                     <h4 class="calculate-earnings__calculator-results-title">
-                                                        Income <strong>per day</strong>
+                                                        {{__("Income")}} <strong>{{__("per day")}}</strong>
                                                     </h4>
                                                     <p class="calculate-earnings__calculator-results-numbers" id="daily">$1.46</p>
                                                 </div>
@@ -60,7 +60,7 @@
                                             <div class="col-md-4 mb-1 buy_cal">
                                                 <div class="calculate-earnings__calculator-results-item">
                                                     <h4 class="calculate-earnings__calculator-results-title">
-                                                        Income <strong>per month</strong>
+                                                        {{__("Income")}} <strong>{{__("per month")}}</strong>
                                                     </h4>
                                                     <p class="calculate-earnings__calculator-results-numbers" id="month">$43.80</p>
                                                 </div>
@@ -68,7 +68,7 @@
                                             <div class="col-md-4 mb-1 buy_cal">
                                                 <div class="calculate-earnings__calculator-results-item">
                                                     <h4 class="calculate-earnings__calculator-results-title">
-                                                        Income <strong>per year</strong>
+                                                        {{__("Income")}} <strong>{{__("per year")}}</strong>
                                                     </h4>
                                                     <p class="calculate-earnings__calculator-results-numbers" id="year">$525.60</p>
                                                 </div>
@@ -84,7 +84,7 @@
                                     <div class="calculate-earnings__calculator-data" style="display: inline-block !important;">
                                         <div class="">
                                             <h4 class="calculate-earnings__calculator-data-title">
-                                                <b>Your Own Electricity Cost (Per Watt)</b>
+                                                <b>{{__("Your Own Electricity Cost (Per Watt)")}}</b>
                                             </h4>
                                             <input type="text" value="0.2" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;" class="calculate-earnings__calculator-data-input" id="data-input-ghs-home">
                                         </div>
@@ -95,7 +95,7 @@
                                             <div class="col-md-4 mb-1 buy_cal">
                                                 <div class="calculate-earnings__calculator-results-item">
                                                     <h4 class="calculate-earnings__calculator-results-title">
-                                                        Income <strong>per day</strong>
+                                                        {{__("Income")}} <strong>{{__("per day")}}</strong>
                                                     </h4>
                                                     <p class="calculate-earnings__calculator-results-numbers" id="daily_home">$1.46</p>
                                                 </div>
@@ -103,7 +103,7 @@
                                             <div class="col-md-4 mb-1 buy_cal">
                                                 <div class="calculate-earnings__calculator-results-item">
                                                     <h4 class="calculate-earnings__calculator-results-title">
-                                                        Income <strong>per month</strong>
+                                                        {{__("Income")}} <strong>{{__("per month")}}</strong>
                                                     </h4>
                                                     <p class="calculate-earnings__calculator-results-numbers" id="month_home">$43.80</p>
                                                 </div>
@@ -111,7 +111,7 @@
                                             <div class="col-md-4 mb-1 buy_cal">
                                                 <div class="calculate-earnings__calculator-results-item">
                                                     <h4 class="calculate-earnings__calculator-results-title">
-                                                        Income <strong>per year</strong>
+                                                        {{__("Income")}} <strong>{{__("per year")}}</strong>
                                                     </h4>
                                                     <p class="calculate-earnings__calculator-results-numbers" id="year_home">$525.60</p>
                                                 </div>

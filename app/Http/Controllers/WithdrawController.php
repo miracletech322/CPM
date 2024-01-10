@@ -27,12 +27,12 @@ class WithdrawController extends Controller
     public function index()
     {
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "withdraw";
-        $form_button = "Withdraw";
+        $form_button = __("Withdraw");
         $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
         $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
-        $coin_values["3"] = json_decode(CoinData::where("coin", "ZEC")->first()->data)->price; //ZEC
+        $coin_values["3"] = json_decode(CoinData::where("coin", "KAS")->first()->data)->price; //KAS
         $user_balance = get_user_balance();
 
         $banks = UserBank::where("user_id", Auth::user()->id)->get();
@@ -57,22 +57,22 @@ class WithdrawController extends Controller
             $withdraw_amount = isset($request->withdraw_amount_crypto) ? $request->withdraw_amount_crypto : NULL;
 
         if(blank($withdraw_amount))
-            return [array("error" => "Withdraw amount can not be empty.")];
+            return [array("error" => __("Withdraw amount can not be empty."))];
 
         $requested_withdraw = get_user_withdraw();
         
         if( $withdraw_amount > ($user_balance - $requested_withdraw) ){
-            return [array("error" => "You have insufficient balance.")];
+            return [array("error" => __("You have insufficient balance."))];
         }
 
         $min_withdraw = 20;
 
         if( $withdraw_amount < $min_withdraw ){
-            return [array("error" => "Withdraw amount must be atleast $$min_withdraw.")];
+            return [array("error" => __("Withdraw amount must be atleast")." $$min_withdraw.")];
         }
         
         if(!is_numeric($withdraw_amount)){
-            return [array("error" => "Withdraw amount should be a valid number.")];
+            return [array("error" => __("Withdraw amount should be a valid number."))];
         }
 
         if($payment_method == 3){
@@ -87,7 +87,7 @@ class WithdrawController extends Controller
                         ->first();
 
             if(!$payment_via)
-                return [array("error" => "Selected crypto wallet not found.")];
+                return [array("error" => __("Selected crypto wallet not found."))];
 
         }
         else{
@@ -102,7 +102,7 @@ class WithdrawController extends Controller
                         ->first();
 
             if(!$payment_via)
-                return [array("error" => "Selected bank account not found.")];
+                return [array("error" => __("Selected bank account not found."))];
 
         }
 
@@ -117,7 +117,7 @@ class WithdrawController extends Controller
 
         $vat = Setting::first()->vat ?? 0;
         $vat_msg = $vat == 0 ? "" : "$vat% VAT will be deducted.";
-        Session::flash('success', 'Your request has been submitted. After verfication you will receive your payment. '.$vat_msg);
+        Session::flash('success', __('Your request has been submitted. After verfication you will receive your payment.')." ".$vat_msg);
         return 1;
     }
 

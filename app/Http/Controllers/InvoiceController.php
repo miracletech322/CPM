@@ -22,7 +22,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $directory = $this->directory;
-        $title_plurar = $this->title_plurar;
+        $title_plurar = __($this->title_plurar);
         $active_item = "invoice";
         return view($this->directory . "index", compact('title_plurar', 'directory','active_item'));
     } 
@@ -65,7 +65,7 @@ class InvoiceController extends Controller
             ->addColumn('action', function ($records) {
 
                 $show_url = url("invoice") . "/" . $records->public_id ."?type=deposit";
-                $show = "<a href='$show_url' class='dropdown-item'>Show Invoice</a>";
+                $show = "<a href='$show_url' class='dropdown-item'>".__("Show Invoice")."</a>";
                 return '<div class="dropdown">
                     <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <svg data-name="Icons/Tabler/Notification" xmlns="http://www.w3.org/2000/svg" width="13.419" height="13.419" viewBox="0 0 13.419 13.419">
@@ -106,24 +106,24 @@ class InvoiceController extends Controller
             })
             ->addColumn('action', function ($records) {
 
-                $model_body = "No record found.";
-                $model_header = "Details";
+                $model_body = __("No record found.");
+                $model_header = __("Details");
                 if($records->payment_method == 2 && $records->user_banks){
                     //Bank
-                    $model_header = "Bank Details";
-                    $model_body = "<div><p><b>Account Holder Name: </b>".$records->user_banks->account_holder_name."<br><b>Account Number: </b>".$records->user_banks->account_number."<br><b>Country: </b>".$records->user_banks->country."<br><b>Bank Currency: </b>".$records->user_banks->bank_currency."<br><b>Bank Name: </b>".$records->user_banks->bank_name."<br><b>Branch Name: </b>".$records->user_banks->branch_name."<br><b>Swift Code / BIC: </b>".$records->user_banks->swift_bic."<br><b>IBAN Number: </b>".$records->user_banks->iban_number."</p></div>";
+                    $model_header = __("Bank Details");
+                    $model_body = "<div><p><b>".__("Account Holder Name").": </b>".$records->user_banks->account_holder_name."<br><b>".__("Account Number").": </b>".$records->user_banks->account_number."<br><b>".__("Country").": </b>".$records->user_banks->country."<br><b>".__("Bank Currency").": </b>".$records->user_banks->bank_currency."<br><b>".__("Bank Name").": </b>".$records->user_banks->bank_name."<br><b>".__("Branch Name").": </b>".$records->user_banks->branch_name."<br><b>".__("Swift Code / BIC").": </b>".$records->user_banks->swift_bic."<br><b>".__("IBAN Number").": </b>".$records->user_banks->iban_number."</p></div>";
 
                 }else if($records->payment_method == 3 && $records->user_cryptos){
                     //Coin
-                    $model_header = "Wallet Details";
-                    $model_body = "<div><p><b>Crypto Option: </b>".$records->user_cryptos->crypto_options->name."<br><b>Crypto Wallet Address: </b>".$records->user_cryptos->wallet_address."</p></div>";
+                    $model_header = __("Wallet Details");
+                    $model_body = "<div><p><b>".__("Crypto Option").": </b>".$records->user_cryptos->crypto_options->name."<br><b>".__("Crypto Wallet Address").": </b>".$records->user_cryptos->wallet_address."</p></div>";
                 }
 
                 $global_modal = "<a
-                onclick='show_global_modal(\"" . $model_header . "\" , \"". $model_body ."\" )' class='dropdown-item'>Show Details</a>";
+                onclick='show_global_modal(\"" . $model_header . "\" , \"". $model_body ."\" )' class='dropdown-item'>".__("Show Details")."</a>";
 
                 $show_url = url("invoice") . "/" . $records->public_id ."?type=withdraw";
-                $show = "<a href='$show_url' class='dropdown-item'>Show Invoice</a>";
+                $show = "<a href='$show_url' class='dropdown-item'>".__("Show Invoice")."</a>";
 
                 return '<div class="dropdown">
                     <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -148,15 +148,15 @@ class InvoiceController extends Controller
     public function show($public_id, Request $request){
         
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "invoice";
         $setting = Setting::first();
 
         if(!isset($request->type))
-            return redirect()->back()->with("error", "Invoice not found.");
+            return redirect()->back()->with("error", __("Invoice not found."));
 
         if($request->type != "withdraw" && $request->type != "deposit")
-            return redirect()->back()->with("error", "Invoice not found.");
+            return redirect()->back()->with("error", __("Invoice not found."));
 
         $type = $request->type;
         if($request->type == "withdraw"){
@@ -168,14 +168,14 @@ class InvoiceController extends Controller
                         ->first();
 
             if(!$record)
-                return redirect()->back()->with("error", "Invoice not found.");
+                return redirect()->back()->with("error", __("Invoice not found."));
 
-            $data["date_title"] = "Withdrawl Date";
-            $data["total"] = "Withdrawl";
-            $data["method"] = "Withdrawl Method";
+            $data["date_title"] = __("Withdrawl Date");
+            $data["total"] = __("Withdrawl");
+            $data["method"] = __("Withdrawl Method");
             $data["method_text"] = get_withdraw_method($record->payment_method);
-            $data["by"] = "Paid By";
-            $data["status"] = "Withdrawn";
+            $data["by"] = __("Paid By");
+            $data["status"] = __("Withdrawn");
             $data["invoice_letter"] = "W";
             $data["cash"] = to_cash_format_small($record->amount_withdraw);
             $data["transaction_id"] = "WTH".$record->id;
@@ -200,14 +200,14 @@ class InvoiceController extends Controller
                             ->first();
 
             if(!$record)
-                return redirect()->back()->with("error", "Invoice not found.");
+                return redirect()->back()->with("error", __("Invoice not found."));
 
-            $data["date_title"] = "Payment Date";
-            $data["total"] = "Deposit";
-            $data["method"] = "Payment Method";
+            $data["date_title"] = __("Payment Date");
+            $data["total"] = __("Deposit");
+            $data["method"] = __("Payment Method");
             $data["method_text"] = get_payent_method($record->payment_method);
-            $data["by"] = "Paid To";
-            $data["status"] = "Paid";
+            $data["by"] = __("Paid To");
+            $data["status"] = __("Paid");
             $data["invoice_letter"] = "D";
             $data["cash"] = to_cash_format_small($record->amount_deposit);
             $data["transaction_id"] = "TRA".$record->id;
@@ -231,15 +231,15 @@ class InvoiceController extends Controller
     public function pdf($public_id, Request $request){
 
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "invoice";
         $setting = Setting::first();
 
         if(!isset($request->type))
-            return redirect()->back()->with("error", "Invoice not found.");
+            return redirect()->back()->with("error", __("Invoice not found."));
 
         if($request->type != "withdraw" && $request->type != "deposit")
-            return redirect()->back()->with("error", "Invoice not found.");
+            return redirect()->back()->with("error", __("Invoice not found."));
 
         $type = $request->type;
         if($request->type == "withdraw"){
@@ -251,14 +251,14 @@ class InvoiceController extends Controller
                         ->first();
 
             if(!$record)
-                return redirect()->back()->with("error", "Invoice not found.");
+                return redirect()->back()->with("error", __("Invoice not found."));
 
-            $data["date_title"] = "Withdrawl Date";
-            $data["total"] = "Withdrawl";
-            $data["method"] = "Withdrawl Method";
+            $data["date_title"] = __("Withdrawl Date");
+            $data["total"] = __("Withdrawl");
+            $data["method"] = __("Withdrawl Method");
             $data["method_text"] = get_withdraw_method($record->payment_method);
-            $data["by"] = "Paid By";
-            $data["status"] = "Withdrawn";
+            $data["by"] = __("Paid By");
+            $data["status"] = __("Withdrawn");
             $data["invoice_letter"] = "W";
             $data["cash"] = to_cash_format_small($record->amount_withdraw);
             $data["transaction_id"] = "WTH".$record->id;
@@ -285,12 +285,12 @@ class InvoiceController extends Controller
             if(!$record)
                 return redirect()->back()->with("error", "Invoice not found.");
 
-            $data["date_title"] = "Payment Date";
-            $data["total"] = "Deposit";
-            $data["method"] = "Payment Method";
+            $data["date_title"] = __("Payment Date");
+            $data["total"] = __("Deposit");
+            $data["method"] = __("Payment Method");
             $data["method_text"] = get_payent_method($record->payment_method);
-            $data["by"] = "Paid To";
-            $data["status"] = "Paid";
+            $data["by"] = __("Paid To");
+            $data["status"] = __("Paid");
             $data["invoice_letter"] = "D";
             $data["cash"] = to_cash_format_small($record->amount_deposit);
             $data["transaction_id"] = "TRA".$record->id;

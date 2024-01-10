@@ -66,6 +66,15 @@ class SettingController extends Controller
             "equi_min" => "required|numeric",
             "equi_max" => "required|numeric",
             "vat" => "required|numeric",
+        ],[
+            "equi_price_kh.required" => "The KHeavyHash price/KH/s field is required.",
+            "equi_cost_per_kwh.required" => "The KHeavyHash cost/KWH field is required.",
+            "equi_power_consumption.required" => "The KHeavyHash power consumption field is required.",
+            "equi_maintenance_fee.required" => "The KHeavyHash maintenance fee field is required.",
+            "equi_min.required" => "The KHeavyHash min field is required.",
+            "equi_max.required" => "The KHeavyHash max field is required.",
+            "equi_min.numeric" => "The KHeavyHash min field should be a number.",
+            "equi_max.numeric" => "The KHeavyHash max field should be a number.",
         ]);
 
         if($request->vat < 0 || $request->vat > 100)

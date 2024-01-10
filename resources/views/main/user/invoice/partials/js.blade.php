@@ -45,11 +45,11 @@
             responsive: true,
             oLanguage: {
                 sSearch: '<em class="fa fa-search"></em>',
-                sLengthMenu: '_MENU_ records per page',
-                info: 'Showing page _PAGE_ of _PAGES_',
-                zeroRecords: 'Nothing found - sorry',
-                infoEmpty: 'No records available',
-                infoFiltered: '(filtered from _MAX_ total records)',
+                sLengthMenu: '_MENU_ {{__("records per page")}}',
+                info: '{{__("Showing page")}} _PAGE_ {{__("of")}} _PAGES_',
+                zeroRecords: '{{__("Nothing found - sorry")}}',
+                infoEmpty: '{{__("No records available")}}',
+                infoFiltered: '({{__("filtered from")}} _MAX_ {{__("total records")}})',
                 oPaginate: {
                     sNext: '<em class="fa fa-caret-right"></em>',
                     sPrevious: '<em class="fa fa-caret-left"></em>'
@@ -132,11 +132,11 @@
             responsive: true,
             oLanguage: {
                 sSearch: '<em class="fa fa-search"></em>',
-                sLengthMenu: '_MENU_ records per page',
-                info: 'Showing page _PAGE_ of _PAGES_',
-                zeroRecords: 'Nothing found - sorry',
-                infoEmpty: 'No records available',
-                infoFiltered: '(filtered from _MAX_ total records)',
+                sLengthMenu: '_MENU_ {{__("records per page")}}',
+                info: '{{__("Showing page")}} _PAGE_ {{__("of")}} _PAGES_',
+                zeroRecords: '{{__("Nothing found - sorry")}}',
+                infoEmpty: '{{__("No records available")}}',
+                infoFiltered: '({{__("filtered from")}} _MAX_ {{__("total records")}})',
                 oPaginate: {
                     sNext: '<em class="fa fa-caret-right"></em>',
                     sPrevious: '<em class="fa fa-caret-left"></em>'

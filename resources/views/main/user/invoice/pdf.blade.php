@@ -620,7 +620,7 @@
                                     <div id="invoice-company-details" class="row" style="width: 100% !important; display: block !important;">
                                         <div class="col-6 text-left" style="width: 40% !important; display: inline-block !important; text-align:left !important;">
                                             <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo1.svg')}}" alt="folex-logo" class="mb-2" width="200">
-                                            <h3 style="margin-top: 10px !important;">INVOICE # INV{{@$data['invoice_letter'].@$record->id}}</h3>
+                                            <h3 style="margin-top: 10px !important;">{{__("INVOICE")}} # INV{{@$data['invoice_letter'].@$record->id}}</h3>
                                         </div>
                                         <div class="col-6 text-right" style="width: 40% !important; display: inline-block !important; float:right !important;">
                                             <h2 style="margin-top: -13px !important;">{{@$data['status']}}</h2>
@@ -635,12 +635,12 @@
 
                                         <div class="col-6 text-left" style="margin-left: 20px !important; width: 40% !important; display: inline-block !important; text-align:left !important;">
                                             <div class="col-sm-12 text-left">
-                                                <p class="text-muted"><b>Invoice For</b></p>
+                                                <p class="text-muted"><b>{{__("Invoice For")}}</b></p>
                                                 <p class="mt-n3" style="margin-top: -1rem !important;">{{ucfirst(Auth::user()->first_name)}}</p>
                                             </div>
 
                                             <div class="col-sm-12 text-left">
-                                                <p class="text-muted"><b>Total {{$data['total']}}</b></p>
+                                                <p class="text-muted"><b>{{__("Total")}} {{$data['total']}}</b></p>
                                                 <p class="mt-n3" style="margin-top: -1rem !important;">${{$data['cash']}}</p>
                                             </div>
                                         </div>
@@ -669,13 +669,13 @@
                                                 <thead>
                                                     <tr>
                                                         <th>{{$data['method']}}</th>
-                                                        <th>Amount Paid</th>
+                                                        <th>{{__("Amount Paid")}}</th>
                                                         @if($type == "deposit")
-                                                        <th>Hashing</th>
-                                                        <th>Power Bought</th>
+                                                        <th>{{__("Hashing")}}</th>
+                                                        <th>{{__("Power Bought")}}</th>
                                                         @endif
-                                                        <th>Payment Date</th>
-                                                        <th>Transaction ID</th>
+                                                        <th>{{__("Payment Date")}}</th>
+                                                        <th>{{__("Transaction ID")}}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

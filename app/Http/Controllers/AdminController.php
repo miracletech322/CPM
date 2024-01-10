@@ -33,7 +33,7 @@ class AdminController extends Controller
                 return $records->first_name . " " . $records->last_name;
             })
             ->addColumn('added_on', function ($records) {
-                return to_date($records->created_at);
+                return $records->created_at ? to_date($records->created_at) : "";
             })
             ->addColumn('user_role', function ($records) {
                 return $records->role_id == 1 ? "Superadmin" : "Admin";

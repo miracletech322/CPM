@@ -18,7 +18,7 @@ class BankAccountController extends Controller
 
     public function index()
     {
-        $title_plurar = $this->title_plurar;
+        $title_plurar = __($this->title_plurar);
         $directory = $this->directory;
         $active_item = "withdraw";
         return view($this->directory . "index", compact('title_plurar', 'directory', 'active_item'));
@@ -37,13 +37,13 @@ class BankAccountController extends Controller
             })
             ->addColumn('action', function ($records) {
                 $show_url = url("bank-account") . "/" . $records->public_id;
-                $show = "<a href='" . $show_url . "'class='dropdown-item'>Show Details</a>";
+                $show = "<a href='" . $show_url . "'class='dropdown-item'>".__("Show Details")."</a>";
 
                 $edit_url = url("bank-account") . "/" . $records->public_id . "/edit";
-                $edit = "<a href='" . $edit_url . "' class='dropdown-item'>Edit</a>";
+                $edit = "<a href='" . $edit_url . "' class='dropdown-item'>".__("Edit")."</a>";
 
                 $delete_url = url("delete-bank-account") . "/" . $records->public_id;
-                $delete = "<a onclick='delete_record(\"" . $delete_url . "\" )' class='dropdown-item'>Delete</a>";
+                $delete = "<a onclick='delete_record(\"" . $delete_url . "\" )' class='dropdown-item'>".__("Delete")."</a>";
 
                 return '<div class="dropdown">
                         <a href="#" class="btn btn-dark-100 btn-icon btn-sm rounded-circle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,9 +64,9 @@ class BankAccountController extends Controller
 
     public function create()
     {
-        $form_button = "Create";
+        $form_button = __("Create");
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "withdraw";
         return view($this->directory . "create", compact('form_button', 'title_singular', 'directory', 'active_item'));
     }
@@ -113,7 +113,7 @@ class BankAccountController extends Controller
         if (!$record)
             return redirect("bank-account");
 
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $directory = $this->directory;
         $is_show = 1;
         $active_item = "withdraw";
@@ -124,9 +124,9 @@ class BankAccountController extends Controller
     public function edit($public_id)
     {
         $user = Auth::user();
-        $form_button = "Update";
+        $form_button = __("Update");
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
 
         $record = UserBank::where("public_id", $public_id)
                     ->where("user_id", Auth::user()->id)
@@ -158,7 +158,7 @@ class BankAccountController extends Controller
                     ->first();
 
         if (!$record)
-            return [array("error" => "Updation failed")];
+            return [array("error" => __("Updation failed"))];
 
         $record->account_holder_name = $request->account_holder_name;
         $record->account_number = $request->account_number;
@@ -170,7 +170,7 @@ class BankAccountController extends Controller
         $record->iban_number = isset($request->iban_number) ? $request->iban_number : NULL;
         $record->save();
         
-        return [array("success" => "Updated Successfully")];
+        return [array("success" => __("Updated Successfully"))];
     }
 
     public function destroy($public_id)
@@ -182,14 +182,14 @@ class BankAccountController extends Controller
 
         if($record){
             if($record->payments_processing_count > 0){
-                return redirect()->back()->with("error", "Record can not be deleted. Pending withdrawl requests are connected with it.");
+                return redirect()->back()->with("error", __("Record can not be deleted. Pending withdrawl requests are connected with it."));
             }
             else{
                 $record->delete();
             }
         }
 
-        return redirect()->back()->with("success", "Deleted Successfully");
+        return redirect()->back()->with("success", __("Deleted Successfully"));
        
     }
 
@@ -197,13 +197,13 @@ class BankAccountController extends Controller
         $record = UserBank::where("user_id", Auth::user()->id)->where("id", $id)->first();
         $html = "<div>
                     <p class='text-left'>
-                        <b>Account Holder Name: </b>".$record->account_holder_name."<br>
-                        <b>Account Number: </b>".$record->account_number."<br>
-                        <b>Country: </b>".$record->country."<br><b>Bank Currency: </b>".$record->bank_currency."<br>
-                        <b>Bank Name: </b>".$record->bank_name."<br>
-                        <b>Branch Name: </b>".$record->branch_name."<br>
-                        <b>Swift Code / BIC: </b>".$record->swift_bic."<br>
-                        <b>IBAN Number: </b>".$record->iban_number."
+                        <b>".__("Account Holder Name").": </b>".$record->account_holder_name."<br>
+                        <b>".__("Account Number").": </b>".$record->account_number."<br>
+                        <b>".__("Country").": </b>".$record->country."<br><b>".__("Bank Currency").": </b>".$record->bank_currency."<br>
+                        <b>".__("Bank Name").": </b>".$record->bank_name."<br>
+                        <b>".__("Branch Name").": </b>".$record->branch_name."<br>
+                        <b>".__("Swift Code / BIC").": </b>".$record->swift_bic."<br>
+                        <b>".__("IBAN Number").": </b>".$record->iban_number."
                     </p>
                 </div>";
         return $html;

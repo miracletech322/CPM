@@ -20,7 +20,7 @@ class UserRequestController extends Controller
     public function index()
     {
 
-        $title_plurar = $this->title_plurar;
+        $title_plurar = __($this->title_plurar);
         $directory = $this->directory;
         $active_item = "requests";
 
@@ -44,7 +44,7 @@ class UserRequestController extends Controller
 
     public function user_drequest()
     {
-        $title_plurar = $this->title_plurar;
+        $title_plurar = __($this->title_plurar);
         $directory = $this->directory.".deposit_requests.";
         $active_item = "requests";
         return view($this->directory . "deposit_requests.index", compact('title_plurar', 'directory', 'active_item'));
@@ -76,17 +76,17 @@ class UserRequestController extends Controller
                 return $records->hashings->name;
             })
             ->addColumn('payment_method', function ($records) {
-                return $this->dpayment_method[$records->payment_method - 1];
+                return __($this->dpayment_method[$records->payment_method - 1]);
             })
             ->addColumn('status', function ($records) {
-                return "Pending Clearance";
+                return __("Pending Clearance");
             })
             ->make(true);
     }
 
     public function user_wrequest()
     {
-        $title_plurar = $this->title_plurar;
+        $title_plurar = __($this->title_plurar);
         $directory = $this->directory.".withdraw_requests.";
         $active_item = "requests";
         return view($this->directory . "withdraw_requests.index", compact('title_plurar', 'directory', 'active_item'));
@@ -111,21 +111,21 @@ class UserRequestController extends Controller
                 return "$" . to_cash_format_small($records->amount_withdraw);
             })
             ->addColumn('status', function ($records) {
-                return "Pending Clearance";
+                return __("Pending Clearance");
             })
             ->addColumn('account_used', function ($records) {
 
-                $model_body = "No record found.";
-                $model_header = "Details";
+                $model_body = __("No record found.");
+                $model_header = __("Details");
                 if($records->payment_method == 2 && $records->user_banks){
                     //Bank
-                    $model_header = "Bank Details";
-                    $model_body = "<div><p><b>Account Holder Name: </b>".$records->user_banks->account_holder_name."<br><b>Account Number: </b>".$records->user_banks->account_number."<br><b>Country: </b>".$records->user_banks->country."<br><b>Bank Currency: </b>".$records->user_banks->bank_currency."<br><b>Bank Name: </b>".$records->user_banks->bank_name."<br><b>Branch Name: </b>".$records->user_banks->branch_name."<br><b>Swift Code / BIC: </b>".$records->user_banks->swift_bic."<br><b>IBAN Number: </b>".$records->user_banks->iban_number."</p></div>";
+                    $model_header = __("Bank Details");
+                    $model_body = "<div><p><b>".__("Account Holder Name").": </b>".$records->user_banks->account_holder_name."<br><b>".__("Account Number").": </b>".$records->user_banks->account_number."<br><b>".__("Country").": </b>".$records->user_banks->country."<br><b>".__("Bank Currency").": </b>".$records->user_banks->bank_currency."<br><b>".__("Bank Name").": </b>".$records->user_banks->bank_name."<br><b>".__("Branch Name").": </b>".$records->user_banks->branch_name."<br><b>".__("Swift Code / BIC").": </b>".$records->user_banks->swift_bic."<br><b>".__("IBAN Number").": </b>".$records->user_banks->iban_number."</p></div>";
 
                 }else if($records->payment_method == 3 && $records->user_cryptos){
                     //Coin
-                    $model_header = "Wallet Details";
-                    $model_body = "<div><p><b>Crypto Option: </b>".$records->user_cryptos->crypto_options->name."<br><b>Crypto Wallet Address: </b>".$records->user_cryptos->wallet_address."</p></div>";
+                    $model_header = __("Wallet Details");
+                    $model_body = "<div><p><b>".__("Crypto Option").": </b>".$records->user_cryptos->crypto_options->name."<br><b>".__("Crypto Wallet Address").": </b>".$records->user_cryptos->wallet_address."</p></div>";
                 }
 
                 $global_modal = "";

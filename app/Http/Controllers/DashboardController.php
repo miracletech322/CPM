@@ -46,13 +46,13 @@ class DashboardController extends Controller
         $get_power = Payment::select(
                         DB::RAW("SUM( (IF (hashing_id=1 , energy_bought, 0) ) ) as sha"),
                         DB::RAW("SUM( (IF (hashing_id=2 , energy_bought, 0) ) ) as ethash"),
-                        DB::RAW("SUM( (IF (hashing_id=3 , energy_bought, 0) ) ) as equihash")
+                        DB::RAW("SUM( (IF (hashing_id=3 , energy_bought, 0) ) ) as kheavyhash")
                     )
                     ->first();
 
         $total_power["total_power_th"] = $get_power->sha;
         $total_power["total_power_mh"] = $get_power->ethash;
-        $total_power["total_power_kh"] = $get_power->equihash;
+        $total_power["total_power_kh"] = $get_power->kheavyhash;
 
         return view($this->directory . "index", compact('title_singular', 'directory', 'active_item', 'pageData', 'total_earning', 'total_users', 'total_withdraw_requests', 'total_deposit_requests', 'total_power', 'total_admins'));
     }

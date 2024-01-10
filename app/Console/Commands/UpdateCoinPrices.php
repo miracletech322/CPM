@@ -33,7 +33,9 @@ class UpdateCoinPrices extends Command
         foreach ($hashings as $key => $hashing) {
             
             $hashing_data = $this->get_value($hashing->name); //BTC
-            $record = "SHA-256";
+            // $record = "SHA-256";
+            $hashing_data->coin = $hashing_data->coin == "BINANCE ETHW" ? "ETH" : $hashing_data->coin;
+
             $record = CoinData::where("hashing_id", $hashing->id)->where("coin", $hashing_data->coin)->first();
             if(!$record){
                 $record = new CoinData();
@@ -49,6 +51,13 @@ class UpdateCoinPrices extends Command
 
     public function get_value($algo)
     {
+
+        $algo_arr = [
+            "SHA-256" => "BTC",
+            "Ethash" => "BINANCE ETHW",
+            "KHeavyHash" => "KAS"
+        ];
+
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -68,8 +77,9 @@ class UpdateCoinPrices extends Command
         $data = json_decode($response);
         foreach($data as $key => $d)
         {
-            if($d->coin == "BTC" || $d->coin == "ZEC" || $d->coin == "ETH")
+            if($d->coin == $algo_arr[$algo])
                 return $d;
         }
+
     }
 }

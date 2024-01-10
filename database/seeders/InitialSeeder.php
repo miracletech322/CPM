@@ -26,10 +26,12 @@ class InitialSeeder extends Seeder
                     "name" => "Ethash",
                 ],
                 [
-                    "name" => "Equihash",
+                    "name" => "KHeavyHash",
                 ]
             ]
         );
+        
+        return;
 
 
         DB::table("roles")->truncate();

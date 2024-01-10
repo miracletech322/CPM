@@ -37,7 +37,7 @@ class MinersController extends Controller
     public function index()
     {
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "miners";
         
 
@@ -56,7 +56,7 @@ class MinersController extends Controller
         $get_power = Payment::select(
                                 DB::RAW("SUM( (IF (hashing_id=1 , energy_bought, 0) ) ) as sha"),
                                 DB::RAW("SUM( (IF (hashing_id=2 , energy_bought, 0) ) ) as ethash"),
-                                DB::RAW("SUM( (IF (hashing_id=3 , energy_bought, 0) ) ) as equihash")
+                                DB::RAW("SUM( (IF (hashing_id=3 , energy_bought, 0) ) ) as kheavyhash")
                             )
                             ->where("user_id", Auth::user()->id)
                             ->groupBy("user_id")
@@ -64,11 +64,11 @@ class MinersController extends Controller
         
         $total_power["total_power_th"] = $get_power->sha ?? 0;
         $total_power["total_power_mh"] = $get_power->ethash ?? 0;
-        $total_power["total_power_kh"] = $get_power->equihash ?? 0;
+        $total_power["total_power_kh"] = $get_power->kheavyhash ?? 0;
 
         $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
         $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
-        $coin_values["3"] = json_decode(CoinData::where("coin", "ZEC")->first()->data)->price; //ZEC
+        $coin_values["3"] = json_decode(CoinData::where("coin", "KAS")->first()->data)->price; //KAS
 
         $user_balance = get_user_balance();
         return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy', 'total_power', 'coin_values', 'user_balance'));
@@ -81,9 +81,9 @@ class MinersController extends Controller
         $calculationController = new CalculationController();
         $pageData = $calculationController->get_page_data();
 
-        $form_button = "Proceed to payment";
+        $form_button = __("Proceed to payment");
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "miners";
         return view($this->directory . "create", compact('form_button', 'title_singular', 'directory', 'active_item', 'pageData'));
 
@@ -92,21 +92,21 @@ class MinersController extends Controller
     public function pay(Request $request){
 
         if(!isset($request->hashing)){
-            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+            return redirect("miners/create")->with("error", __("Please make sure you are selecting the correct options"));
         }
         else if(!is_numeric($request->hashing)){
-            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+            return redirect("miners/create")->with("error", __("Please make sure you are selecting the correct options"));
         }
         else if(!isset($request->cash)){
-            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+            return redirect("miners/create")->with("error", __("Please make sure you are selecting the correct options"));
         }
         else if(!is_numeric($request->cash)){
-            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+            return redirect("miners/create")->with("error", __("Please make sure you are selecting the correct options"));
         }
         
         $setting = Setting::first();
 
-        $hashings = [ "SHA-256","Ethash", "Equihash"];
+        $hashings = [ "SHA-256","Ethash", "KHeavyHash"];
         $techniques_min = [ "sha_min","eth_min", "equi_min"];
         $techniques_max = [ "sha_max","eth_max", "equi_max"];
         $techniques_cost = [ "sha_cost_per_kwh","eth_cost_per_kwh", "equi_cost_per_kwh"];
@@ -123,7 +123,7 @@ class MinersController extends Controller
         $techniques_consumption = $techniques_consumption[$hashing-1];
         
         if( ($cash < $setting->$min) || ($cash > $setting->$max) ){
-            return redirect("miners/create")->with("error", "Please make sure you are selecting the correct options");
+            return redirect("miners/create")->with("error", __("Please make sure you are selecting the correct options"));
         }
         
         $hash_price = $pricing[$hashing-1];
@@ -149,7 +149,7 @@ class MinersController extends Controller
 
         $form_button = "Pay $".$cash;
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "miners";
         $power_value_selected = $power_value[$hashing-1];
 
@@ -180,16 +180,16 @@ class MinersController extends Controller
         $payment_method = in_array($request->payment_method, [1,2,3]) ? $request->payment_method : 1;
 
         if(!isset($request->hashing)){
-            return [array("error" => "Operation failed.")];
+            return [array("error" => __("Operation failed."))];
         }
         else if(!is_numeric($request->hashing)){
-            return [array("error" => "Operation failed.")];
+            return [array("error" => __("Operation failed."))];
         }
         else if(!isset($request->cash)){
-            return [array("error" => "Operation failed.")];
+            return [array("error" => __("Operation failed."))];
         }
         else if(!is_numeric($request->cash)){
-            return [array("error" => "Operation failed.")];
+            return [array("error" => __("Operation failed."))];
         }
         
         $setting = Setting::first();
@@ -208,7 +208,7 @@ class MinersController extends Controller
         $techniques_consumption = $techniques_consumption[$hashing-1];
         
         if( ($cash < $setting->$min) || ($cash > $setting->$max) ){
-            return [array("error" => "Operation failed.")];
+            return [array("error" => __("Operation failed."))];
         }
         
 
@@ -247,8 +247,8 @@ class MinersController extends Controller
                 "card_expiry_year" => "required",
                 "cvv" => "required",
             ], [
-                "cnumber.required" => "The card number field is required",
-                "cvv.required" => "The CVN field is required"
+                "cnumber.required" => __("The card number field is required"),
+                "cvv.required" => __("The CVN field is required")
             ]);
 
             $request->merge([
@@ -271,7 +271,7 @@ class MinersController extends Controller
 
             $response = $this->stripe_service->update_customer($request);
             if ($response == false)
-                return [array("error" => "Something went wrong. Check card details and try again.")];
+                return [array("error" => __("Something went wrong. Check card details and try again."))];
         }
 
         $user = User::where("id", Auth::user()->id)->first();
@@ -286,7 +286,7 @@ class MinersController extends Controller
             'plan_title' => "Stripe Deposit Payment",
             'amount' => $amount_to_charge,
             'payment_method' => 'card',
-            'payment_type' => "Integrate header and footer",
+            'payment_type' => "Stripe Deposit Payment",
             'charge_customer' => $charge_customer,
             "customer_profile_id" => $customer_profile_id
         ]);
@@ -337,7 +337,7 @@ class MinersController extends Controller
                 $record->energy_bought = $stripe_payment->energy_bought;
                 $record->save();
 
-                Session::flash("success", "Your request has been submitted. After verfication your earning will start.");
+                Session::flash("success", __("Your request has been submitted. After verfication your earning will start."));
                 return 1;
             } else {
 
@@ -371,7 +371,7 @@ class MinersController extends Controller
             //$error = true;
         }
 
-        return array(["error" =>  "Payment failed. Please check your card details."]);
+        return array(["error" =>  __("Payment failed. Please check your card details.")]);
     }
 
     public function bank_payment(Request $request){
@@ -392,7 +392,7 @@ class MinersController extends Controller
         $record->energy_bought = $this->get_power($hashing, $request->cash);
         $record->save();
 
-        Session::flash('success', 'Your request has been submitted. After verfication your earning will start.');
+        Session::flash('success', __('Your request has been submitted. After verfication your earning will start.'));
         return 1;
     }
 
@@ -441,7 +441,7 @@ class MinersController extends Controller
     public function miners_income()
     {
         $directory = $this->directory;
-        $title_plurar = "Income";
+        $title_plurar = __("Income");
         $active_item = "miners";
         return view($this->directory . "income", compact('title_plurar', 'directory','active_item'));
     }  
@@ -474,7 +474,7 @@ class MinersController extends Controller
     }
 
     public function coinbase_success(){
-        Session::flash('success', 'Your request has been submitted. After verfication your earning will start.');
+        Session::flash('success', __('Your request has been submitted. After verfication your earning will start.'));
         return redirect("miners");
     }
 }

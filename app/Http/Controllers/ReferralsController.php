@@ -16,7 +16,7 @@ class ReferralsController extends Controller
     public function index()
     {
         $directory = $this->directory;
-        $title_singular = $this->title_singular;
+        $title_singular = __($this->title_singular);
         $active_item = "referrals";
         $refered_by_user = User::where("referred_by", Auth::user()->id)->count();
         $earned_via_referral = to_cash_format_small(Ledger::where("user_id", Auth::user()->id)->where("type", 3)->sum("amount"));

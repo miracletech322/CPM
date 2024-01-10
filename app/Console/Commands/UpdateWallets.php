@@ -56,7 +56,7 @@ class UpdateWallets extends Command
         $techniques_cost_arr = ["sha_cost_per_kwh","eth_cost_per_kwh","equi_cost_per_kwh"];
         $techniques_consumption_arr = [ "sha_power_consumption","eth_power_consumption", "equi_power_consumption"];
         $pricing = [ "sha_price_th","eth_price_mh", "equi_price_kh"];        
-        $hashing_index = [ "sha_256","ethash", "equihash"];        
+        $hashing_index = [ "sha_256","ethash", "kheavyhash"];        
 
         $calculationController = new CalculationController();
         $all_coin_data = $calculationController->get_all_hashing_data();
@@ -104,7 +104,7 @@ class UpdateWallets extends Command
 
             $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
             $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
-            $coin_values["3"] = json_decode(CoinData::where("coin", "ZEC")->first()->data)->price; //ZEC
+            $coin_values["3"] = json_decode(CoinData::where("coin", "KAS")->first()->data)->price; //KAS
 
             //UPDATING LEDGER
             $ledger = new Ledger();

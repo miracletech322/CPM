@@ -14,25 +14,25 @@
                 <div class="menu">
                     @if(url()->current() == url('/'))
                     <ul class="d-inline-block">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#calculator">Calculator</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">{{__("Home")}}</a></li>
+                        <li><a href="#calculator">{{__("Calculator")}}</a></li>
+                        <li><a href="#faq">{{__("FAQ")}}</a></li>
                     </ul>
                     @else
                     <ul class="d-inline-block">
-                        <li><a href="{{url('/')}}">Home</a></li>
-                        <li><a href="{{url('/')}}#calculator">Calculator</a></li>
-                        <li><a href="{{url('/')}}#faq">FAQ</a></li>
+                        <li><a href="{{url('/')}}">{{__("Home")}}</a></li>
+                        <li><a href="{{url('/')}}#calculator">{{__("Calculator")}}</a></li>
+                        <li><a href="{{url('/')}}#faq">{{__("FAQ")}}</a></li>
                     </ul>
                      @endif
                     @if(Auth()->check())
                     <div class="d-inline-block">
-                        <a href="{{ route('dashboard')}}" class="btn">Dashboard</a>
+                        <a href="{{ route('dashboard')}}" class="btn">{{__("Dashboard")}}</a>
                     </div>
                     @else
                     <div class="d-inline-block">
-                        <a href="{{ route('login')}}" class="btn btn-lg mr-2">Login</a>
-                        <a href="{{url('register')}}" class="btn btn-lg">Register</a>
+                        <a href="{{ route('login')}}" class="btn btn-lg mr-2">{{__("Login")}}</a>
+                        <a href="{{url('register')}}" class="btn btn-lg">{{__("Register")}}</a>
                     </div>
                     @endif
                 </div>

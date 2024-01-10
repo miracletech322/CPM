@@ -9,7 +9,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <span class="text-uppercase tiny text-gray-600 Montserrat-font font-weight-semibold"><a href="{{url('crypto-wallet')}}">{{$title_singular}}</a></span>
-                    <h1 class="h2 mb-0 lh-sm">Edit {{$title_singular}}</h1>
+                    <h1 class="h2 mb-0 lh-sm">{{get_payent_method("Edit")}} {{$title_singular}}</h1>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
 
                 <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
                     <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
-                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Edit {{$title_singular}}</h5>
+                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">{{get_payent_method("Edit")}} {{$title_singular}}</h5>
                     </div>
                     <div class="card-body px-0 p-md-4">
                         <div class="bd-example">

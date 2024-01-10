@@ -18,13 +18,13 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>{{$site_data["site_name"]}} © All Rights Reserved.</p>
+                    <p>{{$site_data["site_name"]}} © {{__("All Rights Reserved")}}.</p>
                 </div>
                 <div class="col-lg-6">
                     <ul>
-                        <li><a href="{{url('terms')}}">Terms & Condition</a></li>
-                        <li><a href="{{url('privacy')}}">Privacy Policy</a></li>
-                        <li><a href="mailto:support@folex-mining.com">Contact Us</a></li>
+                        <li><a href="{{url('terms')}}">{{__("Terms & Condition")}}</a></li>
+                        <li><a href="{{url('privacy')}}">{{__("Privacy Policy")}}</a></li>
+                        <li><a href="mailto:support@folex-mining.com">{{__("Contact Us")}}</a></li>
                     </ul>
                 </div>
             </div>

@@ -10,7 +10,7 @@
         <div class="container-fluid px-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <h1 class="h2 mb-0 lh-sm">User Requests</h1>
+                    <h1 class="h2 mb-0 lh-sm">{{__("User Requests")}}</h1>
                 </div>
             </div>
         </div>
@@ -23,8 +23,8 @@
                     @include("shared.alerts")
                     <div class="row">
                         <div class="col-12 mb-5">
-                            <a class="btn btn-lg btn-warning" href="{{url('user-drequests')}}">Deposit Requests</a>
-                            <a class="btn btn-lg btn-warning" href="{{url('user-wrequests')}}">Withdrawl Requests</a>
+                            <a class="btn btn-lg btn-warning" href="{{url('user-drequests')}}">{{__("Deposit Requests")}}</a>
+                            <a class="btn btn-lg btn-warning" href="{{url('user-wrequests')}}">{{__("Withdrawl Requests")}}</a>
                         </div>
 
                         <div class="col-6">
@@ -32,7 +32,7 @@
                                 <div class="card-body p-3 p-xl-3 p-xxl-4">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">Pending Deposit Requests</span>
+                                            <span class="small text-gray-600 d-block mb-1">{{__("Pending Deposit Requests")}}</span>
                                             <span class="h5 mb-0">{{@$total_drequests}}</span>
                                         </div>
                                         <div class="col-auto">
@@ -51,7 +51,7 @@
                                 <div class="card-body p-3 p-xl-3 p-xxl-4">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">Deposit Amount (Pending)</span>
+                                            <span class="small text-gray-600 d-block mb-1">{{__("Deposit Amount (Pending)")}}</span>
                                             <span class="h5 mb-0">$ {{@$total_drequests_amount}}</span>
                                         </div>
                                         <div class="col-auto">
@@ -70,7 +70,7 @@
                                 <div class="card-body p-3 p-xl-3 p-xxl-4">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">Pending Withdrawl Requests</span>
+                                            <span class="small text-gray-600 d-block mb-1">{{__("Pending Withdrawl Requests")}}</span>
                                             <span class="h5 mb-0">{{@$total_wrequests}}</span>
                                         </div>
                                         <div class="col-auto">
@@ -88,7 +88,7 @@
                                 <div class="card-body p-3 p-xl-3 p-xxl-4">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">Withdrawl Amount (Pending)</span>
+                                            <span class="small text-gray-600 d-block mb-1">{{__("Withdrawl Amount (Pending)")}}</span>
                                             <span class="h5 mb-0">$ {{@$total_wrequests_amount}}</span>
                                         </div>
                                         <div class="col-auto">

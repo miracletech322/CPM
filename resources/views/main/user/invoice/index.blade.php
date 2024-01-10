@@ -26,10 +26,10 @@
                         <div class="pb-3">
                             <ul class="nav nav-tabs nav-tabs-md nav-tabs-line position-relative zIndex-0" id="pills-tab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="pills-deposit-tab" data-bs-toggle="pill" data-bs-target="#pills-deposit" type="button" role="tab" aria-controls="pills-deposit" aria-selected="false">Deposit</a>
+                                    <a class="nav-link active" id="pills-deposit-tab" data-bs-toggle="pill" data-bs-target="#pills-deposit" type="button" role="tab" aria-controls="pills-deposit" aria-selected="false">{{__("Deposit")}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="pills-withdrawl-tab" data-bs-toggle="pill" data-bs-target="#pills-withdrawl" type="button" role="tab" aria-controls="pills-withdrawl" aria-selected="false">Withdrawl</a>
+                                    <a class="nav-link" id="pills-withdrawl-tab" data-bs-toggle="pill" data-bs-target="#pills-withdrawl" type="button" role="tab" aria-controls="pills-withdrawl" aria-selected="false">{{__("Withdrawl")}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -45,7 +45,7 @@
                                                     <div class="col">
                                                         <div class="input-group input-group-xl bg-white border border-gray-300 rounded px-3 me-2 me-xl-4">
                                                             <button type="button" class="border-0 bg-transparent p-1"><img src="{{asset('temp/assets/svg/icons/search@14.svg')}}" alt="Search"></button>
-                                                            <input class="form-control border-0 search_box_deposit" placeholder="Search record...">
+                                                            <input class="form-control border-0 search_box_deposit" placeholder="{{__('Search records...')}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -54,7 +54,7 @@
                                             <div class="col-xxl-12 mb-4">
                                                 <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
                                                     <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
-                                                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Income</h5>
+                                                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">{{__("Income")}}</h5>
                                                     </div>
                                                     <div class="card-body px-0 p-md-4">
                                                         <div class="bd-example">
@@ -62,13 +62,13 @@
                                                                 <table class="table" id="datatables-deposit" style="width:100% !important;">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th>Transaction Date</th>
-                                                                            <th>Transaction ID</th>
-                                                                            <th>Payment Method</th>
-                                                                            <th>Total Paid</th>
-                                                                            <th>Hashing</th>
-                                                                            <th>Power Bought</th>
-                                                                            <th>Action</th>
+                                                                            <th>{{__("Transaction Date")}}</th>
+                                                                            <th>{{__("Transaction ID")}}</th>
+                                                                            <th>{{__("Payment Method")}}</th>
+                                                                            <th>{{__("Total Paid")}}</th>
+                                                                            <th>{{__("Hashing")}}</th>
+                                                                            <th>{{__("Power Bought")}}</th>
+                                                                            <th>{{__("Action")}}</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -94,7 +94,7 @@
                                                     <div class="col">
                                                         <div class="input-group input-group-xl bg-white border border-gray-300 rounded px-3 me-2 me-xl-4">
                                                             <button type="button" class="border-0 bg-transparent p-1"><img src="{{asset('temp/assets/svg/icons/search@14.svg')}}" alt="Search"></button>
-                                                            <input class="form-control border-0 search_box_withdrawl" placeholder="Search record...">
+                                                            <input class="form-control border-0 search_box_withdrawl" placeholder="{{__('Search records...')}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -103,7 +103,7 @@
                                             <div class="col-xxl-12 mb-4">
                                                 <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
                                                     <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
-                                                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Income</h5>
+                                                        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">{{__("Income")}}</h5>
                                                     </div>
                                                     <div class="card-body px-0 p-md-4">
                                                         <div class="bd-example">

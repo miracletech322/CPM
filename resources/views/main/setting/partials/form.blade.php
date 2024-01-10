@@ -149,7 +149,7 @@
 
 <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
     <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
-        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Calculator Settings (Equihash)</h5>
+        <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">Calculator Settings (KHeavyHash)</h5>
     </div>
     <div class="card-body px-0 p-md-4">
         <div class="bd-example">

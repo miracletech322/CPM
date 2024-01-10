@@ -19,7 +19,7 @@ class CalculationController extends Controller
     public $hashings = [
         "SHA-256" => 1,
         "Ethash" => 2,
-        "Equihash" => 3
+        "KHeavyHash" => 3
     ];
 
     public function getValue($algo)
@@ -36,7 +36,7 @@ class CalculationController extends Controller
 
         $pageData['sha_256'] = $this->getValue("SHA-256"); //BTC
         $pageData['ethash'] = $this->getValue("Ethash"); //AKA //ETH
-        $pageData['equihash'] = $this->getValue("Equihash"); //CMM //ZEC
+        $pageData['kheavyhash'] = $this->getValue("KHeavyHash"); //CMM //KAS
 
         $settings = Setting::first();
         
@@ -74,7 +74,7 @@ class CalculationController extends Controller
     public function get_all_hashing_data(){
         $pageData['sha_256'] = $this->getValue("SHA-256"); //BTC
         $pageData['ethash'] = $this->getValue("Ethash"); //AKA //ETH
-        $pageData['equihash'] = $this->getValue("Equihash"); //CMM //ZEC
+        $pageData['kheavyhash'] = $this->getValue("KHeavyHash"); //CMM //KAS
 
         return $pageData;
     }
