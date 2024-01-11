@@ -42,56 +42,15 @@
                     <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5 px-3 px-xxl-3 py-3 card-cpay">
                         <div class="card-body h-100">
 
-                            <div class="row">
-
-                                <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>{{__("Full Name")}} <i class="text-danger">*</i></label>
-                                    <input class="form-control form-control-xl" name="full_name" id="full_name" type="text" placeholder="{{__("Enter Full Name")}}">
+                            <h5 class="mb-5">{{__("Enter your card details below")}}</h5>
+                            <div class="row mt-4 card_form">
+                                <div class="form-group col-md-3">
                                 </div>
-
-                                <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>{{__("Card Number")}} <i class="text-danger">*</i></label>
-                                    <input class="form-control form-control-xl card-mask" name="cnumber" id="cnumber" type="text" placeholder="{{__("Enter Card Number")}}">
-                                </div>
-
-                                <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>{{__("Card Expiry Month")}} <i class="text-danger"> *</i></label>
-                                    <select class="form-control form-control-xl" id="card_expiry_month" name="card_expiry_month">
-                                        <option value="">{{__("Select Expiry Month")}}</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>{{__("Card Expiry Year")}} <i class="text-danger"> *</i></label>
-                                    <select id="card_expiry_year" class="form-control form-control-xl" name="card_expiry_year">
-                                        <option value="">{{__("Select Expiry Year")}}</option>
-                                        @php
-                                        $now = date("Y-m-d");
-                                        @endphp
-
-                                        @for ($i = 0; $i < 10 ; $i++) @php $add=" +" .$i." years"; $val=date("Y" , strtotime($now. $add)); @endphp {!! "<option value=" .$val.">".$val."</option>" !!}
-                                            @endfor
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 pb-3 mb-md-4">
-                                    <label class='float-left form-label form-label-lg'>{{__("CVN")}} <i class="text-danger">*</i></label>
-                                    <input class="form-control form-control-xl" name="cvv" id="cvv" placeholder="{{__("Enter CVN")}}" type="text">
+                                <div class="form-group col-md-6">
+                                    <div id="card-element" class="form-control"></div>
+                                    <div id="card-errors" role="alert" class="invalid-feedback"></div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -100,7 +59,7 @@
                     <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5 px-3 px-xxl-3 py-3">
                         <div class="card-body h-100">
 
-                            <h5 class="mb-5">{{__("Send you payment to the bank details provided below and click pay")}}</h5>
+                            <h5 class="mb-5">{{__("Send your payment to the bank details provided below and click pay")}}</h5>
                             <div class="row">
 
                                 <div class="col-md-6 pb-3 mb-md-4">

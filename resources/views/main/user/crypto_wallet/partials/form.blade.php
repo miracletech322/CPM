@@ -1,7 +1,7 @@
 <div class="row {{@$is_show == 1 ? "d-none" : ""}}">
     <div class="col-md-12 pb-3 mb-md-4">
-        <small class="text-info"><b>{{__("Please ensure that you have provide correct address and you have access of that.")}}</b></small><br>
-        <small class="text-danger"><b>{{__("Caution: You will lose your funds when applying for withdrawl if your wallet address is wrong or you don't have access.")}}</b></small>
+        <small class="text-info"><b>{{__("Please ensure that you have provided the correct address and you have access to that.")}}</b></small><br>
+        <small class="text-danger"><b>{{__("Caution: You will lose your funds when applying for withdrawal if your wallet address is wrong or you don't have access.")}}</b></small>
     </div>
 </div>
 

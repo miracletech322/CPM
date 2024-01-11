@@ -53,7 +53,7 @@
                                                 <th>{{__("Account Number")}}</th>
                                                 <th>{{__("Country")}}</th>
                                                 <th>{{__("Bank Name")}}</th>
-                                                <th>{{__("Withdrawl Processing")}}</th>
+                                                <th>{{__("Withdrawal Processing")}}</th>
                                                 <th>{{__("Actions")}}</th>
                                             </tr>
                                         </thead>

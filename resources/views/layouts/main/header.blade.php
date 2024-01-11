@@ -63,7 +63,7 @@
                             <li>
                                 <a href="#" class="dropdown-item" onclick="event.preventDefault(); 
                             document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-sign-out fa-2x"></i><span class="ms-2">Sign Out</span></a>
+                                    <i class="fa fa-sign-out fa-2x"></i><span class="ms-2">{{__("Sign Out")}}</span></a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>

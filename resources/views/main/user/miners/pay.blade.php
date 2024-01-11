@@ -2,6 +2,10 @@
 
 @section('title') {{__("Miners")}} @endsection
 
+@section('css')
+    <script src="https://js.stripe.com/v3/"></script>
+@endsection
+
 @section('content')
 <div class="container-fluid px-0">
 
@@ -82,14 +86,19 @@
                                     </section>
                                 </div>
 
-                                <form action="{{ url('pay/miners') }}" class="ajax-form-success" data-success="{{url('miners')}}" method="POST" files="true" enctype="multipart/form-data">
+                                <form action="{{ url('pay/miners') }}" class="ajax-form-success ajax-form-payment" data-success="{{url('miners')}}" method="POST" files="true" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-5 text-center">
                                         @include($directory . "partials.pay_form")
                                         <input type="hidden" name="payment_method" id="payment_method" value="1" />
                                         <input type="hidden" name="cash" id="cash" value="{{$cash}}" />
                                         <input type="hidden" name="hashing" id="hashing" value="{{$hashing}}" />
-                                        <button type="submit" class="btn btn-warning submit-btn btn-lg">{{@$form_button}}</button>
+
+                                        {{-- For Card  --}}
+                                        <input name='objId' id='objId' type='hidden'>
+                                        <input name='isIntent' id='isIntent' type='hidden'>
+                                        <button type="button" id='pay-button' class="btn btn-warning submit-btn btn-lg">{{@$form_button}}</button>
+                                        <button type="submit" class="d-none">{{@$form_button}}</button>
                                     </div>
                                 </form>
                         </div>
@@ -103,5 +112,99 @@
 
 
 @section('js')
+<script>
+
+    
+
+    $(function(){
+        setupStripeElement();
+        $('#pay-button').on('click', function(){
+            var obj = $(".ajax-form-payment");
+            submit_payment_form(obj);
+        });
+    });
+
+    var stripe;
+    var card;
+    function setupStripeElement(){
+        stripe = Stripe('{{env("STRIPE_KEY")}}');
+        var elements = stripe.elements();
+
+        var style = {
+            base: {
+                color: '#32325d',
+                fontFamily: 'Arial, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                color: '#aab7c4',
+                },
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a',
+            },
+        };
+
+        card = elements.create('card', {style: style});
+        card.mount('#card-element');
+    }
+
+    function generateIntent(){
+        var url = "{{url('stripe-intent')}}";
+        $.get(url, function(clientSecret){
+
+            stripe.confirmCardSetup(clientSecret, {
+                    payment_method: {
+                        card: card,
+                        billing_details: {
+                            // Additional billing details, if needed
+                        },
+                    },
+                })
+                .then(function(result) {
+
+                    if (result.error) {
+                        setAlert('{{__("Something went wrong. Try again!")}}', "error");
+                        $('.submit-btn').removeAttr("disabled");
+                    } else {
+
+                        var url = "{{url('check-stripe-customer')}}";
+                        $.get(url, function(response){
+                            var setupIntentId = result.setupIntent.id;
+                            var id_tip = 1;
+                            if(response == 1){
+                                setupIntentId = result.setupIntent.payment_method;
+                                id_tip = 0;
+                            }
+                            sendObjIdToServer(setupIntentId, id_tip);
+                        });
+                    }
+                });
+        
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            setAlert('{{__("Something went wrong. Try again!")}}', "error");
+            $('.submit-btn').removeAttr("disabled");
+        });
+    }
+
+    function sendObjIdToServer(objID, isIntent) {
+        $("#objId").val(objID)
+        $("#isIntent").val(isIntent)
+        $('.ajax-form-payment').submit();
+    }
+
+    function submit_payment_form(obj){
+        obj.find('.submit-btn').attr("disabled", true);
+        var type = $('input[name="payment_method"]').val();
+
+        if(type == 1 && !$('#customer_transaction').is(':checked') ){ //Card
+            generateIntent();
+        }else{
+            $('.ajax-form-payment').submit();
+        }
+    }
+</script>
 @include(@$directory."partials.js")
 @endsection

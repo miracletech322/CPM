@@ -147,7 +147,7 @@ class MinersController extends Controller
         $btc_price = $btc_price_obj->price;
         $cash_btc = (1 / $btc_price) * $cash;
 
-        $form_button = "Pay $".$cash;
+        $form_button = __("Pay")." $$cash";
         $directory = $this->directory;
         $title_singular = __($this->title_singular);
         $active_item = "miners";
@@ -228,8 +228,6 @@ class MinersController extends Controller
         $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
         $charges = to_stripe_format($request->cash);
 
-
-
         if(!isset($request->full_name)){
             $request->merge([
                 'full_name' => Auth::user()->stripe_full_name,
@@ -240,17 +238,7 @@ class MinersController extends Controller
 
         $user = Auth::user();
         if (!isset($request->customer_transaction) || blank($user->stripe_customer_id)) {
-            $request->validate([
-                "cnumber" => "required",
-                "full_name" => "required",
-                "card_expiry_month" => "required",
-                "card_expiry_year" => "required",
-                "cvv" => "required",
-            ], [
-                "cnumber.required" => __("The card number field is required"),
-                "cvv.required" => __("The CVN field is required")
-            ]);
-
+            
             $request->merge([
                 'email' => $user->email,
                 'first_name' => $user->first_name,
@@ -476,5 +464,21 @@ class MinersController extends Controller
     public function coinbase_success(){
         Session::flash('success', __('Your request has been submitted. After verfication your earning will start.'));
         return redirect("miners");
+    }
+
+    public function stripe_intent(){
+        //GET INTENT OBJECT
+        $stripe = new StripeService();
+        $clientSecret = $stripe->get_intent_secret();
+        return $clientSecret;
+    }
+
+    public function check_stripe_customer(){
+        if(auth()->check()){
+            if(auth()->user()->stripe_customer_id){
+                return 1;
+            }
+        }
+        return 0;
     }
 }

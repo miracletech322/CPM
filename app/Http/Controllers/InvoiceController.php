@@ -170,9 +170,9 @@ class InvoiceController extends Controller
             if(!$record)
                 return redirect()->back()->with("error", __("Invoice not found."));
 
-            $data["date_title"] = __("Withdrawl Date");
-            $data["total"] = __("Withdrawl");
-            $data["method"] = __("Withdrawl Method");
+            $data["date_title"] = __("Withdrawal Date");
+            $data["total"] = __("Withdrawal");
+            $data["method"] = __("Withdrawal Method");
             $data["method_text"] = get_withdraw_method($record->payment_method);
             $data["by"] = __("Paid By");
             $data["status"] = __("Withdrawn");
@@ -253,9 +253,9 @@ class InvoiceController extends Controller
             if(!$record)
                 return redirect()->back()->with("error", __("Invoice not found."));
 
-            $data["date_title"] = __("Withdrawl Date");
-            $data["total"] = __("Withdrawl");
-            $data["method"] = __("Withdrawl Method");
+            $data["date_title"] = __("Withdrawal Date");
+            $data["total"] = __("Withdrawal");
+            $data["method"] = __("Withdrawal Method");
             $data["method_text"] = get_withdraw_method($record->payment_method);
             $data["by"] = __("Paid By");
             $data["status"] = __("Withdrawn");

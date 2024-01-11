@@ -122,6 +122,8 @@ Route::middleware('locale')->group(function () {
                 Route::resource('/miners', controller_path() . 'MinersController');
                 Route::get('/pay/miners', controller_path() . 'MinersController@pay');
                 Route::post('/pay/miners', controller_path() . 'MinersController@process_payment');
+                Route::get('stripe-intent', controller_path() . 'MinersController@stripe_intent');
+                Route::get('check-stripe-customer', controller_path() . 'MinersController@check_stripe_customer');
                 Route::get('coinbase-success', controller_path() . 'MinersController@coinbase_success');
                 Route::get('miners-income', controller_path() . 'MinersController@miners_income');
                 Route::get('miners-income-listing', controller_path() . 'MinersController@miners_income_listing');

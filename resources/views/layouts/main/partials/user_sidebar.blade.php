@@ -13,31 +13,31 @@ $home_url = url("/");
             <li class="nav-item miners">
                 <a class="nav-link" href="{{url("miners")}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                     <i width="19.498" height="17.546"class="fa fa-bitcoin fa-lg" ></i>
-                     &nbsp;<span class="ms-2">Miners</span>
+                     &nbsp;<span class="ms-2">{{__("Miners")}}</span>
                 </a>
             </li>
             <li class="nav-item withdraw">
                 <a class="nav-link" href="{{url("withdraw")}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                     <i width="19.498" height="17.546" class="fa fa-shopping-cart fa-lg"></i>
-                     &nbsp;<span class="ms-2">Withdraw</span>
+                     &nbsp;<span class="ms-2">{{__("Withdraw")}}</span>
                 </a>
             </li>
             <li class="nav-item requests">
                 <a class="nav-link" href="{{url("user-requests")}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                     <i width="19.498" height="17.546" class="fa fa-list" ></i>
-                     &nbsp;<span class="ms-2">Requests</span>
+                     &nbsp;<span class="ms-2">{{__("Requests")}}</span>
                 </a>
             </li>
             <li class="nav-item referrals">
                 <a class="nav-link" href="{{url("referrals")}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                     <i width="19.498" height="17.546" class="fa fa-tag"></i>
-                     &nbsp;<span class="ms-2">Referrals</span>
+                     &nbsp;<span class="ms-2">{{__("Referrals")}}</span>
                 </a>
             </li>
             <li class="nav-item invoice">
                 <a class="nav-link" href="{{url("invoice")}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                     <i width="19.498" height="17.546" class="fa fa-file" ></i>
-                     &nbsp;<span class="ms-2">Invoices</span>
+                     &nbsp;<span class="ms-2">{{__("Invoices")}}</span>
                 </a>
             </li>
 
@@ -45,7 +45,7 @@ $home_url = url("/");
             <li class="nav-item account">
                 <a class="nav-link" href="{{url("account")}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                     <i width="19.498" height="17.546" class="fa fa-user fa-lg"></i>
-                     &nbsp;<span class="ms-2">Account</span>
+                     &nbsp;<span class="ms-2">{{__("Account")}}</span>
                 </a>
             </li>
         </ul>

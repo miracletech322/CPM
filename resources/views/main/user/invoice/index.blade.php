@@ -29,7 +29,7 @@
                                     <a class="nav-link active" id="pills-deposit-tab" data-bs-toggle="pill" data-bs-target="#pills-deposit" type="button" role="tab" aria-controls="pills-deposit" aria-selected="false">{{__("Deposit")}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="pills-withdrawl-tab" data-bs-toggle="pill" data-bs-target="#pills-withdrawl" type="button" role="tab" aria-controls="pills-withdrawl" aria-selected="false">{{__("Withdrawl")}}</a>
+                                    <a class="nav-link" id="pills-withdrawl-tab" data-bs-toggle="pill" data-bs-target="#pills-withdrawl" type="button" role="tab" aria-controls="pills-withdrawl" aria-selected="false">{{__("Withdrawal")}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -110,9 +110,9 @@
                                                             <div class="slim_scroll pb-5">
                                                                 <table class="table" id="datatables-withdrawl" style="width:100% !important;">
                                                                     <thead>
-                                                                        <th>Withdrawl Date</th>
+                                                                        <th>Withdrawal Date</th>
                                                                         <th>Transaction ID</th>
-                                                                        <th>Withdrawl Method</th>
+                                                                        <th>Withdrawal Method</th>
                                                                         <th>Total Withdraw</th>
                                                                         <th>Action</th>
                                                                     </thead>

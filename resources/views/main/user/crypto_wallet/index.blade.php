@@ -51,7 +51,7 @@
                                             <tr>
                                                 <th>{{__("Crypto Option")}}</th>
                                                 <th>{{__("Wallet Address")}}</th>
-                                                <th>{{__("Withdrawl Processing")}}</th>
+                                                <th>{{__("Withdrawal Processing")}}</th>
                                                 <th>{{__("Actions")}}</th>
                                             </tr>
                                         </thead>

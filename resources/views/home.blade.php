@@ -75,7 +75,7 @@
                 <div class="section-heading text-center pb-65">
                     <label class="sub-heading text-black">{{__("Folex Mining Platform")}}</label>
                     <h2 class="heading-title">{{__("Best Features")}}</h2>
-                    <p class="heading-des">{{__("We have put together a platform that ensures smooth running and customer satisfaction so you are never in doubt. Mine crypto from anywhere, at any time! <br>Some of our best features are listed below")}}</p>
+                    <p class="heading-des">{{__("We have put together a platform that ensures smooth running and customer satisfaction so you are never in doubt. Mine crypto from anywhere, at any time!")}} <br>{{__("Some of our best features are listed below")}}</p>
                 </div>
             </div>
         </div>
@@ -286,7 +286,7 @@
                 <div class="section-heading pb-20">
                     <label class="sub-heading text-black">{{__("App For IOS/Android Coming Soon")}}</label>
                     <h2 class="heading-title">{{__("Folex Mining App")}}</h2>
-                    <p class="heading-des pb-20">{{__("Stay updated on the status of your mining operation with Folex's mining app. Get alerts for high temperature and electricity consumption through the that will be accessible to all through Goolge-Play and App-Store. Stay equipped with real time reports on all your mining hasrate and profitability. ")}}</p>
+                    <p class="heading-des pb-20">{{__("Stay updated on the status of your mining operation with Folex's mining app. Get alerts for high temperature and electricity consumption through the that will be accessible to all through Goolge-Play and App-Store. Stay equipped with real time reports on all your mining hasrate and profitability.")}}</p>
 
                     <ul class="check-list mb-30">
                         <li><span><i class="fa fa-check" style="color: black;" aria-hidden="true"></i></span>
@@ -357,7 +357,7 @@
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
                                     <a class="qus-title">{{__("What would be the cost of starting my mining operation with Folex?")}}</a>
-                                    <p class="qus-des pt-10">{{__("Folex offers you solutions to start mining using either our already established mining rigs all over the world by signing up for a [contact / subscription] with us, or you can use your own hardware, ASICs and GPUs to mine at your own overhead costs and place. <br> To view our pricing plans, please visit:")}} <a href="#calculator">{{__("calculator section")}}</a></p>
+                                    <p class="qus-des pt-10">{{__("Folex offers you solutions to start mining using either our already established mining rigs all over the world by signing up for a [contact / subscription] with us, or you can use your own hardware, ASICs and GPUs to mine at your own overhead costs and place.")}} <br> {{__("To view our pricing plans, please visit:")}} <a href="#calculator">{{__("calculator section")}}</a></p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
@@ -401,7 +401,7 @@
                                         <ul class="ml-3">
                                             <li>● {{__('No barrier to entry: Start mining with an investment as low as [$USD] for [hashrate]')}}</li>
                                             <li>● {{__("State of the art mining equipment: At folex mining, we use the latest devices from bitmain innosillicon goldshell and GPUs from NVIDIA and AMD")}}</li>
-                                            <li>● {{__("Community of experts: Join to ou Telegram Chanel experts and investors that share a common goal of decentralized finance and the future of our economy")}}</li>
+                                            <li>● {{__("Community of experts: Join to our Telegram Channel experts and investors that share a common goal of decentralized finance and the future of our economy")}}</li>
                                             <li>● {{__("Trusted and Transparent: We release reports every month that detail our crypto mining capability and accomplishments for you to review")}}</li>
                                             <li>● {{__("24/7 Customer support: Our exceptionally trained customer support is with you at every step of the way")}}</li>
                                         </ul>
