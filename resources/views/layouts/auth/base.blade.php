@@ -26,9 +26,14 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
             <a href="{{url("/")}}"><img src="{{$site_data["site_logo"]}}" style="max-height: 100px !important;" alt="Muze"></a>
         </div>
     </div>
+
     <div class="container">
         @yield('content')
+        @include('layouts.auth.footer')
     </div>
+
+    
+    
     @include('layouts.auth.footer_includes', $site_data)
     @yield('js')
 </body>

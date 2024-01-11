@@ -68,6 +68,10 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
         .rounded-12 {
             border-radius: 0.75rem!important;
         }
+        
+        .fw-bold {
+            font-weight: bold;
+        }
 
     </style>
 </head>

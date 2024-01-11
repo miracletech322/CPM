@@ -17,9 +17,34 @@
                             </g>
                         </svg>
                     </a>
-
                 </div>
                 <div class="col-auto d-flex flex-wrap align-items-center icon-blue-hover ps-0">
+
+                    <div class="dropdown grid-option {{auth()->user()->role_id != 3 ? 'd-none' : ''}}">
+                        <a href="#" class="text-dark ms-4 ms-xxl-5 h5 mb-0" data-bs-toggle="dropdown" aria-expanded="false" id="grid">
+                            <img src='{{@languages()[auth()->user()->locale][1]}}' height=33 >
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end py-0" style='min-width: auto;' aria-labelledby="grid" style="">
+                            <div class="dropdown-header d-flex align-items-center px-4 py-2">
+                                <span class="fs-16 Montserrat-font font-weight-semibold text-black-600" style='padding-top: 11px !important; padding-bottom: 11px !important;'>{{__("Set Language")}}</span>
+                            </div>
+                            <div class="dropdown-footer text-center py-2 border-top border-gray-50">
+                                @foreach (languages() as $locale => $lang)
+                                    <a href="{{url("lang/$locale")}}" class="dropdown-item text-wrap">
+                                        <div class="media align-items-center">
+                                            <span class="me-3">
+                                                <img class="avatar avatar-xs rounded-0" src="{{$lang[1]}}" alt="{{$lang[0]}}">
+                                            </span>
+                                            <div class="media-body" style='text-align: left;'>
+                                                <span class="fs-16 font-weight-semibold dropdown-title">{{$lang[0]}}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="dropdown profile-dropdown">
                         <a href="#" class="avatar avatar-sm avatar-circle ms-4 ms-xxl-5" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton">
                             <img class="avatar-img" src="{{asset('temp/assets/img/avatar.png')}}" alt="Avatar">

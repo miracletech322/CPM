@@ -528,3 +528,10 @@ function get_withdraw_method($id){
     $payment_method = ["1" => "Card", "2"=> "Bank", "3" => "Crypto"];
     return $payment_method[$id];
 }
+
+function languages(){
+    return [
+        "en" => [__("English"), url('plugins\lang_fonts\flags\1x1\gb.svg')],
+        "de" => [__("German"), url('plugins\lang_fonts\flags\1x1\de.svg')]
+    ];
+}
