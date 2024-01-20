@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-6">
                 <ul class="nav navbar">
-                    <li><a href="mailto:support@folex-mining.com">{{__("Support")}}</a></li>
+                    <li><a href="mailto:support@cloudminepool.com">{{__("Support")}}</a></li>
                 </ul>
             </div>
         </div>

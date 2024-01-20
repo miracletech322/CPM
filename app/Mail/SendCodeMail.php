@@ -30,7 +30,7 @@ class SendCodeMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Folex mining authentication code')
+        return $this->subject('Cloudminepool authentication code')
                     ->view('emails.code');
     }
 }

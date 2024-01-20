@@ -3,7 +3,7 @@
 
 
  @php
-    $site_name = "Folex Mining";
+    $site_name = "CloudMinePool";
     $site_logo = '/frontend/images/logo1.svg';
     $settings = DB::table("settings")->first();
     if($settings){

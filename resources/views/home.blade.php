@@ -12,7 +12,7 @@
             <div class="col-lg-6 col-md-6 position-u flex-align wow fadeInLeft">
                 <div class="banner-contain">
                     <h1 class="banner-heading">{{__("Transparent Crypto Mining - Made easy, made for you")}}</h1>
-                    <p class="banner-des">{{__("Mine Bitcoin, Ether and Litecoin with our state of the art mining ASICs and GPU.")}} <br>{{__("Feel free to")}} <a href="mailto:support@folex-mining.com">{{__("contact us")}}</a> {{__("for any query or details")}}.</p>
+                    <p class="banner-des">{{__("Mine Bitcoin, Ether and Litecoin with our state of the art mining ASICs and GPU.")}} <br>{{__("Feel free to")}} <a href="mailto:support@cloudminepool.com">{{__("contact us")}}</a> {{__("for any query or details")}}.</p>
                     <a href="#calculator" class="btn">{{__("Calculator")}}</a>
                 </div>
             </div>
@@ -30,9 +30,9 @@
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
                 <div class="section-heading text-center pb-65">
-                    <label class="sub-heading text-black">{{__("Folex Crypto Mining")}}</label>
+                    <label class="sub-heading text-black">{{__("Cloudminepool Crypto Mining")}}</label>
                     <h2 class="heading-title">{{__("How it Works")}}</h2>
-                    <p class="heading-des">{{__("Using state of the art equipment and our low cost of electricity and maintenance, Folex-Mining offers you plans to start mining with us today.")}}</p>
+                    <p class="heading-des">{{__("Using state of the art equipment and our low cost of electricity and maintenance, Cloudminepool offers you plans to start mining with us today.")}}</p>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
             <div class="col-md-6 flex-align wow fadeInRight">
                 <div class="work-box">
                     <h3 class="work-process-title pb-25">{{__("We’ve built a platform for crypto beginners and experts a like - A community for crypto mining enthusiasts.")}}</h3>
-                    <p class="work-des pb-20">{{__("With Folex-Mining, you’re in good hands with")}} </p>
+                    <p class="work-des pb-20">{{__("With Cloudminepool, you’re in good hands with")}} </p>
 
                     <ul class="check-list">
                         <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
@@ -73,7 +73,7 @@
         <div class="row">
             <div class="col-md-12 wow fadeInUp">
                 <div class="section-heading text-center pb-65">
-                    <label class="sub-heading text-black">{{__("Folex Mining Platform")}}</label>
+                    <label class="sub-heading text-black">{{__("CloudMinePool Platform")}}</label>
                     <h2 class="heading-title">{{__("Best Features")}}</h2>
                     <p class="heading-des">{{__("We have put together a platform that ensures smooth running and customer satisfaction so you are never in doubt. Mine crypto from anywhere, at any time!")}} <br>{{__("Some of our best features are listed below")}}</p>
                 </div>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="feature-contain pt-25">
                         <a class="feature-title pb-15">{{__("Reliable partners")}}</a>
-                        <p class="feature-des">{{__("We are a team of crypto experts brought together by our common interest in decentralized finance. This is not a one-man show. Everyone at Folex is well trained, well equipped and vigilant in their duties and responsibilities.")}} </p>
+                        <p class="feature-des">{{__("We are a team of crypto experts brought together by our common interest in decentralized finance. This is not a one-man show. Everyone at Cloudminepool is well trained, well equipped and vigilant in their duties and responsibilities.")}} </p>
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@
                     </div>
                     <div class="feature-contain pt-25">
                         <a class="feature-title pb-15">{{__("Trusted and Transparent")}}</a>
-                        <p class="feature-des">{{__("Folex-Mining believes in being upfront and transparent about our operations, that's why we publish monthly reports of our computational and mining power.")}} </p>
+                        <p class="feature-des">{{__("Cloudminepool believes in being upfront and transparent about our operations, that's why we publish monthly reports of our computational and mining power.")}} </p>
                     </div>
                 </div>
             </div>
@@ -285,8 +285,8 @@
             <div class="col-lg-6 wow fadeInRight pb-100 order-r-1">
                 <div class="section-heading pb-20">
                     <label class="sub-heading text-black">{{__("App For IOS/Android Coming Soon")}}</label>
-                    <h2 class="heading-title">{{__("Folex Mining App")}}</h2>
-                    <p class="heading-des pb-20">{{__("Stay updated on the status of your mining operation with Folex's mining app. Get alerts for high temperature and electricity consumption through the that will be accessible to all through Goolge-Play and App-Store. Stay equipped with real time reports on all your mining hasrate and profitability.")}}</p>
+                    <h2 class="heading-title">{{__("CloudMinePool App")}}</h2>
+                    <p class="heading-des pb-20">{{__("Stay updated on the status of your mining operation with Cloudminepool's mining app. Get alerts for high temperature and electricity consumption through the that will be accessible to all through Goolge-Play and App-Store. Stay equipped with real time reports on all your mining hasrate and profitability.")}}</p>
 
                     <ul class="check-list mb-30">
                         <li><span><i class="fa fa-check" style="color: black;" aria-hidden="true"></i></span>
@@ -310,7 +310,7 @@
                 <div class="section-heading text-center pb-65">
                     <label class="sub-heading text-black">{{__("Faqs")}}</label>
                     <h2 class="heading-title">{{__("Frequently Asked questions")}}</h2>
-                    <p class="heading-des">{{__("We understand you have many questions, if you find a question that's not already been answered below, please alert us through customer support at")}} <a href="mailto:support@folex-mining.com">support@folex-mining.com</a> {{__("Thank you.")}}</p>
+                    <p class="heading-des">{{__("We understand you have many questions, if you find a question that's not already been answered below, please alert us through customer support at")}} <a href="mailto:support@cloudminepool.com">support@cloudminepool.com</a> {{__("Thank you.")}}</p>
                 </div>
             </div>
         </div>
@@ -351,13 +351,13 @@
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
                                     <a class="qus-title">{{__("What Crypto Currencies can I mine? ")}}</a>
-                                    <p class="qus-des pt-10">{{__("With Folex you can mine Bitcoin, Ethereum, and Litecoin as for now, new Algorithms may available soon.")}}</p>
+                                    <p class="qus-des pt-10">{{__("With Cloudminepool you can mine Bitcoin, Ethereum, and Litecoin as for now, new Algorithms may available soon.")}}</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a class="qus-title">{{__("What would be the cost of starting my mining operation with Folex?")}}</a>
-                                    <p class="qus-des pt-10">{{__("Folex offers you solutions to start mining using either our already established mining rigs all over the world by signing up for a [contact / subscription] with us, or you can use your own hardware, ASICs and GPUs to mine at your own overhead costs and place.")}} <br> {{__("To view our pricing plans, please visit:")}} <a href="#calculator">{{__("calculator section")}}</a></p>
+                                    <a class="qus-title">{{__("What would be the cost of starting my mining operation with Cloudminepool?")}}</a>
+                                    <p class="qus-des pt-10">{{__("Cloudminepool offers you solutions to start mining using either our already established mining rigs all over the world by signing up for a [contact / subscription] with us, or you can use your own hardware, ASICs and GPUs to mine at your own overhead costs and place.")}} <br> {{__("To view our pricing plans, please visit:")}} <a href="#calculator">{{__("calculator section")}}</a></p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
@@ -380,9 +380,9 @@
 
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a class="qus-title">{{__("What is the benefit of using Folex's Mining? ")}}</a>
+                                    <a class="qus-title">{{__("What is the benefit of using Cloudminepool's Mining? ")}}</a>
                                     <p class="qus-des pt-10">
-                                        {{__("Folex has established mining operations in several countries with low cost of electricity and parts to ensure the savings are then forwarded to you. We aim to be the largest and most well known Crypto mining platform that users trust and benefit from all over the world.")}}<br>{{__("With us, you will not have to worry about the initial setup of hardware, maintenance or cost of electricity as we'll take care of it for you.")}}
+                                        {{__("Cloudminepool has established mining operations in several countries with low cost of electricity and parts to ensure the savings are then forwarded to you. We aim to be the largest and most well known Crypto mining platform that users trust and benefit from all over the world.")}}<br>{{__("With us, you will not have to worry about the initial setup of hardware, maintenance or cost of electricity as we'll take care of it for you.")}}
                                     </p>
                                 </div>
                             </div>
@@ -400,7 +400,7 @@
                                     <p class="qus-des pt-10">
                                         <ul class="ml-3">
                                             <li>● {{__('No barrier to entry: Start mining with an investment as low as [$USD] for [hashrate]')}}</li>
-                                            <li>● {{__("State of the art mining equipment: At folex mining, we use the latest devices from bitmain innosillicon goldshell and GPUs from NVIDIA and AMD")}}</li>
+                                            <li>● {{__("State of the art mining equipment: At cloudminepool mining, we use the latest devices from bitmain innosillicon goldshell and GPUs from NVIDIA and AMD")}}</li>
                                             <li>● {{__("Community of experts: Join to our Telegram Channel experts and investors that share a common goal of decentralized finance and the future of our economy")}}</li>
                                             <li>● {{__("Trusted and Transparent: We release reports every month that detail our crypto mining capability and accomplishments for you to review")}}</li>
                                             <li>● {{__("24/7 Customer support: Our exceptionally trained customer support is with you at every step of the way")}}</li>
@@ -416,7 +416,7 @@
                         <div class="row">
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a class="qus-title">{{__("Which Wallet does Folex recommend?")}}</a>
+                                    <a class="qus-title">{{__("Which Wallet does Cloudminepool recommend?")}}</a>
                                     <p class="qus-des pt-10">{{__("Ideally we recommend hardware or paper wallets; however, to start off your mining journey, you may use desktop wallets such as MetaMask or MyEtherWallet or Trustwallet. We are not responsible for which wallet you use, we only give possible options for a wallet.")}}</p>
                                 </div>
                             </div>
@@ -465,8 +465,8 @@
                             </div>
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
-                                    <a class="qus-title">{{__("Can I purchase crypto currencies through Folex?")}}</a>
-                                    <p class="qus-des pt-10">{{__("Our teams are working diligently to implement trading of various cryptos on Folex; however, this is not yet available. Please check back with us on a later date.")}}</p>
+                                    <a class="qus-title">{{__("Can I purchase crypto currencies through Cloudminepool?")}}</a>
+                                    <p class="qus-des pt-10">{{__("Our teams are working diligently to implement trading of various cryptos on Cloudminepool; however, this is not yet available. Please check back with us on a later date.")}}</p>
                                 </div>
                             </div>
                             <div class="col-md-6 pb-65">
@@ -478,7 +478,7 @@
                             <div class="col-md-6 pb-65">
                                 <div class="faq-tab">
                                     <a class="qus-title">{{__("How do I contact you if I have further questions?")}}</a>
-                                    <p class="qus-des pt-10">{{__("Our customer support is available to cater to your queries at any given time.")}} <a href="mailto:support@folex-mining.com">support@folex-mining.com</a></p>
+                                    <p class="qus-des pt-10">{{__("Our customer support is available to cater to your queries at any given time.")}} <a href="mailto:support@cloudminepool.com">support@cloudminepool.com</a></p>
                                 </div>
                             </div>
 

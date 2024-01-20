@@ -43,10 +43,10 @@
                 </div>
                 <div class="my-3 my-sm-4 d-flex pb-1">
                     <div class="form-check form-check-sm mb-0">
-                        <input class="form-check-input" type="checkbox" id="folex_agreement" name="folex_agreement" {{ old('folex_agreement') ? 'checked' : '' }}>
+                        <input class="form-check-input" type="checkbox" id="cloudminepool_agreement" name="cloudminepool_agreement" {{ old('cloudminepool_agreement') ? 'checked' : '' }}>
                     </div>
-                    <label class="form-check-label small text-gray-600" for="folex_agreement">
-                        {{__("I agree to")}} <a href="{{url('terms')}}" target="_blank">{{__("terms and conditions")}}</a> {{__("of Folex Mining")}}.
+                    <label class="form-check-label small text-gray-600" for="cloudminepool_agreement">
+                        {{__("I agree to")}} <a href="{{url('terms')}}" target="_blank">{{__("terms and conditions")}}</a> {{__("of CloudMinePool")}}.
                     </label>
                 </div>
                 <div class="border-top border-gray-200 pt-3 pt-sm-4 text-center">

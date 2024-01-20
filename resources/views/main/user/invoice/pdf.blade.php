@@ -619,7 +619,7 @@
                                 <div id="invoice-template" class="card-block" style="margin-top: 40px !important;">
                                     <div id="invoice-company-details" class="row" style="width: 100% !important; display: block !important;">
                                         <div class="col-6 text-left" style="width: 40% !important; display: inline-block !important; text-align:left !important;">
-                                            <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo1.svg')}}" alt="folex-logo" class="mb-2" width="200">
+                                            <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo1.svg')}}" alt="cloudminepool-logo" class="mb-2" width="200">
                                             <h3 style="margin-top: 10px !important;">{{__("INVOICE")}} # INV{{@$data['invoice_letter'].@$record->id}}</h3>
                                         </div>
                                         <div class="col-6 text-right" style="width: 40% !important; display: inline-block !important; float:right !important;">
@@ -650,7 +650,7 @@
                                         <div class="col-6 text-right" style="margin-left: 10px !important; width: 42% !important; display: inline-block !important; text-align:right !important;">
                                             <div class="col-sm-12 text-right">
                                                 <p class="text-muted"><b>{{$data['by']}}</b></p>
-                                                <p class="mt-n3" style="margin-top: -1rem !important;">{{@$setting->site_name ? @$setting->site_name : "Folex Mining"}}</p>
+                                                <p class="mt-n3" style="margin-top: -1rem !important;">{{@$setting->site_name ? @$setting->site_name : "CloudMinePool"}}</p>
                                             </div>
                                             <div class="col-sm-12 text-right">
                                                 <p class="text-muted"><b>{{$data['method']}}</b></p>
@@ -710,7 +710,7 @@
                                         </div>
                                     </div>
                                     <div style="width: 100% !important; text-align: center !important;">
-                                        Folex Services OÜ (16389069)<br>
+                                        Cloudminepool Services OÜ (16389069)<br>
                                         Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117
                                     </div>
                             </section>

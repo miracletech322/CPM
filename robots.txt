@@ -2,4 +2,4 @@ User-Agent: *
 Disallow:
 
 
-Sitemap:https://folex-mining.com/wp-sitemap.xml
+Sitemap:https://cloudminepool.com/wp-sitemap.xml

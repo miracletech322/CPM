@@ -40,7 +40,7 @@
                                                     <div id="invoice-template" class="card-block">
                                                         <div id="invoice-company-details" class="row">
                                                             <div class="col-6 text-left">
-                                                                <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo1.svg')}}" alt="folex-logo" class="mb-2" width="200">
+                                                                <img src="{{@$setting->site_logo ? ( url('/').@$setting->site_logo ) : (asset('frontend') . '/images/logo1.svg')}}" alt="cloudminepool-logo" class="mb-2" width="200">
                                                             </div>
                                                             <div class="col-6 text-right">
                                                                 <h4>{{@$data['status']}}</h4>
@@ -74,7 +74,7 @@
                                                             <div class="col-6 text-right">
                                                                 <div class="col-sm-12 text-right">
                                                                     <p><b>{{$data['by']}}</b></p>
-                                                                    <p class="mt-n3">{{@$setting->site_name ? @$setting->site_name : "Folex Mining"}}</p>
+                                                                    <p class="mt-n3">{{@$setting->site_name ? @$setting->site_name : "CloudMinePool"}}</p>
                                                                 </div>
                                                                 <div class="col-sm-12 text-right">
                                                                     <p><b>{{$data['method']}}</b></p>
@@ -134,7 +134,7 @@
 
                                                         <div class="row mt-5">
                                                             <div class="col-sm-12 text-center">
-                                                                Folex Services OÜ (16389069)<br>
+                                                                Cloudminepool Services OÜ (16389069)<br>
                                                                 Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117
                                                             </div>
                                                         </div>

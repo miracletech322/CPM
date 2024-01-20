@@ -22,8 +22,6 @@
                 </a>
             </li>
 
-
-
             <li class="nav-item users">
                 <a class="nav-link" href="{{url('users')}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                     <i class="fa fa-users fa-lg" data-acorn-size="18"></i>
@@ -45,6 +43,12 @@
                 </a>
             </li>
 
+            <li class="nav-item account">
+                <a class="nav-link" href="{{url('account')."?section=upcoming"}}">
+                    <i width="19.498" height="17.546" class="fa fa-user fa-lg"></i>
+                    &nbsp;<span class="ms-2">Account</span>
+                </a>
+            </li>
 
             <li class="nav-item settings">
                 <a class="nav-link" href="{{url('settings')}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
@@ -53,15 +57,20 @@
                 </a>
             </li>
 
+            <li class="nav-item hashing-settings">
+                <a class="nav-link" href="{{url('hashing-settings')}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                    <i class="fa fa-cog fa-lg" data-acorn-size="18"></i>
+                    &nbsp;<span class="ms-2">Hashing Settings</span>
+                </a>
+            </li>
 
-            <li class="nav-item account">
-                <a class="nav-link" href="{{url('account')."?section=upcoming"}}">
-                    <i width="19.498" height="17.546" class="fa fa-user fa-lg"></i>
-                    &nbsp;<span class="ms-2">Account</span>
+            <li class="nav-item coin-settings">
+                <a class="nav-link" href="{{url('coin-settings')}}" data-bs-toggle="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                    <i class="fa fa-cog fa-lg" data-acorn-size="18"></i>
+                    &nbsp;<span class="ms-2">Coin Settings</span>
                 </a>
             </li>
 
         </ul>
     </div>
 </nav>
-

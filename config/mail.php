@@ -84,8 +84,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM', 'no-reply@folex.com'),
-        'name' => env('MAIL_FROM_NAME', 'Folex Mining'),
+        'address' => env('MAIL_FROM', 'no-reply@cloudminepool.com'),
+        'name' => env('MAIL_FROM_NAME', 'CloudMinePool'),
     ],
 
     /*

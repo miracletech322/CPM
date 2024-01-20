@@ -9,9 +9,9 @@ class CoinbaseService {
 
         $api_key = env("COINBASE_KEY");
         $cash = to_coinbase_format($cash);
-        $body = ["name" => "Folex Mining",
+        $body = ["name" => "CloudMinePool",
                 "pricing_type" =>  "fixed_price",
-                "description" => "Buying power from folex mining via bitcoin payment",
+                "description" => "Buying power from cloudminepool mining via bitcoin payment",
                 "local_price" => [
                         "amount" => $cash,
                         "currency"=> "USD"

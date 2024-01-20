@@ -55,7 +55,7 @@ class InitialSeeder extends Seeder
             [
                 [
                     "site_logo" => "",
-                    "site_name" => "Folex Mining",
+                    "site_name" => "CloudMinePool",
                     
                     "sha_price_th" => "5",
                     "sha_cost_per_kwh" => "0.067",
@@ -90,7 +90,7 @@ class InitialSeeder extends Seeder
                     "public_id" => (string) Str::uuid(),
                     "first_name" => "Super",
                     "last_name" => "Admin",
-                    "email" => "super@folex.com",
+                    "email" => "super@cloudminepool.com",
                     "role_id" => 1,
                     "password" => Hash::make("password")
                 ],
@@ -103,7 +103,7 @@ class InitialSeeder extends Seeder
                     "public_id" => (string) Str::uuid(),
                     "first_name" => "Admin",
                     "last_name" => "Admin",
-                    "email" => "admin@folex.com",
+                    "email" => "admin@cloudminepool.com",
                     "role_id" => 2,
                     "password" => Hash::make("password")
                 ],
@@ -117,7 +117,7 @@ class InitialSeeder extends Seeder
                     "public_id" => (string) Str::uuid(),
                     "first_name" => "User",
                     "last_name" => "User",
-                    "email" => "user@folex.com",
+                    "email" => "user@cloudminepool.com",
                     "role_id" => 3,
                     "password" => Hash::make("password")
                 ],

@@ -76,6 +76,14 @@ Route::middleware('locale')->group(function () {
                 //SETTINGS
                 Route::resource("settings", controller_path() . "SettingController");
 
+                //HASHING SETTINGS
+                Route::resource("hashing-settings", controller_path() . "HashingSettingController");
+                Route::get("delete-hashing-settings/{id}", controller_path() . "HashingSettingController@destroy");
+
+                //COIN SETTINGS
+                Route::resource("coin-settings", controller_path() . "CoinSettingController");
+                Route::get("delete-coin-settings/{id}", controller_path() . "CoinSettingController@destroy");
+
                 //ADMIN
                 Route::resource("admins", controller_path() . "AdminController");
                 Route::get("admin-listing", controller_path() . "AdminController@get_listing");

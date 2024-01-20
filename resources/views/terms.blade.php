@@ -17,33 +17,33 @@
     <div class="row justify-content-center">
         <div class="col-md-12 mt-5 mb-5">
             <h2>INTRODUCTION</h2><br>
-            <p>THESE TERMS OF SERVICE APPLY TO THE USE OF THE FOLEX-MINING.COM CLOUD MINING SERVICE AND FOLEX-MINING WEBSITE LOCATED AT FOLEX-MINING.COM AND ITS SUBDOMAINS. THE WEBSITE AND THE SERVICE ARE THE PROPERTY OF Folex Services OÜ.</p><br>
-            <p>THEY SET OUT HOW THE FOLEX-MINING.COM CLOUD HOSTED CRYPTOCURRENCY MINING SERVICE WORKS AND DESCRIBE ANY ASSOCIATED RIGHTS AND RESPONSIBILITIES. THE FOLEX-MINING.COM TERMS OF SERVICE AND ANY INSTRUCTIONS, GUIDANCE AND SIMILAR INFORMATION FOUND ON THE WEBSITE (FROM TIME TO TIME) ALSO APPLY TO HOW YOU USE THE FOLEX-MINING.COM CLOUD MINING SERVICE (TOGETHER THE "AGREEMENT"). BY USING THE WEBSITE AND/OR THE SERVICE, YOU AGREE TO THESE TERMS OF SERVICE; IF YOU DO NOT AGREE, DO NOT USE THE SITE AND/OR THE SERVICE.</p><br>
-            <p>FOLEX-MINING RESERVES THE RIGHT, AT ITS SOLE DISCRETION, TO AMEND, CHANGE, MODIFY, ADD OR REMOVE PORTIONS OF THESE TERMS OF SERVICE, AT ANY TIME. IT IS YOUR RESPONSIBILITY TO CHECK THESE TERMS PERIODICALLY FOR CHANGES. THE CURRENT VERSION OF THESE TERMS IS AVAILABLE AT HTTPS://FOLEX-MINING.COM/TERMS. YOUR CONTINUED USE OF THE WEBSITE AND/OR THE SERVICE FOLLOWING THE PUBLISHED UPDATES TO THE TERMS WILL MEAN THAT YOU ACCEPT AND AGREE TO THE CHANGES. AS LONG AS YOU AGREE AND COMPLY WITH THESE TERMS, FOLEX-MINING GRANTS YOU A PERSONAL, NON- EXCLUSIVE, NON-TRANSFERABLE, LIMITED PRIVILEGE TO ENTER AND USE THE WEBSITE AND THE SERVICE.</p><br>
+            <p>THESE TERMS OF SERVICE APPLY TO THE USE OF THE cloudminepool.com CLOUD MINING SERVICE AND FOLEX-MINING WEBSITE LOCATED AT cloudminepool.com AND ITS SUBDOMAINS. THE WEBSITE AND THE SERVICE ARE THE PROPERTY OF Cloudminepool Services OÜ.</p><br>
+            <p>THEY SET OUT HOW THE cloudminepool.com CLOUD HOSTED CRYPTOCURRENCY MINING SERVICE WORKS AND DESCRIBE ANY ASSOCIATED RIGHTS AND RESPONSIBILITIES. THE cloudminepool.com TERMS OF SERVICE AND ANY INSTRUCTIONS, GUIDANCE AND SIMILAR INFORMATION FOUND ON THE WEBSITE (FROM TIME TO TIME) ALSO APPLY TO HOW YOU USE THE cloudminepool.com CLOUD MINING SERVICE (TOGETHER THE "AGREEMENT"). BY USING THE WEBSITE AND/OR THE SERVICE, YOU AGREE TO THESE TERMS OF SERVICE; IF YOU DO NOT AGREE, DO NOT USE THE SITE AND/OR THE SERVICE.</p><br>
+            <p>FOLEX-MINING RESERVES THE RIGHT, AT ITS SOLE DISCRETION, TO AMEND, CHANGE, MODIFY, ADD OR REMOVE PORTIONS OF THESE TERMS OF SERVICE, AT ANY TIME. IT IS YOUR RESPONSIBILITY TO CHECK THESE TERMS PERIODICALLY FOR CHANGES. THE CURRENT VERSION OF THESE TERMS IS AVAILABLE AT HTTPS://cloudminepool.com/TERMS. YOUR CONTINUED USE OF THE WEBSITE AND/OR THE SERVICE FOLLOWING THE PUBLISHED UPDATES TO THE TERMS WILL MEAN THAT YOU ACCEPT AND AGREE TO THE CHANGES. AS LONG AS YOU AGREE AND COMPLY WITH THESE TERMS, FOLEX-MINING GRANTS YOU A PERSONAL, NON- EXCLUSIVE, NON-TRANSFERABLE, LIMITED PRIVILEGE TO ENTER AND USE THE WEBSITE AND THE SERVICE.</p><br>
             <p>CLOUD MINING INVOLVES FINANCIAL RISKS AND MAY NOT BE APPROPRIATE FOR ALL PEOPLE. THE INFORMATION PRESENTED HERE IS FOR INFORMATION AND EDUCATIONAL PURPOSES ONLY AND SHOULD NOT BE CONSIDERED AN OFFER OR SOLICITATION TO INVEST TO FOLEX-MINING OR ELSEWHERE. ANY INVESTMENT DECISIONS THAT YOU MAKE ARE SOLELY YOUR RESPONSIBILITY. FOLEX-MINING DOES NOT PROVIDE SERVICE FOR USA RESIDENTS.</p><br>
 
 
 
             <h2>1. ABOUT THE SERVICE, THE WEBSITE AND THESE TERMS OF SERVICE</h2><br>
-            <p>1.1. This is an agreement (referred to as "Terms") between Folex Services OÜ - Ida-Viru maakond, Narva linn, Tallinna mnt 29-8, 20303 (also referred to in these Terms as "Folex-Mining", "FOLEX-MINING", "we", "us" or "our") and you (also referred to in these Terms as "Customer", "you", "your"), the person accessing and using the Folex-Mining.com cloud mining service and accepting these Terms.</p><br>
+            <p>1.1. This is an agreement (referred to as "Terms") between Cloudminepool Services OÜ - Ida-Viru maakond, Narva linn, Tallinna mnt 29-8, 20303 (also referred to in these Terms as "Cloudminepool", "FOLEX-MINING", "we", "us" or "our") and you (also referred to in these Terms as "Customer", "you", "your"), the person accessing and using the cloudminepool.com cloud mining service and accepting these Terms.</p><br>
             <p>1.2. In these Terms:</p> <br>
             <p>1.2.1. a reference to "Cryptocurrency", "Cryptocurrencies" is a reference to the distributed, decentralized peer-to- peer digital currencies: </p><br>
             <p>1.2.1.1. "Bitcoins" is a reference to a Cryptocurrency known as Bitcoin; </p><br>
             <p>1.2.1.2. "Altcoins" is a reference to all Cryptocurrencies other than Bitcoin, such as Litecoin; </p><br>
             <p>1.2.2. "Miners" are individuals who register to mine Bitcoins and/or Altcoins with a Cloud Machine. If you successfully apply to administer a Cloud Machine, you will be a Miner; </p><br>
             <p>1.2.3. a "Mining Pool" is an organized association of Cryptocurrencies miners. The members of these associations work together to mine Cryptocurrencies and those Cryptocurrencies are distributed amongst the membership based on the contribution made to the mining by each member; </p><br>
-            <p>1.2.4. the "Mining Hardware" is the computer hardware, not owned but used as a source of mining efficiency and costs calculation by Folex-Mining; </p><br>
+            <p>1.2.4. the "Mining Hardware" is the computer hardware, not owned but used as a source of mining efficiency and costs calculation by Cloudminepool; </p><br>
             <p>1.2.5. "Hashrate" or "Hash rate" is the mining power of the Mining Hardware used to mine Cryptocurrencies. Hashrate is mining algorithm specific (SHA-256, Scrypt, X11 etc);</p><br>
             <p>1.2.6. "Cloud Machine" is the virtual mining power of the Service purchased by a Miner and administered by a Miner using the Website. “Cloud Machine” is a derivative of a real mining machine;</p><br>
-            <p>1.2.7. "Service" is Folex-Mining contract, which enables individuals to virtually mine Cryptocurrencies for themselves. Folex-Mining contract performance is deriving from Mining Hardware efficiency and costs. Folex-Mining “Service” in no way should be considered as a purchase of real mining equipment;
+            <p>1.2.7. "Service" is Cloudminepool contract, which enables individuals to virtually mine Cryptocurrencies for themselves. Cloudminepool contract performance is deriving from Mining Hardware efficiency and costs. Cloudminepool “Service” in no way should be considered as a purchase of real mining equipment;
             </p><br>
-            <p>1.2.8. the "Support" or "Customer Support" or "Helpdesk" is the technical support service of Folex-Mining that is provided via email/ticket system, available in the Folex-Mining knowledge base/FAQ at http://support.Folex-Mining.com where Customers can find answers to general questions and request assistance by submitting a request;
+            <p>1.2.8. the "Support" or "Customer Support" or "Helpdesk" is the technical support service of Cloudminepool that is provided via email/ticket system, available in the Cloudminepool knowledge base/FAQ at http://support.cloudminepool.com where Customers can find answers to general questions and request assistance by submitting a request;
             </p><br>
             <p>1.2.9. the "Panel" is the graphical user interface of the Service, with which the Miner interacts to perform all actions related to the Service;
             </p><br>
-            <p>1.2.10. the "Website" is Folex-Mining.com and any apps, software, emails or other websites which we use to provide the services of Folex-Mining.com (which includes the Service);
+            <p>1.2.10. the "Website" is cloudminepool.com and any apps, software, emails or other websites which we use to provide the services of cloudminepool.com (which includes the Service);
             </p><br>
-            <p>1.2.11. a "Payout" is the periodic deposit to your Balance, dependent on your Cloud Machine. Folex-Mining may change the periodicity of Payouts at any time, to a maximum of once per 24 hours;
+            <p>1.2.11. a "Payout" is the periodic deposit to your Balance, dependent on your Cloud Machine. Cloudminepool may change the periodicity of Payouts at any time, to a maximum of once per 24 hours;
             </p><br>
             <p>1.2.12. "Fees" are maintenance and electricity fees, charged daily from the Balance;
             </p><br>
@@ -63,7 +63,7 @@
             </p><br>
             <p>1.2.20. a "Referral Code" is an alphanumerical sequence (at least 6 characters long) that is linked to a Customer's Account;
             </p><br>
-            <p>1.2.21. a "Referral Link" is the URL with a Referral Code, that allows a new Customer to register with Folex-Mining;
+            <p>1.2.21. a "Referral Link" is the URL with a Referral Code, that allows a new Customer to register with Cloudminepool;
             </p><br>
             <p>1.2.22. a "Referral" is a Customer who registered by using another Customer's Referral Link;
             </p><br>
@@ -73,7 +73,7 @@
             </p><br>
             <p>1.2.25. a "Referral Bonus" is the reward a Referrer receives for a Referral Purchase;
             </p><br>
-            <p>1.2.26. an "Affiliate Network" is a third-party website that allows any person (with or without a Folex-Mining Account) to receive financial rewards for Folex-Mining Contracts purchased by referred Customers.
+            <p>1.2.26. an "Affiliate Network" is a third-party website that allows any person (with or without a Cloudminepool Account) to receive financial rewards for Cloudminepool Contracts purchased by referred Customers.
             </p><br>
             <p>1.3. These Terms apply to any mining you undertake by using the Service and Website and they form a legal agreement between you and FOLEX-MINING on the acceptance of you application for an Account (as set out below).
             </p><br>
@@ -96,8 +96,8 @@
 
 
             <h2>2. RISK NOTICE</h2><br>
-            <p>2.1. Actions with Cryptocurrencies carry inherent risks. Due to the fact that Cryptocurrencies are unregulated and decentralized, their value is not insured by any legal entities. The value of any Contract, any amount of any Cryptocurrency is subject to change by Folex-Mining due to a number of factors out of Folex-Mining’ control. These factors include but are not limited to changes of mining difficulty and/or other mining parameters/properties, fluctuating price (in fiat currency to Cryptocurrency exchange rate, such as USD/BTC) of Cryptocurrencies. You understand and agree that the worth of any Contact and any amount of mined Cryptocurrency may lose all worth at any moment of time due to the nature of Cryptocurrencies. You understand that you are solely responsible for management of the Cryptocurrencies in your balance as well as any losses or charges incurred by any third-party entity. </p><br>
-            <p>2.2. Any information related to Cryptocurrency and Cryptocurrency mining that is/was posted, published and/or provided by Folex-Mining via any channel of communication (including but not limited to: on the Website, in the Panel, via the Support Service, via Email newsletter, in social media) is subject to change.</p>
+            <p>2.1. Actions with Cryptocurrencies carry inherent risks. Due to the fact that Cryptocurrencies are unregulated and decentralized, their value is not insured by any legal entities. The value of any Contract, any amount of any Cryptocurrency is subject to change by Cloudminepool due to a number of factors out of Cloudminepool’ control. These factors include but are not limited to changes of mining difficulty and/or other mining parameters/properties, fluctuating price (in fiat currency to Cryptocurrency exchange rate, such as USD/BTC) of Cryptocurrencies. You understand and agree that the worth of any Contact and any amount of mined Cryptocurrency may lose all worth at any moment of time due to the nature of Cryptocurrencies. You understand that you are solely responsible for management of the Cryptocurrencies in your balance as well as any losses or charges incurred by any third-party entity. </p><br>
+            <p>2.2. Any information related to Cryptocurrency and Cryptocurrency mining that is/was posted, published and/or provided by Cloudminepool via any channel of communication (including but not limited to: on the Website, in the Panel, via the Support Service, via Email newsletter, in social media) is subject to change.</p>
 
             <h2>3. CRYPTOCURRENCIES</h2><br>
             <p>3.1. You must not mine, buy, sell, exchange, hold, own or otherwise use or exploit Cryptocurrencies in any way which is prohibited by the laws or regulations which apply to you.
@@ -132,15 +132,15 @@
 
             <p> 5.1. These Terms of Service are valid indefinitely, even after Account termination.
             </p><br>
-            <p> 5.2. The Contract Term for Folex-Mining.com Cloud Machines is unlimited by default, unless stated otherwise. The Contract is valid while profitable, until expired or until terminated (refer to section 13), whichever comes first.
+            <p> 5.2. The Contract Term for cloudminepool.com Cloud Machines is unlimited by default, unless stated otherwise. The Contract is valid while profitable, until expired or until terminated (refer to section 13), whichever comes first.
             </p><br>
             <p> 5.3. Contracts with a stated expiry date will end on the date of expiry and the Cloud Machine is stopped.
             </p><br>
             <p> 5.4. Pre-order Contracts that are not activated immediately on purchase will activate on the stated date.
             </p><br>
-            <p> 5.5. The Mining process continues until said mining is profitable. This means the Mining process will stop if the Maintenance and Electricity Fees will become larger than the Payout. If mining remains unprofitable for 21 consecutive days the Service is permanently terminated (Hashrate type specific). During the consecutive 21 day period, Payouts and Fees will also be temporarily stopped. If during the suspension period, the Contract- related mining factors (such as the exchange rate and mining difficulty) that are outside of Folex-Mining’s control will change favorably, making mining profitable again, the Service will be unsuspended and contracts reactivated. Initial cost is not refunded after contract ends.
+            <p> 5.5. The Mining process continues until said mining is profitable. This means the Mining process will stop if the Maintenance and Electricity Fees will become larger than the Payout. If mining remains unprofitable for 21 consecutive days the Service is permanently terminated (Hashrate type specific). During the consecutive 21 day period, Payouts and Fees will also be temporarily stopped. If during the suspension period, the Contract- related mining factors (such as the exchange rate and mining difficulty) that are outside of Cloudminepool’s control will change favorably, making mining profitable again, the Service will be unsuspended and contracts reactivated. Initial cost is not refunded after contract ends.
             </p><br>
-            <p> 5.6. Folex-Mining reserves the right to change the launch date, Contract Term and/or Mining Term of any Contract.
+            <p> 5.6. Cloudminepool reserves the right to change the launch date, Contract Term and/or Mining Term of any Contract.
             </p><br>
 
 
@@ -158,13 +158,13 @@
             </p><br>
             <p> 6.5. The number of accounts is limited to 1 for each beneficiary.
             </p><br>
-            <p> 6.6. When you register, you may submit an order to administer a Cloud Machine. This order will allow you to specify the processing power of the Cloud Machine. Only Folex-Mining can decide whether orders will be successful and acceptance is subject to availability, amongst other things.
+            <p> 6.6. When you register, you may submit an order to administer a Cloud Machine. This order will allow you to specify the processing power of the Cloud Machine. Only Cloudminepool can decide whether orders will be successful and acceptance is subject to availability, amongst other things.
             </p><br>
-            <p> 6.7. Your order is a request to acquire a Contract from us and does not represent a formed contract. If we accept your order, we will associate your Contract with your Account. Until then, an order is considered pending and Folex-Mining reserves the right to decline your payment.
+            <p> 6.7. Your order is a request to acquire a Contract from us and does not represent a formed contract. If we accept your order, we will associate your Contract with your Account. Until then, an order is considered pending and Cloudminepool reserves the right to decline your payment.
             </p><br>
             <p> 6.8. Subject to the payment of any fees which may be applied, Miners will be able to receive Cryptocurrencies on the basis of the processing power of the Cloud Machine and the period of time for which the Cloud Machine is mining. Miners will only be able to administer the Cloud Machine during the Contract Term. Those Cryptocurrencies will be transferred to your wallet upon your request, if such request is confirmed.
             </p><br>
-            <p>6.9. If you lose access to your Account, Folex-Mining may ask you to provide certain types of data, including personally identifiable information, to determine ownership of the Account. This may include, but is not limited to: proof of identity; proof of residence; proof of telephone number/email ownership and any identifiable activity on the Website, such as transaction IDs, order numbers, withdrawal amounts and others.
+            <p>6.9. If you lose access to your Account, Cloudminepool may ask you to provide certain types of data, including personally identifiable information, to determine ownership of the Account. This may include, but is not limited to: proof of identity; proof of residence; proof of telephone number/email ownership and any identifiable activity on the Website, such as transaction IDs, order numbers, withdrawal amounts and others.
             </p><br>
 
 
@@ -193,9 +193,9 @@
             </p><br>
             <p> 8.4. You are not allowed to use any means to mask your internet traffic and IP address (such as Proxy, Tor, VPN and others).
             </p><br>
-            <p>8.5. Multi-Level Marketing (MLM) and/or High-Yield Investment Projects (HYIP) systems are forbidden from providing any services to their users or partners based on Folex-Mining and/or Folex-Mining, including but not limited to Folex-Mining and/or Folex-Mining Products and/or Services.
+            <p>8.5. Multi-Level Marketing (MLM) and/or High-Yield Investment Projects (HYIP) systems are forbidden from providing any services to their users or partners based on Cloudminepool and/or Cloudminepool, including but not limited to Cloudminepool and/or Cloudminepool Products and/or Services.
             </p><br>
-            <p>8.6. You are strictly forbidden to use or exploit errors in design of the Website, the Service and/or all and any of their parts, features which have not been documented, and/or "program bugs" for commercial/personal gain or as means to disrupt and/or destabilize the Service and/or the Website. If you encounter such an error by accident, you are required to report your findings to support@Folex-Mining.com.
+            <p>8.6. You are strictly forbidden to use or exploit errors in design of the Website, the Service and/or all and any of their parts, features which have not been documented, and/or "program bugs" for commercial/personal gain or as means to disrupt and/or destabilize the Service and/or the Website. If you encounter such an error by accident, you are required to report your findings to support@cloudminepool.com.
             </p><br>
 
 
@@ -245,7 +245,7 @@
             </p><br>
             <p>10.5.2. You are able to purchase additional Contract(s) for the Cloud Machine(s) to increase your total Hashrate.
             </p><br>
-            <p>10.6. Folex-Mining reserves the right to make retroactive recalculations to Balance(s), Cloud Machines, Hash rate and logs, including but not limited to, in the case of any error occurring in the Service, to correct any mistakes or discrepancies.
+            <p>10.6. Cloudminepool reserves the right to make retroactive recalculations to Balance(s), Cloud Machines, Hash rate and logs, including but not limited to, in the case of any error occurring in the Service, to correct any mistakes or discrepancies.
             </p><br>
             <p>10.7. Balance may be negative. In such case, the Balance must become positive above the minimum requirement before any withdrawals and/or purchases can be made using it.
             </p><br>
@@ -256,7 +256,7 @@
             </p><br>
             <p>11.3. The Fees are deducted from your Balance once a day immediately after a Payout for all active Cloud Machines (if more than 1 are active).
             </p><br>
-            <p>11.4. Folex-Mining reserves the right to change the fees at any time without prior notice.
+            <p>11.4. Cloudminepool reserves the right to change the fees at any time without prior notice.
             </p><br>
             <p>11.5. Fees are non-refundable.</p><br>
 
@@ -356,7 +356,7 @@
             </p><br>
             <p>13.4. If you become aware of or suspect another user or Miner's breach of these terms of service, or any fraud or impropriety by another user, you must contact us immediately.
             </p><br>
-            <p>13.5. In case of any Credit Card purchase (refer to section 14.5.4.) Folex-Mining has the right to place the Customer's Account on Hold (hold the ability to withdraw any mined funds from the Customer's Account Balance) for a period of up to 30 days as a security measure of anti-fraud related regulations and policies.
+            <p>13.5. In case of any Credit Card purchase (refer to section 14.5.4.) Cloudminepool has the right to place the Customer's Account on Hold (hold the ability to withdraw any mined funds from the Customer's Account Balance) for a period of up to 30 days as a security measure of anti-fraud related regulations and policies.
             </p><br>
 
 
@@ -367,7 +367,7 @@
             </p><br>
             <p>14.2. A Customer is able to purchase a Contract using a variety of payment methods
             </p><br>
-            <p>14.3. A Customer has the right not to pay for the order in case the order has been created but not yet paid, if the Customer decides not to complete the order. The order will be expired after a given period of time (dependent on the payment method) and the Customer will not be obliged to proceed with the order. Folex-Mining will not process requests to cancel unpaid orders, as it is intended the unpaid orders will be expired.
+            <p>14.3. A Customer has the right not to pay for the order in case the order has been created but not yet paid, if the Customer decides not to complete the order. The order will be expired after a given period of time (dependent on the payment method) and the Customer will not be obliged to proceed with the order. Cloudminepool will not process requests to cancel unpaid orders, as it is intended the unpaid orders will be expired.
             </p><br>
             <p>14.4. A Customer is solely responsible for the accuracy of payment, including but not limited to: the destination account, transferable amount and payment details:
             </p><br>
@@ -375,25 +375,25 @@
             </p><br>
             <p>14.4.2. If the transferred amount is above requested, FOLEX-MINING reserves the right, at its sole discretion, to adjust the Contract accordingly to received funds, add the excessive amount to Customer's Account Balance or return the excessive amount through the payment system the Customer has used to pay for the order initially.
             </p><br>
-            <p>14.4.3. If the Customer initiates the payment with incorrect/insufficient details and/or to the wrong destination account, Folex-Mining will attempt, if possible, to process the order in a timely matter. If the destination address does not belong to Folex-Mining (directly or via a third-party service) and/or is not related to Folex-Mining in any way, Folex-Mining will not be held responsible and will decline any claims.
+            <p>14.4.3. If the Customer initiates the payment with incorrect/insufficient details and/or to the wrong destination account, Cloudminepool will attempt, if possible, to process the order in a timely matter. If the destination address does not belong to Cloudminepool (directly or via a third-party service) and/or is not related to Cloudminepool in any way, Cloudminepool will not be held responsible and will decline any claims.
             </p><br>
-            <p>14.4.4. Folex-Mining is not obliged to proactively resolve payment related issues without a claim submitted by the Customer.
+            <p>14.4.4. Cloudminepool is not obliged to proactively resolve payment related issues without a claim submitted by the Customer.
             </p><br>
             <p>14.5. In case of payment related issues a claim must be raised:
             </p><br>
             <p>14.5.1. A Customer has the right to raise a payment related claim/dispute by contacting support within 14 days from the creation of payment with proof of payment. Requests submitted after 14 days may not be processed.
             </p><br>
-            <p>14.5.2. Folex-Mining reserves the right to request proof of payment, if there are suspicions or facts the payment was not received but the Contract was activated. The Customer is obliged to provide proof of payment within 14 days of reception of such request.
+            <p>14.5.2. Cloudminepool reserves the right to request proof of payment, if there are suspicions or facts the payment was not received but the Contract was activated. The Customer is obliged to provide proof of payment within 14 days of reception of such request.
             </p><br>
-            <p>14.5.3. Proof of payment includes but is not limited to: Folex-Mining order number, unFolex-Miningue transaction ID or number, destination account, transferred amount, account statement from the payment system used.
+            <p>14.5.3. Proof of payment includes but is not limited to: Cloudminepool order number, unCloudminepoolue transaction ID or number, destination account, transferred amount, account statement from the payment system used.
             </p><br>
             <p>14.5.4. Credit Card purchases may require proof of ownership of the payment method and an identification request.
             </p><br>
             <p>14.5.5. If proof of payment is not provided within 14 days or provided proof is deemed insufficient and/or invalid:
             </p><br>
-            <p>14.5.5.1. if the claim was initiated by a Customer: Folex-Mining reserves the right to decline Customer's claim(s);
+            <p>14.5.5.1. if the claim was initiated by a Customer: Cloudminepool reserves the right to decline Customer's claim(s);
             </p><br>
-            <p>14.5.5.2. if the claim was initiated by Folex-Mining: Folex-Mining reserves the right to adjust/cancel related Contracts and adjust Customer's Account Balance by amounts mined by related Contract.
+            <p>14.5.5.2. if the claim was initiated by Cloudminepool: Cloudminepool reserves the right to adjust/cancel related Contracts and adjust Customer's Account Balance by amounts mined by related Contract.
             </p><br>
             <p>14.6. Unless otherwise provided by law or by a particular offer, all purchases are final and non-refundable. FOLEX-MINING reserves the right to issue refunds at FOLEX-MINING's sole discretion. If we issue a refund, we are under no obligation to issue the same or similar refund in the future. This refund policy does not affect any statutory rights that may apply.
             </p><br>
@@ -401,9 +401,9 @@
             </p><br>
             <p>14.8.1. Customer will receive a reimbursement of spent funds to start the service, unless any funds were withdrawn from Customer's Account Balance. If any amount was successfully withdrawn from the Account Balance, no refund requests will be processed on said Account.
             </p><br>
-            <p>14.9.2. Folex-Mining has the right to nullify or deduct any Hashrate and/or funds mined by the Hashrate of the refunded purchase from the Customer's Account Balance as well as any funds provided as a Referral Bonus for the refunded purchase from the Referrer's Account Balance.
+            <p>14.9.2. Cloudminepool has the right to nullify or deduct any Hashrate and/or funds mined by the Hashrate of the refunded purchase from the Customer's Account Balance as well as any funds provided as a Referral Bonus for the refunded purchase from the Referrer's Account Balance.
             </p><br>
-            <p>14.9.3. Folex-Mining is not obliged to reimburse any funds spent for the Maintenance and Electricity Fees.
+            <p>14.9.3. Cloudminepool is not obliged to reimburse any funds spent for the Maintenance and Electricity Fees.
             </p><br>
 
 
@@ -503,7 +503,7 @@
             </p><br>
             <p>18.4. The repayment of the pledged contract can be made at any time from the contract account for the amount that was pledged.
             </p><br>
-            <p>18.5. Contract pledging is an additional service provided by Folex-Mining and is optional to use.
+            <p>18.5. Contract pledging is an additional service provided by Cloudminepool and is optional to use.
             </p><br>
 
         </div>

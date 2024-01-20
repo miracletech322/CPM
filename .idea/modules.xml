@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/folex.iml" filepath="$PROJECT_DIR$/.idea/folex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cloudminepool.iml" filepath="$PROJECT_DIR$/.idea/cloudminepool.iml" />
     </modules>
   </component>
 </project>

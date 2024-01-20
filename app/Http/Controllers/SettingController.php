@@ -43,38 +43,7 @@ class SettingController extends Controller
             'site_name'=>'required',
             'account_number'=>'required',
             'swift_bic'=>'required',
-
-            'sha_price_th' => 'required',
-            'sha_cost_per_kwh' => 'required',
-            'sha_power_consumption' => 'required',
-            'sha_maintenance_fee' => 'required',
-
-            'eth_price_mh' => 'required',
-            'eth_cost_per_kwh' => 'required',
-            'eth_power_consumption' => 'required',
-            'eth_maintenance_fee' => 'required',
-
-            'equi_price_kh' => 'required',
-            'equi_cost_per_kwh' => 'required',
-            'equi_power_consumption' => 'required',
-            'equi_maintenance_fee' => 'required',
-
-            "sha_min" => "required|numeric",
-            "sha_max" => "required|numeric",
-            "eth_min" => "required|numeric",
-            "eth_max" => "required|numeric",
-            "equi_min" => "required|numeric",
-            "equi_max" => "required|numeric",
             "vat" => "required|numeric",
-        ],[
-            "equi_price_kh.required" => "The KHeavyHash price/KH/s field is required.",
-            "equi_cost_per_kwh.required" => "The KHeavyHash cost/KWH field is required.",
-            "equi_power_consumption.required" => "The KHeavyHash power consumption field is required.",
-            "equi_maintenance_fee.required" => "The KHeavyHash maintenance fee field is required.",
-            "equi_min.required" => "The KHeavyHash min field is required.",
-            "equi_max.required" => "The KHeavyHash max field is required.",
-            "equi_min.numeric" => "The KHeavyHash min field should be a number.",
-            "equi_max.numeric" => "The KHeavyHash max field should be a number.",
         ]);
 
         if($request->vat < 0 || $request->vat > 100)
@@ -88,6 +57,8 @@ class SettingController extends Controller
             // ]);
         }
 
+        $record->site_name = $request->site_name;
+
         if(isset($request->site_logo)){
             $path = public_path('storage/site_logo/');
             File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
@@ -98,32 +69,8 @@ class SettingController extends Controller
         }
 
         $record->vat = $request->vat;
-
-        $record->site_name = $request->site_name;
         $record->account_number = $request->account_number;
         $record->swift_bic = $request->swift_bic;
-
-        $record->sha_price_th = $request->sha_price_th;
-        $record->sha_cost_per_kwh = $request->sha_cost_per_kwh;
-        $record->sha_power_consumption = $request->sha_power_consumption;
-        $record->sha_maintenance_fee = $request->sha_maintenance_fee;
-
-        $record->eth_price_mh = $request->eth_price_mh;
-        $record->eth_cost_per_kwh = $request->eth_cost_per_kwh;
-        $record->eth_power_consumption = $request->eth_power_consumption;
-        $record->eth_maintenance_fee = $request->eth_maintenance_fee;
-        
-        $record->equi_price_kh = $request->equi_price_kh;
-        $record->equi_cost_per_kwh = $request->equi_cost_per_kwh;
-        $record->equi_power_consumption = $request->equi_power_consumption;
-        $record->equi_maintenance_fee = $request->equi_maintenance_fee;
-
-        $record->sha_min = $request->sha_min;
-        $record->sha_max = $request->sha_max;
-        $record->eth_min = $request->eth_min;
-        $record->eth_max = $request->eth_max;
-        $record->equi_min = $request->equi_min;
-        $record->equi_max = $request->equi_max;
 
         $record->save();
         return [array("success" => "Settings updated successfully")];
