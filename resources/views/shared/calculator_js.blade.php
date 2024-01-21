@@ -7,6 +7,7 @@
     var $prefix = $('.miner-select').find('.miner-select-item.active').data('prefix');
     var $step = $('.miner-select').find('.miner-select-item.active').data('step');
     var $system = $('.miner-select').find('.miner-select-item.active').data('system');
+    var $coin_data = $('.miner-select').find('.miner-select-item.active').data('coin');
     var calculator;
     var $calc_min = $min_deposit / $item_price;
     var $calc_max = $max_deposit / $item_price;
@@ -106,6 +107,7 @@
 
         $("#hashing").val($system)
         $("#cash").val($investition_input.val())
+        $("#coin_data_id").val($coin_data)
 
     }
 
@@ -175,6 +177,7 @@
 
     calculator = setup.data("ionRangeSlider");
     $('.miner-select').on('click', '.miner-select-item:not(.active)', function (event) {
+        
         $(this).closest('.miner-select').find('.miner-select-item').removeClass('active');
         $(this).addClass('active');
         $item_price = $(this).data('price');
@@ -183,6 +186,7 @@
         $prefix = $(this).data('prefix');
         $step = $(this).data('step');
         $system = $(this).data('system');
+        $coin_data = $(this).data('coin');
        
         $calc_min = $min_deposit / $item_price;
         $calc_max = $max_deposit / $item_price;
@@ -195,6 +199,9 @@
         $hashing_reward_block = $(this).data('reward');
         $network_hashrate = $(this).data('network');
         $coin_price = $(this).data('coin');
+
+        //Setting values in hidden fields
+
 
         calculator.update({
             min: $min,

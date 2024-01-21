@@ -70,7 +70,8 @@ class MinersController extends Controller
                             
         $coin_data = CoinData::with("hashing")->where("is_active", 1)->get();
 
-        $user_balance = get_user_balance();
+        $user_balance = get_user_balance() - get_user_withdraw();
+        
         return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'user_balance', 'coin_data', 'total_power'));
     }  
 

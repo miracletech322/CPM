@@ -94,9 +94,18 @@ class CoinSettingController extends Controller
             'coin_display_name' => "required"    
         ]);
 
+        //Check Hashing exist
         if(!Hashing::where("id", $request->hashing)->first())
             return [array("error" => "Hashing not found. Please refresh and try again")];
         
+        //More than one coin cannot be active for same hash
+        if(isset($request->is_active)){
+            $same_hash_coins = CoinData::where("hashing_id", $request->hashing)->where("is_active", 1)->count();
+            if($same_hash_coins > 0)
+                return [array("error" => "One or more active coins exists with same hashing. Please make them inactive if you want to make this one active")];
+        }
+        
+
         $record = new CoinData();
         
         $record->hashing_id = $request->hashing;
@@ -169,6 +178,17 @@ class CoinSettingController extends Controller
 
         if (!$record)
             return [array("error" => "Updation failed")];
+
+
+        //More than one coin cannot be active for same hash
+        if(isset($request->is_active)){
+            $same_hash_coins = CoinData::where("hashing_id", $request->hashing)
+                                        ->where("is_active", 1)
+                                        ->where("id","!=", $id)
+                                        ->count();
+            if($same_hash_coins > 0)
+                return [array("error" => "One or more active coins exists with same hashing. Please make them inactive if you want to make this one active")];
+        }
 
         $record->hashing_id = $request->hashing;
         $record->is_active = isset($request->is_active) ? 1 : 0;

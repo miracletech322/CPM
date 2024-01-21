@@ -52,7 +52,9 @@
                 {data: 'coin', name: 'coin'},
                 {data: 'hashings.name', name: 'hashings.name'},
                 {data: 'unit', name: 'unit'},
-                {data: 'is_active', name: 'is_active'},
+                {data: 'is_active', name: 'is_active', render:(function(data, ind, obj){
+                    return obj.is_active == 1 ? "<span class='text-success'><b>Active</b></span>" : "<span class='text-danger'><b>Inactive</b></span>";
+                })},
                 {data: 'action', name: 'action'}
             ],
             fnDrawCallback: function (oSettings) { oTable.page(oSettings.page) },

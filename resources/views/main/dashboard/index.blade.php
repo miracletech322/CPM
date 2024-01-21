@@ -193,61 +193,28 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                    <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <span class="small text-gray-600 d-block mb-1">BTC (SHA-256)</span>
-                                                <span class="h5 mb-0">$ {{to_cash_format(@$pageData["sha_256"]->price)}}</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="position-relative">
-                                                    <i class="fa fa-dollar fa-3x"></i>
+
+
+                            @foreach ($pageData as $coin)
+                                <div class="col-md-4">
+                                    <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                                        <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <span class="small text-gray-600 d-block mb-1">{{@$coin->coin_display_name}} ({{@$coin->hashing->name}})</span>
+                                                    <span class="h5 mb-0">$ {{to_cash_format(@$coin->price)}}</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="position-relative">
+                                                        <i class="fa fa-dollar fa-3x"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
 
-
-                            <div class="col-md-4">
-                                <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                    <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <span class="small text-gray-600 d-block mb-1">ETH (Ethash)</span>
-                                                <span class="h5 mb-0">$ {{to_cash_format(@$pageData["ethash"]->price)}}</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="position-relative">
-                                                    <i class="fa fa-dollar fa-3x"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                    <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <span class="small text-gray-600 d-block mb-1">KAS (KHeavyHash)</span>
-                                                <span class="h5 mb-0">$ {{to_cash_format(@$pageData["kheavyhash"]->price)}}</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="position-relative">
-                                                    <i class="fa fa-dollar fa-3x"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

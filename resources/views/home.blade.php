@@ -161,7 +161,7 @@
                 <div class="calculate-earnings__calculator-data-item-select">
                     <div class="miner-select">
                         @foreach ($coins as $key => $coin)
-                            <div class="miner-select-item {{$key == 0 ? "active"  : ""}}" data-system="1" data-price="{{@$coin->hashing->price_khs}}" data-cost="{{@$coin->hashing->cost_per_kwh}}" data-consumption="{{@$coin->hashing->power_consumption}}" data-coin="{{@$coin->price}}" data-difficulty="{{@$coin->difficulty}}" data-reward="{{@$coin->reward_block}}" data-network="{{@$coin->network_hashrate}}" data-min="{{@$coin->hashing->min_buyable}}" data-max="{{@$coin->hashing->max_buyable}}" data-step="0.001" data-prefix=" {{@$coin->unit}}">{{@$coin->hashing->name}}
+                            <div class="miner-select-item {{$key == 0 ? "active"  : ""}}" data-system="{{$coin->hashing->id}}" data-hashing="{{$coin->hashing->id}}" data-coin={{$coin->id}} data-price="{{@$coin->hashing->price_khs}}" data-cost="{{@$coin->hashing->cost_per_kwh}}" data-consumption="{{@$coin->hashing->power_consumption}}" data-coin="{{@$coin->price}}" data-difficulty="{{@$coin->difficulty}}" data-reward="{{@$coin->reward_block}}" data-network="{{@$coin->network_hashrate}}" data-min="{{@$coin->hashing->min_buyable}}" data-max="{{@$coin->hashing->max_buyable}}" data-step="0.001" data-prefix=" {{@$coin->unit}}">{{@$coin->hashing->name}}
                             </div>
                         @endforeach
                     </div>
@@ -267,6 +267,7 @@
             <div class="d-none">
                 <input type="hidden" name="hashing" id="hashing">
                 <input type="hidden" name="cash" id="cash">
+                <input type="hidden" name="coin_data_id" id="coin_data_id">
             </div>
 
 
