@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Business;
 use App\Models\CClass;
+use App\Models\CoinData;
 use App\Models\Course;
 use App\Models\CustomerPayment;
 use App\Models\DepositRequest;
@@ -33,8 +34,8 @@ class DashboardController extends Controller
         $title_singular = $this->title_singular;
         $active_item = "dashboard";
 
-        $calculationController = new CalculationController();
-        $pageData = $calculationController->get_page_data();
+        $pageData =  CoinData::with("hashing")->where("is_active", 1)->get();
+        
         $total_earning = Payment::sum("amount_deposit");
         $total_users = User::where("role_id", 3)->count();
         $total_admins = User::where("role_id", 2)->count();

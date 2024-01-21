@@ -61,62 +61,29 @@
                         </div>
 
 
-
-                        <div class="col-4">
-                            <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">{{__("POWER BOUGHT")}} (BTC - TH/s)</span>
-                                            <span class="h5 mb-0">{{to_power_format($total_power["total_power_th"])}}</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="position-relative">
-                                                <i class="fa fa-check-circle-o fa-3x"></i>
+                        @foreach ($total_power as $key => $power)
+                            <div class="col-4">
+                                <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                                    <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <span class="small text-gray-600 d-block mb-1">{{__("POWER BOUGHT")}} ( {{$key}} 
+                                                {{-- - TH/s --}}
+                                                )
+                                                </span>
+                                                <span class="h5 mb-0">{{to_power_format($power)}}</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="position-relative">
+                                                    <i class="fa fa-check-circle-o fa-3x"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div class="col-4">
-                            <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">{{__("POWER BOUGHT")}} (ETH - MH/s)</span>
-                                            <span class="h5 mb-0">{{to_power_format($total_power["total_power_mh"])}}</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="position-relative">
-                                                <i class="fa fa-check-circle-o fa-3x"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-4">
-                            <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <span class="small text-gray-600 d-block mb-1">{{__("POWER BOUGHT")}} (KAS - KH/s)</span>
-                                            <span class="h5 mb-0">{{to_power_format($total_power["total_power_kh"])}}</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="position-relative">
-                                                <i class="fa fa-check-circle-o fa-3x"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
 
                         <div class="col-xxl-12 mb-4">
                             <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
@@ -125,15 +92,12 @@
                                         <div class="col-md-12 text-center mb-3 text-alternate text-smaller lh-1-25">
                                             <div>${{$user_balance}} {{__("TO COINS")}}</div>
                                         </div>
-                                        <div class="col-md-4 text-center mb-2">
-                                            <span class="badge badge-warning badge-sm" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["1"] ,$user_balance))}} BTC</span>
-                                        </div>
-                                        <div class="col-md-4 text-center mb-2">
-                                            <span class="badge badge-warning badge-sm" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["2"] ,$user_balance))}} ETH</span>
-                                        </div>
-                                        <div class="col-md-4 text-center mb-2">
-                                            <span class="badge badge-warning badge-sm" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["3"] ,$user_balance))}} KAS</i></span>
-                                        </div>
+
+                                        @foreach ($coin_data as $coin_item)
+                                            <div class="col-md-4 text-center mb-2">
+                                                <span class="badge badge-warning badge-sm" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_item->price ,$user_balance))}} {{$coin_item->coin_display_name}}</span>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +127,7 @@
                                                     @foreach($miners as $key => $miner)
                                                     <tr>
                                                         <td>{{$miner->hashings ? ($miner->hashings->name ." (".get_hash_name($miner->hashings->id).")") : ""}}</td>
-                                                        <td>{{$miner->energy_bought}} {{$energy[$miner->hashing_id - 1]}}</td>
+                                                        <td>{{$miner->energy_bought}} {{$miner->coin->unit}}</td>
                                                         <td>${{to_cash_format_small($miner->amount_deposit)}}</td>
                                                         <td>{{get_payent_method($miner->payment_method)}}</td>
                                                         <td>{{to_date($miner->created_at)}}</td>
@@ -211,7 +175,7 @@
                                                     @foreach($incomes as $key => $income)
                                                     <tr>
                                                         <td>{{$income->hashings ? ($income->hashings->name." (".get_hash_name($income->hashings->id).")") : ""}} {{$income->reference_ledger_id ? " Referral" : ""}}</td>
-                                                        <td>{{$income->payments ? ($income->payments->energy_bought ." ". $energy[$income->hashing_id - 1]) : ""}} {{$income->reference_ledger_id ? " Referral" : ""}}</td>
+                                                        <td>{{$income->payments ? ($income->payments->energy_bought ." ". $miner->coin->unit) : ""}} {{$income->reference_ledger_id ? " Referral" : ""}}</td>
                                                         <td>$ {{to_cash_format_small($income->amount)}}</td>
                                                         <td>{{$income->coin_value}}</td>
                                                         <td>{{to_date($income->created_at)}}</td>

@@ -90,7 +90,8 @@ class CoinSettingController extends Controller
             'hashing' => 'required',
             'formula' => 'required',
             'unit' => 'required',
-            'coin' => 'required',
+            'coin' => 'required|unique:coin_data,coin',
+            'coin_display_name' => "required"    
         ]);
 
         if(!Hashing::where("id", $request->hashing)->first())
@@ -103,6 +104,7 @@ class CoinSettingController extends Controller
         $record->formula = $request->formula;
         $record->unit = $request->unit;
         $record->coin = $request->coin;
+        $record->coin_display_name = $request->coin_display_name;
         $record->save();
 
         Session::flash('success', 'Created successfully');
@@ -154,8 +156,10 @@ class CoinSettingController extends Controller
             'hashing' => 'required',
             'formula' => 'required',
             'unit' => 'required',
-            'coin' => 'required',
+            'coin' => 'required|unique:coin_data,coin,' . $id . ',id',
+            'coin_display_name' => "required"
         ]);
+
 
         if(!Hashing::where("id", $request->hashing)->first())
             return [array("error" => "Hashing not found. Please refresh and try again")];
@@ -171,8 +175,8 @@ class CoinSettingController extends Controller
         $record->formula = $request->formula;
         $record->unit = $request->unit;
         $record->coin = $request->coin;
-
-
+        $record->coin_display_name = $request->coin_display_name;
+        
         //If Coin is connected then name can not be changed
         if($record->isDirty(["coin"])){
             $tables_arr = [

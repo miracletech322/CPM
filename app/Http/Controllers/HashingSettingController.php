@@ -78,7 +78,7 @@ class HashingSettingController extends Controller
     {
 
         $this->validate($request,[
-            'hashing_name' => 'required',
+            'hashing_name' => 'required|unique:hashings,name',
             'price_khs' => 'required|numeric',
             'cost_per_kwh' => 'required|numeric',
             'power_consumption' => 'required|numeric',
@@ -151,7 +151,7 @@ class HashingSettingController extends Controller
     {
         
         $this->validate($request,[
-            'hashing_name' => 'required',
+            'hashing_name' => 'required|unique:hashings,name,' . $id . ',id',
             'price_khs' => 'required|numeric',
             'cost_per_kwh' => 'required|numeric',
             'power_consumption' => 'required|numeric',

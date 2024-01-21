@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CoinbasePayment;
 use App\Models\CoinData;
 use App\Models\DepositRequest;
+use App\Models\Hashing;
 use App\Models\Ledger;
 use App\Models\Payment;
 use App\Models\Setting;
@@ -41,7 +42,7 @@ class MinersController extends Controller
         $active_item = "miners";
         
 
-        $miners = Payment::where("user_id", Auth::user()->id)
+        $miners = Payment::with("coin")->where("user_id", Auth::user()->id)
                         ->with("users", "hashings")
                         ->get();
 
@@ -51,27 +52,25 @@ class MinersController extends Controller
                             ->where("action_performmed_at", ">", date("Y-m-d H:i:s", strtotime("-7 Days")))
                             ->get();
 
-        $energy = ["TH/s","MH/s", "KH/s"];
 
-        $get_power = Payment::select(
-                                DB::RAW("SUM( (IF (hashing_id=1 , energy_bought, 0) ) ) as sha"),
-                                DB::RAW("SUM( (IF (hashing_id=2 , energy_bought, 0) ) ) as ethash"),
-                                DB::RAW("SUM( (IF (hashing_id=3 , energy_bought, 0) ) ) as kheavyhash")
+        $total_power = Hashing::select(
+                                "hashings.name as hashing_name",
+                                "hashings.name as hashing_name",
+                                DB::RAW("SUM(COALESCE(payments.energy_bought, 0)) as purchased")
                             )
-                            ->where("user_id", Auth::user()->id)
-                            ->groupBy("user_id")
-                            ->first();
-        
-        $total_power["total_power_th"] = $get_power->sha ?? 0;
-        $total_power["total_power_mh"] = $get_power->ethash ?? 0;
-        $total_power["total_power_kh"] = $get_power->kheavyhash ?? 0;
+                            ->leftJoin("payments", function($join) {
+                                $join->on("hashings.id", "=", "payments.hashing_id")
+                                    ->where("payments.user_id", "=", Auth::user()->id);
+                            })
+                            ->groupBy("hashings.name")
+                            ->pluck("purchased", "hashing_name")
+                            ->toArray();
 
-        $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
-        $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
-        $coin_values["3"] = json_decode(CoinData::where("coin", "KAS")->first()->data)->price; //KAS
+                            
+        $coin_data = CoinData::with("hashing")->where("is_active", 1)->get();
 
         $user_balance = get_user_balance();
-        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'energy', 'total_power', 'coin_values', 'user_balance'));
+        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'miners', 'incomes', 'user_balance', 'coin_data', 'total_power'));
     }  
 
     
@@ -79,13 +78,13 @@ class MinersController extends Controller
     {
 
         $calculationController = new CalculationController();
-        $pageData = $calculationController->get_page_data();
+        $coin_data = CoinData::with("hashing")->where("is_active", 1)->get();
 
         $form_button = __("Proceed to payment");
         $directory = $this->directory;
         $title_singular = __($this->title_singular);
         $active_item = "miners";
-        return view($this->directory . "create", compact('form_button', 'title_singular', 'directory', 'active_item', 'pageData'));
+        return view($this->directory . "create", compact('form_button', 'title_singular', 'directory', 'active_item', 'coin_data'));
 
     }
 

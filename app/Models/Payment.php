@@ -17,6 +17,11 @@ class Payment extends Model
         return $this->belongsTo(Hashing::class, 'hashing_id', 'id');
     }
 
+    public function coin() {
+        return $this->belongsTo(CoinData::class, 'coin_data_id', 'id')->with("hashing");
+    }
+
+
     public function coinbase_payments() {
         return $this->belongsTo(CoinbasePayment::class, 'coinbase_payment_id', 'id');
     }

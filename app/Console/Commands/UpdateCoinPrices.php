@@ -30,36 +30,37 @@ class UpdateCoinPrices extends Command
 
 
         $hashings = Hashing::all();
+        
         foreach ($hashings as $key => $hashing) {
-            
-            $hashing_data = $this->get_value($hashing->name); //BTC
-            // $record = "SHA-256";
-            $hashing_data->coin = $hashing_data->coin == "BINANCE ETHW" ? "ETH" : $hashing_data->coin;
+            $coin_array = CoinData::where("hashing_id", $hashing->id)->pluck("coin")->toArray();
+            $hashing_data = $this->get_value($hashing->name, $coin_array); //BTC
 
-            $record = CoinData::where("hashing_id", $hashing->id)->where("coin", $hashing_data->coin)->first();
+            $record = CoinData::where("hashing_id", $hashing->id)
+                                ->where("coin", $hashing_data->coin)
+                                ->first();
+
             if(!$record){
                 $record = new CoinData();
                 $record->hashing_id = $hashing->id;
                 $record->coin = $hashing_data->coin;
             }
+
             $record->data = json_encode($hashing_data);
+            $record->network_hashrate = $hashing_data->network_hashrate;
+            $record->difficulty = $hashing_data->difficulty;
+            $record->reward = $hashing_data->reward;
+            $record->reward_block = $hashing_data->reward_block;
+            $record->price = $hashing_data->price;
             $record->save();
 
         }
 
     }
 
-    public function get_value($algo)
+    public function get_value($algo, $coins)
     {
 
-        $algo_arr = [
-            "SHA-256" => "BTC",
-            "Ethash" => "BINANCE ETHW",
-            "KHeavyHash" => "KAS"
-        ];
-
         $curl = curl_init();
-
         curl_setopt_array($curl, array(
           CURLOPT_URL => 'https://api.minerstat.com/v2/coins?algo='.$algo,
           CURLOPT_RETURNTRANSFER => true,
@@ -77,7 +78,7 @@ class UpdateCoinPrices extends Command
         $data = json_decode($response);
         foreach($data as $key => $d)
         {
-            if($d->coin == $algo_arr[$algo])
+            if(in_array($d->coin, $coins))
                 return $d;
         }
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 function controller_path(){
     return "App\Http\Controllers\\";
@@ -445,64 +446,25 @@ function get_from_name(){
     return $settings ? (!blank($settings->site_name) ? $settings->site_name : $site_name) : $site_name;
 }
 
-function calculate_sha($p, $hashing_difficulty, $hashing_reward_block, $cost, $consumption, $coin_price, $network_hashrate){
+function calculate_income($p, $coin_data){
 
+    $formula = $coin_data->formula;
 
-    $H = $p * 1000000000000; //Converting TaraHash to Hash
-    $D = $hashing_difficulty;
-    $B = $hashing_reward_block;
-    $S = 86400;
+    foreach (coin_api_tags() as $key => $coin_api_tag) {
+        $formula = str_replace($coin_api_tag, $coin_data->$coin_api_tag, $formula);
+    }
 
-    $upper = ($B * $H * $S);
-    $lower = ( $D * 4294967296 ); //4294967296 = 2^32
-    $btc_production = $upper / $lower;
+    $expression = new ExpressionLanguage();
+    $coin_production = $expression->evaluate($formula);
 
-    $power_consumption_cost =  ( $cost * $consumption/ 1000 ) * 24 * $p;
-    $result["daily"] = ( $coin_price / (1 / $btc_production) ) - $power_consumption_cost;
+    $power_consumption_cost =  ( ($coin_data->cost_per_kwh * $coin_data->power_consumption)/ 1000 ) * 24 * $p;
+    $result["daily"] = ( $coin_data->price_khs / (1 / $coin_production) ) - $power_consumption_cost;
     $result["monthly"] =  $result["daily"] * 30;
     $result["yearly"] = $result["daily"] * 365;
 
     return $result;
 }
 
-
-function calculate_eth($p, $hashing_difficulty, $hashing_reward_block, $cost, $consumption, $coin_price, $network_hashrate){
-
-    $H = $p * 1000000; //Converting megaHash to Hash
-    $D = $hashing_difficulty;
-    $B = $hashing_reward_block;
-    $S = 86400;
-
-    $eth_production = (($H * $B) / $D) * $S;
-    $power_consumption_cost =  ( ($cost * $consumption)/ 1000 ) * 24 * $p;
-
-    $result["daily"] = ( $coin_price / (1 / $eth_production) ) - $power_consumption_cost;
-    $result["monthly"] =  $result["daily"] * 30;
-    $result["yearly"] = $result["daily"] * 365;
-
-    return $result;
-
-}
-
-
-function calculate_equi($p, $hashing_difficulty, $hashing_reward_block, $cost, $consumption, $coin_price, $network_hashrate){
-
-    $H = $p * 1000; //Converting megaHash to Hash
-    $D = $hashing_difficulty;
-    $B = $hashing_reward_block;
-    $N = $network_hashrate;
-    $S = 86400;
-
-    $equi_production =   (($H * $B) / ($D * 3600) ) * $S;
-    $power_consumption_cost =  ( ($cost * $consumption)/ 1000 ) * 24 * $p;
-
-    $result["daily"] = ( $coin_price / (1 / $equi_production) ) - $power_consumption_cost;
-    $result["monthly"] =  $result["daily"] * 30;
-    $result["yearly"] = $result["daily"] * 365;
-
-    return $result;
-
-}
 
 function get_user_balance($user_id=""){
     $record = DB::table("wallets")->where('user_id', ($user_id == "" ? Auth::user()->id : $user_id) )->first();
@@ -533,5 +495,15 @@ function languages(){
     return [
         "en" => [__("English"), url('plugins\lang_fonts\flags\1x1\gb.svg')],
         "de" => [__("German"), url('plugins\lang_fonts\flags\1x1\de.svg')]
+    ];
+}
+
+function coin_api_tags(){
+    return [
+        "network_hashrate",
+        "difficulty",
+        "reward",
+        "reward",
+        "price"
     ];
 }

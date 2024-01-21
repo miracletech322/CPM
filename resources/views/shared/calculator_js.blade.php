@@ -52,6 +52,7 @@
         step: $step,
         onStart: function (data) {
             console.log('here i am onStart')
+            console.log(data);
             var $average = data.from;
             var $money = $average * $item_price;
             $investition_input.val(Math.round($money));
@@ -149,7 +150,7 @@
 
     function getProfitEquihash(p){
 
-        var H = p * 1000; //Converting megaHash to Hash
+        var H = p * 1000; //Converting kiloHash to Hash
         var D = $hashing_difficulty;
         var B = $hashing_reward_block;
         var N = $network_hashrate

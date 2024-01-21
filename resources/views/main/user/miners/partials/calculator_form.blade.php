@@ -13,14 +13,14 @@
                                 <div class="calculate-earnings__calculator-data-item-select">
 
                                     <div class="miner-select">
-                                        <div class="miner-select-item active" data-system="1" data-price="{{$pageData['sha_price_th']}}" data-cost="{{$pageData['sha_cost_per_kwh']}}" data-consumption="{{$pageData['sha_power_consumption']}}" data-coin="{{$pageData['sha_256']->price}}" data-difficulty="{{$pageData['sha_256']->difficulty}}" data-reward="{{$pageData['sha_256']->reward_block}}" data-network="{{$pageData['sha_256']->network_hashrate}}" data-min="{{$pageData['sha_min']}}" data-max="{{$pageData['sha_max']}}" data-step="0.001" data-prefix=" TH/s">SHA-256
-                                        </div>
-                                        <div class="miner-select-item" data-system="2" data-price="{{($pageData['eth_price_mh'])}}" data-cost="{{$pageData['eth_cost_per_kwh']}}" data-consumption="{{$pageData['eth_power_consumption']}}" data-coin="{{$pageData['ethash']->price}}" data-difficulty="{{$pageData['ethash']->difficulty}}" data-reward="{{$pageData['ethash']->reward_block}}" data-network="{{$pageData['ethash']->network_hashrate}}" data-min="{{$pageData['eth_min']}}" data-max="{{$pageData['eth_max']}}" data-step="0.001" data-prefix=" MH/s">Ethash
-                                        </div>
-                                        <div class="miner-select-item" data-system="3" data-price="{{($pageData['equi_price_kh'])}}" data-cost="{{$pageData['equi_cost_per_kwh']}}" data-consumption="{{$pageData['equi_power_consumption']}}" data-coin="{{$pageData['kheavyhash']->price}}" data-difficulty="{{$pageData['kheavyhash']->difficulty}}" data-network="{{$pageData['kheavyhash']->network_hashrate}}" data-reward="{{$pageData['kheavyhash']->reward_block}}" data-min="{{$pageData['equi_min']}}" data-max="{{$pageData['equi_max']}}" data-step="0.001" data-prefix=" KH/s">KHeavyHash
-                                        </div>
+                                        
+                                        @foreach ($coin_data as $key => $coin)
+                                            <div class="miner-select-item {{$key == 0 ? "active"  : ""}}" data-system="1" data-price="{{@$coin->hashing->price_khs}}" data-cost="{{@$coin->hashing->cost_per_kwh}}" data-consumption="{{@$coin->hashing->power_consumption}}" data-coin="{{@$coin->price}}" data-difficulty="{{@$coin->difficulty}}" data-reward="{{@$coin->reward_block}}" data-network="{{@$coin->network_hashrate}}" data-min="{{@$coin->hashing->min_buyable}}" data-max="{{@$coin->hashing->max_buyable}}" data-step="0.001" data-prefix=" {{@$coin->unit}}">{{@$coin->hashing->name}}
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
+                                
                                 <div class="miner-setup-slider">
                                     <span style="display: none;" class="irs irs--round js-irs-0"><span class="irs"><span class="irs-line" tabindex="0"></span><span class="irs-min" style="display: none; visibility: hidden;">0</span><span class="irs-max" style="display: none; visibility: visible;">1</span><span class="irs-from" style="visibility: hidden;">0</span><span class="irs-to" style="visibility: hidden;">0</span><span class="irs-single" style="left: -6.01825%;">25 TH/s</span></span><span class="irs-grid"></span><span class="irs-bar irs-bar--single" style="left: 5px !important; width: 2.5%;"></span><span class="irs-shadow shadow-single" style="display: none;"></span><span class="irs-handle single" style="left: 0%;"><i></i><i></i><i></i></span></span>
                                     <input type="text" class="miner-setup irs-hidden-input" value="" tabindex="-1" readonly="" style="display: none;">

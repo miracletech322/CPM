@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CoinData extends Model
 {
     use HasFactory;
+
+    public function hashing() {
+        return $this->belongsTo(Hashing::class, 'hashing_id', 'id');
+    }
 }

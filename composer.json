@@ -26,6 +26,7 @@
         "maatwebsite/excel": "^3.1",
         "rap2hpoutre/laravel-log-viewer": "^1.7",
         "stripe/stripe-php": "^7.76",
+        "symfony/expression-language": "^5.4",
         "tightenco/ziggy": "^0.9.4",
         "yajra/laravel-datatables-oracle": "^9.15"
     },
