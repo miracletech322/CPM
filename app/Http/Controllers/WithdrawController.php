@@ -30,15 +30,16 @@ class WithdrawController extends Controller
         $title_singular = __($this->title_singular);
         $active_item = "withdraw";
         $form_button = __("Withdraw");
-        $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
-        $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
-        $coin_values["3"] = json_decode(CoinData::where("coin", "KAS")->first()->data)->price; //KAS
-        $user_balance = get_user_balance();
+
+      
+        $coin_data = CoinData::with("hashing")->where("is_active", 1)->get();
+
+        $user_balance = get_user_balance() - get_user_withdraw();
 
         $banks = UserBank::where("user_id", Auth::user()->id)->get();
         $cryptos = UserCrypto::where("user_id", Auth::user()->id)->with("crypto_options")->get();
 
-        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'form_button', 'coin_values', 'user_balance', 'banks', 'cryptos'));
+        return view($this->directory . "index", compact('title_singular', 'directory','active_item', 'form_button', 'coin_data', 'user_balance', 'banks', 'cryptos'));
     }  
 
 

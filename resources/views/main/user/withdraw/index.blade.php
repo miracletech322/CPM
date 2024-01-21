@@ -27,7 +27,7 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <span class="small text-gray-600 d-block mb-1">{{__("Your balance")}}</span>
-                                        <span class="h5 mb-0">$ {{to_cash_format_small(get_user_balance() - get_user_withdraw())}}</span>
+                                        <span class="h5 mb-0">$ {{to_cash_format_small($user_balance)}}</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="position-relative">
@@ -65,15 +65,11 @@
                                     <div class="col-md-12 text-center mb-3 text-alternate text-smaller lh-1-25">
                                         <div>${{$user_balance}} {{__("TO COINS")}}</div>
                                     </div>
-                                    <div class="col-md-4 text-center mb-2">
-                                        <span class="badge badge-warning badge-sm" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["1"] ,$user_balance))}} BTC</span>
-                                    </div>
-                                    <div class="col-md-4 text-center mb-2">
-                                        <span class="badge badge-warning badge-sm" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["2"] ,$user_balance))}} ETH</span>
-                                    </div>
-                                    <div class="col-md-4 text-center mb-2">
-                                        <span class="badge badge-warning badge-sm" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_values["3"] ,$user_balance))}} KAS</i></span>
-                                    </div>
+                                    @foreach ($coin_data as $key => $coin_item)
+                                        <div class="col-md-4 text-center mb-2">
+                                            <span class="badge badge-warning badge-sm" style="font-size: inherit;"> {{to_btc_format(convert_to_coin_earning($coin_item->price ,$user_balance))}} {{$coin_item->coin_display_name}}</span>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -156,7 +152,7 @@
                                             <div class="row form-group mb-3 mt-3 px-md-4">
 
                                                 <div class="col-md-6 pb-3 mb-md-4">
-                                                    <label class="form-label form-label-lg">{{to_btc_format("Crypto Wallet")}} <i class="text-danger">*</i></label>
+                                                    <label class="form-label form-label-lg">{{__("Crypto Wallet")}} <i class="text-danger">*</i></label>
                                                     <select name="wallet" id="wallet" onchange="option_changed($(this).val(), 'crypto_details_row', '{{url('get-crypto-details')}}')" class="form-control form-control-xl">
                                                         <option value="">{{__("Select Crypto Wallet")}}</option>
                                                         @foreach($cryptos as $key => $crypto)

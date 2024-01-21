@@ -8,16 +8,6 @@ function controller_path(){
 }
 
 
-function get_hash_name($id){
-    $hash_name = ["1" => "BTC", "2" => "ETH", "3" => "KAS"]; 
-    return $hash_name[$id];
-}
-
-function get_power_name($id){
-    $hash_name = ["1" => "TH/s", "2" => "MH/s", "3" => "KH/s"]; 
-    return $hash_name[$id];
-}
-
 function to_date($date_in_any_format, $with_time = 0) {
     if ($date_in_any_format) {
         if($with_time == 0) {

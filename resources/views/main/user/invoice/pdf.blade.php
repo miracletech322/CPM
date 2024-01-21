@@ -684,7 +684,7 @@
                                                         <td>${{$data['cash']}}</td>
                                                         @if($type == "deposit")
                                                         <td>{{$record->hashings->name}}</td>
-                                                        <td>{{to_power_format($record->energy_bought)." ". get_power_name($record->hashing_id)}}</td>
+                                                        <td>{{to_power_format($record->energy_bought)." ". $record->coin->unit}}</td>
                                                         @endif
                                                         <td>{{to_date(@$record->created_at)}}</td>
                                                         <td>{{@$data['transaction_id']}}</td>

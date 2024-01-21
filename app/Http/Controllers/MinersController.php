@@ -42,11 +42,12 @@ class MinersController extends Controller
         $active_item = "miners";
         
 
-        $miners = Payment::with("coin")->where("user_id", Auth::user()->id)
+        $miners = Payment::with(["coin", "hashings"])->where("user_id", Auth::user()->id)
                         ->with("users", "hashings")
                         ->get();
 
-        $incomes = Ledger::where("user_id", Auth::user()->id)
+        $incomes = Ledger::with(["coin", "hashings"])
+                            ->where("user_id", Auth::user()->id)
                             ->where("type", 4)
                             ->with("hashings", "payments")
                             ->where("action_performmed_at", ">", date("Y-m-d H:i:s", strtotime("-7 Days")))
@@ -440,12 +441,12 @@ class MinersController extends Controller
     
         $records = Ledger::where("user_id", Auth::user()->id)
                             ->where("type", 4)
-                            ->with("hashings", "payments")
+                            ->with("hashings", "payments", 'coin')
                             ->get();
 
         return DataTables::of($records)
             ->addColumn('hashing', function ($records) { //
-                return ($records->hashings ? ($records->hashings->name ." (".get_hash_name($records->hashings->id).")") : ''). ($records->reference_ledger_id ? " Referral" : "");
+                return ($records->hashings ? ($records->hashings->name ." (".$records->coin->coin_display_name.")") : ''). ($records->reference_ledger_id ? " Referral" : "");
             })
             ->addColumn('power', function ($records) { //
                 return ( ($records->payments ? ($records->payments->energy_bought. " ". $this->energy[$records->hashing_id - 1]) : "") ) . ($records->reference_ledger_id ? " Referral" : "");

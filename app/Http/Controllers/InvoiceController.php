@@ -30,7 +30,7 @@ class InvoiceController extends Controller
     public function get_deposit_listing()
     {
         
-        $records = Payment::where("user_id", Auth::user()->id)
+        $records = Payment::with("coin")->where("user_id", Auth::user()->id)
                             ->with('users', 'hashings', 'coinbase_payments', 'stripe_payments')
                             ->get();
 
@@ -60,7 +60,7 @@ class InvoiceController extends Controller
                 return $records->hashings->name;
             })
             ->addColumn('power_bought', function ($records) {
-                return to_power_format($records->energy_bought)." ". get_power_name($records->hashing_id);
+                return to_power_format($records->energy_bought)." ". $records->coin->unit;
             })
             ->addColumn('action', function ($records) {
 

@@ -107,7 +107,7 @@
                         <div class="col-xxl-12 mb-4">
                             <div class="card rounded-12 shadow-dark-80 border border-gray-50 mb-3 mb-xl-5">
                                 <div class="d-flex align-items-center px-3 px-md-4 py-3 border-bottom border-gray-200">
-                                    <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">{{__("Upcoming Inspections")}}</h5>
+                                    <h5 class="card-header-title my-2 ps-md-3 font-weight-semibold">{{__("Miners")}}</h5>
                                 </div>
                                 <div class="card-body px-0 p-md-4">
                                     <div class="bd-example">
@@ -126,7 +126,7 @@
                                                 <tbody>
                                                     @foreach($miners as $key => $miner)
                                                     <tr>
-                                                        <td>{{$miner->hashings ? ($miner->hashings->name ." (".get_hash_name($miner->hashings->id).")") : ""}}</td>
+                                                        <td>{{$miner->hashings ? ($miner->hashings->name ." (".$miner->coin->coin_display_name).")" : ""}}</td>
                                                         <td>{{$miner->energy_bought}} {{$miner->coin->unit}}</td>
                                                         <td>${{to_cash_format_small($miner->amount_deposit)}}</td>
                                                         <td>{{get_payent_method($miner->payment_method)}}</td>
@@ -174,7 +174,7 @@
                                                     @if(count($incomes) > 0)
                                                     @foreach($incomes as $key => $income)
                                                     <tr>
-                                                        <td>{{$income->hashings ? ($income->hashings->name." (".get_hash_name($income->hashings->id).")") : ""}} {{$income->reference_ledger_id ? " Referral" : ""}}</td>
+                                                        <td>{{$income->hashings ? ($income->hashings->name." (".($income->coin->coin_display_name).")") : ""}} {{$income->reference_ledger_id ? " Referral" : ""}}</td>
                                                         <td>{{$income->payments ? ($income->payments->energy_bought ." ". $miner->coin->unit) : ""}} {{$income->reference_ledger_id ? " Referral" : ""}}</td>
                                                         <td>$ {{to_cash_format_small($income->amount)}}</td>
                                                         <td>{{$income->coin_value}}</td>
