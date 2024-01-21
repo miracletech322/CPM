@@ -42,41 +42,6 @@
     var power_consumption_cost =  0;
     var power_consumption_cost_home = 0;
 
-
-    setup.ionRangeSlider({
-        min: $min,
-        max: $max,
-        from: $from,
-        skin: "round",
-        hide_min_max: true,
-        postfix: $prefix,
-        step: $step,
-        onStart: function (data) {
-            console.log('here i am onStart')
-            console.log(data);
-            var $average = data.from;
-            var $money = $average * $item_price;
-            $investition_input.val(Math.round($money));
-            $average_input.val($average);
-            getProfit($average);
-        },
-        onChange: function (data) {
-            console.log(data)
-            var $average = data.from;
-            var $money = $average * $item_price;
-            $investition_input.val(Math.round($money));
-            $average_input.val($average);
-            getProfit($average);
-        },
-        onUpdate: function (data) {
-            console.log('here i am onUpdate')
-            var $average = data.from;
-            var $money = $average * $item_price;
-            $average_input.val($average);
-            getProfit($average);
-        }
-    });
-
     function getProfit(p) {
 
         if($system === 1 || $system === "1")
@@ -131,7 +96,6 @@
         setResult(result, result_home);
     }
 
-
     function getProfitEthash(p){
 
         var H = p * 1000000; //Converting megaHash to Hash
@@ -174,121 +138,166 @@
         setResult(result, result_home);
     }
 
+    $(function(){
 
-    calculator = setup.data("ionRangeSlider");
-    $('.miner-select').on('click', '.miner-select-item:not(.active)', function (event) {
+        slider_setup();
+
+        $('.miner-select').on('click', '.miner-select-item:not(.active)', function (event) {
+            
+            slider_setup();
+
+            $(this).closest('.miner-select').find('.miner-select-item').removeClass('active');
+            $(this).addClass('active');
+            $item_price = $(this).data('price');
+            $min_deposit = $(this).data('min');
+            $max_deposit = $(this).data('max');
+            $prefix = $(this).data('prefix');
+            $step = $(this).data('step');
+            $system = $(this).data('system');
+            $coin_data = $(this).data('coin');
         
-        $(this).closest('.miner-select').find('.miner-select-item').removeClass('active');
-        $(this).addClass('active');
-        $item_price = $(this).data('price');
-        $min_deposit = $(this).data('min');
-        $max_deposit = $(this).data('max');
-        $prefix = $(this).data('prefix');
-        $step = $(this).data('step');
-        $system = $(this).data('system');
-        $coin_data = $(this).data('coin');
-       
-        $calc_min = $min_deposit / $item_price;
-        $calc_max = $max_deposit / $item_price;
-        $min = $calc_min.toFixed(2);
-        $max = $calc_max.toFixed(2);
-        $from = $calc_min.toFixed(2);
+            $calc_min = $min_deposit / $item_price;
+            $calc_max = $max_deposit / $item_price;
+            $min = $calc_min.toFixed(2);
+            $max = $calc_max.toFixed(2);
+            $from = $calc_min.toFixed(2);
 
-        console.log("miner-select-no-click");
-        $hashing_difficulty = $(this).data('difficulty');
-        $hashing_reward_block = $(this).data('reward');
-        $network_hashrate = $(this).data('network');
-        $coin_price = $(this).data('coin');
+            console.log("miner-select-no-click");
+            $hashing_difficulty = $(this).data('difficulty');
+            $hashing_reward_block = $(this).data('reward');
+            $network_hashrate = $(this).data('network');
+            $coin_price = $(this).data('coin');
 
-        //Setting values in hidden fields
+            //Setting values in hidden fields
 
+            calculator.update({
+                min: $min,
+                max: $max,
+                from: $from,
+                skin: "round",
+                hide_min_max: true,
+                postfix: $prefix,
+                step: $step
+            });
+            $investition_input.val($min_deposit);
+            $average_input.val($min);
+            $prefix_power_input.html($prefix);
+            
+            console.log("miner-select complete");
 
-        calculator.update({
+        });
+
+    });
+
+    function slider_setup(){
+
+        setup.ionRangeSlider({
             min: $min,
             max: $max,
             from: $from,
             skin: "round",
             hide_min_max: true,
             postfix: $prefix,
-            step: $step
-        });
-        $investition_input.val($min_deposit);
-        $average_input.val($min);
-        $prefix_power_input.html($prefix);
-    });
-
-
-    $average_input_home.on("change", function () {
-
-        var val = $(this).val();
-        val = Math.round(val);
-
-        var intRegex = /^\d+$/;
-        var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
-        if ( (!intRegex.test(val)) && (!floatRegex.test(val)) )  {
-            val = 0.2;
-        }
-      
-        $average_input_home.val(val);
-        calculator.update({
-            from: $average_input.val(), step: $step, onUpdate: function (data) {
-                var $average = data.from
-                getProfit($average);
-            }
-        });
-    });
-
-
-    $average_input.on("change", function () {
-        var val = $(this).val();
-        val = Math.round(val);
-        console.log(val, $min, $max);
-
-        var intRegex = /^\d+$/;
-        var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
-        if (!intRegex.test(val) || !floatRegex.test(val)) {
-            val = $min;
-            $average_input.val(val);
-        }
-
-        if (val < $min) {
-            val = $min;
-        }
-
-        $average_input.val(val);
-        calculator.update({
-            from: val, step: $step, onUpdate: function (data) {
+            step: $step,
+            onStart: function (data) {
+                console.log('here i am onStart')
+                console.log(data);
                 var $average = data.from;
                 var $money = $average * $item_price;
                 $investition_input.val(Math.round($money));
+                $average_input.val($average);
                 getProfit($average);
-            }
-        });
-    });
-
-
-    $investition_input.on("change", function () {
-        var val = $(this).val();
-        var intRegex = /^\d+$/;
-        var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
-        if (!intRegex.test(val) || !floatRegex.test(val)) {
-            $investition_input.val($min_deposit);
-        }
-        if (val > $max_deposit) {
-            $investition_input.val($max_deposit);
-        }
-        if (val < $min_deposit) {
-            $investition_input.val($min_deposit);
-        }
-        $calc = val / $item_price;
-        calculator.update({
-            from: $calc, onUpdate: function (data) {
+            },
+            onChange: function (data) {
+                console.log('here i am onUpdate')
+                console.log(data)
+                var $average = data.from;
+                var $money = $average * $item_price;
+                $investition_input.val(Math.round($money));
+                $average_input.val($average);
+                getProfit($average);
+            },
+            onUpdate: function (data) {
+                console.log('here i am onUpdate')
                 var $average = data.from;
                 var $money = $average * $item_price;
                 $average_input.val($average);
                 getProfit($average);
             }
         });
-    });
+
+        calculator = setup.data("ionRangeSlider");
+
+        $average_input_home.on("change", function () {
+
+            var val = $(this).val();
+            val = Math.round(val);
+
+            var intRegex = /^\d+$/;
+            var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
+            if ( (!intRegex.test(val)) && (!floatRegex.test(val)) )  {
+                val = 0.2;
+            }
+        
+            $average_input_home.val(val);
+            calculator.update({
+                from: $average_input.val(), step: $step, onUpdate: function (data) {
+                    var $average = data.from
+                    getProfit($average);
+                }
+            });
+        });
+
+        $average_input.on("change", function () {
+            var val = $(this).val();
+            val = Math.round(val);
+            console.log(val, $min, $max);
+
+            var intRegex = /^\d+$/;
+            var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
+            if (!intRegex.test(val) || !floatRegex.test(val)) {
+                val = $min;
+                $average_input.val(val);
+            }
+
+            if (val < $min) {
+                val = $min;
+            }
+
+            $average_input.val(val);
+            calculator.update({
+                from: val, step: $step, onUpdate: function (data) {
+                    var $average = data.from;
+                    var $money = $average * $item_price;
+                    $investition_input.val(Math.round($money));
+                    getProfit($average);
+                }
+            });
+        });
+
+        $investition_input.on("change", function () {
+            var val = $(this).val();
+            var intRegex = /^\d+$/;
+            var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
+            if (!intRegex.test(val) || !floatRegex.test(val)) {
+                $investition_input.val($min_deposit);
+            }
+            if (val > $max_deposit) {
+                $investition_input.val($max_deposit);
+            }
+            if (val < $min_deposit) {
+                $investition_input.val($min_deposit);
+            }
+            $calc = val / $item_price;
+            calculator.update({
+                from: $calc, onUpdate: function (data) {
+                    var $average = data.from;
+                    var $money = $average * $item_price;
+                    $average_input.val($average);
+                    getProfit($average);
+                }
+            });
+        });
+    }
 
 </script>

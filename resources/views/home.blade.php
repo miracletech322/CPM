@@ -169,6 +169,7 @@
                 
                 <div class="miner-setup-slider">
                     <span style="display: none;" class="irs irs--round js-irs-0">
+                        {{-- 
                         <span class="irs">
                             <span class="irs-line" tabindex="0"></span>
                             <span class="irs-min" style="display: none; visibility: hidden;">0</span>
@@ -176,6 +177,15 @@
                             <span class="irs-from" style="visibility: hidden;">0</span>
                             <span class="irs-to" style="visibility: hidden;">0</span>
                             <span class="irs-single" style="left: -6.01825%;">25 TH/s</span>
+                        </span>
+                        --}}
+                        <span class="irs">
+                            <span class="irs-line" tabindex="0"></span>
+                            <span class="irs-min" style="display: none; visibility: hidden;"></span>
+                            <span class="irs-max" style="display: none; visibility: visible;"></span>
+                            <span class="irs-from" style="visibility: hidden;"></span>
+                            <span class="irs-to" style="visibility: hidden;"></span>
+                            <span class="irs-single" style="left: -6.01825%;"></span>
                         </span>
                         <span class="irs-grid"></span>
                         <span class="irs-bar irs-bar--single" style="left: 0px; width: 2.5%;"></span>
@@ -213,19 +223,19 @@
                             <h4 class="calculate-earnings__calculator-results-title">
                                 {{__("Income")}} <strong>{{__("per day")}}</strong>
                             </h4>
-                            <p class="calculate-earnings__calculator-results-numbers" id="daily">$1.46</p>
+                            <p class="calculate-earnings__calculator-results-numbers" id="daily"></p>
                         </div>
                         <div class="calculate-earnings__calculator-results-item">
                             <h4 class="calculate-earnings__calculator-results-title">
                                 {{__("Income")}} <strong>{{__("per month")}}</strong>
                             </h4>
-                            <p class="calculate-earnings__calculator-results-numbers" id="month">$43.80</p>
+                            <p class="calculate-earnings__calculator-results-numbers" id="month"></p>
                         </div>
                         <div class="calculate-earnings__calculator-results-item">
                             <h4 class="calculate-earnings__calculator-results-title">
                                 {{__("Income")}} <strong>{{__("per year")}}</strong>
                             </h4>
-                            <p class="calculate-earnings__calculator-results-numbers" id="year">$525.60</p>
+                            <p class="calculate-earnings__calculator-results-numbers" id="year"></p>
                         </div>
                     </div>
                 </div>
@@ -247,19 +257,19 @@
                             <h4 class="calculate-earnings__calculator-results-title">
                                 {{__("Income")}} <strong>{{__("per day")}}</strong>
                             </h4>
-                            <p class="calculate-earnings__calculator-results-numbers" id="daily_home">$1.46</p>
+                            <p class="calculate-earnings__calculator-results-numbers" id="daily_home"></p>
                         </div>
                         <div class="calculate-earnings__calculator-results-item">
                             <h4 class="calculate-earnings__calculator-results-title">
                                 {{__("Income")}} <strong>{{__("per month")}}</strong>
                             </h4>
-                            <p class="calculate-earnings__calculator-results-numbers" id="month_home">$43.80</p>
+                            <p class="calculate-earnings__calculator-results-numbers" id="month_home"></p>
                         </div>
                         <div class="calculate-earnings__calculator-results-item">
                             <h4 class="calculate-earnings__calculator-results-title">
                                 {{__("Income")}} <strong>{{__("per year")}}</strong>
                             </h4>
-                            <p class="calculate-earnings__calculator-results-numbers" id="year_home">$525.60</p>
+                            <p class="calculate-earnings__calculator-results-numbers" id="year_home"></p>
                         </div>
                     </div>
                 </div>

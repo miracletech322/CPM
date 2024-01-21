@@ -13,7 +13,6 @@
                                 <div class="calculate-earnings__calculator-data-item-select">
 
                                     <div class="miner-select">
-                                        
                                         @foreach ($coin_data as $key => $coin)
                                             <div class="miner-select-item {{$key == 0 ? "active"  : ""}}" data-system="{{$coin->hashing->id}}" data-hashing="{{$coin->hashing->id}}" data-coin={{$coin->id}} data-price="{{@$coin->hashing->price_khs}}" data-cost="{{@$coin->hashing->cost_per_kwh}}" data-consumption="{{@$coin->hashing->power_consumption}}" data-coin="{{@$coin->price}}" data-difficulty="{{@$coin->difficulty}}" data-reward="{{@$coin->reward_block}}" data-network="{{@$coin->network_hashrate}}" data-min="{{@$coin->hashing->min_buyable}}" data-max="{{@$coin->hashing->max_buyable}}" data-step="0.001" data-prefix=" {{@$coin->unit}}">{{@$coin->hashing->name}}
                                             </div>
@@ -22,7 +21,24 @@
                                 </div>
                                 
                                 <div class="miner-setup-slider">
-                                    <span style="display: none;" class="irs irs--round js-irs-0"><span class="irs"><span class="irs-line" tabindex="0"></span><span class="irs-min" style="display: none; visibility: hidden;">0</span><span class="irs-max" style="display: none; visibility: visible;">1</span><span class="irs-from" style="visibility: hidden;">0</span><span class="irs-to" style="visibility: hidden;">0</span><span class="irs-single" style="left: -6.01825%;">25 TH/s</span></span><span class="irs-grid"></span><span class="irs-bar irs-bar--single" style="left: 5px !important; width: 2.5%;"></span><span class="irs-shadow shadow-single" style="display: none;"></span><span class="irs-handle single" style="left: 0%;"><i></i><i></i><i></i></span></span>
+                                    <span style="display: none;" class="irs irs--round js-irs-0">
+                                        <span class="irs">
+                                            <span class="irs-line" tabindex="0"></span>
+                                            <span class="irs-min" style="display: none; visibility: hidden;"></span>
+                                            <span class="irs-max" style="display: none; visibility: visible;"></span>
+                                            <span class="irs-from" style="visibility: hidden;"></span>
+                                            <span class="irs-to" style="visibility: hidden;"></span>
+                                            <span class="irs-single" style="left: -6.01825%;"></span>
+                                        </span>
+                                        <span class="irs-grid"></span>
+                                        <span class="irs-bar irs-bar--single" style="left: 0px; width: 2.5%;"></span>
+                                        <span class="irs-shadow shadow-single" style="display: none;"></span>
+                                        <span class="irs-handle single" style="left: 0%;">
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                        </span>
+                                    </span>
                                     <input type="text" class="miner-setup irs-hidden-input" value="" tabindex="-1" readonly="" style="display: none;">
                                 </div>
                             </div>
@@ -54,7 +70,7 @@
                                                     <h4 class="calculate-earnings__calculator-results-title">
                                                         {{__("Income")}} <strong>{{__("per day")}}</strong>
                                                     </h4>
-                                                    <p class="calculate-earnings__calculator-results-numbers" id="daily">$1.46</p>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="daily"></p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mb-1 buy_cal">
@@ -62,7 +78,7 @@
                                                     <h4 class="calculate-earnings__calculator-results-title">
                                                         {{__("Income")}} <strong>{{__("per month")}}</strong>
                                                     </h4>
-                                                    <p class="calculate-earnings__calculator-results-numbers" id="month">$43.80</p>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="month"></p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mb-1 buy_cal">
@@ -70,7 +86,7 @@
                                                     <h4 class="calculate-earnings__calculator-results-title">
                                                         {{__("Income")}} <strong>{{__("per year")}}</strong>
                                                     </h4>
-                                                    <p class="calculate-earnings__calculator-results-numbers" id="year">$525.60</p>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="year"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,7 +113,7 @@
                                                     <h4 class="calculate-earnings__calculator-results-title">
                                                         {{__("Income")}} <strong>{{__("per day")}}</strong>
                                                     </h4>
-                                                    <p class="calculate-earnings__calculator-results-numbers" id="daily_home">$1.46</p>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="daily_home"></p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mb-1 buy_cal">
@@ -105,7 +121,7 @@
                                                     <h4 class="calculate-earnings__calculator-results-title">
                                                         {{__("Income")}} <strong>{{__("per month")}}</strong>
                                                     </h4>
-                                                    <p class="calculate-earnings__calculator-results-numbers" id="month_home">$43.80</p>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="month_home"></p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mb-1 buy_cal">
@@ -113,7 +129,7 @@
                                                     <h4 class="calculate-earnings__calculator-results-title">
                                                         {{__("Income")}} <strong>{{__("per year")}}</strong>
                                                     </h4>
-                                                    <p class="calculate-earnings__calculator-results-numbers" id="year_home">$525.60</p>
+                                                    <p class="calculate-earnings__calculator-results-numbers" id="year_home"></p>
                                                 </div>
                                             </div>
                                         </div>
