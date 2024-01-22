@@ -83,10 +83,6 @@ class UpdateWallets extends Command
             $wallet->balance = $is_new ? $result["daily"] : ($wallet->balance + $result["daily"]);     
             $wallet->save();
 
-            $coin_values["1"] = json_decode(CoinData::where("coin", "BTC")->first()->data)->price; //BTC
-            $coin_values["2"] = json_decode(CoinData::where("coin", "ETH")->first()->data)->price; //ETH
-            $coin_values["3"] = json_decode(CoinData::where("coin", "KAS")->first()->data)->price; //KAS
-
             //UPDATING LEDGER
             $ledger = new Ledger();
             $ledger->public_id = (string) Str::uuid();
@@ -96,7 +92,8 @@ class UpdateWallets extends Command
             $ledger->type = 4;
             $ledger->payment_id = $payment->id;
             $ledger->hashing_id = $payment->hashing_id;
-            $ledger->coin_value = to_btc_format(convert_to_coin_earning($coin_values[$payment->hashing_id] ,$result["daily"]));
+            $ledger->coin_data_id = $payment->coin_data_id;
+            $ledger->coin_value = to_btc_format(convert_to_coin_earning($coin_data->price, $result["daily"]));
             $ledger->action_performmed_at = date("Y-m-d H:i:s", strtotime($payment->last_wallet_updated. "+24 Hours"));
             $ledger->save();
 

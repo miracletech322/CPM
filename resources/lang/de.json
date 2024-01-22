@@ -274,5 +274,8 @@
     "Account": "Konto",
     "All rights reserved": "Alle Rechte vorbehalten",
     "Support": "Support",
-    "Sign Out": "Abmelden"
+    "Sign Out": "Abmelden",
+    
+    "Something went wrong. Refresh and try again":"",
+    "Amount is exceeding maximum or is lower than minimum. Please refresh page and try again or contact support.":""
 }

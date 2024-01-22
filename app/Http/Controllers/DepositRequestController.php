@@ -118,6 +118,7 @@ class DepositRequestController extends Controller
         $ledger->current_wallet_balance = $wallet->balance;
         $ledger->amount = $record->amount_deposited;
         $ledger->hashing_id = $record->hashing_id;
+        $ledger->coin_data_id = $record->coin_data_id;
         $ledger->type = 2;
         $ledger->payment_method = $record->payment_method;
         if($record->payment_method == 3){
@@ -138,6 +139,7 @@ class DepositRequestController extends Controller
         $payment->user_id = $record->user_id;
         $payment->request_id = $record->id;
         $payment->hashing_id = $record->hashing_id;
+        $payment->coin_data_id = $record->coin_data_id;
         $payment->payment_method = $record->payment_method;
         $payment->payment_type = "Deposit";
         $payment->amount_deposit = $record->amount_deposited;

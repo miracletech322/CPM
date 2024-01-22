@@ -10,6 +10,7 @@ use App\Models\CoinData;
 use App\Models\Course;
 use App\Models\CustomerPayment;
 use App\Models\DepositRequest;
+use App\Models\Hashing;
 use App\Models\Invoice;
 use App\Models\Payment;
 use App\Models\User;
@@ -43,17 +44,18 @@ class DashboardController extends Controller
         $total_withdraw_requests = WithdrawRequest::where("is_resolved", 0)->count();
         $total_deposit_requests = DepositRequest::where("is_resolved", 0)->count();
 
-
-        $get_power = Payment::select(
-                        DB::RAW("SUM( (IF (hashing_id=1 , energy_bought, 0) ) ) as sha"),
-                        DB::RAW("SUM( (IF (hashing_id=2 , energy_bought, 0) ) ) as ethash"),
-                        DB::RAW("SUM( (IF (hashing_id=3 , energy_bought, 0) ) ) as kheavyhash")
+        $total_power = Hashing::select(
+                        "hashings.name as hashing_name",
+                        "hashings.name as hashing_name",
+                        DB::RAW("SUM(COALESCE(payments.energy_bought, 0)) as purchased")
                     )
-                    ->first();
+                    ->leftJoin("payments", function($join) {
+                        $join->on("hashings.id", "=", "payments.hashing_id");
+                    })
+                    ->groupBy("hashings.name")
+                    ->pluck("purchased", "hashing_name")
+                    ->toArray();
 
-        $total_power["total_power_th"] = $get_power->sha;
-        $total_power["total_power_mh"] = $get_power->ethash;
-        $total_power["total_power_kh"] = $get_power->kheavyhash;
 
         return view($this->directory . "index", compact('title_singular', 'directory', 'active_item', 'pageData', 'total_earning', 'total_users', 'total_withdraw_requests', 'total_deposit_requests', 'total_power', 'total_admins'));
     }

@@ -17,6 +17,10 @@ class DepositRequest extends Model
         return $this->belongsTo(Hashing::class, 'hashing_id', 'id');
     }
 
+    public function coin() {
+        return $this->belongsTo(CoinData::class, 'coin_data_id', 'id')->with("hashing");
+    }
+
     public function action_performer() {
         return $this->belongsTo(User::class, 'action_performed_by', 'id');
     }

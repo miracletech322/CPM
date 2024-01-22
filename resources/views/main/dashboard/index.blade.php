@@ -108,61 +108,28 @@
                             </div>
 
 
-                            <div class="col-md-3 col-sm-6">
-                                <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                    <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <span class="small text-gray-600 d-block mb-1">Power Sold (BTC - TH/s)</span>
-                                                <span class="h5 mb-0">{{to_power_format($total_power["total_power_th"])}}</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="position-relative">
-                                                    <i class="fa fa-check-circle-o fa-3x"></i>
+                            @foreach ($total_power as $key => $power)
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="card mb-4 rounded-12 shadow border border-gray-50">
+                                        <div class="card-body p-3 p-xl-3 p-xxl-4">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <span class="small text-gray-600 d-block mb-1">Power Sold 
+                                                        ({{$key}})
+                                                        {{-- - TH/s --}}
+                                                    </span>
+                                                    <span class="h5 mb-0">{{to_power_format($power)}}</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="position-relative">
+                                                        <i class="fa fa-check-circle-o fa-3x"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-
-                            <div class="col-md-3 col-sm-6">
-                                <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                    <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <span class="small text-gray-600 d-block mb-1">Power Sold (ETH - MH/s)</span>
-                                                <span class="h5 mb-0">{{to_power_format($total_power["total_power_mh"])}}</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="position-relative">
-                                                    <i class="fa fa-check-circle-o fa-3x"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-3 col-sm-6">
-                                <div class="card mb-4 rounded-12 shadow border border-gray-50">
-                                    <div class="card-body p-3 p-xl-3 p-xxl-4">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <span class="small text-gray-600 d-block mb-1">Power Sold (KAS - KH/s)</span>
-                                                <span class="h5 mb-0">{{to_power_format($total_power["total_power_kh"])}}</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="position-relative">
-                                                    <i class="fa fa-check-circle-o fa-3x"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
 
 
                             <div class="col-md-3 col-sm-6">

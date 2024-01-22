@@ -59,6 +59,7 @@ class WebhookController extends Controller
                                 $ledger->current_wallet_balance = get_user_balance($user->id);
                                 $ledger->amount = $ledger_old->amount;
                                 $ledger->hashing_id = $ledger_old->hashing_id;
+                                $ledger->coin_data_id = $ledger_old->coin_data_id;
                                 $ledger->type = $ledger_old->type;
                                 $ledger->payment_method = $ledger_old->payment_method;
                                 $ledger->coinbase_payment_id = $coinbase_payment->id;
@@ -76,6 +77,7 @@ class WebhookController extends Controller
                                 $record->action_performed_at = NULL;
                                 $record->amount_deposited = $ledger_old->amount;;
                                 $record->hashing_id = $coinbase_payment->hashing_id;
+                                $record->coin_data_id = $coinbase_payment->coin_data_id;
                                 $record->payment_method = $ledger_old->payment_method;
                                 $record->additional_details = "";
                                 $record->energy_bought = $coinbase_payment->energy_bought;
@@ -111,6 +113,7 @@ class WebhookController extends Controller
                             $ledger->current_wallet_balance = get_user_balance($user->id);
                             $ledger->amount = $ledger_old->amount;
                             $ledger->hashing_id = $ledger_old->hashing_id;
+                            $ledger->coin_data_id = $ledger_old->coin_data_id;
                             $ledger->type = $ledger_old->type;
                             $ledger->payment_method = $ledger_old->payment_method;
                             $ledger->coinbase_payment_id = $coinbase_payment->id;
@@ -140,6 +143,7 @@ class WebhookController extends Controller
                             $ledger->current_wallet_balance = get_user_balance($user->id);
                             $ledger->amount = $ledger_old->amount;
                             $ledger->hashing_id = $ledger_old->hashing_id;
+                            $ledger->coin_data_id = $ledger_old->coin_data_id;
                             $ledger->type = $ledger_old->type;
                             $ledger->payment_method = $ledger_old->payment_method;
                             $ledger->coinbase_payment_id = $coinbase_payment->id;

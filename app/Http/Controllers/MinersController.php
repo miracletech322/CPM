@@ -115,36 +115,34 @@ class MinersController extends Controller
         $pricing = [ "sha_price_th","eth_price_mh", "equi_price_kh"];        
         $power_value = [ "TH/s","MH/s", "KH/s"];        
 
-        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
-        $cash  = $request->cash;
+        $hashing_obj = Hashing::where("id", $request->hashing)->first();
+        if(!$hashing_obj)
+            return redirect("miners/create")->with("error", __("Something went wrong. Try again!"));
 
-        $min = $techniques_min[$hashing-1];
-        $max = $techniques_max[$hashing-1];
-        $techniques_cost = $techniques_cost[$hashing-1];
-        $techniques_consumption = $techniques_consumption[$hashing-1];
+        //Check Coin Data
+        $coin_data = CoinData::where("id", $request->coin_data_id)
+                                    ->where("hashing_id", $request->hashing)
+                                    ->where("is_active", 1)
+                                    ->first();
         
-        if( ($cash < $setting->$min) || ($cash > $setting->$max) ){
+        if(!$coin_data)
+            return redirect("miners/create")->with("error", __("Something went wrong. Try again!"));
+
+        $hashing = $hashing_obj->id;
+        $cash  = $request->cash;
+        
+        if( ($cash < $hashing_obj->min_buyable) || ($cash > $hashing_obj->max_buyable) ){
             return redirect("miners/create")->with("error", __("Please make sure you are selecting the correct options"));
         }
+
         
-        $hash_price = $pricing[$hashing-1];
-        $p = $cash / $setting->$hash_price;
-        $selected_hash = $hashings[$hashing-1];
+        $hash_price = $hashing_obj->price_khs;
+        $p = $cash / $hash_price;
+        $selected_hash = $hashing_obj->name;
+        $result = calculate_income($p, $coin_data);
 
-        $calculationController = new CalculationController();
-        $coin_data = $calculationController->get_hashing_data($selected_hash);
 
-        if($hashing == 1){
-            $result = calculate_sha($p, $coin_data->difficulty, $coin_data->reward_block, $setting->$techniques_cost, $setting->$techniques_consumption, $coin_data->price, $coin_data->network_hashrate);
-        }
-        else if($hashing == 2){
-            $result = calculate_eth($p, $coin_data->difficulty, $coin_data->reward_block, $setting->$techniques_cost, $setting->$techniques_consumption, $coin_data->price, $coin_data->network_hashrate);
-        }
-        else{
-            $result = calculate_equi($p, $coin_data->difficulty, $coin_data->reward_block, $setting->$techniques_cost, $setting->$techniques_consumption, $coin_data->price, $coin_data->network_hashrate);
-        }
-
-        $btc_price_obj = $selected_hash == "SHA-256" ? $coin_data : $calculationController->get_hashing_data("SHA-256");
+        $btc_price_obj = $coin_data;
         $btc_price = $btc_price_obj->price;
         $cash_btc = (1 / $btc_price) * $cash;
 
@@ -152,7 +150,7 @@ class MinersController extends Controller
         $directory = $this->directory;
         $title_singular = __($this->title_singular);
         $active_item = "miners";
-        $power_value_selected = $power_value[$hashing-1];
+        $power_value_selected = $hashing_obj;
 
         $ending_at = "";
         $company = "";
@@ -193,26 +191,26 @@ class MinersController extends Controller
             return [array("error" => __("Operation failed."))];
         }
         
-        $setting = Setting::first();
+        //Check Selected Hash
+        $hashing_obj = Hashing::where("id", $request->hashing)->first();
+        if(!$hashing_obj)
+            return [array("error" => __("Something went wrong. Refresh and try again"))];
 
-        $techniques_min = [ "sha_min","eth_min", "equi_min"];
-        $techniques_max = [ "sha_max","eth_max", "equi_max"];
-        $techniques_cost = [ "sha_cost_per_kwh","eth_cost_per_kwh", "equi_cost_per_kwh"];
-        $techniques_consumption = [ "sha_power_consumption","eth_power_consumption", "equi_power_consumption"];
 
-        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
-        $cash  = $request->cash;
-
-        $min = $techniques_min[$hashing-1];
-        $max = $techniques_max[$hashing-1];
-        $techniques_cost = $techniques_cost[$hashing-1];
-        $techniques_consumption = $techniques_consumption[$hashing-1];
+        //Check Coin Data
+        $coin_data_obj = CoinData::where("id", $request->coin_data_id)
+                                    ->where("hashing_id", $request->hashing)
+                                    ->where("is_active", 1)
+                                    ->first();
+        if(!$coin_data_obj)
+            return [array("error" => __("Something went wrong. Refresh and try again"))];
         
-        if( ($cash < $setting->$min) || ($cash > $setting->$max) ){
-            return [array("error" => __("Operation failed."))];
+        //Validate Min Max Limit
+        $cash  = $request->cash;
+        if( ($cash < $hashing_obj->min_buyable) || ($cash > $hashing_obj->max_buyable) ){
+            return [array("error" => __("Amount is exceeding maximum or is lower than minimum. Please refresh page and try again or contact support."))];
         }
         
-
         if($payment_method == 3){
             return $this->coin_payment($request);
         }
@@ -226,7 +224,7 @@ class MinersController extends Controller
 
     public function card_payment(Request $request){
 
-        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
+        $hashing = $request->hashing;
         $charges = to_stripe_format($request->cash);
 
         if(!isset($request->full_name)){
@@ -288,6 +286,7 @@ class MinersController extends Controller
                 $stripe_payment = new StripePayment();
                 $stripe_payment->public_id = (string) Str::uuid();
                 $stripe_payment->hashing_id = $hashing;
+                $stripe_payment->coin_data_id = $request->coin_data_id;
                 $stripe_payment->user_id = $user->id;
                 $stripe_payment->is_failed = 0;
                 $stripe_payment->transaction_id = $response->transaction_id;
@@ -304,6 +303,7 @@ class MinersController extends Controller
                 $ledger->current_wallet_balance = get_user_balance();
                 $ledger->amount = $charges;
                 $ledger->hashing_id = $hashing;
+                $ledger->coin_data_id = $request->coin_data_id;
                 $ledger->type = 2;
                 $ledger->payment_method = 1;
                 $ledger->stripe_payment_id = $stripe_payment->id;
@@ -321,6 +321,7 @@ class MinersController extends Controller
                 $record->action_performed_at = NULL;
                 $record->amount_deposited = $charges;
                 $record->hashing_id = $hashing;
+                $record->coin_data_id = $request->coin_data_id;
                 $record->payment_method = 1;
                 $record->additional_details = "";
                 $record->energy_bought = $stripe_payment->energy_bought;
@@ -333,6 +334,7 @@ class MinersController extends Controller
                 $stripe_payment = new StripePayment();
                 $stripe_payment->public_id = (string) Str::uuid();
                 $stripe_payment->hashing_id = $hashing;
+                $stripe_payment->coin_data_id = $request->coin_data_id;
                 $stripe_payment->user_id = $user->id;
                 $stripe_payment->is_failed = 1;
                 $stripe_payment->transaction_id = NULL;
@@ -349,6 +351,7 @@ class MinersController extends Controller
                 $ledger->current_wallet_balance = get_user_balance();
                 $ledger->amount = $charges;
                 $ledger->hashing_id = $hashing;
+                $ledger->coin_data_id = $request->coin_data_id;
                 $ledger->type = 2;
                 $ledger->payment_method = 1;
                 $ledger->status_text = "FAILED";
@@ -365,7 +368,7 @@ class MinersController extends Controller
 
     public function bank_payment(Request $request){
 
-        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
+        $hashing = $request->hashing;
 
         $record = new DepositRequest();
         $record->public_id = (string) Str::uuid();
@@ -376,6 +379,7 @@ class MinersController extends Controller
         $record->action_performed_at = NULL;
         $record->amount_deposited = $request->cash;
         $record->hashing_id = $hashing;
+        $record->coin_data_id = $request->coin_data_id;
         $record->payment_method = 2;
         $record->additional_details = $request->additional_information;
         $record->energy_bought = $this->get_power($hashing, $request->cash);
@@ -387,7 +391,7 @@ class MinersController extends Controller
 
     public function coin_payment(Request $request){
 
-        $hashing = in_array($request->hashing, [1,2,3]) ? $request->hashing : 1;
+        $hashing = $request->hashing;
         $cash = $request->cash;
         $redirect_url = url("coinbase-success");
         $cancel_url = url('pay/miners')."?hashing=".$hashing."&cash=".$cash;
@@ -406,6 +410,7 @@ class MinersController extends Controller
         $coinbase_payment->is_resolved = 0;
         $coinbase_payment->energy_bought = $this->get_power($hashing, $cash);
         $coinbase_payment->hashing_id = $hashing;
+        $coinbase_payment->coin_data_id = $request->coin_data_id;
         $coinbase_payment->timeline = json_encode($result[1]->data->timeline);
         $coinbase_payment->save();
 
@@ -415,6 +420,7 @@ class MinersController extends Controller
         $ledger->current_wallet_balance = get_user_balance();
         $ledger->amount = $result[1]->data->pricing->local->amount;
         $ledger->hashing_id = $hashing;
+        $ledger->coin_data_id = $request->coin_data_id;
         $ledger->type = 2;
         $ledger->payment_method = 3;
         $ledger->coinbase_payment_id = $coinbase_payment->id;
@@ -450,7 +456,7 @@ class MinersController extends Controller
                 return ($records->hashings ? ($records->hashings->name ." (".$records->coin->coin_display_name.")") : ''). ($records->reference_ledger_id ? " Referral" : "");
             })
             ->addColumn('power', function ($records) { //
-                return ( ($records->payments ? ($records->payments->energy_bought. " ". $this->energy[$records->hashing_id - 1]) : "") ) . ($records->reference_ledger_id ? " Referral" : "");
+                return ( ($records->payments ? ($records->payments->energy_bought. " ". $records->coin->unit) : "") ) . ($records->reference_ledger_id ? " Referral" : "");
             })
             ->addColumn('income', function ($records) { //
                 return "$ ".to_cash_format_small($records->amount);

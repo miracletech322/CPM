@@ -64,7 +64,7 @@ class UserRequestController extends Controller
 
         return DataTables::of($records)
             ->addColumn('power_bought', function ($records) {
-                return $records->energy_bought . " ". $this->energy[$records->hashing_id - 1];
+                return $records->energy_bought . " ". $records->coin->unit;
             })
             ->addColumn('date_requested', function ($records) {
                 return to_date($records->created_at);
