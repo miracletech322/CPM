@@ -30,6 +30,8 @@
         
         {{-- <a style='text-decoration: none !important; text-black'><small><b>API Buttons: </b><small></a> --}}
 
+        <a class='btn btn-sm btn-warning mb-3' style='cursor: pointer' onclick="$('#formula').val($('#formula').val()+'<total_hash>');">{{__("Total Hash Applied")}}</a>
+
         <a class='btn btn-sm btn-warning mb-3' style='cursor: pointer' onclick="$('#formula').val($('#formula').val()+'<network_hashrate>');">{{__("Network Hashrate")}}</a>
 
         <a class='btn btn-sm btn-warning mb-3' style='cursor: pointer' onclick="$('#formula').val($('#formula').val()+'<difficulty>');">{{__("Difficulty")}}</a>

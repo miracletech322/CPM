@@ -135,10 +135,10 @@ class MinersController extends Controller
             return redirect("miners/create")->with("error", __("Please make sure you are selecting the correct options"));
         }
 
-        
         $hash_price = $hashing_obj->price_khs;
         $p = $cash / $hash_price;
         $selected_hash = $hashing_obj->name;
+
         $fetch_result = calculate_income($p, $coin_data);
         if($fetch_result[0] == false){
             return redirect("miners/create")->with("error", __("Something went wrong. Please contact support"));

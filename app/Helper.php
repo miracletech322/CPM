@@ -441,7 +441,12 @@ function calculate_income($p, $coin_data){
     $formula = $coin_data->formula;
 
     foreach (coin_api_tags() as $key => $coin_api_tag) {
-        $formula = str_replace($coin_api_tag, $coin_data->$coin_api_tag, $formula);
+        //$p = TOTAL HASH APPLIED FOR OR PURCHASED
+        if($coin_api_tag == "total_hash"){
+            $formula = str_replace($coin_api_tag, $p, $formula);
+        }else{
+            $formula = str_replace($coin_api_tag, $coin_data->$coin_api_tag, $formula);
+        }
     }
 
     $expression = new ExpressionLanguage();
@@ -496,10 +501,11 @@ function languages(){
 
 function coin_api_tags(){
     return [
+        "total_hash", //Hash that was purchased or trying to purcahse = P
         "network_hashrate",
         "difficulty",
         "reward",
         "reward",
-        "price"
+        "price",
     ];
 }
