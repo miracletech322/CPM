@@ -442,11 +442,11 @@ function calculate_income($p, $coin_data){
     $hashing = $coin_data->hashing;
 
     foreach (coin_api_tags() as $key => $coin_api_tag) {
-        //$p = TOTAL HASH APPLIED FOR OR PURCHASED
+        //$p = TOTAL HASH APPLIED FOR OR PURCHASED BY CUSTOMER
         if($coin_api_tag == "total_hash"){
-            $formula = str_replace($coin_api_tag, $p, $formula);
+            $formula = str_replace("<$coin_api_tag>", $p, $formula);
         }else{
-            $formula = str_replace("<$coin_api_tag>", $coin_data->$coin_api_tag, $formula);
+            $formula = str_replace("<$coin_api_tag>", floor($coin_data->$coin_api_tag), $formula);
         }
     }
 
@@ -459,6 +459,7 @@ function calculate_income($p, $coin_data){
     }
     
     $power_consumption_cost =  ( ($hashing->cost_per_kwh * $hashing->power_consumption)/ 1000 ) * 24 * $p;
+    
     $result["daily"] = ( $hashing->price_khs / (1 / $coin_production) ) - $power_consumption_cost;
     $result["monthly"] =  $result["daily"] * 30;
     $result["yearly"] = $result["daily"] * 365;

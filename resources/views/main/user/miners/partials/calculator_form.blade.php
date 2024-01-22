@@ -14,8 +14,7 @@
 
                                     <div class="miner-select">
                                         @foreach ($coin_data as $key => $coin)
-                                            <div class="miner-select-item {{$key == 0 ? "active"  : ""}}" data-system="{{$coin->hashing->id}}" data-hashing="{{$coin->hashing->id}}" data-coin={{$coin->id}} data-price="{{@$coin->hashing->price_khs}}" data-cost="{{@$coin->hashing->cost_per_kwh}}" data-consumption="{{@$coin->hashing->power_consumption}}" data-coin="{{@$coin->price}}" data-difficulty="{{@$coin->difficulty}}" data-reward="{{@$coin->reward_block}}" data-network="{{@$coin->network_hashrate}}" data-min="{{@$coin->hashing->min_buyable}}" data-max="{{@$coin->hashing->max_buyable}}" data-step="0.001" data-prefix=" {{@$coin->unit}}">{{@$coin->hashing->name}}
-                                            </div>
+                                            @include("calculator_coin_section", compact("coin"))
                                         @endforeach
                                     </div>
                                 </div>

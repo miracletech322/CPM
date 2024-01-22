@@ -1,40 +1,25 @@
 <script>
 
-    var $item_price;
-    var $min_deposit;
-    var $max_deposit;
-    var $prefix;
-    var $step;
-    var $system;
-    var $coin_data;
-    var $calc_min;
-    var $calc_max;
-    var $min;
-    var $max;
-    var $from;
-    var $hashing_difficulty;
-    var $hashing_reward_block;
-    var $network_hashrate;
-    var $coin_price;
-    var $n;
-    var $s;
-    var $investition_input;
-    var $average_input;
-    var $average_input_home;
-    var $prefix_power_input;
-    var $daily_income;
-    var $month_income;
-    var $year_income;
-    var $daily_income_home;
-    var $month_income_home;
-    var $year_income_home;
+    var $item_price, $min_deposit, $max_deposit, $prefix, $step, $system, $coin_data, $calc_min, $calc_max, $min, $max, $from, $hashing_difficulty, $hashing_reward_block, $network_hashrate, $coin_price, $investition_input, $average_input, $average_input_home, $prefix_power_input, $daily_income, $month_income, $year_income, $daily_income_home, $month_income_home, $year_income_home, setu, calculato, gpuPowe, gpuLv, power_consumption_cos, power_consumption_cost_home, calculator;
 
-    var setup;
-    var calculator;
-    var gpuPower;
-    var gpuLvl;
-    var power_consumption_cost;
-    var power_consumption_cost_home;
+
+    $investition_input = $('#data-input-price');
+    $average_input = $('#data-input-ghs');
+    $average_input_home = $('#data-input-ghs-home');
+
+    $prefix_power_input = $('.input-prefix');
+
+    $daily_income = $('.calculate-earnings__calculator-results').find('#daily');
+    $month_income = $('.calculate-earnings__calculator-results').find('#month');
+    $year_income = $('.calculate-earnings__calculator-results').find('#year');
+
+    $daily_income_home = $('.calculate-earnings__calculator-results').find('#daily_home');
+    $month_income_home = $('.calculate-earnings__calculator-results').find('#month_home');
+    $year_income_home = $('.calculate-earnings__calculator-results').find('#year_home');
+
+    gpuPower = $('.calculate-earnings__wrap').find('#gpu-power');
+    gpuLvl = $('.calculate-earnings__wrap').find('#gpuLvl');
+
 
     function variable_setup(){
 
@@ -46,7 +31,6 @@
         $step = $('.miner-select').find('.miner-select-item.active').data('step');
         $system = $('.miner-select').find('.miner-select-item.active').data('system');
         $coin_data = $('.miner-select').find('.miner-select-item.active').data('coin');
-        calculator;
         $calc_min = $min_deposit / $item_price;
         $calc_max = $max_deposit / $item_price;
         $min = $calc_min.toFixed(2);
@@ -58,28 +42,10 @@
         $network_hashrate = $('.miner-select').find('.miner-select-item.active').data('network');
         $coin_price = $('.miner-select').find('.miner-select-item.active').data('coin');
 
-        $n = 1;
         $s = 86400;
-        $investition_input = $('#data-input-price');
-        $average_input = $('#data-input-ghs');
-        $average_input_home = $('#data-input-ghs-home');
-
-        $prefix_power_input = $('.input-prefix');
-
-        $daily_income = $('.calculate-earnings__calculator-results').find('#daily');
-        $month_income = $('.calculate-earnings__calculator-results').find('#month');
-        $year_income = $('.calculate-earnings__calculator-results').find('#year');
-
-        $daily_income_home = $('.calculate-earnings__calculator-results').find('#daily_home');
-        $month_income_home = $('.calculate-earnings__calculator-results').find('#month_home');
-        $year_income_home = $('.calculate-earnings__calculator-results').find('#year_home');
-
-        gpuPower = $('.calculate-earnings__wrap').find('#gpu-power');
-        gpuLvl = $('.calculate-earnings__wrap').find('#gpuLvl');
-
         power_consumption_cost =  0;
         power_consumption_cost_home = 0;
-
+        
         slider_setup();
     }
 
@@ -97,9 +63,9 @@
             {!! "if(coin_data_selected == '$coin_item->id'){ production = get_$coin_item->id(p) }" !!}
         @endforeach
 
-        
-        power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
 
+        power_consumption_cost =  ( ( $('.miner-select').find('.miner-select-item.active').data('cost') *  $('.miner-select').find('.miner-select-item.active').data('consumption') ) / 1000 ) * 24 * p;
+        
         power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
 
         var result = ( $coin_price / (1 / production) ) - power_consumption_cost;
