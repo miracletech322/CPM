@@ -85,17 +85,18 @@
 
     
     @foreach ($coin_data as $coin_item)
-        {!! "function get_$coin_item->id (p){ return ".get_formula_for_js($coin_item)." }" !!}
+        {!! "function get_$coin_item->id(p){ return ".get_formula_for_js($coin_item)." }" !!}
     @endforeach
 
-    
     function getProfit(p) {
 
-        coin_data_selected = $("#coin_data_id").val();
-        alert(coin_data_selected);
+        coin_data_selected = $coin_data;
+
+        var production;
         @foreach ($coin_data as $coin_item)
-            {!! "if(coin_data_selected == $coin_item->id){ var production = 'get_$coin_item->id' (p) }" !!}
+            {!! "if(coin_data_selected == '$coin_item->id'){ production = get_$coin_item->id(p) }" !!}
         @endforeach
+
         
         power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
 
