@@ -30,7 +30,7 @@
         $prefix = $('.miner-select').find('.miner-select-item.active').data('prefix');
         $step = $('.miner-select').find('.miner-select-item.active').data('step');
         $system = $('.miner-select').find('.miner-select-item.active').data('system');
-        $coin_data = $('.miner-select').find('.miner-select-item.active').data('coin');
+        $coin_data = $('.miner-select').find('.miner-select-item.active').data('coinid');
         $calc_min = $min_deposit / $item_price;
         $calc_max = $max_deposit / $item_price;
         $min = $calc_min.toFixed(2);
@@ -58,18 +58,17 @@
 
         coin_data_selected = $coin_data;
 
-        var production;
+        var income;
         @foreach ($coin_data as $coin_item)
-            {!! "if(coin_data_selected == '$coin_item->id'){ production = get_$coin_item->id(p) }" !!}
+            {!! "if(coin_data_selected == '$coin_item->id'){ income = get_$coin_item->id(p) }" !!}
         @endforeach
-
 
         power_consumption_cost =  ( ( $('.miner-select').find('.miner-select-item.active').data('cost') *  $('.miner-select').find('.miner-select-item.active').data('consumption') ) / 1000 ) * 24 * p;
         
         power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
 
-        var result = ( $coin_price / (1 / production) ) - power_consumption_cost;
-        var result_home = ( $coin_price / (1 / production) ) - power_consumption_cost_home;
+        var result = income - power_consumption_cost;
+        var result_home = income - power_consumption_cost_home;
         setResult(result, result_home);
     }
 
@@ -141,7 +140,7 @@
             $prefix = $(this).data('prefix');
             $step = $(this).data('step');
             $system = $(this).data('system');
-            $coin_data = $(this).data('coin');
+            $coin_data = $(this).data('coinid');
         
             $calc_min = $min_deposit / $item_price;
             $calc_max = $max_deposit / $item_price;

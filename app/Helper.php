@@ -453,14 +453,14 @@ function calculate_income($p, $coin_data){
     $expression = new ExpressionLanguage();
 
     try {
-        $coin_production = $expression->evaluate($formula);
+        $income = $expression->evaluate($formula);
     } catch (\Throwable $th) {
         return [false, false];
     }
     
     $power_consumption_cost =  ( ($hashing->cost_per_kwh * $hashing->power_consumption)/ 1000 ) * 24 * $p;
     
-    $result["daily"] = ( $hashing->price_khs / (1 / $coin_production) ) - $power_consumption_cost;
+    $result["daily"] = $income - $power_consumption_cost;
     $result["monthly"] =  $result["daily"] * 30;
     $result["yearly"] = $result["daily"] * 365;
 

@@ -26,7 +26,7 @@
     </div>
 
     <div class="col-md-12 pb-3 mb-md-4">
-        <label class="form-label form-label-lg w-100" for="coin">Formula<i class="text-danger">*</i> <small style='float:right'>(NOTE: Please do not add any extra spaces or line breaks)</small></label><br>
+        <label class="form-label form-label-lg w-100" for="coin">Formula For Income (Daily)<i class="text-danger">*</i> <small style='float:right'>(NOTE: Please do not add any extra spaces or line breaks)</small></label><br>
         
         {{-- <a style='text-decoration: none !important; text-black'><small><b>API Buttons: </b><small></a> --}}
 
