@@ -54,36 +54,6 @@
 
         <textarea placeholder="Enter Formula" class="form-control form-control-xl" name="formula" id="formula">{{@$record->formula}}</textarea>
 
-
-        {{-- // HOW TO ADD p IN THE FORMULA --}}
-
-        {{-- //BTC
-        // $H = $p * 1000000000000; //Converting TaraHash to Hash
-        // $D = $hashing_difficulty;
-        // $B = $hashing_reward_block;
-        // $S = 86400;
-        // $upper = ($B * $H * $S);
-        // $lower = ( $D * 4294967296 ); //4294967296 = 2^32
-        // $coin_production = $upper / $lower;
-
-
-        //ETH
-        // $H = $p * 1000000; //Converting megaHash to Hash
-        // $D = $hashing_difficulty;
-        // $B = $hashing_reward_block;
-        // $S = 86400;
-        // $coin_production = (($H * $B) / $D) * $S;
-
-
-        //KHASH
-        // $H = $p * 1000; //Converting megaHash to Hash
-        // $D = $hashing_difficulty;
-        // $B = $hashing_reward_block;
-        // $N = $network_hashrate;
-        // $S = 86400;
-        // $coin_production =   (($H * $B) / ($D * 3600) ) * $S; --}}
-
-
         <div class="col-lg-12 mb-3 mt-4">
             <div class="form-check form-switch mb-0 ms-auto">
                 <input type="checkbox" name="is_active" id="is_active" class="form-check-input me-2" {{(@$record->is_active == 1 || blank(@$record->is_active)) ? "checked" : ""}} {{@$is_show == 1 ? "disabled" : ""}}>

@@ -439,13 +439,14 @@ function get_from_name(){
 function calculate_income($p, $coin_data){
 
     $formula = $coin_data->formula;
+    $hashing = $coin_data->hashing;
 
     foreach (coin_api_tags() as $key => $coin_api_tag) {
         //$p = TOTAL HASH APPLIED FOR OR PURCHASED
         if($coin_api_tag == "total_hash"){
             $formula = str_replace($coin_api_tag, $p, $formula);
         }else{
-            $formula = str_replace($coin_api_tag, $coin_data->$coin_api_tag, $formula);
+            $formula = str_replace("<$coin_api_tag>", $coin_data->$coin_api_tag, $formula);
         }
     }
 
@@ -458,8 +459,8 @@ function calculate_income($p, $coin_data){
     }
     
 
-    $power_consumption_cost =  ( ($coin_data->cost_per_kwh * $coin_data->power_consumption)/ 1000 ) * 24 * $p;
-    $result["daily"] = ( $coin_data->price_khs / (1 / $coin_production) ) - $power_consumption_cost;
+    $power_consumption_cost =  ( ($hashing->cost_per_kwh * $hashing->power_consumption)/ 1000 ) * 24 * $p;
+    $result["daily"] = ( $hashing->price_khs / (1 / $coin_production) ) - $power_consumption_cost;
     $result["monthly"] =  $result["daily"] * 30;
     $result["yearly"] = $result["daily"] * 365;
 
@@ -505,7 +506,7 @@ function coin_api_tags(){
         "network_hashrate",
         "difficulty",
         "reward",
-        "reward",
+        "reward_block",
         "price",
     ];
 }

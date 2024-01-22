@@ -107,14 +107,6 @@ class MinersController extends Controller
         
         $setting = Setting::first();
 
-        $hashings = [ "SHA-256","Ethash", "KHeavyHash"];
-        $techniques_min = [ "sha_min","eth_min", "equi_min"];
-        $techniques_max = [ "sha_max","eth_max", "equi_max"];
-        $techniques_cost = [ "sha_cost_per_kwh","eth_cost_per_kwh", "equi_cost_per_kwh"];
-        $techniques_consumption = [ "sha_power_consumption","eth_power_consumption", "equi_power_consumption"];
-        $pricing = [ "sha_price_th","eth_price_mh", "equi_price_kh"];        
-        $power_value = [ "TH/s","MH/s", "KH/s"];        
-
         $hashing_obj = Hashing::where("id", $request->hashing)->first();
         if(!$hashing_obj)
             return redirect("miners/create")->with("error", __("Something went wrong. Try again!"));
@@ -165,7 +157,7 @@ class MinersController extends Controller
             $company = $data["brand"];
         }
 
-        return view($this->directory . "pay", compact('form_button', 'title_singular', 'directory', 'active_item', 'cash', 'hashing', 'power_value_selected', 'result', 'p', 'selected_hash', 'setting', 'cash_btc', 'ending_at', 'company'));
+        return view($this->directory . "pay", compact('form_button', 'title_singular', 'directory', 'active_item', 'cash', 'hashing', 'power_value_selected', 'result', 'p', 'selected_hash', 'setting', 'cash_btc', 'ending_at', 'company', 'coin_data'));
 
     }
 

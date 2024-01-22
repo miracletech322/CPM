@@ -46,7 +46,7 @@
 
                                                         <div class="calculate-earnings__calculator-data-item" style="margin-right: 25px;">
                                                             <h4 class="calculate-earnings__calculator-data-title">
-                                                                <b>{{__("Power")}} <span class="input-prefix"> {{$power_value_selected}}</span></b>
+                                                                <b>{{__("Power")}} <span class="input-prefix"> {{$coin_data->unit}}</span></b>
                                                             </h4>
                                                             <input type="text" style="box-shadow: 0 6px 20px rgb(0 0 0 / 5%); border: 1px solid #f2f2f2; border-radius: 5px;"  value="{{$p}}" readonly class="calculate-earnings__calculator-data-input" id="data-input-ghs">
                                                         </div>
