@@ -11,7 +11,8 @@ class CalculationController extends Controller
     public function index(Request $request)
     {
         $coins = CoinData::with("hashing")->where("is_active", 1)->get();
-        return view('home')->with('coins',$coins);
+        $coin_data = $coins;
+        return view('home', compact("coin_data", "coins"));
     }
 
     //BTC

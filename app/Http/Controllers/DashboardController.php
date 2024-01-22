@@ -36,6 +36,7 @@ class DashboardController extends Controller
         $active_item = "dashboard";
 
         $pageData =  CoinData::with("hashing")->where("is_active", 1)->get();
+        $coin_data = $pageData;
         
         $total_earning = Payment::sum("amount_deposit");
         $total_users = User::where("role_id", 3)->count();
@@ -57,7 +58,7 @@ class DashboardController extends Controller
                     ->toArray();
 
 
-        return view($this->directory . "index", compact('title_singular', 'directory', 'active_item', 'pageData', 'total_earning', 'total_users', 'total_withdraw_requests', 'total_deposit_requests', 'total_power', 'total_admins'));
+        return view($this->directory . "index", compact('title_singular', 'directory', 'active_item', 'pageData', 'total_earning', 'total_users', 'total_withdraw_requests', 'total_deposit_requests', 'total_power', 'total_admins', 'coin_data'));
     }
 
     public function create()

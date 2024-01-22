@@ -1,33 +1,34 @@
 <script>
 
-    var item_price;
-    var min_deposit;
-    var max_deposit;
-    var prefix;
-    var step;
-    var system;
-    var coin_data;
-    var calc_min;
-    var calc_max;
-    var min;
-    var max;
-    var from;
-    var hashing_difficulty;
-    var hashing_reward_block;
-    var network_hashrate;
-    var coin_price;
-    var n;
-    var s;
-    var investition_input;
-    var average_input;
-    var average_input_home;
-    var prefix_power_input;
-    var daily_income;
-    var month_income;
-    var year_income;
-    var daily_income_home;
-    var month_income_home;
-    var year_income_home;
+    var $item_price;
+    var $min_deposit;
+    var $max_deposit;
+    var $prefix;
+    var $step;
+    var $system;
+    var $coin_data;
+    var $calc_min;
+    var $calc_max;
+    var $min;
+    var $max;
+    var $from;
+    var $hashing_difficulty;
+    var $hashing_reward_block;
+    var $network_hashrate;
+    var $coin_price;
+    var $n;
+    var $s;
+    var $investition_input;
+    var $average_input;
+    var $average_input_home;
+    var $prefix_power_input;
+    var $daily_income;
+    var $month_income;
+    var $year_income;
+    var $daily_income_home;
+    var $month_income_home;
+    var $year_income_home;
+
     var setup;
     var calculator;
     var gpuPower;
@@ -36,6 +37,7 @@
     var power_consumption_cost_home;
 
     function variable_setup(){
+
         setup = $(".miner-setup");
         $item_price = $('.miner-select').find('.miner-select-item.active').data('price');
         $min_deposit = $('.miner-select').find('.miner-select-item.active').data('min');
@@ -82,17 +84,19 @@
     }
 
     
+    @foreach ($coin_data as $coin_item)
+        {!! "function get_$coin_item->id (p){ return ".get_formula_for_js($coin_item)." }" !!}
+    @endforeach
+
+    
     function getProfit(p) {
+
+        coin_data_selected = $("#coin_data_id").val();
+        alert(coin_data_selected);
+        @foreach ($coin_data as $coin_item)
+            {!! "if(coin_data_selected == $coin_item->id){ var production = 'get_$coin_item->id' (p) }" !!}
+        @endforeach
         
-        var H = p * 1000000000000; //Converting TaraHash to Hash
-        var D = $hashing_difficulty;
-        var B = $hashing_reward_block;
-        var S = 86400;
-
-        var upper = (B * H * S);
-        var lower = ( D * 4294967296 ); //4294967296 = 2^32
-        var production = upper / lower; 
-
         power_consumption_cost =  ( $('.miner-select').find('.miner-select-item.active').data('cost') * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
 
         power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
@@ -100,12 +104,9 @@
         var result = ( $coin_price / (1 / production) ) - power_consumption_cost;
         var result_home = ( $coin_price / (1 / production) ) - power_consumption_cost_home;
         setResult(result, result_home);
-
     }
 
-    function getProfitSHA(p){
-
-
+    /*function getProfitSHA(p){
         var H = p * 1000000000000; //Converting TaraHash to Hash 
         var D = $hashing_difficulty;
         var B = $hashing_reward_block;
@@ -115,32 +116,23 @@
         var upper = (B * H * S);
         var lower = ( D * 4294967296 ); //4294967296 = 2^32
         var production = upper / lower; 
-
-
-
     }
 
     function getProfitEthash(p){
-
         var H = p * 1000000; //Converting megaHash to Hash
         var D = $hashing_difficulty;
         var B = $hashing_reward_block;
         var S = 86400;
-
         var production = ((H * B) / D) * S;
-
     }
 
     function getProfitEquihash(p){
-
         var H = p * 1000; //Converting kiloHash to Hash
         var D = $hashing_difficulty;
         var B = $hashing_reward_block;
         var S = 86400;
-
         var production =   ((H * B) / (D * 3600) ) * S;
-
-    }
+    }*/
 
     function setResult(result , result_home){
 
