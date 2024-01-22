@@ -139,8 +139,12 @@ class MinersController extends Controller
         $hash_price = $hashing_obj->price_khs;
         $p = $cash / $hash_price;
         $selected_hash = $hashing_obj->name;
-        $result = calculate_income($p, $coin_data);
+        $fetch_result = calculate_income($p, $coin_data);
+        if($fetch_result[0] == false){
+            return redirect("miners/create")->with("error", __("Something went wrong. Please contact support"));
+        }
 
+        $result = $fetch_result[1]; 
 
         $btc_price_obj = $coin_data;
         $btc_price = $btc_price_obj->price;

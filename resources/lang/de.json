@@ -277,5 +277,6 @@
     "Sign Out": "Abmelden",
     
     "Something went wrong. Refresh and try again":"",
-    "Amount is exceeding maximum or is lower than minimum. Please refresh page and try again or contact support.":""
+    "Amount is exceeding maximum or is lower than minimum. Please refresh page and try again or contact support.":"",
+    "Something went wrong. Please contact support":""
 }

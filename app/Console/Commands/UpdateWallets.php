@@ -70,7 +70,13 @@ class UpdateWallets extends Command
             $hash_price = $hashing->price_khs;
             $p = $cash / $hash_price;
 
-            $result = calculate_income($p, $coin_data);
+            $fetch_result = calculate_income($p, $coin_data);
+            if($fetch_result[0] == false){
+                info("Updated wallet failed in calculation for payment id: $payment->id");
+                continue;
+            }
+
+            $result = $fetch_result[1]; 
 
             // USER WALLET SETUP
             $wallet = Wallet::where("user_id", $payment->user_id)->first();
