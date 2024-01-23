@@ -1,3 +1,57 @@
+@php
+    $decoded_api_data = json_decode(@$record->data);
+@endphp
+@if(@$decoded_api_data->coin)
+    <div style='display: block; overflow-x: auto;' class='slim_scroll row mb-5'>
+        <div class='col-md-12'>
+            <table class='table table-bordered w-100'>
+                <tr>
+                    <th>Coin</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Algorithm</th>
+                </tr>
+                <tr>
+                    <td>{{@$decoded_api_data->coin}}</td>
+                    <td>{{@$decoded_api_data->name}}</td>
+                    <td>{{@$decoded_api_data->type}}</td>
+                    <td>{{@$decoded_api_data->algorithm}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class='col-md-12'>
+            <table class='table table-bordered w-100'>
+                <tr>
+                    <th>Network Hashrate</th>
+                    <th>Difficulty</th>
+                    <th>Reward</th>
+                    <th>Reward Unit</th>
+                </tr>
+                <tr>
+                    <td>{{@$decoded_api_data->network_hashrate}}</td>
+                    <td>{{@$decoded_api_data->difficulty}}</td>
+                    <td>{{@$decoded_api_data->reward}}</td>
+                    <td>{{@$decoded_api_data->reward_unit}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class='col-md-12'>
+            <table class='table table-bordered w-100'>
+                <tr>
+                    <th>Reward Block</th>
+                    <th>Price</th>
+                    <th>Volume</th>
+                </tr>
+                <tr>
+                    <td>{{@$decoded_api_data->reward_block}}</td>
+                    <td>{{@$decoded_api_data->price}}</td>
+                    <td>{{@$decoded_api_data->volume}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+@endif
+
 <div class="row">
 
     <div class= col-md-6 pb-3 mb-md-4">
@@ -21,8 +75,8 @@
     </div>
 
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="coin">Unit<i class="text-danger">*</i></label>
-        <input value="{{@$record->unit}}" placeholder="Enter Unit" class="form-control form-control-xl" name="unit" id="unit" type="text">
+        <label class="form-label form-label-lg" for="coin">Power Unit<i class="text-danger">*</i></label>
+        <input value="{{@$record->unit}}" placeholder="Enter Power Unit" class="form-control form-control-xl" name="unit" id="unit" type="text">
     </div>
 
     <div class="col-md-12 pb-3 mb-md-4">
