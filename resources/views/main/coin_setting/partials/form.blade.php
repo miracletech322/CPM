@@ -1,7 +1,7 @@
 @php
     $decoded_api_data = json_decode(@$record->data);
 @endphp
-@if(@$decoded_api_data->coin)
+@if(@$record)
     <div style='display: block; overflow-x: auto;' class='slim_scroll row mb-5'>
         <div class='col-md-12'>
             <table class='table table-bordered w-100'>
