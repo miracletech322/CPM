@@ -60,7 +60,7 @@
     </div>
 
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="coin">Coin Name<i class="text-danger">*</i></label>
+        <label class="form-label form-label-lg" for="coin">Coin Name (At API)<i class="text-danger">*</i></label>
         <input value="{{@$record->coin}}" placeholder="Enter Coin Name" class="form-control form-control-xl" name="coin" id="coin" type="text">
     </div>
 
