@@ -42,7 +42,7 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
             color: #1e1e1e !important;
             font-weight: 600 !important;
             text-transform: unset !important;
-            font-family: Montserrat,sans-serif !important;
+            font-family: Montserrat, sans-serif !important;
             padding: 1.39rem 2.5rem !important;
         }
 
@@ -51,7 +51,10 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
             font-weight: 600 !important;
         }
 
-        .miner-select-item.active, .irs--round .irs-from, .irs--round .irs-to, .irs--round .irs-single{
+        .miner-select-item.active,
+        .irs--round .irs-from,
+        .irs--round .irs-to,
+        .irs--round .irs-single {
             color: #1e1e1e !important;
             font-weight: 600 !important;
         }
@@ -66,9 +69,9 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
         }
 
         .rounded-12 {
-            border-radius: 0.75rem!important;
+            border-radius: 0.75rem !important;
         }
-        
+
         .fw-bold {
             font-weight: bold;
         }
@@ -79,7 +82,9 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
 
 <body>
     <!-- Start preloader -->
-    <div id="preloader"></div>
+    <div id="preloader">
+        <img src="{{url('frontend/images/loader.svg')}}" alt="Loading...">
+    </div>
     <!-- End preloader -->
 
     <!-- Top scroll -->

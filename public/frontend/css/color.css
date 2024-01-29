@@ -11,7 +11,7 @@ a, a:focus, a:hover, a.active { color: #111111; }
 .owl-dot{background: #999999 !important;}
 .owl-dot.active {background: #ffc107 !important;}
 
-#preloader{background: url(../images/loader.svg) center no-repeat #fff;}
+#preloader{background: #fff;}
 
 .form-control, .form-control:focus{background: #f0f0f0; color: #111111;}
 .form-control::-webkit-input-placeholder {color: #999999;}

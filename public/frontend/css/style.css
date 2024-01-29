@@ -537,3 +537,25 @@ footer.bg-pattern{background-position: center 125px; background: #f2f8fe url(../
 .copyright ul li:before{content: ""; position: absolute; top: 7px; right: 0; width: 2px; height: 12px;}
 .copyright ul li:last-child:before{width: 0;}
 /*----- Footer Section End -----*/
+
+
+#preloader {
+  display: flex;
+}
+
+#preloader img {
+  margin: auto;
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.ico-apps-img {
+  display: flex !important;
+}
+
+.ico-apps-img img {
+  max-height: 400px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}

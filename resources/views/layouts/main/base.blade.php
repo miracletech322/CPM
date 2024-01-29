@@ -52,7 +52,10 @@ $site_data["site_logo"] = @$settings->site_logo ? @$settings->site_logo : $site_
 
 
 <body class="bg-gray-100 analytics-template">
-    <div id="preloader"></div>
+    <div id="preloader">
+        <img src="{{url('frontend/images/loader.svg')}}" alt="Loading...">
+    </div>
+    
     @include('layouts.main.sidebar' , $site_data)
 
     <div class="main-content">

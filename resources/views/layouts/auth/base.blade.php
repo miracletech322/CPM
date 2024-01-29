@@ -19,7 +19,9 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
 
 
 <body class="signup-simple-template bg-gray-100" data-new-gr-c-s-check-loaded="14.1050.0" data-gr-ext-installed="">
-    <div id="preloader"></div>
+    <div id="preloader">
+        <img src="{{url('frontend/images/loader.svg')}}" alt="Loading...">
+    </div>
 
     <div class="signup-header text-center" style="background-image:url('{{url("images/cover.jpg")}}'); background-size: contain;">
         <div class="container">

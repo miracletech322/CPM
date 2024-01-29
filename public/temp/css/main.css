@@ -318,4 +318,13 @@ svg text {
     bottom: 0;
  }
 
-#preloader{background: url(../../frontend/images/loader.svg) center no-repeat #fff;}
+
+#preloader {
+    display: flex;
+}
+
+#preloader img {
+    margin: auto;
+    width: 100px !important;
+    height: 100px !important;
+}
