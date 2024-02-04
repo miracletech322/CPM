@@ -6,7 +6,7 @@
     </div>
     
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="price_khs">Price of 1KH/s ($)<i class="text-danger">*</i></label>
+        <label class="form-label form-label-lg" for="price_khs">Price ($)<i class="text-danger">*</i></label>
         <input value="{{@$record->price_khs}}" placeholder="Enter Price" class="form-control form-control-xl" name="price_khs" id="price_khs" type="text">
     </div>
 
@@ -16,7 +16,8 @@
     </div>
 
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="power_consumption">Power Consumption (w / 1KH-s) <i class="text-danger">*</i></label>
+        <label class="form-label form-label-lg" for="power_consumption">Power Consumption In Watt (For a day) <i class="text-danger">*</i></label>
+        {{-- If its BTC then for 1TH if its ETH then for 1MH and so on --}}
         <input value="{{@$record->power_consumption}}" placeholder="Enter Power Consumption" class="form-control form-control-xl" name="power_consumption" id="power_consumption" type="text">
     </div>
 
@@ -27,12 +28,12 @@
 
 
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="cost_per_kwh">Min Buyable (1KH-s) <i class="text-danger">*</i></label>
+        <label class="form-label form-label-lg" for="cost_per_kwh">Min Buyable <i class="text-danger">*</i></label>
         <input value="{{@$record->cost_per_kwh}}" placeholder="Enter Min Buyable (TH-s)" class="form-control form-control-xl" name="min_buyable" id="min_buyable" type="text">
     </div>
 
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="max_buyable">Max Buyable (1KH-s) <i class="text-danger">*</i></label>
+        <label class="form-label form-label-lg" for="max_buyable">Max Buyable <i class="text-danger">*</i></label>
         <input value="{{@$record->max_buyable}}" placeholder="Enter Max Buyable (TH-s)" class="form-control form-control-xl" name="max_buyable" id="max_buyable" type="text">
     </div>
 </div>

@@ -437,6 +437,12 @@ function get_from_name(){
 }
 
 function calculate_income($p, $coin_data){
+    
+    $unit_conversion = [
+        "TH/s" => "1000000000000",
+        "MH/s" => "1000000",
+        "KH/s" => "1000",
+    ];
 
     $formula = $coin_data->formula;
     $hashing = $coin_data->hashing;
@@ -444,7 +450,7 @@ function calculate_income($p, $coin_data){
     foreach (coin_api_tags() as $key => $coin_api_tag) {
         //$p = TOTAL HASH APPLIED FOR OR PURCHASED BY CUSTOMER
         if($coin_api_tag == "total_hash"){
-            $formula = str_replace("<$coin_api_tag>", $p, $formula);
+            $formula = str_replace("<$coin_api_tag>", ($p * $unit_conversion[$coin_data->unit]) , $formula);
         }else{
             $formula = str_replace("<$coin_api_tag>", floor($coin_data->$coin_api_tag), $formula);
         }
@@ -453,12 +459,18 @@ function calculate_income($p, $coin_data){
     $expression = new ExpressionLanguage();
 
     try {
-        $income = $expression->evaluate($formula);
+        $production = $expression->evaluate($formula);
     } catch (\Throwable $th) {
         return [false, false];
     }
+
+    //Our Consumption
+    $power_consumption_cost_in_Kwatt = $hashing->power_consumption/ 1000;
+    $cost_per_kwh = $hashing->cost_per_kwh;
+    $power_consumption_cost =  $cost_per_kwh * $power_consumption_cost_in_Kwatt * $p;
     
-    $power_consumption_cost =  ( ($hashing->cost_per_kwh * $hashing->power_consumption)/ 1000 ) * 24 * $p;
+    //Total income without electricity
+    $income = ( $coin_data->price / (1 / $production) );
     
     $result["daily"] = $income - $power_consumption_cost;
     $result["monthly"] =  $result["daily"] * 30;

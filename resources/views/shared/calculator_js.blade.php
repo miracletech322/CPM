@@ -58,18 +58,32 @@
 
         coin_data_selected = $coin_data;
 
-        var income;
+        var production;
+        @php
+            $unit_conversion = [
+                "TH/s" => "1000000000000",
+                "MH/s" => "1000000",
+                "KH/s" => "1000",
+            ];
+        @endphp
         @foreach ($coin_data as $coin_item)
-            {!! "if(coin_data_selected == '$coin_item->id'){ income = get_$coin_item->id(p) }" !!}
+            {!! "if(coin_data_selected == '$coin_item->id'){ production = get_$coin_item->id(p*".$unit_conversion[$coin_item->unit].") }" !!}
         @endforeach
 
-        power_consumption_cost =  ( ( $('.miner-select').find('.miner-select-item.active').data('cost') *  $('.miner-select').find('.miner-select-item.active').data('consumption') ) / 1000 ) * 24 * p;
-        
-        power_consumption_cost_home =  ( $('#data-input-ghs-home').val() * ( $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000 )) * 24 * p;
+        //Our Consumption
+        power_consumption_cost_in_Kwatt = $('.miner-select').find('.miner-select-item.active').data('consumption') / 1000;
+        cost_per_kwh = $('.miner-select').find('.miner-select-item.active').data('cost')
+        power_consumption_cost =  cost_per_kwh * ( power_consumption_cost_in_Kwatt ) * p;
 
-        var result = income - power_consumption_cost;
-        var result_home = income - power_consumption_cost_home;
-        setResult(result, result_home);
+        //Home Consumption
+        power_consumption_cost_home = $('#data-input-ghs-home').val() * power_consumption_cost_in_Kwatt * p;
+
+        //Total income without electricity
+        var complete_income = ( $coin_price / (1 / production) );
+
+        var income = complete_income - power_consumption_cost;
+        var income_home = complete_income - power_consumption_cost_home;
+        setResult(income, income_home);
     }
 
     /*function getProfitSHA(p){
@@ -82,6 +96,8 @@
         var upper = (B * H * S);
         var lower = ( D * 4294967296 ); //4294967296 = 2^32
         var production = upper / lower; 
+
+        //( <reward_block> * (<total_hash> * 1000000000000) * 86400 ) / (<difficulty> * 4294967296)
     }
 
     function getProfitEthash(p){
