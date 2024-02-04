@@ -6,7 +6,7 @@
     </div>
     
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="price_khs">Price ($)<i class="text-danger">*</i></label>
+        <label class="form-label form-label-lg" for="price_khs">Price ($) For Mining 1 Unit <i class="text-danger">*</i></label>
         <input value="{{@$record->price_khs}}" placeholder="Enter Price" class="form-control form-control-xl" name="price_khs" id="price_khs" type="text">
     </div>
 
@@ -28,8 +28,8 @@
 
 
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="cost_per_kwh">Min Buyable <i class="text-danger">*</i></label>
-        <input value="{{@$record->cost_per_kwh}}" placeholder="Enter Min Buyable (TH-s)" class="form-control form-control-xl" name="min_buyable" id="min_buyable" type="text">
+        <label class="form-label form-label-lg" for="min_buyable">Min Buyable <i class="text-danger">*</i></label>
+        <input value="{{@$record->min_buyable}}" placeholder="Enter Min Buyable (TH-s)" class="form-control form-control-xl" name="min_buyable" id="min_buyable" type="text">
     </div>
 
     <div class="col-md-6 pb-3 mb-md-4">
