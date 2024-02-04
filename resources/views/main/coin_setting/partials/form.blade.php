@@ -76,7 +76,7 @@
 
     <div class="col-md-6 pb-3 mb-md-4">
         <label class="form-label form-label-lg" for="coin">Power Unit<i class="text-danger">*</i></label>
-        <select id='unit' name='unit' class='form-control form-control-xl'>
+        <select id='unit' name='unit' class='form-control form-select form-control-xl'>
             <option value="KH/s" {{@$record->unit == "KH/s" ? "selected" : ""}}>KH/s</option>
             <option value="MH/s" {{@$record->unit == "MH/s" ? "selected" : ""}}>MH/s</option>
             <option value="TH/s" {{@$record->unit == "TH/s" ? "selected" : ""}}>TH/s</option>
