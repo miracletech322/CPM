@@ -28,12 +28,13 @@
 
 
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="min_buyable">Min Buyable <i class="text-danger">*</i></label>
+        <label class="form-label form-label-lg" for="min_buyable">Min Buyable ($) <i class="text-danger">*</i></label>
+        {{-- Minimum purcahsea a person can make in dollars --}}
         <input value="{{@$record->min_buyable}}" placeholder="Enter Min Buyable (TH-s)" class="form-control form-control-xl" name="min_buyable" id="min_buyable" type="text">
     </div>
 
     <div class="col-md-6 pb-3 mb-md-4">
-        <label class="form-label form-label-lg" for="max_buyable">Max Buyable <i class="text-danger">*</i></label>
+        <label class="form-label form-label-lg" for="max_buyable">Max Buyable ($) <i class="text-danger">*</i></label>
         <input value="{{@$record->max_buyable}}" placeholder="Enter Max Buyable (TH-s)" class="form-control form-control-xl" name="max_buyable" id="max_buyable" type="text">
     </div>
 </div>

@@ -31,8 +31,8 @@
         $step = $('.miner-select').find('.miner-select-item.active').data('step');
         $system = $('.miner-select').find('.miner-select-item.active').data('system');
         $coin_data = $('.miner-select').find('.miner-select-item.active').data('coinid');
-        $calc_min = $min_deposit;
-        $calc_max = $max_deposit;
+        $calc_min = $min_deposit / $item_price;
+        $calc_max = $max_deposit / $item_price;
         $min = $calc_min.toFixed(2);
         $max = $calc_max.toFixed(2);
         $from = $calc_min.toFixed(2);
@@ -158,8 +158,8 @@
             $system = $(this).data('system');
             $coin_data = $(this).data('coinid');
         
-            $calc_min = $min_deposit;
-            $calc_max = $max_deposit;
+            $calc_min = $min_deposit / $item_price;
+            $calc_max = $max_deposit / $item_price;
             $min = $calc_min.toFixed(2);
             $max = $calc_max.toFixed(2);
             $from = $calc_min.toFixed(2);
