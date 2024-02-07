@@ -49,16 +49,16 @@
                     <p class="work-des pb-20">{{__("With Cloudminepool, you’re in good hands with")}} </p>
 
                     <ul class="check-list">
-                        <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: #fff" aria-hidden="true"></i></span>
                             <p>{{__("Access to mine top crypto tokens such as Bitcoin, Ether and Litecoin")}}</p>
                         </li>
-                        <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: #fff" aria-hidden="true"></i></span>
                             <p>{{__("State of the art mining equipment and farms")}}</p>
                         </li>
-                        <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: #fff" aria-hidden="true"></i></span>
                             <p>{{__("Easy setup - guided by tutorials")}}</p>
                         </li>
-                        <li><span><i class="fa fa-check" style="color: black" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: #fff" aria-hidden="true"></i></span>
                             <p>{{__("24/7 Customer support to ensure your satisfaction")}}</p>
                         </li>
                     </ul>
@@ -312,10 +312,10 @@
                     <p class="heading-des pb-20">{{__("Stay updated on the status of your mining operation with Cloudminepool's mining app. Get alerts for high temperature and electricity consumption through the that will be accessible to all through Goolge-Play and App-Store. Stay equipped with real time reports on all your mining hasrate and profitability.")}}</p>
 
                     <ul class="check-list mb-30">
-                        <li><span><i class="fa fa-check" style="color: black;" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: #fff;" aria-hidden="true"></i></span>
                             <p>{{__("Full overview of your status, speed and health")}}</p>
                         </li>
-                        <li><span><i class="fa fa-check" style="color: black;" aria-hidden="true"></i></span>
+                        <li><span><i class="fa fa-check" style="color: #fff;" aria-hidden="true"></i></span>
                             <p>{{__("Detailed reports of your mining operation and profitability")}}</p>
                         </li>
                     </ul>

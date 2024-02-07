@@ -272,7 +272,7 @@
     text-shadow:none;
     padding:1px 5px;
     background-color:#428bca;
-    background:linear-gradient(272.47deg,#ffc107 0%,#ffc107 100%);
+    background:linear-gradient(272.47deg,#0475f8 0%,#0475f8 100%);
     border-radius:3px
 }
 .irs--big .irs-grid-pol{
@@ -513,7 +513,7 @@
 .irs--round .irs-bar{
     top:36px;
     height:1.6rem;
-    background:linear-gradient(272.47deg,#ffc107 0%,#ffc107 100%);
+    background:linear-gradient(272.47deg,#0475f8 0%,#0475f8 100%);
     box-shadow:10px 10px 42px rgb(0 20 33/20%);
     border-radius:50px
 }
@@ -527,11 +527,11 @@
     width:3rem;
     height:3rem;
     border-radius:50rem;
-    background-color:#ffc107;
+    background-color:#0475f8;
     cursor:pointer
 }
 .irs--round .irs-handle.state_hover,.irs--round .irs-handle:hover{
-    background-color:#ffc107;
+    background-color:#0475f8;
 }
 .irs--round .irs-min,.irs--round .irs-max{
     color:#333;
@@ -548,7 +548,7 @@
     text-shadow:none;
     border-radius:3px;
     padding:.9rem;
-    background:linear-gradient(272.47deg,#ffc107 0%,#ffc107 100%);
+    background:linear-gradient(272.47deg,#0475f8 0%,#0475f8 100%);
     color:#1e1e1e;
     top:-13px
 }
@@ -563,7 +563,7 @@
     margin-left:-6px;
     overflow:hidden;
     border:6px solid transparent;
-    border-top-color:#ffc107
+    border-top-color:#0475f8
 }
 .irs--round .irs-grid{
     height:25px

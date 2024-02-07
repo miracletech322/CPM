@@ -103,7 +103,7 @@ td {
 
 .miner-select-item.active {
     color: #1e1e1e;
-    background: linear-gradient(272.47deg,#ffc107 0%,#ffc107 100%);
+    background: linear-gradient(272.47deg,#0475f8 0%,#0475f8 100%);
 }
 
 .miner-select-item {
@@ -182,7 +182,7 @@ td {
 }
 
 .calculate-earnings__calculator-results-numbers {
-    color: #ffc107;
+    color: #0475f8;
     font-weight: 600;
     font-size: 16px;
     line-height: 1rem;
@@ -194,7 +194,7 @@ td {
     width: 1.8rem !important;
     height: 1.8rem !important;
     border-radius: 50rem;
-    background-color: #ffc107 !important;
+    background-color: #0475f8 !important;
     cursor: pointer;
 }
 
@@ -221,7 +221,7 @@ td {
     text-shadow: none;
     border-radius: 3px;
     padding: 0.6rem !important;
-    background: linear-gradient( 272.47deg ,#ffc107 0%,#ffc107 100%) !important;
+    background: linear-gradient( 272.47deg ,#0475f8 0%,#0475f8 100%) !important;
     color: #1e1e1e !important;
     top: -13px;
     font-weight: 600 !important;
@@ -270,7 +270,7 @@ td {
 .irs--round .irs-bar {
     top: 35px;
     height: 1.3rem !important;
-    background: linear-gradient(272.47deg,#ffc107 0%,#ffc107 100%) !important;
+    background: linear-gradient(272.47deg,#0475f8 0%,#0475f8 100%) !important;
     box-shadow: 10px 10px 42px rgb(0 20 33 / 20%);
     border-radius: 50px;
 }
@@ -327,4 +327,16 @@ svg text {
     margin: auto;
     width: 100px !important;
     height: 100px !important;
+}
+
+.miner-select-item.active, .irs--round .irs-from, .irs--round .irs-to, .irs--round .irs-single {
+    color: #fff !important;
+}
+
+.miner-select-item.active {
+    color: #fff !important;
+}
+
+.btn {
+    color: #fff !important;
 }

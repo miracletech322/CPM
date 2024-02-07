@@ -39,7 +39,7 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
 
         .btn {
             font-size: 1.67rem !important;
-            color: #1e1e1e !important;
+            color: #fff !important;
             font-weight: 600 !important;
             text-transform: unset !important;
             font-family: Montserrat, sans-serif !important;
@@ -55,7 +55,7 @@ $site_data["site_logo"] = @$settings->site_logo ? (url('/').@$settings->site_log
         .irs--round .irs-from,
         .irs--round .irs-to,
         .irs--round .irs-single {
-            color: #1e1e1e !important;
+            color: #fff !important;
             font-weight: 600 !important;
         }
 
